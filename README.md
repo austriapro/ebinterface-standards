@@ -1,5 +1,6 @@
-ebInterface
-===========
+
+![alt text](https://github.com/pliegl/ebinterface/blob/master/site/images/logo.jpg?raw=true "ebInterface e-Invoice standard")
+
 
 Development repository of the Austrian e-Invoicing standard ebInterface. For the official standard versions please refer to the official ebInterface webseite http://www.ebinterface.at
 
