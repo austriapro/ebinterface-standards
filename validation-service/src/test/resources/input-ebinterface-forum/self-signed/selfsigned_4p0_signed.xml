@@ -1,0 +1,80 @@
+<eb:Invoice xmlns:eb="http://www.ebinterface.at/schema/4p0/" eb:DocumentTitle="DEMO-Rechnung" eb:DocumentType="Invoice" eb:GeneratingSystem="ebInterface 4.0 Alpha Word PlugIn Vorlage Version 4.0 Alpha SVN Rev:212" eb:InvoiceCurrency="EUR" eb:Language="ger" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ebinterface.at/schema/4p0/ http://www.ebinterface.at/schema/4p0/Invoice.xsd"><dsig:Signature Id="signature-1-1" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#"><dsig:SignedInfo><dsig:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><dsig:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256"/><dsig:Reference Id="reference-1-1" URI=""><dsig:Transforms><dsig:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></dsig:Transforms><dsig:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><dsig:DigestValue>OOMK2qHku53NyKoPZogkOF426i7hry9yMGpyC7Kqt94=</dsig:DigestValue></dsig:Reference><dsig:Reference Id="etsi-data-reference-1-1" Type="http://uri.etsi.org/01903/v1.1.1#SignedProperties" URI=""><dsig:Transforms><dsig:Transform Algorithm="http://www.w3.org/2002/06/xmldsig-filter2"><xpf:XPath Filter="intersect" xmlns:etsi="http://uri.etsi.org/01903/v1.1.1#" xmlns:xpf="http://www.w3.org/2002/06/xmldsig-filter2">//*[@Id='etsi-signed-1-1']/etsi:QualifyingProperties/etsi:SignedProperties</xpf:XPath></dsig:Transform></dsig:Transforms><dsig:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><dsig:DigestValue>LO/QEm1W4gntBV8OAzYpopqB+d9jy5y8hwFP58M+C1s=</dsig:DigestValue></dsig:Reference></dsig:SignedInfo><dsig:SignatureValue>pytdGu71vgNZg0/SQwTJb+8i4n5psDVqWx763EVip2uSh2L7Og+6KfK+iuJsp461H+KM44jwmF9+ODqZ4GvS1g==</dsig:SignatureValue><dsig:KeyInfo><dsig:X509Data><dsig:X509Certificate>MIIErjCCA5agAwIBAgIDCeDDMA0GCSqGSIb3DQEBBQUAMIGdMQswCQYDVQQGEwJBVDFIMEYGA1UECgw/QS1UcnVzdCBHZXMuIGYuIFNpY2hlcmhlaXRzc3lzdGVtZSBpbSBlbGVrdHIuIERhdGVudmVya2VociBHbWJIMSEwHwYDVQQLDBhhLXNpZ24tcHJlbWl1bS1tb2JpbGUtMDMxITAfBgNVBAMMGGEtc2lnbi1wcmVtaXVtLW1vYmlsZS0wMzAeFw0xMTEwMTYwOTE5NTRaFw0xNjEwMTYwOTE5NTRaMGoxCzAJBgNVBAYTAkFUMRwwGgYDVQQDDBNQaGlsaXBwIEx1a2FzIExpZWdsMQ4wDAYDVQQEDAVMaWVnbDEWMBQGA1UEKgwNUGhpbGlwcCBMdWthczEVMBMGA1UEBRMMOTIxOTYyNjUyMjgyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEvEMsxp3t3hnJXvkQdZLN6c/u/epDgWlN8ihDQCsckSSbVi5STGC3uU5HaxC6wG0eJ6y1x/DWA1HoI6cXuBKqxqOCAfIwggHuMBEGA1UdDgQKBAhL/qNTOQS2IzAOBgNVHQ8BAf8EBAMCBsAwEwYDVR0jBAwwCoAIS7hh11/WSGMwCQYDVR0TBAIwADB+BggrBgEFBQcBAQRyMHAwRQYIKwYBBQUHMAKGOWh0dHA6Ly93d3cuYS10cnVzdC5hdC9jZXJ0cy9hLXNpZ24tcHJlbWl1bS1tb2JpbGUtMDNhLmNydDAnBggrBgEFBQcwAYYbaHR0cDovL29jc3AuYS10cnVzdC5hdC9vY3NwMGAGA1UdIARZMFcwSwYGKigAEQEUMEEwPwYIKwYBBQUHAgEWM2h0dHA6Ly93d3cuYS10cnVzdC5hdC9kb2NzL2NwL2Etc2lnbi1wcmVtaXVtLW1vYmlsZTAIBgYEAIswAQEwJwYIKwYBBQUHAQMBAf8EGDAWMAgGBgQAjkYBATAKBggrBgEFBQcLATCBnQYDVR0fBIGVMIGSMIGPoIGMoIGJhoGGbGRhcDovL2xkYXAuYS10cnVzdC5hdC9vdT1hLXNpZ24tcHJlbWl1bS1tb2JpbGUtMDMsbz1BLVRydXN0LGM9QVQ/Y2VydGlmaWNhdGVyZXZvY2F0aW9ubGlzdD9iYXNlP29iamVjdGNsYXNzPWVpZENlcnRpZmljYXRpb25BdXRob3JpdHkwDQYJKoZIhvcNAQEFBQADggEBABWM6WFMM+Z+VPbKeDXodvCOYed9qPj2asarTeZKf2H7KBePb4cxmyOYxkeoziHOO86cTXdTyHJCI8NeJgkPSkGiwBNKv0fctQptjVPrrUDhClFbTa1HJmIC36RHLRHWGex2MCnby1qSjdI6Bu9yZBM54g6rzrwlKGrjlUsVjruAx9xKuGPgh+k/WgptYZD7eMMqUH5Nyu6Tj8UwmkdgqDVez+G4VoVnjSvWYFVbWtkHPYhitNo4CMw6IS51vtpWa79Dlyv/X83TQ+RAILIH+YrDyyO7C7cLneX1g7nih2Yc55RsZy+9Qrbv5pgMy1Wo5Un+YVS/pdiW5jrWajuE9Ug=</dsig:X509Certificate></dsig:X509Data></dsig:KeyInfo><dsig:Object Id="etsi-signed-1-1"><etsi:QualifyingProperties Target="#signature-1-1" xmlns:etsi="http://uri.etsi.org/01903/v1.1.1#"><etsi:SignedProperties><etsi:SignedSignatureProperties><etsi:SigningTime>2013-01-28T15:11:45Z</etsi:SigningTime><etsi:SigningCertificate><etsi:Cert><etsi:CertDigest><etsi:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><etsi:DigestValue>SEC3hRoVo7XLqqm4xabj+nDlLH0=</etsi:DigestValue></etsi:CertDigest><etsi:IssuerSerial><dsig:X509IssuerName>CN=a-sign-premium-mobile-03,OU=a-sign-premium-mobile-03,O=A-Trust Ges. f. Sicherheitssysteme im elektr. Datenverkehr GmbH,C=AT</dsig:X509IssuerName><dsig:X509SerialNumber>647363</dsig:X509SerialNumber></etsi:IssuerSerial></etsi:Cert></etsi:SigningCertificate><etsi:SignaturePolicyIdentifier><etsi:SignaturePolicyImplied/></etsi:SignaturePolicyIdentifier></etsi:SignedSignatureProperties><etsi:SignedDataObjectProperties><etsi:DataObjectFormat ObjectReference="#reference-1-1"><etsi:MimeType>text/html</etsi:MimeType></etsi:DataObjectFormat></etsi:SignedDataObjectProperties></etsi:SignedProperties></etsi:QualifyingProperties></dsig:Object></dsig:Signature>
+  <eb:InvoiceNumber>2011-0001</eb:InvoiceNumber>
+  <eb:InvoiceDate>2011-09-12</eb:InvoiceDate>
+  <eb:Delivery>
+    <eb:Date>2011-09-12</eb:Date>
+  </eb:Delivery>
+  <eb:Biller>
+    <eb:VATIdentificationNumber>ATU62698637</eb:VATIdentificationNumber>
+    <eb:Address>
+      <eb:Name>Bogad &amp; Partner Consulting OG</eb:Name>
+      <eb:Street>Steinbachstra�e 17</eb:Street>
+      <eb:Town>Mauerbach</eb:Town>
+      <eb:ZIP>3001</eb:ZIP>
+      <eb:Country>AT</eb:Country>
+      <eb:Phone>+43 (699) 17925908</eb:Phone>
+      <eb:Email>josef@bogad.at</eb:Email>
+      <eb:Contact>Josef Bogad</eb:Contact>
+    </eb:Address>
+  </eb:Biller>
+  <eb:InvoiceRecipient>
+    <eb:VATIdentificationNumber>00000000</eb:VATIdentificationNumber>
+    <eb:BillersInvoiceRecipientID>123123</eb:BillersInvoiceRecipientID>
+    <eb:Address>
+      <eb:Salutation>Firma</eb:Salutation>
+      <eb:Name>Max Mustermann</eb:Name>
+      <eb:Street>Kundenstrasse 1</eb:Street>
+      <eb:Town>Kaufort</eb:Town>
+      <eb:ZIP>1234</eb:ZIP>
+      <eb:Country>AT</eb:Country>
+      <eb:Contact>Max Mustermann</eb:Contact>
+    </eb:Address>
+  </eb:InvoiceRecipient>
+  <eb:Details>
+    <eb:HeaderDescription>Wir erlauben uns wie folgt zu verrechnen.</eb:HeaderDescription>
+    <eb:ItemList>
+      <eb:ListLineItem>
+        <eb:PositionNumber>1</eb:PositionNumber>
+        <eb:Description>ebInterface Beratung</eb:Description>
+        <eb:ArticleNumber>4711</eb:ArticleNumber>
+        <eb:Quantity eb:Unit="Tag">0.50</eb:Quantity>
+        <eb:UnitPrice>400.00</eb:UnitPrice>
+        <eb:TaxRate eb:TaxCode="AT060">20.00</eb:TaxRate>
+        <eb:DiscountFlag>false</eb:DiscountFlag>
+        <eb:ReductionAndSurchargeListLineItemDetails>
+          <eb:ReductionListLineItem>
+            <eb:BaseAmount>200.00</eb:BaseAmount>
+            <eb:Percentage>0.00</eb:Percentage>
+          </eb:ReductionListLineItem>
+        </eb:ReductionAndSurchargeListLineItemDetails>
+        <eb:LineItemAmount>200.00</eb:LineItemAmount>
+      </eb:ListLineItem>
+    </eb:ItemList>
+    <eb:FooterDescription>Wir danken f�r Ihren Auftrag.</eb:FooterDescription>
+  </eb:Details>
+  <eb:Tax>
+    <eb:VAT>
+      <eb:Item>
+        <eb:TaxedAmount>200.00</eb:TaxedAmount>
+        <eb:TaxRate eb:TaxCode="AT060">20.00</eb:TaxRate>
+        <eb:Amount>40.00</eb:Amount>
+      </eb:Item>
+    </eb:VAT>
+  </eb:Tax>
+  <eb:TotalGrossAmount>240.00</eb:TotalGrossAmount>
+  <eb:PaymentMethod eb:ConsolidatorPayable="false" xsi:type="eb:UniversalBankTransactionType">
+    <eb:BeneficiaryAccount>
+      <eb:BankName>Volksbank Wien</eb:BankName>
+      <eb:BankCode eb:BankCodeType="AT">43000</eb:BankCode>
+      <eb:BankAccountNr>40813033004 </eb:BankAccountNr>
+      <eb:BankAccountOwner>Bogad &amp; Partner Consulting OG</eb:BankAccountOwner>
+    </eb:BeneficiaryAccount>
+  </eb:PaymentMethod>
+  <eb:PaymentConditions>
+    <eb:DueDate>2011-09-12</eb:DueDate>
+  </eb:PaymentConditions>
+  <eb:PresentationDetails>
+    <eb:URL>www.austriapro.at</eb:URL>
+    <eb:SuppressZero>true</eb:SuppressZero>
+  </eb:PresentationDetails>
+</eb:Invoice>

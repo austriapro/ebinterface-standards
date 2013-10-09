@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="Windows-1250"?><?xml-stylesheet type="text/xsl" href="http://www.ebinterface.at/schema/4p0/invoice.xslt"?>
+<eb:Invoice xmlns:eb="http://www.ebinterface.at/schema/4p0/" xmlns:dsig="http://www.w3org/2000/09/xmldsig#"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ebinterface.at/schema/4p0/ http://www.ebinterface.at/schema/4p0/Invoice.xsd"
+eb:DocumentType="Invoice" eb:InvoiceCurrency="EUR"
+eb:GeneratingSystem="BMD_NTCS" eb:DocumentTitle="EBInterface" eb:Language="ger"> 
+ <eb:InvoiceNumber>1200137</eb:InvoiceNumber>
+  <eb:InvoiceDate>2012-08-22</eb:InvoiceDate>
+<eb:Delivery>
+	<eb:Date>2012-08-22</eb:Date>
+	<eb:Address>
+		<eb:Salutation>Frau</eb:Salutation>
+		<eb:Name>Birgit Mustermann</eb:Name>
+		<eb:Street>Musterstrasse 99</eb:Street>
+		<eb:Town>Steyr-Münichholz</eb:Town>
+		<eb:ZIP>4405</eb:ZIP>
+		<eb:Country>_</eb:Country>
+		<eb:Contact>_</eb:Contact>
+		<eb:AddressExtension>3311111111111</eb:AddressExtension>
+	</eb:Address>
+</eb:Delivery>
+<eb:Biller>
+  <eb:VATIdentificationNumber>ATU12345678</eb:VATIdentificationNumber> 
+  <eb:FurtherIdentification eb:IdentificationType="GLN">1234567890123</eb:FurtherIdentification>
+  <eb:OrderReference>
+    <eb:OrderID>539</eb:OrderID>
+    <eb:ReferenceDate>2012-08-22</eb:ReferenceDate>
+  </eb:OrderReference>
+<eb:Address>
+  <eb:Name>EDI DEMO GmbH</eb:Name>
+  <eb:Street>Prinzenstrasse 7</eb:Street>
+  <eb:Town>Steyr</eb:Town>
+  <eb:ZIP>4400</eb:ZIP>
+  <eb:Country>Österreich</eb:Country>
+  <eb:Contact>Sylvia Novak</eb:Contact>
+ </eb:Address>
+</eb:Biller>
+<eb:InvoiceRecipient>
+     <eb:VATIdentificationNumber>ATU123456</eb:VATIdentificationNumber>
+     <eb:BillersInvoiceRecipientID>3311111111111</eb:BillersInvoiceRecipientID>
+   <eb:OrderReference>
+     <eb:OrderID>539</eb:OrderID>
+     <eb:ReferenceDate>2012-08-22</eb:ReferenceDate>
+  </eb:OrderReference>
+<eb:Address>
+    <eb:Name>Mustermann, Birgit</eb:Name>
+    <eb:Street>Musterstrasse 99</eb:Street>
+    <eb:Town>Steyr-Münichholz</eb:Town>
+    <eb:ZIP>4405</eb:ZIP>
+    <eb:Country>A</eb:Country>
+ </eb:Address>
+</eb:InvoiceRecipient>
+<eb:OrderingParty>
+     <eb:VATIdentificationNumber>ATU123456</eb:VATIdentificationNumber>
+     <eb:BillersOrderingPartyID>3311111111111</eb:BillersOrderingPartyID>
+    <eb:Address>
+        <eb:Name>Mustermann, Birgit</eb:Name>
+        <eb:Street>Musterstrasse 99</eb:Street>
+        <eb:Town>Steyr-Münichholz</eb:Town>
+        <eb:ZIP>4405</eb:ZIP>
+        <eb:Country>A</eb:Country>
+     </eb:Address>
+</eb:OrderingParty><eb:Details>
+  <eb:ItemList>
+<eb:ListLineItem>
+	<eb:PositionNumber> 1</eb:PositionNumber>
+	<eb:Description>Druckerpatrone</eb:Description>
+		<eb:ArticleNumber
+				eb:ArticleNumberType="BillersArticleNumber">125</eb:ArticleNumber>
+		<eb:ArticleNumber
+				eb:ArticleNumberType="InvoiceRecipientsArticleNumber">20000097</eb:ArticleNumber>
+		<eb:ArticleNumber
+				eb:ArticleNumberType="GTIN">00012345678905</eb:ArticleNumber>
+	<eb:Quantity eb:Unit="">1.00</eb:Quantity>
+	<eb:UnitPrice>259.00</eb:UnitPrice>
+<eb:TaxRate>20.00</eb:TaxRate>
+<eb:DiscountFlag>true</eb:DiscountFlag>
+<eb:ReductionAndSurchargeListLineItemDetails>
+	<eb:ReductionListLineItem>
+			<eb:BaseAmount>259.00</eb:BaseAmount>
+			<eb:Percentage>5.00</eb:Percentage>
+			<eb:Amount>12.95</eb:Amount>
+	</eb:ReductionListLineItem>
+</eb:ReductionAndSurchargeListLineItemDetails>
+<eb:Delivery>
+<eb:DeliveryID>801200122</eb:DeliveryID>
+<eb:Date>2012-08-22</eb:Date>
+</eb:Delivery>
+<eb:LineItemAmount>246.05</eb:LineItemAmount>
+</eb:ListLineItem>
+<eb:ListLineItem>
+	<eb:PositionNumber> 2</eb:PositionNumber>
+	<eb:Description>Druckerpatrone</eb:Description>
+		<eb:ArticleNumber
+				eb:ArticleNumberType="BillersArticleNumber">125</eb:ArticleNumber>
+		<eb:ArticleNumber
+				eb:ArticleNumberType="InvoiceRecipientsArticleNumber">20000097</eb:ArticleNumber>
+		<eb:ArticleNumber
+				eb:ArticleNumberType="GTIN">00012345678905</eb:ArticleNumber>
+	<eb:Quantity eb:Unit="">3.00</eb:Quantity>
+	<eb:UnitPrice>25.90</eb:UnitPrice>
+<eb:TaxRate>20.00</eb:TaxRate>
+<eb:DiscountFlag>true</eb:DiscountFlag>
+<eb:ReductionAndSurchargeListLineItemDetails>
+	<eb:ReductionListLineItem>
+			<eb:BaseAmount>77.70</eb:BaseAmount>
+			<eb:Percentage>2.00</eb:Percentage>
+			<eb:Amount>1.55</eb:Amount>
+	</eb:ReductionListLineItem>
+</eb:ReductionAndSurchargeListLineItemDetails>
+<eb:Delivery>
+<eb:DeliveryID>801200122</eb:DeliveryID>
+<eb:Date>2012-08-22</eb:Date>
+</eb:Delivery>
+<eb:LineItemAmount>76.15</eb:LineItemAmount>
+</eb:ListLineItem>
+<eb:ListLineItem>
+	<eb:PositionNumber> 3</eb:PositionNumber>
+	<eb:Description>Test123</eb:Description>
+		<eb:ArticleNumber
+				eb:ArticleNumberType="BillersArticleNumber">900</eb:ArticleNumber>
+		<eb:ArticleNumber
+				eb:ArticleNumberType="InvoiceRecipientsArticleNumber">90012345678</eb:ArticleNumber>
+		<eb:ArticleNumber
+				eb:ArticleNumberType="GTIN">00012345678905</eb:ArticleNumber>
+	<eb:Quantity eb:Unit="">1.00</eb:Quantity>
+	<eb:UnitPrice>10.00</eb:UnitPrice>
+<eb:TaxRate>20.00</eb:TaxRate>
+<eb:DiscountFlag>true</eb:DiscountFlag>
+<eb:ReductionAndSurchargeListLineItemDetails>
+	<eb:ReductionListLineItem>
+			<eb:BaseAmount>10.00</eb:BaseAmount>
+			<eb:Percentage>0.00</eb:Percentage>
+			<eb:Amount>-1.50</eb:Amount>
+	</eb:ReductionListLineItem>
+</eb:ReductionAndSurchargeListLineItemDetails>
+<eb:Delivery>
+<eb:DeliveryID>801200122</eb:DeliveryID>
+<eb:Date>2012-08-22</eb:Date>
+</eb:Delivery>
+<eb:LineItemAmount>11.50</eb:LineItemAmount>
+</eb:ListLineItem>
+  </eb:ItemList>
+</eb:Details>
+<eb:Tax>
+  <eb:VAT>
+    <eb:Item>
+     <eb:TaxedAmount>333.70</eb:TaxedAmount>
+     <eb:TaxRate>20.00</eb:TaxRate>
+     <eb:Amount>66.74</eb:Amount>
+    </eb:Item>
+  </eb:VAT>
+</eb:Tax>
+<eb:TotalGrossAmount>400.44</eb:TotalGrossAmount>
+<eb:PaymentMethod xsi:type="eb:UniversalBankTransactionType">
+  <eb:BeneficiaryAccount>
+    <eb:BankName>Raiffeisenkasse Haidershofen reg.Gen.m.b.H.</eb:BankName>
+    <eb:BankCode eb:BankCodeType="AT">32278</eb:BankCode>
+    <eb:BIC>RLNWATWW278</eb:BIC>
+    <eb:BankAccountNr>779999</eb:BankAccountNr>
+    <eb:IBAN>AT073227800000779999</eb:IBAN>
+    <eb:BankAccountOwner>EDI DEMO GmbH</eb:BankAccountOwner>
+   </eb:BeneficiaryAccount>
+   <eb:PaymentReference eb:CheckSum="X">1200137</eb:PaymentReference>
+ </eb:PaymentMethod>
+ <eb:PaymentConditions>
+   <eb:DueDate>2012-09-21</eb:DueDate>
+  		<eb:Discount>
+			<eb:PaymentDate>2012-08-30</eb:PaymentDate>
+			<eb:Percentage>3.00</eb:Percentage>
+			<eb:Amount>12.01</eb:Amount>
+		</eb:Discount>
+		<eb:Discount>
+			<eb:PaymentDate>2012-08-26</eb:PaymentDate>
+			<eb:Percentage>4.00</eb:Percentage>
+			<eb:Amount>16.02</eb:Amount>
+			</eb:Discount>
+		<eb:Discount>
+			<eb:PaymentDate>2012-08-25</eb:PaymentDate>
+			<eb:Percentage>5.00</eb:Percentage>
+			<eb:Amount>20.02</eb:Amount>
+		</eb:Discount>
+		<eb:Discount>
+			<eb:PaymentDate>2012-08-24</eb:PaymentDate>
+			<eb:Percentage>6.00</eb:Percentage>
+			<eb:Amount>24.03</eb:Amount>
+		</eb:Discount>
+ </eb:PaymentConditions>
+ <eb:PresentationDetails>
+<eb:LogoURL>http://www.bmd.at/Portaldata/1/Resources/_layout/logos/we-make-business-easy-klein.jpg</eb:LogoURL>
+   <eb:LayoutID>EBIF0100</eb:LayoutID>
+   <eb:SuppressZero>true</eb:SuppressZero>
+ </eb:PresentationDetails>
+</eb:Invoice>

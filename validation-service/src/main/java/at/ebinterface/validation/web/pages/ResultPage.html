@@ -1,0 +1,171 @@
+
+
+<wicket:extend>
+
+
+
+
+
+	<div class="row">
+		<div class="span8">
+			<h3>Ergebnisse</h3>
+			<br />
+		</div>
+		<div class="span4">&nbsp;</div>
+	</div>
+
+
+	<div class="row">
+		<div class="span8">
+			<h4>
+				Erkannte Version:
+				<wicket:container wicket:id="schemaVersion" />
+			</h4>
+		</div>
+		<div class="span4">&nbsp;</div>
+	</div>
+
+
+	<div wicket:id="schemvalidationOK">
+
+
+		<div class="row">
+			<div class="span12">
+				<br />
+				<h4>Schemavalidierung</h4>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span8 alert alert-success">
+				<p>Die gew&auml;hlte ebInterface Instanz entspricht den Vorgaben
+					des ebInterface Schemas.</p>
+			</div>
+			<div class="span4">&nbsp;</div>
+		</div>
+	</div>
+
+
+	<div wicket:id="schemvalidationNOK">
+		<div class="row">
+			<div class="span12">
+				<br />
+				<h4>Schemavalidierung</h4>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span8 alert alert-error">
+				<p>Die gew&auml;hlte ebInterface Instanz entspricht nicht den
+					Vorgaben des ebInterface Schemas.</p>
+				<p>
+					<strong>Fehlerdetails: </strong>
+					<wicket:container wicket:id="schemaValidationError" />
+				</p>
+			</div>
+			<div class="span4">&nbsp;</div>
+		</div>
+
+	</div>
+
+
+
+	<div wicket:id="signatureResultContainer">
+
+		<div class="row">
+			<div class="span12">
+				<br />
+				<h4>Validierung der XML Signatur</h4>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span8">
+				<p wicket:id="signatureResult"></p>
+			</div>
+			<div class="span4">&nbsp;</div>
+		</div>
+		<div class="row">
+			<div class="span12">
+				<br />
+				<h4>Validierung des für die Signatur verwendeten Zertifikats</h4>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span8">
+				<p wicket:id="certificateResult"></p>
+				<br /> <b>Zertifikat des Signators qualifiziert:</b>
+				<wicket:container wicket:id="certificateQualified" />
+				<br /> <b>Zertifikat des Signators von einer Behörde:</b>
+				<wicket:container wicket:id="certificateFromAPublicAuthority" />
+				<br /> <b>Aussteller: </b>
+				<wicket:container wicket:id="issuer" />
+				<br /> <b>Subject: </b>
+				<wicket:container wicket:id="subject" />
+				<br /> <b>Seriennummer: </b>
+				<wicket:container wicket:id="serialNumber" />
+				<br />
+
+			</div>
+			<div class="span4">&nbsp;</div>
+		</div>
+	</div>
+
+
+
+
+	<div wicket:id="schematronOK">
+
+		<div class="row">
+			<div class="span12">
+				<br />
+				<h4>
+					Schematronvalidierung
+					<wicket:container wicket:id="selectedSchematron" />
+				</h4>
+			</div>
+		</div>
+		<div class="row">
+
+			<div class="span12 alert alert-success">
+
+				<p>Die gew&auml;hlte ebInterface Instanz verletzt keine der
+					Schematronregeln</p>
+			</div>
+		</div>
+	</div>
+
+	<div wicket:id="schematronNOK">
+
+		<div class="row">
+
+
+
+			<div class="span12">
+				<br />
+				<h4>
+					Schematronvalidierung
+					<wicket:container wicket:id="selectedSchematron" />
+				</h4>
+			</div>
+
+		</div>
+		<div class="row">
+
+			<div class="span12 alert alert-error">
+
+				<p>Die gew&auml;hlte ebInterface Instanz verletzt Schematron
+					Regeln:</p>
+				<div wicket:id="errorDetailsPanel"></div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="row">
+		<div class="span12">
+			<br /> <br /> <a class="btn" wicket:id="returnLink">Neue
+				Validierung starten</a> <br /> <br /> <br /> <br />
+		</div>
+	</div>
+
+
+
+</wicket:extend>

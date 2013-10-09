@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--MOA SP 1.5 Configuration File-->
+<cfg:MOAConfiguration xmlns:cfg="http://reference.e-government.gv.at/namespace/moaconfig/20021122#" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#">
+<!-- Aus Sicherheitsgründen ist das Auflösen von externen URIs und localhost defaultmäßig deaktiviert -->
+<!-- Siehe auch MOA-SPSS Dokumentation - Konfiguration Abschnitt 2.1.2 Auflösen externer URIs -->
+<!-- Mittels cfg:PermitExternalUris kann das Auflösen externe URIs (optional mit Angabe einer Blacklist) aktiviert werden. -->
+<!-- Empfehlung: Bei aktiviertem Auflösen von externen URIs sollten sowohl localhost als auch der gesamte Intranetbereich in die Blacklist eingetragen werden. -->
+<cfg:Common>
+		<cfg:PermitExternalUris>
+			<cfg:BlackListUri>
+				<cfg:IP>192.168</cfg:IP>
+			</cfg:BlackListUri>			
+			<cfg:BlackListUri>
+				<cfg:IP>127.0</cfg:IP>
+			</cfg:BlackListUri>
+		</cfg:PermitExternalUris>
+	</cfg:Common>
+	<cfg:SignatureVerification>
+		<cfg:CertificateValidation>
+			<cfg:PathConstruction>
+				<cfg:AutoAddCertificates>true</cfg:AutoAddCertificates>
+				<cfg:UseAuthorityInformationAccess>true</cfg:UseAuthorityInformationAccess>
+				<cfg:CertificateStore>
+					<cfg:DirectoryStore>
+						<cfg:Location>certstore</cfg:Location>
+					</cfg:DirectoryStore>
+				</cfg:CertificateStore>
+			</cfg:PathConstruction>
+			<cfg:PathValidation>
+				<cfg:ChainingMode>
+					<cfg:DefaultMode>pkix</cfg:DefaultMode>
+				</cfg:ChainingMode>
+				<cfg:TrustProfile>
+					<cfg:Id>Signaturdienste</cfg:Id>
+					<cfg:TrustAnchorsLocation>trustProfiles/ebInterfaceTrustedProfiles</cfg:TrustAnchorsLocation>
+				</cfg:TrustProfile>
+			</cfg:PathValidation>
+			<cfg:RevocationChecking>
+				<cfg:EnableChecking>true</cfg:EnableChecking>
+				<cfg:MaxRevocationAge>0</cfg:MaxRevocationAge>
+				<cfg:ServiceOrder>
+					<cfg:Service>CRL</cfg:Service>
+					<cfg:Service>OCSP</cfg:Service>
+				</cfg:ServiceOrder>
+				<cfg:Archiving>
+					<cfg:EnableArchiving>false</cfg:EnableArchiving>
+					<cfg:ArchiveDuration>365</cfg:ArchiveDuration>
+					<cfg:Archive>
+						<cfg:DatabaseArchive>
+							<cfg:JDBCURL>jdbc:url</cfg:JDBCURL>
+							<cfg:JDBCDriverClassName>fully.qualified.classname</cfg:JDBCDriverClassName>
+						</cfg:DatabaseArchive>
+					</cfg:Archive>
+				</cfg:Archiving>
+				<cfg:CrlRetentionIntervals>
+					<cfg:CA>
+						<cfg:X509IssuerName>CN=A-Trust-Qual-01,OU=A-Trust-Qual-01,O=A-Trust Ges. für Sicherheitssysteme im elektr. Datenverkehr GmbH,C=AT</cfg:X509IssuerName>
+						<cfg:Interval>12775</cfg:Interval>
+					</cfg:CA>
+					<cfg:CA>
+						<cfg:X509IssuerName>CN=A-Trust-Qual-02,OU=A-Trust-Qual-02,O=A-Trust Ges. f. Sicherheitssysteme im elektr. Datenverkehr GmbH,C=AT</cfg:X509IssuerName>
+						<cfg:Interval>12775</cfg:Interval>
+					</cfg:CA>
+					<cfg:CA>
+						<cfg:X509IssuerName>CN=A-Trust-Qual-03,OU=A-Trust-Qual-03,O=A-Trust Ges. f. Sicherheitssysteme im elektr. Datenverkehr GmbH,C=AT</cfg:X509IssuerName>
+						<cfg:Interval>12775</cfg:Interval>
+					</cfg:CA>
+					<cfg:CA>
+						<cfg:X509IssuerName>CN=a-sign-Premium-Sig-01,OU=a-sign-Premium-Sig-01,O=A-Trust Ges. f. Sicherheitssysteme im elektr. Datenverkehr GmbH,C=AT</cfg:X509IssuerName>
+						<cfg:Interval>12775</cfg:Interval>
+					</cfg:CA>
+					<cfg:CA>
+						<cfg:X509IssuerName>CN=a-sign-Premium-Sig-02,OU=a-sign-Premium-Sig-02,O=A-Trust Ges. f. Sicherheitssysteme im elektr. Datenverkehr GmbH,C=AT</cfg:X509IssuerName>													          
+						<cfg:Interval>12775</cfg:Interval>
+					</cfg:CA>
+					<cfg:CA>
+						<cfg:X509IssuerName>CN=a-sign-Premium-Sig-03,OU=a-sign-Premium-Sig-03,O=A-Trust Ges. f. Sicherheitssysteme im elektr. Datenverkehr GmbH,C=AT</cfg:X509IssuerName>
+						<cfg:Interval>12775</cfg:Interval>
+					</cfg:CA>
+					<cfg:CA>
+						<cfg:X509IssuerName>CN=a-sign-premium-mobile-03,OU=a-sign-premium-mobile-03,O=A-Trust Ges. f. Sicherheitssysteme im elektr. Datenverkehr GmbH,C=AT</cfg:X509IssuerName>
+						<cfg:Interval>12775</cfg:Interval>
+					</cfg:CA>										
+					<cfg:CA>
+						<cfg:X509IssuerName>E=a-cert@a-cert.at,CN=A-CERT GOVERNMENT,O=ARGE DATEN - Österreichische Gesellschaft für Datenschutz,L=Wien,S=Wien,C=AT</cfg:X509IssuerName>
+						<cfg:Interval>12775</cfg:Interval>
+					</cfg:CA>
+				</cfg:CrlRetentionIntervals>
+			</cfg:RevocationChecking>
+		</cfg:CertificateValidation>
+	</cfg:SignatureVerification>
+</cfg:MOAConfiguration>

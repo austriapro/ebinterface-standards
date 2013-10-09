@@ -1,0 +1,459 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+
+
+
+	<groupId>at.ebinterface</groupId>
+	<artifactId>validierungsservice</artifactId>
+	<packaging>war</packaging>
+	<version>1.0.0</version>
+	<modelVersion>4.0.0</modelVersion>
+	<name>ebInterface 4.0 validation service</name>
+
+
+
+	<properties>
+		<!-- Wicket related -->
+		<wicket-version>1.5.8</wicket-version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<logback-version>1.0.0</logback-version>
+		<slf4j-version>1.6.4</slf4j-version>
+		<commons.logging.version>1.1.1</commons.logging.version>
+	</properties>
+
+
+
+	<repositories>
+
+		<repository>
+			<id>maven repo 1</id>
+			<name>Maven Repository Manager</name>
+			<url>http://repo1.maven.org/maven2/</url>
+		</repository>
+
+		<repository>
+			<id>maven repo 2</id>
+			<name>Maven Repository Manager</name>
+			<url>http://repo2.maven.org/maven2/</url>
+		</repository>
+
+		<!-- Apache repository -->
+		<repository>
+			<id>apache.snapshots</id>
+			<name>Apache Development Snapshot Repository</name>
+			<url>https://repository.apache.org/content/repositories/
+			</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+
+
+		<!-- Wicket Stuff Repository -->
+		<repository>
+			<id>wicket-snaps</id>
+			<url>http://wicketstuff.org/maven/repository</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+
+		<repository>
+			<!-- Java.net repository -->
+			<id>maven2-repository.dev.java.net</id>
+			<name>Java.net Maven 2 Repository</name>
+			<url>http://download.java.net/maven/2</url>
+		</repository>
+
+		<!-- Wicket Wiquery Components Repository -->
+		<repository>
+			<id>wiquery repository</id>
+			<name>wiQuery repository</name>
+			<url>http://wiquery.googlecode.com/svn/repo/</url>
+			<layout>default</layout>
+		</repository>
+
+	</repositories>
+
+
+
+	<dependencies>
+
+		<!-- Wicket -->
+		<dependency>
+			<groupId>org.apache.wicket</groupId>
+			<artifactId>wicket-core</artifactId>
+			<version>${wicket-version}</version>
+			<type>jar</type>
+		</dependency>
+
+		<!-- testing -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+		</dependency>
+
+
+		<!-- Xerces -->
+		<dependency>
+			<groupId>xerces</groupId>
+			<artifactId>xercesImpl</artifactId>
+			<version>2.9.1</version>
+		</dependency>
+		<dependency>
+			<groupId>xml-resolver</groupId>
+			<artifactId>xml-resolver</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<!-- Apache Commons -->
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+
+
+		<!-- http://cxf.apache.org/faq.html -->
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-xjc</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-impl</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+
+		<!-- JAXB Basics plugin -->
+		<dependency>
+			<groupId>org.jvnet.jaxb2_commons</groupId>
+			<artifactId>jaxb2-basics</artifactId>
+			<version>0.6.0</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.saxon</groupId>
+			<artifactId>Saxon-HE</artifactId>
+			<version>9.4</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- XML Digital Signature Validation -->
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk16</artifactId>
+			<version>1.46</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.santuario</groupId>
+			<artifactId>xmlsec</artifactId>
+			<version>1.5.2</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>log4j-over-slf4j </artifactId>
+			<version>${slf4j-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${slf4j-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jul-to-slf4j</artifactId>
+			<version>${slf4j-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback-version}</version>
+		</dependency>
+		<!-- We use logback and slf4j, so we exclude commons-logging (define it 
+			as provided) c.f. http://www.slf4j.org/faq.html#excludingJCL -->
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>${commons.logging.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+		<!-- MOA SP/SS references -->
+		<dependency>
+			<groupId>moa-spss</groupId>
+			<artifactId>spss</artifactId>
+			<version>1.5.1</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/moa-libs/moa-spss.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>moa-common</groupId>
+			<artifactId>common</artifactId>
+			<version>1.5.1</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/moa-libs/moa-common.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>iaik-moa</groupId>
+			<artifactId>moa</artifactId>
+			<version>1.5.1</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/moa-libs/lib/iaik_moa-1.32.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>iaik-cms</groupId>
+			<artifactId>cms</artifactId>
+			<version>1.5.1</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/moa-libs/lib/iaik_cms-4.1_MOA.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>iaik-ixsil</groupId>
+			<artifactId>ixsil</artifactId>
+			<version>1.5.1</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/moa-libs/lib/iaik_ixsil-1.2.2.5.jar</systemPath>
+		</dependency>
+
+
+		<dependency>
+			<groupId>iaik</groupId>
+			<artifactId>ecc</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/moa-libs/ext/iaik_ecc.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>iaik</groupId>
+			<artifactId>jce-full</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/moa-libs/ext/iaik_jce_full.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>iaik</groupId>
+			<artifactId>pkcs11provider</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/moa-libs/ext/iaik_Pkcs11Provider.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>iaik</groupId>
+			<artifactId>pkcs11wrapper</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/moa-libs/ext/iaik_Pkcs11Wrapper.jar</systemPath>
+		</dependency>
+
+
+
+
+
+
+
+		<dependency>
+			<groupId>jaxen</groupId>
+			<artifactId>jaxen</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/moa-libs/lib/jaxen-1.0-FCS.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>saxpath</groupId>
+			<artifactId>saxpath</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/moa-libs/lib/saxpath-1.0-FCS.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-discovery</groupId>
+			<artifactId>commons-discovery</artifactId>
+			<version>0.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.activation</groupId>
+			<artifactId>activation</artifactId>
+			<version>1.1</version>
+		</dependency>
+
+
+	</dependencies>
+
+
+	<description>The ebInterface validation service allows to check ebInterface 4.0 instances against predefined Schematron rules</description>
+	<url>http://ebinterface.at</url>
+
+
+	<scm>
+		<developerConnection>scm:svn:svn+ssh://svn.isis.tuwien.ac.at/home/UMMStarAlliance/repository/Projects/ebInterface/validierungsservice</developerConnection>
+	</scm>
+
+	<organization>
+		<url>http://ebinterface.at</url>
+	</organization>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.2.1</version>
+				<executions>
+					<!-- <execution> <phase>install</phase> <goals> <goal>java</goal> </goals> 
+						<configuration> <mainClass>at.erpel.registry.importer.Importer</mainClass> 
+						</configuration> </execution> -->
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>javax.servlet</groupId>
+						<artifactId>servlet-api</artifactId>
+						<version>2.5</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+
+
+
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>2.4.1</version>
+			</plugin>
+
+
+			<plugin>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.8</version>
+
+				<configuration>
+					<downloadSources>true</downloadSources>
+					<downloadJavadocs>true</downloadJavadocs>
+					<wtpversion>2.0</wtpversion>
+
+					<sourceIncludes>
+						<sourceInclude>**</sourceInclude>
+					</sourceIncludes>
+					<classpathContainer>org.eclipse.jdt.launching.JRE_CONTAINER</classpathContainer>
+
+					<additionalBuildcommands>
+						<buildCommand>
+							<name>org.maven.ide.eclipse.maven2Builder</name>
+						</buildCommand>
+					</additionalBuildcommands>
+					<additionalProjectnatures>
+						<projectnature>org.sonar.ide.eclipse.core.sonarNature</projectnature>
+						<projectnature>org.maven.ide.eclipse.maven2Nature</projectnature>
+						<projectnature>wicketbench.wicketnature</projectnature>
+					</additionalProjectnatures>
+
+					<wtpmanifest>true</wtpmanifest>
+					<wtpapplicationxml>true</wtpapplicationxml>
+					<manifest>${basedir}/src/main/resources/META-INF/MANIFEST.MF</manifest>
+					<projectNameTemplate>[artifactId]-[version]</projectNameTemplate>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.1</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<webResources>
+						<webResource>
+							<directory>${basedir}/src/main/webapp/WEB-INF</directory>
+							<includes>
+								<include>web.xml</include>
+							</includes>
+							<targetPath>WEB-INF</targetPath>
+						</webResource>
+					</webResources>
+				</configuration>
+			</plugin>
+
+
+
+		</plugins>
+
+		<directory>target</directory>
+		<outputDirectory>target/classes</outputDirectory>
+		<finalName>${project.artifactId}</finalName>
+		<testOutputDirectory>target/test-classes</testOutputDirectory>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<scriptSourceDirectory>src/main/java</scriptSourceDirectory>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.*</include>
+				</includes>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+		</resources>
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+				<filtering>true</filtering>
+			</testResource>
+		</testResources>
+		<testSourceDirectory>src/test/java</testSourceDirectory>
+	</build>
+
+</project>

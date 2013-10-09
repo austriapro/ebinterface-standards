@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="http://www.ebinterface.at/download/invoiceexample/4p0/invoice.xslt"?>
+<eb:Invoice xmlns:eb="http://www.ebinterface.at/schema/4p0/" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ebinterface.at/schema/4p0/ http://www.ebinterface.at/schema/4p0/Invoice.xsd" eb:GeneratingSystem="ebInterface 4.0 Beta 1 Word PlugIn Vorlage Version 4.0 Beta 1 SVN Rev:242" eb:DocumentType="Invoice" eb:InvoiceCurrency="EUR" eb:DocumentTitle="DEMO-Rechnung" eb:Language="ger">
+  <eb:InvoiceNumber>1100</eb:InvoiceNumber>
+  <eb:InvoiceDate>2012-05-25</eb:InvoiceDate>
+  <eb:Delivery>
+    <eb:Date>2012-05-25</eb:Date>
+  </eb:Delivery>
+  <eb:Biller>
+    <eb:VATIdentificationNumber>ATU62698637</eb:VATIdentificationNumber>
+    <eb:Address>
+      <eb:Name>Bogad &amp; Partner Consulting OG</eb:Name>
+      <eb:Street>Steinbachstraße 17</eb:Street>
+      <eb:Town>Mauerbach</eb:Town>
+      <eb:ZIP>3001</eb:ZIP>
+      <eb:Country eb:CountryCode="AT">Österreich</eb:Country>
+      <eb:Phone>+43 (699) 1792 5908</eb:Phone>
+      <eb:Email>josef@bogad.at</eb:Email>
+      <eb:Contact>Josef Bogad</eb:Contact>
+    </eb:Address>
+  </eb:Biller>
+  <eb:InvoiceRecipient>
+    <eb:VATIdentificationNumber>ATU12345678</eb:VATIdentificationNumber>
+    <eb:BillersInvoiceRecipientID>4711</eb:BillersInvoiceRecipientID>
+    <eb:AccountingArea></eb:AccountingArea>
+    <eb:SubOrganizationID></eb:SubOrganizationID>
+    <eb:OrderReference>
+      <eb:OrderID>2012-32167</eb:OrderID>
+      <eb:ReferenceDate>2012-04-02</eb:ReferenceDate>
+    </eb:OrderReference>
+    <eb:Address>
+      <eb:Salutation>Herr</eb:Salutation>
+      <eb:Name>Fa. Einkäufer GmbH</eb:Name>
+      <eb:Street>Kaufstrasse 11</eb:Street>
+      <eb:Town>Purkersdorf</eb:Town>
+      <eb:ZIP>3002</eb:ZIP>
+      <eb:Country eb:CountryCode="AT">Österreich</eb:Country>
+      <eb:Phone></eb:Phone>
+      <eb:Email>max.mustermann@einkaeufer.at</eb:Email>
+      <eb:Contact>Max Mustermann</eb:Contact>
+    </eb:Address>
+  </eb:InvoiceRecipient>
+  <eb:Details>
+    <eb:HeaderDescription>Wir erlauben uns wie folgt zu verrechnen.</eb:HeaderDescription>
+    <eb:ItemList>
+      <eb:ListLineItem>
+        <eb:PositionNumber>1</eb:PositionNumber>
+        <eb:Description>Mouse PAD mit Logo</eb:Description>
+        <eb:ArticleNumber>1001</eb:ArticleNumber>
+        <eb:Quantity eb:Unit="Stk">50.00</eb:Quantity>
+        <eb:UnitPrice>5.00</eb:UnitPrice>
+        <eb:TaxRate>20.00</eb:TaxRate>
+        <eb:DiscountFlag>false</eb:DiscountFlag>
+        <eb:LineItemAmount>250.00</eb:LineItemAmount>
+      </eb:ListLineItem>
+    </eb:ItemList>
+    <eb:FooterDescription>Wir danken für Ihren Auftrag.</eb:FooterDescription>
+  </eb:Details>
+  <eb:Tax>
+    <eb:VAT>
+      <eb:Item>
+        <eb:TaxedAmount>250.00</eb:TaxedAmount>
+        <eb:TaxRate>20.00</eb:TaxRate>
+        <eb:Amount>50.00</eb:Amount>
+      </eb:Item>
+    </eb:VAT>
+  </eb:Tax>
+  <eb:TotalGrossAmount>300.00</eb:TotalGrossAmount>
+  <eb:PaymentMethod xsi:type="eb:UniversalBankTransactionType" eb:ConsolidatorPayable="false">
+    <eb:BeneficiaryAccount>
+      <eb:BankName>Volksbank Wien</eb:BankName>
+      <eb:BankCode eb:BankCodeType="AT">43000</eb:BankCode>
+      <eb:BankAccountNr>123123456</eb:BankAccountNr>
+      <eb:BankAccountOwner>Bogad &amp; Partner Consulting OG</eb:BankAccountOwner>
+    </eb:BeneficiaryAccount>
+  </eb:PaymentMethod>
+  <eb:PaymentConditions>
+    <eb:DueDate>2012-06-25</eb:DueDate>
+    <eb:Discount>
+      <eb:PaymentDate>2012-06-04</eb:PaymentDate>
+      <eb:Percentage>3.00</eb:Percentage>
+      <eb:Amount>9.00</eb:Amount>
+    </eb:Discount>
+  </eb:PaymentConditions>
+  <eb:PresentationDetails>
+    <eb:URL>www.austriapro.at</eb:URL>
+    <eb:SuppressZero>true</eb:SuppressZero>
+  </eb:PresentationDetails>
+</eb:Invoice>

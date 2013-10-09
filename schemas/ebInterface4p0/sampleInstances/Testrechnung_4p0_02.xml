@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../Invoice.xslt"?>
+<eb:Invoice xmlns:eb="http://www.ebinterface.at/schema/4p0/" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ebinterface.at/schema/4p0/ http://www.ebinterface.at/schema/4p0/Invoice.xsd" eb:GeneratingSystem="ebInterface 4.0 Alpha Word PlugIn Vorlage Version 4.0 Alpha SVN Rev:212" eb:DocumentType="Invoice" eb:InvoiceCurrency="EUR" eb:DocumentTitle="Beispiel-Rechnung" eb:Language="ger">
+  <eb:InvoiceNumber>2011-1111</eb:InvoiceNumber>
+  <eb:InvoiceDate>2011-04-27</eb:InvoiceDate>
+  <eb:Delivery>
+    <eb:Date>2011-02-24</eb:Date>
+  </eb:Delivery>
+  <eb:Biller>
+    <eb:VATIdentificationNumber>ATU77777777</eb:VATIdentificationNumber>
+    <eb:Address>
+      <eb:Name>Verkaufsmaschine</eb:Name>
+      <eb:Street>Sellerstrasse 99</eb:Street>
+      <eb:Town>Entenhausen</eb:Town>
+      <eb:ZIP>1234</eb:ZIP>
+      <eb:Country>AT</eb:Country>
+      <eb:Phone>+43 10310 123123</eb:Phone>
+      <eb:Email>dd@entenhausen.at</eb:Email>
+      <eb:Contact>Dagobert Duck</eb:Contact>
+    </eb:Address>
+  </eb:Biller>
+  <eb:InvoiceRecipient>
+    <eb:VATIdentificationNumber>ATU12312345</eb:VATIdentificationNumber>
+    <eb:BillersInvoiceRecipientID>131313</eb:BillersInvoiceRecipientID>
+    <eb:OrderReference>
+      <eb:OrderID>H7718-990</eb:OrderID>
+      <eb:ReferenceDate>2011-01-10</eb:ReferenceDate>
+    </eb:OrderReference>
+    <eb:Address>
+      <eb:Salutation>Firma</eb:Salutation>
+      <eb:Name>Klaas Klever</eb:Name>
+      <eb:Street>Zweitestrasse 13</eb:Street>
+      <eb:Town>Duckhausen</eb:Town>
+      <eb:ZIP>9999</eb:ZIP>
+      <eb:Country>AT</eb:Country>
+      <eb:Email>kk@duckhausen.at</eb:Email>
+      <eb:Contact>Klaas Klever</eb:Contact>
+    </eb:Address>
+  </eb:InvoiceRecipient>
+  <eb:Details>
+    <eb:HeaderDescription>Wir erlauben uns wie folgt zu verrechnen.</eb:HeaderDescription>
+    <eb:ItemList>
+      <eb:ListLineItem>
+        <eb:PositionNumber>1</eb:PositionNumber>
+        <eb:Description>Nuggets</eb:Description>
+        <eb:ArticleNumber>7777</eb:ArticleNumber>
+        <eb:Quantity eb:Unit="KG">10.00</eb:Quantity>
+        <eb:UnitPrice>32754.00</eb:UnitPrice>
+        <eb:TaxRate eb:TaxCode="AT060">20.00</eb:TaxRate>
+        <eb:DiscountFlag>true</eb:DiscountFlag>
+        <eb:ReductionAndSurchargeListLineItemDetails>
+          <eb:ReductionListLineItem>
+            <eb:BaseAmount>311163.00</eb:BaseAmount>
+            <eb:Percentage>5.00</eb:Percentage>
+          </eb:ReductionListLineItem>
+        </eb:ReductionAndSurchargeListLineItemDetails>
+        <eb:LineItemAmount>311163.00</eb:LineItemAmount>
+      </eb:ListLineItem>
+    </eb:ItemList>
+    <eb:FooterDescription>Wir danken fuer Ihren Auftrag.</eb:FooterDescription>
+  </eb:Details>
+  <eb:Tax>
+    <eb:VAT>
+      <eb:Item>
+        <eb:TaxedAmount>311163.00</eb:TaxedAmount>
+        <eb:TaxRate eb:TaxCode="AT060">20.00</eb:TaxRate>
+        <eb:Amount>62232.60</eb:Amount>
+      </eb:Item>
+    </eb:VAT>
+  </eb:Tax>
+  <eb:TotalGrossAmount>373395.60</eb:TotalGrossAmount>
+  <eb:PaymentMethod xsi:type="eb:UniversalBankTransactionType" eb:ConsolidatorPayable="false">
+    <eb:BeneficiaryAccount>
+      <eb:BankName>Duck Bank</eb:BankName>
+      <eb:BankCode eb:BankCodeType="AT">666666</eb:BankCode>
+      <eb:BankAccountNr>1234567890</eb:BankAccountNr>
+      <eb:IBAN>AT506666661234567890</eb:IBAN>
+      <eb:BankAccountOwner>Dagobert Duck</eb:BankAccountOwner>
+    </eb:BeneficiaryAccount>
+  </eb:PaymentMethod>
+  <eb:PaymentConditions>
+    <eb:DueDate>2011-05-27</eb:DueDate>
+    <eb:Discount>
+      <eb:PaymentDate>2011-05-07</eb:PaymentDate>
+      <eb:Percentage>3.00</eb:Percentage>
+      <eb:Amount>11201.87</eb:Amount>
+    </eb:Discount>
+  </eb:PaymentConditions>
+  <eb:PresentationDetails>
+    <eb:URL>www.austriapro.at</eb:URL>
+    <eb:SuppressZero>true</eb:SuppressZero>
+  </eb:PresentationDetails>
+</eb:Invoice>

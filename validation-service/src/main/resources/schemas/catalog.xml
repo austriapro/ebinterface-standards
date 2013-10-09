@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+	<!-- The XMLDSIG Schema -->
+	<systemSuffix systemIdSuffix="http://www.w3.org/TR/2002/REC-xmldsig-core-20020212/xmldsig-core-schema.xsd" uri="xmldsig-core-schema.xsd" />		
+	<!-- Commonly used DTDs for defining XML Schema -->
+	<system systemId="http://www.w3.org/2001/XMLSchema.dtd" uri="XMLSchema.dtd" />
+	<!-- <public publicId="-//W3C//DTD/XMLSCHEMA 200102//EN" uri="classpath:/wsdl/dtd/XMLSchema.dtd" /> -->
+	<!-- <public publicId="datatypes" uri="classpath:/schemas/dtd/datatypes.dtd" /> -->
+	<system systemId="http://www.w3.org/2001/datatypes.dtd" uri="datatypes.dtd" />
+</catalog>

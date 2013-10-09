@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Invoice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" d1p1:GeneratingSystem="EasyFirma" d1p1:DocumentType="Invoice" d1p1:InvoiceCurrency="EUR" d1p1:DocumentTitle="Rechnung WoAx-164/2012" xmlns:d1p1="http://www.ebinterface.at/schema/4p0/" xmlns="http://www.ebinterface.at/schema/4p0/">
+  <d1p1:InvoiceNumber>WoAx-164/2012</d1p1:InvoiceNumber>
+  <d1p1:InvoiceDate>2012-11-19</d1p1:InvoiceDate>
+  <d1p1:Biller>
+    <d1p1:VATIdentificationNumber>ATU61422829</d1p1:VATIdentificationNumber>
+    <d1p1:Address>
+      <d1p1:Name>Mustermann GmbH.</d1p1:Name>
+      <d1p1:Street>Hauptstrasse 123</d1p1:Street>
+      <d1p1:POBox />
+      <d1p1:Town>Berlin</d1p1:Town>
+      <d1p1:ZIP>10115</d1p1:ZIP>
+      <d1p1:Country>Deutschland</d1p1:Country>
+    </d1p1:Address>
+  </d1p1:Biller>
+  <d1p1:InvoiceRecipient>
+    <d1p1:VATIdentificationNumber />
+    <d1p1:BillersInvoiceRecipientID>Britta Wiesrecker</d1p1:BillersInvoiceRecipientID>
+    <d1p1:Address>
+      <d1p1:Salutation>Frau</d1p1:Salutation>
+      <d1p1:Name>Britta Wiesrecker</d1p1:Name>
+      <d1p1:Street>Kaiserstr. 1</d1p1:Street>
+      <d1p1:POBox />
+      <d1p1:Town>Bad Sassendorf</d1p1:Town>
+      <d1p1:ZIP>59505</d1p1:ZIP>
+      <d1p1:Country>Deutschland</d1p1:Country>
+    </d1p1:Address>
+  </d1p1:InvoiceRecipient>
+  <d1p1:Details>
+    <d1p1:HeaderDescription>{\rtf1\deff0{\fonttbl{\f0 Times New Roman;}{\f1 Verdana;}}{\colortbl\red0\green0\blue0 ;\red0\green0\blue255 ;}{\*\listoverridetable}{\stylesheet {\ql\cf0 Normal;}{\*\cs1\f1\fs20\cf0 Default Paragraph Font;}{\*\cs2\sbasedon1\f1\fs20\cf0 Line Number;}{\*\cs3\ul\cf1 Hyperlink;}}\splytwnine\htmautsp\sectd\pard\plain\ql{\f1\fs20\cf0 vielen Dank f\u252\'fcr Ihre Bestellung.}\f1\fs20\cf0\par}{\rtf1\deff0{\fonttbl{\f0 Times New Roman;}{\f1 Verdana;}}{\colortbl\red0\green0\blue0 ;\red0\green0\blue255 ;}{\*\listoverridetable}{\stylesheet {\ql\cf0 Normal;}{\*\cs1\f1\fs20\cf0 Default Paragraph Font;}{\*\cs2\sbasedon1\f1\fs20\cf0 Line Number;}{\*\cs3\ul\cf1 Hyperlink;}}\splytwnine\htmautsp\sectd\pard\plain\ql\f1\fs20\par}</d1p1:HeaderDescription>
+    <d1p1:ItemList>
+      <d1p1:ListLineItem>
+        <d1p1:PositionNumber>1</d1p1:PositionNumber>
+        <d1p1:Description>Die ideale Software zum Schreiben von Angeboten und Rechnungen.</d1p1:Description>
+        <d1p1:ArticleNumber d1p1:ArticleNumberType="InvoiceRecipientsArticleNumber" />
+        <d1p1:Quantity d1p1:Unit="Lizenz">0</d1p1:Quantity>
+        <d1p1:UnitPrice>95.000000</d1p1:UnitPrice>
+        <d1p1:TaxRate>0.200000</d1p1:TaxRate>
+        <d1p1:LineItemAmount>95.000000</d1p1:LineItemAmount>
+      </d1p1:ListLineItem>
+    </d1p1:ItemList>
+    <d1p1:FooterDescription>{\rtf1\deff0{\fonttbl{\f0 Times New Roman;}{\f1 Verdana;}}{\colortbl\red0\green0\blue0 ;\red0\green0\blue255 ;}{\*\listoverridetable}{\stylesheet {\ql\cf0 Normal;}{\*\cs1\f1\fs20\cf0 Default Paragraph Font;}{\*\cs2\sbasedon1\f1\fs20\cf0 Line Number;}{\*\cs3\ul\cf1 Hyperlink;}}\splytwnine\htmautsp\sectd\pard\plain\ql{\f1\fs20\cf0 Damit Sie m\u246\'f6glichst schnell Ihre Seriennummer erhalten, mit der Sie die Demo-Version zur Vollversion freischalten k\u246\'f6nnen, ersuchen wir sobald wie m\u246\'f6glich um \u220\'dcberweisung auf das Konto der BKS Bank}\f1\fs20\cf0\par\pard\plain\qc\f1\fs20\cf0\par\pard\plain\qc{\f1\fs20\cf0 BIC: BFKKAT2K, IBAN: AT901700000142001632 }\f1\fs20\cf0\par\pard\plain\ql\f1\fs20\cf0\par\pard\plain\ql{\f1\fs20\cf0 lautend auf WoAx-IT.}\f1\fs20\cf0\par\pard\plain\ql\f1\fs20\par}{\rtf1\deff0{\fonttbl{\f0 Times New Roman;}{\f1 Verdana;}}{\colortbl\red0\green0\blue0 ;\red0\green0\blue255 ;}{\*\listoverridetable}{\stylesheet {\ql\cf0 Normal;}{\*\cs1\cf0 Default Paragraph Font;}{\*\cs2\sbasedon1\f1\fs20\cf0 Line Number;}{\*\cs3\ul\cf1 Hyperlink;}}\splytwnine\htmautsp\sectd\pard\plain\ql\f1\fs20\cf0\par\pard\plain\ql{\f1\fs20\cf0 Sch\u246\'f6ne Gr\u252\'fc\u223\'dfe}\f1\fs20\cf0\par\pard\plain\ql\f1\fs20\cf0\par\pard\plain\ql\f1\fs20\cf0\par\pard\plain\ql\f1\fs20\cf0\par\pard\plain\ql{\f1\fs20\cf0 Wolfgang Axamit}\f1\fs20\cf0\par}</d1p1:FooterDescription>
+  </d1p1:Details>
+  <d1p1:Tax>
+    <d1p1:VAT>
+      <d1p1:Item>
+        <d1p1:TaxedAmount>0</d1p1:TaxedAmount>
+        <d1p1:TaxRate>0</d1p1:TaxRate>
+        <d1p1:Amount>0</d1p1:Amount>
+      </d1p1:Item>
+      <d1p1:Item>
+        <d1p1:TaxedAmount>0</d1p1:TaxedAmount>
+        <d1p1:TaxRate>0</d1p1:TaxRate>
+        <d1p1:Amount>0</d1p1:Amount>
+      </d1p1:Item>
+      <d1p1:Item>
+        <d1p1:TaxedAmount>0</d1p1:TaxedAmount>
+        <d1p1:TaxRate>0</d1p1:TaxRate>
+        <d1p1:Amount>0</d1p1:Amount>
+      </d1p1:Item>
+    </d1p1:VAT>
+  </d1p1:Tax>
+  <d1p1:TotalGrossAmount>114.00</d1p1:TotalGrossAmount>
+</Invoice>

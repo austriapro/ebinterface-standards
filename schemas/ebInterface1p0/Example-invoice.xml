@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="invoice.xslt"?>
+<Invoice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="invoice.xsd" GeneratingSystem="none" SchemaVersion="1.0">
+	<InvoiceNumber>993433000298</InvoiceNumber>
+	<InvoiceDate>2005-01-03</InvoiceDate>
+	<Delivery>
+        <Date>2004-12-01</Date>
+        <Period>
+            <FromDate>2004-11-20</FromDate>
+            <ToDate>2004-12-10</ToDate>
+        </Period>
+		<Address>
+            <Salutation>Firma</Salutation>
+			<Name>Mustermann GmbH</Name>
+			<Street>Hauptstraße 10</Street>
+			<Town>8010 Graz</Town>
+			<Country>Österreich</Country>
+			<Contact>Hr. Max Mustermann</Contact>
+		</Address>
+    </Delivery>
+	<Biller>
+		<ConsolidatorsBillerID>CFF45KL</ConsolidatorsBillerID>
+		<InvoiceRecipientsBillerID>ID4456</InvoiceRecipientsBillerID>
+		<OrderReference>
+            <ID>OR3456</ID>
+            <ReferenceDate>2004-11-03</ReferenceDate>  
+            <Description>Eingegangen per Fax.</Description>
+        </OrderReference>
+		<Address>
+			<Name>Schrauben Willi</Name>
+			<Street>Lassallestraße 5</Street>
+			<Town>Wien</Town>
+			<ZIP>1020</ZIP>
+			<Country>Österreich</Country>
+			<Phone>+43 / 1 / 78 56 789</Phone>
+			<Email>schraube@willi.at</Email>
+			<Contact>Sachbearbeiter Meier</Contact>
+			<AddressExtension>Zentrale Verwaltung Wien</AddressExtension>
+		</Address>
+	</Biller>
+	<Supplier>
+		<OrderReference>
+            <ID>OR3456</ID>
+            <ReferenceDate>2004-11-03</ReferenceDate>  
+            <Description>Eingegangen per Fax.</Description>
+        </OrderReference>
+		<Address>
+			<Name>Schrauben Willi</Name>
+			<Street>Linzer Str. 34</Street>
+			<Town>Linz</Town>
+			<ZIP>4020</ZIP>
+			<Contact>+ 43 732 123 456 (9934)</Contact>
+		</Address>
+	</Supplier>
+	<InvoiceRecipient>
+		<BillersInvoiceRecipientID>12345678</BillersInvoiceRecipientID>
+		<OrderReference>
+            <ID>ID3456</ID>
+            <ReferenceDate>2004-11-03</ReferenceDate>
+            <Description>Bestellung per Fax</Description>
+        </OrderReference>
+		<Address>
+            <Salutation>Firma</Salutation>
+			<Name>Mustermann GmbH</Name>
+			<Street>Hauptstraße 10</Street>
+			<Town>8010 Graz</Town>
+			<Country>Österreich</Country>
+			<Contact>Hr. Max Mustermann</Contact>
+		</Address>
+	</InvoiceRecipient>
+	<Details>
+		<ItemList ListType="structured">
+			<ListLineItem>
+                <ListElement Usage="Quantity" Type="IntegerType" Unit="Units">100</ListElement>
+                <ListElement Usage="Number" Type="IdentifierType">I2345</ListElement>
+                <ListElement Usage="Description" Type="StringType">Schraubenzieher</ListElement>
+                <ListElement Usage="UnitPrice" Type="AmountType" Unit="EUR">10.20</ListElement>
+                <ListElement Usage="Amount" Type="AmountType" Unit="EUR">1020.00</ListElement>
+			</ListLineItem>
+			<ListLineItem>
+                <ListElement Usage="Quantity" Type="IntegerType" Unit="Units">1000</ListElement>
+                <ListElement Usage="Number" Type="IdentifierType">V4567</ListElement>
+                <ListElement Usage="Description" Type="StringType">Schrauben M10x50</ListElement>
+                <ListElement Usage="UnitPrice" Type="AmountType" Unit="EUR">0.10</ListElement>
+                <ListElement Usage="Amount" Type="AmountType" Unit="EUR">100.00</ListElement>
+			</ListLineItem>
+			<ListLineItem>
+                <ListElement Usage="Quantity" Type="IntegerType" Unit="Units">1000</ListElement>
+                <ListElement Usage="Number" Type="IdentifierType">S023</ListElement>
+                <ListElement Usage="Description" Type="StringType">Schraubenmutter M10</ListElement>
+                <ListElement Usage="UnitPrice" Type="AmountType" Unit="EUR">0.01</ListElement>
+                <ListElement Usage="Amount" Type="AmountType" Unit="EUR">10.00</ListElement>
+			</ListLineItem>
+			<ListLineItem>
+                <ListElement Usage="Quantity" Type="IntegerType" Unit="Units">1</ListElement>
+                <ListElement Usage="Number" Type="IdentifierType">B762</ListElement>
+                <ListElement Usage="Description" Type="StringType">Handbuch "Mit der Schraube auf Du und Du"</ListElement>
+                <ListElement Usage="UnitPrice" Type="AmountType" Unit="EUR">5.00</ListElement>
+                <ListElement Usage="Amount" Type="AmountType" Unit="EUR">5.00</ListElement>
+			</ListLineItem>
+		</ItemList>
+	</Details>
+	<Tax>
+        <VAT>
+            <TaxID>ATU51507409</TaxID>
+            <Item>
+                <TaxedAmount Currency="EUR">1130.00</TaxedAmount>
+                <Percentage>20.00</Percentage>
+                <Amount Currency="EUR">226.00</Amount>
+        </Item>
+            <Item>
+                <TaxedAmount Currency="EUR">5.00</TaxedAmount>
+                <Percentage>10.00</Percentage>
+                <Amount Currency="EUR">0.50</Amount>
+        </Item>
+        </VAT>
+        <OtherTax>
+            <Comment>EineNichtVATSteuer</Comment>
+            <Amount Currency="EUR">0.00</Amount>
+        </OtherTax>
+	</Tax>
+	<TotalGrossAmount Currency="EUR">1361.50</TotalGrossAmount>
+	<PaymentMethod xsi:type="UniversalBankTransactionType">
+        <Comment>
+            Wir ersuchen um termingerechte Bezahlung.
+        </Comment>
+        <BeneficiaryAccount>
+            <BankName>Bank Austria CA</BankName>
+            <BankCode BankCodeType="AT">12000</BankCode>
+            <BIC>BKAUATWW</BIC>
+            <BankAccountNr Currency="EUR">11111111111</BankAccountNr>
+            <IBAN>AT491200011111111111</IBAN>
+            <BankAccountOwner>Max Mustermann</BankAccountOwner>
+        </BeneficiaryAccount>
+        <PaymentReference>993433000298</PaymentReference>
+	</PaymentMethod>
+    <PaymentConditions>
+        <DueDate>2005-02-03</DueDate>
+        <Discount>
+            <PaymentDate>2005-01-10</PaymentDate>
+            <DiscountedAmount>1320.65</DiscountedAmount>
+            <Percentage>3.00</Percentage>
+            <Amount Currency="EUR">40.85</Amount>
+        </Discount>
+        <Discount>
+            <PaymentDate>2005-01-20</PaymentDate>
+            <DiscountedAmount>1334.27</DiscountedAmount>
+            <Percentage>2.00</Percentage>
+            <Amount Currency="EUR">27.23</Amount>
+        </Discount>
+        <MinimumPayment Currency="EUR">1320.65</MinimumPayment>
+        <Comment>Kommentar zu den Zahlungsbedingungen....</Comment>
+    </PaymentConditions>
+    <PresentationDetails>
+        <URL>http://www.willi.at</URL>
+        <LogoURL>https://b-test.ebpp.at/comres/ebinterface-willi.gif</LogoURL>
+        <LayoutID>0100</LayoutID>
+        <Language>ger</Language>
+        <DocumentTitle>Rechnung</DocumentTitle>
+        <ShortComment>Abrechnung Nov/Dez 2004</ShortComment>
+		<HeaderComment>Wir erlauben uns wie folgt zu verrechnen.</HeaderComment>
+		<FooterComment>Wir danken für Ihren Auftrag.</FooterComment>
+    </PresentationDetails>
+</Invoice>

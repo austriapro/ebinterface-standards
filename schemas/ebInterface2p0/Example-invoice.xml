@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="invoice.xslt"?>
+<eb:Invoice xmlns:eb="http://www.ebinterface.at/schema/2p0/" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:dir="http://xsd.xicrypt.com/directory" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ebinterface.at/schema/2p0/ http://www.ebinterface.at/schema/2p0/Invoice.xsd 
+        http://xsd.xicrypt.com/directory http://www.ebinterface.at/download/invoiceexample/2p0/directory.xsd" eb:Cancellation="false" eb:GeneratingSystem="none">
+	<eb:InvoiceNumber>993433000298</eb:InvoiceNumber>
+	<eb:InvoiceDate>2005-01-03</eb:InvoiceDate>
+	<eb:Delivery>
+		<eb:Date>2004-12-01</eb:Date>
+		<eb:Period>
+			<eb:FromDate>2004-11-20</eb:FromDate>
+			<eb:ToDate>2004-12-10</eb:ToDate>
+		</eb:Period>
+		<eb:Address>
+			<eb:Salutation>Firma</eb:Salutation>
+			<eb:Name>Mustermann GmbH</eb:Name>
+			<eb:Street>Hauptstraße 10</eb:Street>
+			<eb:Town>8010 Graz</eb:Town>
+			<eb:Country>Österreich</eb:Country>
+			<eb:Contact>Hr. Max Mustermann</eb:Contact>
+		</eb:Address>
+	</eb:Delivery>
+	<eb:Biller>
+		<eb:VATIdentificationNumber>ATU51507409</eb:VATIdentificationNumber>
+		<eb:ConsolidatorsBillerID>CFF45KL</eb:ConsolidatorsBillerID>
+		<eb:InvoiceRecipientsBillerID>ID4456</eb:InvoiceRecipientsBillerID>
+		<eb:OrderReference>
+			<eb:ID>OR3456</eb:ID>
+			<eb:ReferenceDate>2004-11-03</eb:ReferenceDate>
+			<eb:Description>Eingegangen per Fax.</eb:Description>
+		</eb:OrderReference>
+		<eb:Address>
+			<eb:Name>Schrauben Willi</eb:Name>
+			<eb:Street>Lassallestraße 5</eb:Street>
+			<eb:Town>Wien</eb:Town>
+			<eb:ZIP>1020</eb:ZIP>
+			<eb:Country>Österreich</eb:Country>
+			<eb:Phone>+43 / 1 / 78 56 789</eb:Phone>
+			<eb:Email>schraube@willi.at</eb:Email>
+			<eb:Contact>Sachbearbeiter Meier</eb:Contact>
+			<eb:AddressExtension>Zentrale Verwaltung Wien</eb:AddressExtension>
+		</eb:Address>
+	</eb:Biller>
+	<eb:Supplier>
+		<eb:OrderReference>
+			<eb:ID>OR3456</eb:ID>
+			<eb:ReferenceDate>2004-11-03</eb:ReferenceDate>
+			<eb:Description>Eingegangen per Fax.</eb:Description>
+		</eb:OrderReference>
+		<eb:Address>
+			<eb:Name>Schrauben Willi</eb:Name>
+			<eb:Street>Linzer Str. 34</eb:Street>
+			<eb:Town>Linz</eb:Town>
+			<eb:ZIP>4020</eb:ZIP>
+			<eb:Contact>+ 43 732 123 456 (9934)</eb:Contact>
+		</eb:Address>
+	</eb:Supplier>
+	<eb:InvoiceRecipient>
+		<eb:BillersInvoiceRecipientID>12345678</eb:BillersInvoiceRecipientID>
+		<eb:OrderReference>
+			<eb:ID>ID3456</eb:ID>
+			<eb:ReferenceDate>2004-11-03</eb:ReferenceDate>
+			<eb:Description>Bestellung per Fax</eb:Description>
+		</eb:OrderReference>
+		<eb:Address>
+			<eb:Salutation>Firma</eb:Salutation>
+			<eb:Name>Mustermann GmbH</eb:Name>
+			<eb:Street>Hauptstraße 10</eb:Street>
+			<eb:Town>8010 Graz</eb:Town>
+			<eb:Country>Österreich</eb:Country>
+			<eb:Contact>Hr. Max Mustermann</eb:Contact>
+		</eb:Address>
+	</eb:InvoiceRecipient>
+	<eb:Details>
+		<eb:ItemList eb:ListType="structured">
+			<eb:ListLineItem>
+				<eb:ListElement eb:Usage="Quantity" eb:Type="IntegerType" eb:Unit="Units">100</eb:ListElement>
+				<eb:ListElement eb:Usage="Number" eb:Type="IdentifierType">I2345</eb:ListElement>
+				<eb:ListElement eb:Usage="Description" eb:Type="StringType">Schraubenzieher</eb:ListElement>
+				<eb:ListElement eb:Usage="UnitPrice" eb:Type="AmountType" eb:Unit="EUR">10.20</eb:ListElement>
+				<eb:ListElement eb:Usage="Amount" eb:Type="AmountType" eb:Unit="EUR">1020.20</eb:ListElement>
+			</eb:ListLineItem>
+			<eb:ListLineItem>
+				<eb:ListElement eb:Usage="Quantity" eb:Type="IntegerType" eb:Unit="Units">1000</eb:ListElement>
+				<eb:ListElement eb:Usage="Number" eb:Type="IdentifierType">V4567</eb:ListElement>
+				<eb:ListElement eb:Usage="Description" eb:Type="StringType">Schrauben M10x50</eb:ListElement>
+				<eb:ListElement eb:Usage="UnitPrice" eb:Type="AmountType" eb:Unit="EUR">0.10</eb:ListElement>
+				<eb:ListElement eb:Usage="Amount" eb:Type="AmountType" eb:Unit="EUR">100.00</eb:ListElement>
+			</eb:ListLineItem>
+			<eb:ListLineItem>
+				<eb:ListElement eb:Usage="Quantity" eb:Type="IntegerType" eb:Unit="Units">1000</eb:ListElement>
+				<eb:ListElement eb:Usage="Number" eb:Type="IdentifierType">S023</eb:ListElement>
+				<eb:ListElement eb:Usage="Description" eb:Type="StringType">Schraubenmutter M10</eb:ListElement>
+				<eb:ListElement eb:Usage="UnitPrice" eb:Type="AmountType" eb:Unit="EUR">0.01</eb:ListElement>
+				<eb:ListElement eb:Usage="Amount" eb:Type="AmountType" eb:Unit="EUR">10.00</eb:ListElement>
+			</eb:ListLineItem>
+			<eb:ListLineItem>
+				<eb:ListElement eb:Usage="Quantity" eb:Type="IntegerType" eb:Unit="Units">1</eb:ListElement>
+				<eb:ListElement eb:Usage="Number" eb:Type="IdentifierType">B762</eb:ListElement>
+				<eb:ListElement eb:Usage="Description" eb:Type="StringType">Handbuch "Mit der
+                    Schraube auf Du und Du"</eb:ListElement>
+				<eb:ListElement eb:Usage="UnitPrice" eb:Type="AmountType" eb:Unit="EUR">5.00</eb:ListElement>
+				<eb:ListElement eb:Usage="Amount" eb:Type="AmountType" eb:Unit="EUR">5.00</eb:ListElement>
+			</eb:ListLineItem>
+		</eb:ItemList>
+	</eb:Details>
+	<eb:Tax>
+		<eb:VAT>
+			<eb:Item>
+				<eb:TaxedAmount eb:Currency="EUR">1130.00</eb:TaxedAmount>
+				<eb:Percentage>20.00</eb:Percentage>
+				<eb:Amount eb:Currency="EUR">226.00</eb:Amount>
+			</eb:Item>
+			<eb:Item>
+				<eb:TaxedAmount eb:Currency="EUR">5.00</eb:TaxedAmount>
+				<eb:Percentage>10.00</eb:Percentage>
+				<eb:Amount eb:Currency="EUR">0.50</eb:Amount>
+			</eb:Item>
+		</eb:VAT>
+		<eb:OtherTax>
+			<eb:Comment>EineNichtVATSteuer</eb:Comment>
+			<eb:Amount eb:Currency="EUR">0.00</eb:Amount>
+		</eb:OtherTax>
+	</eb:Tax>
+	<eb:TotalGrossAmount eb:Currency="EUR">1361.50</eb:TotalGrossAmount>
+	<eb:PaymentMethod xsi:type="eb:UniversalBankTransactionType">
+		<eb:Comment>Wir ersuchen um termingerechte Bezahlung.</eb:Comment>
+		<eb:BeneficiaryAccount>
+			<eb:BankName>Bank Austria CA</eb:BankName>
+			<eb:BankCode eb:BankCodeType="AT">12000</eb:BankCode>
+			<eb:BIC>BKAUATWW</eb:BIC>
+			<eb:BankAccountNr eb:Currency="EUR">11111111111</eb:BankAccountNr>
+			<eb:IBAN>AT491200011111111111</eb:IBAN>
+			<eb:BankAccountOwner>Max Mustermann</eb:BankAccountOwner>
+		</eb:BeneficiaryAccount>
+		<eb:PaymentReference>993433000298</eb:PaymentReference>
+	</eb:PaymentMethod>
+	<eb:PaymentConditions>
+		<eb:DueDate>2005-02-03</eb:DueDate>
+		<eb:Discount>
+			<eb:PaymentDate>2005-01-10</eb:PaymentDate>
+			<eb:Percentage>3.00</eb:Percentage>
+		</eb:Discount>
+		<eb:Discount>
+			<eb:PaymentDate>2005-01-20</eb:PaymentDate>
+			<eb:Percentage>2.00</eb:Percentage>
+		</eb:Discount>
+		<eb:MinimumPayment eb:Currency="EUR">1320.65</eb:MinimumPayment>
+		<eb:Comment>Kommentar zu den Zahlungsbedingungen</eb:Comment>
+	</eb:PaymentConditions>
+	<eb:PresentationDetails>
+		<eb:URL>http://www.willi.at</eb:URL>
+		<eb:LogoURL>https://b-test.ebpp.at/comres/ebinterface-willi.gif</eb:LogoURL>
+		<eb:LayoutID>0100</eb:LayoutID>
+		<eb:Language>ger</eb:Language>
+		<eb:DocumentTitle>Rechnung</eb:DocumentTitle>
+		<eb:ShortComment>Abrechnung Nov/Dez 2004</eb:ShortComment>
+		<eb:HeaderComment>Wir erlauben uns wie folgt zu verrechnen.</eb:HeaderComment>
+		<eb:FooterComment>Wir danken für Ihren Auftrag.</eb:FooterComment>
+	</eb:PresentationDetails>
+	<dir:directory>
+		<ceo>
+			<name>Bill Gates</name>
+			<email>bigbill@msn.com</email>
+			<homepage>http://www.microsoft.com</homepage>
+			<bdate>12-25-1955</bdate>
+			<compensation>1000000000</compensation>
+		</ceo>
+		<manager>
+			<name>Jack Nicholsen</name>
+			<email>jack@hollywoood.com</email>
+			<homepage>http://www.allworknoplay.com</homepage>
+			<bdate>02-04-1938</bdate>
+			<dept>entertainment</dept>
+			<salary>5600000</salary>
+		</manager>
+		<salaryworker>
+			<name>Leonard Nimoy</name>
+			<email>mrspock@aol.com</email>
+			<homepage>http://www.spock.com</homepage>
+			<bdate>06-06-1948</bdate>
+			<dept>The Final Frontier</dept>
+			<salary>35000</salary>
+		</salaryworker>
+		<hourlyworker>
+			<name>Joe Smith</name>
+			<email>nobody@aol.com</email>
+			<homepage>http://www.nowhereman.org</homepage>
+			<bdate>02-29-1978</bdate>
+			<dept>custodial</dept>
+			<hourlyrate>10.20</hourlyrate>
+		</hourlyworker>
+	</dir:directory>
+</eb:Invoice>
