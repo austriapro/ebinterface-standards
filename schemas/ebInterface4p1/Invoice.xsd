@@ -1190,6 +1190,14 @@
     </xs:restriction>
   </xs:simpleType>
   <!-- === Complex Types === -->
+  <xs:complexType name="AbstractPartyType">
+    <xs:sequence>
+      <xs:element ref="VATIdentificationNumber"/>
+      <xs:element ref="FurtherIdentification" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="OrderReference" minOccurs="0"/>
+      <xs:element ref="Address"/>
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="AccountType">
     <xs:sequence>
       <xs:element ref="BankName" minOccurs="0"/>
@@ -1269,15 +1277,14 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="BillerType">
-    <xs:sequence>
-      <xs:element ref="VATIdentificationNumber"/>
-      <xs:element ref="FurtherIdentification" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element ref="ConsolidatorsBillerID" minOccurs="0"/>
-      <xs:element ref="InvoiceRecipientsBillerID" minOccurs="0"/>
-      <xs:element ref="OrderReference" minOccurs="0"/>
-      <xs:element ref="Address"/>
-      <xs:element ref="ext:BillerExtension" minOccurs="0"/>
-    </xs:sequence>
+    <xs:complexContent>
+      <xs:extension base="AbstractPartyType">
+        <xs:sequence>
+          <xs:element ref="InvoiceRecipientsBillerID" minOccurs="0"/>
+          <xs:element ref="ext:BillerExtension" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:complexType name="ClassificationType">
     <xs:simpleContent>
@@ -1358,16 +1365,16 @@
     <xs:attribute ref="IsDuplicate" use="required"/>
   </xs:complexType>
   <xs:complexType name="InvoiceRecipientType">
-    <xs:sequence>
-      <xs:element ref="VATIdentificationNumber"/>
-      <xs:element ref="FurtherIdentification" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element ref="BillersInvoiceRecipientID"/>
-      <xs:element ref="AccountingArea" minOccurs="0"/>
-      <xs:element ref="SubOrganizationID" minOccurs="0"/>
-      <xs:element ref="OrderReference" minOccurs="0"/>
-      <xs:element ref="Address"/>
-      <xs:element ref="ext:InvoiceRecipientExtension" minOccurs="0"/>
-    </xs:sequence>
+    <xs:complexContent>
+      <xs:extension base="AbstractPartyType">
+        <xs:sequence>
+          <xs:element ref="BillersInvoiceRecipientID" minOccurs="0"/>
+          <xs:element ref="AccountingArea" minOccurs="0"/>
+          <xs:element ref="SubOrganizationID" minOccurs="0"/>
+          <xs:element ref="ext:InvoiceRecipientExtension" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>    
   </xs:complexType>
   <xs:complexType name="ItemListType">
     <xs:sequence>
@@ -1411,14 +1418,14 @@
     <!-- Empty type -->
   </xs:complexType>
   <xs:complexType name="OrderingPartyType">
-    <xs:sequence>
-      <xs:element ref="VATIdentificationNumber"/>
-      <xs:element ref="FurtherIdentification" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element ref="BillersOrderingPartyID"/>
-      <xs:element ref="OrderReference" minOccurs="0"/>
-      <xs:element ref="Address"/>
-      <xs:element ref="ext:OrderingPartyExtension" minOccurs="0"/>
-    </xs:sequence>
+    <xs:complexContent>
+      <xs:extension base="AbstractPartyType">
+        <xs:sequence>
+          <xs:element ref="BillersOrderingPartyID"/>
+          <xs:element ref="ext:OrderingPartyExtension" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>    
   </xs:complexType>
   <xs:complexType name="OrderReferenceDetailType">
     <xs:complexContent>
