@@ -136,6 +136,7 @@
   <xs:attribute name="InvoiceCurrency" type="CurrencyType"/>
   <xs:attribute name="Language" type="LanguageType"/>
   <xs:attribute name="ManualProcessing" type="xs:boolean"/>
+  <xs:attribute name="RelatedInvoice" type="IDType"/>
   <xs:attribute name="TaxCode" type="TaxCodeType"/>
   <xs:attribute name="TaxExemptionCode" type="xs:string"/>
   <xs:attribute name="Unit" type="xs:string"/>
@@ -1348,6 +1349,7 @@
     </xs:sequence>
     <xs:attribute ref="GeneratingSystem" use="required"/>
     <xs:attribute ref="CancelledOriginalDocument" use="optional"/>
+    <xs:attribute ref="RelatedInvoice" use="optional"/>
     <xs:attribute ref="DocumentType" use="required"/>
     <xs:attribute ref="InvoiceCurrency" use="required"/>
     <xs:attribute ref="ManualProcessing" use="optional"/>
