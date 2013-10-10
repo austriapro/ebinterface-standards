@@ -1,8 +1,7 @@
-
 ![alt text](https://github.com/pliegl/ebinterface/blob/master/site/images/logo.jpg?raw=true "ebInterface e-Invoice standard")
 
 
-Development repository of the Austrian e-Invoicing standard ebInterface. For the official standard versions please refer to the official ebInterface webseite http://www.ebinterface.at
+Development repository of the Austrian e-Invoicing standard ebInterface. For the official standard versions please refer to the ebInterface website http://www.ebinterface.at
 
 
 This repository contains two main artifacts:
@@ -10,7 +9,7 @@ This repository contains two main artifacts:
 ebInterface XML Schema files
 ----------------------------
 
-In addition to the Schema files we provide XML sample files and stylesheets.
+Using this repository the development versions of the different ebInterface standard schemas are shared among the standard developers.
 
 
 ebInterface validation service
