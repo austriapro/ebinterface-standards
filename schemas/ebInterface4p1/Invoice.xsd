@@ -187,7 +187,6 @@
       <xs:pattern value="[0-9A-Za-z]{8}([0-9A-Za-z]{3})?"/>
     </xs:restriction>
   </xs:simpleType>
-  <!-- EXPERIMENTAL -->
   <xs:simpleType name="CheckSumType">
     <xs:restriction base="xs:string">
       <xs:pattern value="([0-9]{0,4}|X)"/>
@@ -1253,7 +1252,6 @@
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
-  <!-- EXPERIMENTAL -->
   <xs:complexType name="BelowTheLineItemType">
     <xs:sequence>
       <xs:element ref="Description" />
@@ -1470,7 +1468,6 @@
       <xs:element ref="ext:PaymentMethodExtension" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  <!-- EXPERIMENTAL -->
   <xs:complexType name="PaymentReferenceType">
     <xs:simpleContent>
       <xs:extension base="ID35Type">
