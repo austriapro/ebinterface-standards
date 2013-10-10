@@ -1419,10 +1419,13 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="OrderReferenceDetailType">
-    <xs:sequence>
-      <xs:element ref="OrderID"/>
-      <xs:element ref="OrderPositionNumber" minOccurs="0"/>
-    </xs:sequence>
+    <xs:complexContent>
+      <xs:extension base="OrderReferenceType">
+        <xs:sequence>
+          <xs:element ref="OrderPositionNumber" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>    
   </xs:complexType>
   <xs:complexType name="OrderReferenceType">
     <xs:sequence>
