@@ -111,7 +111,7 @@
   <xs:element name="ToDate" type="xs:date"/>
   <xs:element name="TotalGrossAmount" type="Decimal2Type"/>
   <xs:element name="Town" type="xs:string"/>
-  <xs:element name="UnitPrice" type="Decimal4Type"/>
+  <xs:element name="UnitPrice" type="UnitPriceType"/>
   <xs:element name="UniversalBankTransaction" type="UniversalBankTransactionType"/>
   <xs:element name="URL" type="xs:anyURI"/>
   <xs:element name="VAT" type="VATType"/>
@@ -122,6 +122,7 @@
   <xs:attribute name="AddressIdentifierType" type="AddressIdentifierTypeType"/>
   <xs:attribute name="ArticleNumberType" type="ArticleNumberTypeType"/>
   <xs:attribute name="BankCodeType" type="CountryCodeType"/>
+  <xs:attribute name="BaseQuantity" type="Decimal4Type"/>
   <xs:attribute name="CancelledOriginalDocument" type="IDType"/>
   <xs:attribute name="CheckSum" type="CheckSumType"/>
   <xs:attribute name="ClassificationSchema" type="xs:string"/>
@@ -1579,6 +1580,13 @@
     <xs:simpleContent>
       <xs:extension base="Decimal4Type">
         <xs:attribute ref="Unit" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="UnitPriceType">
+    <xs:simpleContent>
+      <xs:extension base="Decimal4Type">
+        <xs:attribute ref="BaseQuantity" use="optional"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
