@@ -91,7 +91,6 @@
 			<groupId>org.apache.wicket</groupId>
 			<artifactId>wicket-core</artifactId>
 			<version>${wicket-version}</version>
-			<type>jar</type>
 		</dependency>
 
 		<!-- testing -->
@@ -106,7 +105,7 @@
 		<dependency>
 			<groupId>xerces</groupId>
 			<artifactId>xercesImpl</artifactId>
-			<version>2.9.1</version>
+			<version>2.11.0</version>
 		</dependency>
 		<dependency>
 			<groupId>xml-resolver</groupId>
@@ -164,7 +163,7 @@
 		<dependency>
 			<groupId>org.apache.santuario</groupId>
 			<artifactId>xmlsec</artifactId>
-			<version>1.5.2</version>
+			<version>1.5.5</version>
 			<scope>runtime</scope>
 		</dependency>
 
@@ -206,98 +205,21 @@
 
 		<!-- MOA SP/SS references -->
 		<dependency>
-			<groupId>moa-spss</groupId>
-			<artifactId>spss</artifactId>
+			<groupId>MOA.spss.server</groupId>
+			<artifactId>moa-spss-lib</artifactId>
 			<version>1.5.1</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/moa-libs/moa-spss.jar</systemPath>
 		</dependency>
-
-		<dependency>
-			<groupId>moa-common</groupId>
-			<artifactId>common</artifactId>
-			<version>1.5.1</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/moa-libs/moa-common.jar</systemPath>
-		</dependency>
-
-		<dependency>
-			<groupId>iaik-moa</groupId>
-			<artifactId>moa</artifactId>
-			<version>1.5.1</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/moa-libs/lib/iaik_moa-1.32.jar</systemPath>
-		</dependency>
-
-		<dependency>
-			<groupId>iaik-cms</groupId>
-			<artifactId>cms</artifactId>
-			<version>1.5.1</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/moa-libs/lib/iaik_cms-4.1_MOA.jar</systemPath>
-		</dependency>
-
-		<dependency>
-			<groupId>iaik-ixsil</groupId>
-			<artifactId>ixsil</artifactId>
-			<version>1.5.1</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/moa-libs/lib/iaik_ixsil-1.2.2.5.jar</systemPath>
-		</dependency>
-
-
-		<dependency>
-			<groupId>iaik</groupId>
-			<artifactId>ecc</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/moa-libs/ext/iaik_ecc.jar</systemPath>
-		</dependency>
-
-		<dependency>
-			<groupId>iaik</groupId>
-			<artifactId>jce-full</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/moa-libs/ext/iaik_jce_full.jar</systemPath>
-		</dependency>
-
-		<dependency>
-			<groupId>iaik</groupId>
-			<artifactId>pkcs11provider</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/moa-libs/ext/iaik_Pkcs11Provider.jar</systemPath>
-		</dependency>
-
-		<dependency>
-			<groupId>iaik</groupId>
-			<artifactId>pkcs11wrapper</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/moa-libs/ext/iaik_Pkcs11Wrapper.jar</systemPath>
-		</dependency>
-
-
-
-
-
-
 
 		<dependency>
 			<groupId>jaxen</groupId>
 			<artifactId>jaxen</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/moa-libs/lib/jaxen-1.0-FCS.jar</systemPath>
+			<version>1.0-FCS</version>
 		</dependency>
 
 		<dependency>
 			<groupId>saxpath</groupId>
 			<artifactId>saxpath</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/moa-libs/lib/saxpath-1.0-FCS.jar</systemPath>
+			<version>1.0-FCS</version>
 		</dependency>
 
 		<dependency>
