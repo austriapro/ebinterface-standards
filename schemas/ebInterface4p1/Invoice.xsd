@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Mit XMLSpy v2013 rel. 2 sp2 (http://www.altova.com) von Philipp Liegl (ecosio) bearbeitet -->
 <xs:schema xmlns="http://www.ebinterface.at/schema/4p1/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:ext="http://www.ebinterface.at/schema/4p1/extensions/ext" targetNamespace="http://www.ebinterface.at/schema/4p1/" elementFormDefault="qualified" attributeFormDefault="qualified">
 	<xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="http://www.w3.org/TR/2002/REC-xmldsig-core-20020212/xmldsig-core-schema.xsd"/>
 	<xs:import namespace="http://www.ebinterface.at/schema/4p1/extensions/ext" schemaLocation="ebInterfaceExtension.xsd"/>
@@ -25,6 +26,7 @@
 	<xs:element name="BankCode" type="BankCodeType"/>
 	<xs:element name="BankName" type="BankNameType"/>
 	<xs:element name="BaseAmount" type="Decimal2Type"/>
+	<xs:element name="BelowTheLineItem" type="BelowTheLineItemType"/>
 	<xs:element name="BeneficiaryAccount" type="AccountType"/>
 	<xs:element name="BIC" type="BICType"/>
 	<xs:element name="Biller" type="BillerType"/>
@@ -76,6 +78,7 @@
 	<xs:element name="OrderPositionNumber" type="xs:string"/>
 	<xs:element name="OrderReference" type="OrderReferenceType"/>
 	<xs:element name="OtherTax" type="OtherTaxType"/>
+	<xs:element name="PayableAmount" type="Decimal2Type"/>
 	<xs:element name="PaymentConditions" type="PaymentConditionsType"/>
 	<xs:element name="PaymentDate" type="xs:date"/>
 	<xs:element name="PaymentMethod" type="PaymentMethodType"/>
@@ -87,6 +90,7 @@
 	<xs:element name="PositionNumber" type="xs:positiveInteger"/>
 	<xs:element name="PresentationDetails" type="PresentationDetailsType"/>
 	<xs:element name="Quantity" type="UnitType"/>
+	<xs:element name="Reason" type="ReasonType"/>
 	<xs:element name="Reduction" type="ReductionAndSurchargeType"/>
 	<xs:element name="ReductionAndSurchargeDetails" type="ReductionAndSurchargeDetailsType"/>
 	<xs:element name="ReductionAndSurchargeListLineItemDetails" type="ReductionAndSurchargeListLineItemDetailsType"/>
@@ -126,6 +130,7 @@
 	<xs:attribute name="ClassificationSchema" type="xs:string"/>
 	<xs:attribute name="ConsolidatorPayable" type="xs:boolean"/>
 	<xs:attribute name="CountryCode" type="CountryCodeType"/>
+	<xs:attribute name="Date" type="xs:date"/>
 	<xs:attribute name="DocumentTitle" type="xs:string"/>
 	<xs:attribute name="DocumentType" type="DocumentTypeType"/>
 	<xs:attribute name="GeneratingSystem" type="xs:string"/>
@@ -1248,22 +1253,7 @@
 		<xs:sequence>
 			<xs:element ref="Description"/>
 			<xs:element ref="LineItemAmount"/>
-			<xs:element name="Reason" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Die Bergründung warum dieser Eintrag "Below the line" ist,</xs:documentation>
-				</xs:annotation>
-				<xs:complexType>
-					<xs:simpleContent>
-						<xs:extension base="xs:string">
-							<xs:attribute name="Date" type="xs:date" use="optional">
-								<xs:annotation>
-									<xs:documentation>Ein optionales Datum auf dass sich dieser Eintrag bezieht</xs:documentation>
-								</xs:annotation>
-							</xs:attribute>
-						</xs:extension>
-					</xs:simpleContent>
-				</xs:complexType>
-			</xs:element>
+			<xs:element ref="Reason" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="BillerType">
@@ -1303,7 +1293,7 @@
 			<xs:element ref="HeaderDescription" minOccurs="0"/>
 			<xs:element ref="ItemList" maxOccurs="unbounded"/>
 			<xs:element ref="FooterDescription" minOccurs="0"/>
-			<xs:element name="BelowTheLineItem" type="BelowTheLineItemType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="BelowTheLineItem" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="DirectDebitType">
@@ -1337,7 +1327,7 @@
 			<xs:element ref="ReductionAndSurchargeDetails" minOccurs="0"/>
 			<xs:element ref="Tax"/>
 			<xs:element ref="TotalGrossAmount"/>
-			<xs:element name="PayableAmount" type="Decimal2Type"/>
+			<xs:element ref="PayableAmount"/>
 			<xs:element ref="PaymentMethod" minOccurs="0"/>
 			<xs:element ref="PaymentConditions" minOccurs="0"/>
 			<xs:element ref="PresentationDetails" minOccurs="0"/>
@@ -1481,6 +1471,13 @@
 			<xs:element ref="SuppressZero" minOccurs="0"/>
 			<xs:element ref="ext:PresentationDetailsExtension" minOccurs="0"/>
 		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReasonType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute ref="Date" use="optional"/>
+			</xs:extension>
+		</xs:simpleContent>
 	</xs:complexType>
 	<xs:complexType name="ReductionAndSurchargeDetailsType">
 		<xs:sequence>
