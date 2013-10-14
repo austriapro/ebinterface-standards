@@ -22,7 +22,7 @@
 	<xs:element name="ArticleNumber" type="ArticleNumberType"/>
 	<xs:element name="BankAccountNr" type="xs:string"/>
 	<xs:element name="BankAccountOwner" type="BankAccountOwnerType"/>
-	<xs:element name="BankCode" type="BankCodeCType"/>
+	<xs:element name="BankCode" type="BankCodeType"/>
 	<xs:element name="BankName" type="BankNameType"/>
 	<xs:element name="BaseAmount" type="Decimal2Type"/>
 	<xs:element name="BeneficiaryAccount" type="AccountType"/>
@@ -39,7 +39,9 @@
 	<xs:element name="ConsolidatorsBillerID" type="IDType"/>
 	<xs:element name="Contact" type="xs:string"/>
 	<xs:element name="Country" type="CountryType"/>
+	<xs:element name="CreditorID" type="CreditorIDType"/>
 	<xs:element name="Date" type="xs:date"/>
+	<xs:element name="DebitCollectionDate" type="xs:date"/>
 	<xs:element name="Delivery" type="DeliveryType"/>
 	<xs:element name="DeliveryID" type="IDType"/>
 	<xs:element name="Description" type="xs:string"/>
@@ -65,6 +67,7 @@
 	<xs:element name="LineItemAmount" type="Decimal2Type"/>
 	<xs:element name="ListLineItem" type="ListLineItemType"/>
 	<xs:element name="LogoURL" type="xs:anyURI"/>
+	<xs:element name="MandateReference" type="ID35Type"/>
 	<xs:element name="MinimumPayment" type="Decimal2Type"/>
 	<xs:element name="Name" type="xs:string"/>
 	<xs:element name="NoPayment" type="NoPaymentType"/>
@@ -105,6 +108,7 @@
 	<xs:element name="ToDate" type="xs:date"/>
 	<xs:element name="TotalGrossAmount" type="Decimal2Type"/>
 	<xs:element name="Town" type="xs:string"/>
+	<xs:element name="Type" type="SEPADirectDebitTypeType"/>
 	<xs:element name="UnitPrice" type="UnitPriceType"/>
 	<xs:element name="UniversalBankTransaction" type="UniversalBankTransactionType"/>
 	<xs:element name="URL" type="xs:anyURI"/>
@@ -430,6 +434,11 @@
 			<xs:enumeration value="ZW"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="CreditorIDType">
+		<xs:restriction base="IDType">
+			<xs:maxLength value="18"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<!-- Currency Codes according ISO 4217 (retrieved 2011-09-20 - duplicates have been removed)-->
 	<xs:simpleType name="CurrencyType">
 		<xs:restriction base="xs:token">
@@ -655,7 +664,7 @@
 		<xs:restriction base="xs:string">
 			<xs:maxLength value="35"/>
 		</xs:restriction>
-	</xs:simpleType>		
+	</xs:simpleType>
 	<!-- Language Codes according to ISO 639-2 -->
 	<xs:simpleType name="LanguageType">
 		<xs:restriction base="xs:token">
@@ -1150,7 +1159,7 @@
 			<xs:enumeration value="zho"/>
 			<xs:enumeration value="znd"/>
 			<xs:enumeration value="zul"/>
-			<xs:enumeration value="zun"/>			
+			<xs:enumeration value="zun"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="PercentageType">
@@ -1228,7 +1237,7 @@
 	<xs:complexType name="ArticleNumberType" mixed="true">
 		<xs:attribute ref="ArticleNumberType" use="optional"/>
 	</xs:complexType>
-	<xs:complexType name="BankCodeCType">
+	<xs:complexType name="BankCodeType">
 		<xs:simpleContent>
 			<xs:extension base="xs:integer">
 				<xs:attribute ref="BankCodeType" use="required"/>
@@ -1506,45 +1515,14 @@
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="SEPADirectDebitType">
-		<xs:annotation>
-			<xs:documentation>Dieser Typ wird fuer das SEPA Lastschrift Verfahren verwendet</xs:documentation>
-		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Type" type="SEPADirectDebitTypeType">
-				<xs:annotation>
-					<xs:documentation>Der Typ der Lastschrift - hat Auswirkungen auf die Einspruchsfristen. Standard ist 'B2C'</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element ref="BIC">
-				<xs:annotation>
-					<xs:documentation>Bank Identification Code (BIC)</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element ref="IBAN">
-				<xs:annotation>
-					<xs:documentation>International Bank Account Number (IBAN)</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element ref="BankAccountOwner">
-				<xs:annotation>
-					<xs:documentation>Name des Kontoinhabers</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="CreditorID" type="IDType">
-				<xs:annotation>
-					<xs:documentation>Die SEPA Creditor ID des Rechnungsstellers. Maximale Länge: 35 Zeichen</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="MandateReference" type="IDType">
-				<xs:annotation>
-					<xs:documentation>Die SEPA Mandatsreferenz. Maximale Länge: 35 Zeichen</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="DebitCollectionDate" type="xs:date">
-				<xs:annotation>
-					<xs:documentation>Das geplante Einzugsdatum. Liegt für gewöhnlich in der Zukunft.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
+			<xs:element ref="Type"/>
+			<xs:element ref="BIC"/>
+			<xs:element ref="IBAN"/>
+			<xs:element ref="BankAccountOwner"/>
+			<xs:element ref="CreditorID"/>
+			<xs:element ref="MandateReference"/>
+			<xs:element ref="DebitCollectionDate"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="TaxExemptionType">
