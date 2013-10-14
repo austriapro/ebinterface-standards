@@ -41,7 +41,7 @@
 	<xs:element name="ConsolidatorsBillerID" type="IDType"/>
 	<xs:element name="Contact" type="xs:string"/>
 	<xs:element name="Country" type="CountryType"/>
-	<xs:element name="CreditorID" type="CreditorIDType"/>
+	<xs:element name="CreditorID" type="ID35Type"/>
 	<xs:element name="Date" type="xs:date"/>
 	<xs:element name="DebitCollectionDate" type="xs:date"/>
 	<xs:element name="Delivery" type="DeliveryType"/>
@@ -437,11 +437,6 @@
 			<xs:enumeration value="YE"/>
 			<xs:enumeration value="ZM"/>
 			<xs:enumeration value="ZW"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="CreditorIDType">
-		<xs:restriction base="IDType">
-			<xs:maxLength value="18"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- Currency Codes according ISO 4217 (retrieved 2011-09-20 - duplicates have been removed)-->
