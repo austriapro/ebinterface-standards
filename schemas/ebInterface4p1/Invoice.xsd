@@ -182,7 +182,7 @@
 	</xs:simpleType>
 	<xs:simpleType name="CheckSumType">
 		<xs:restriction base="xs:string">
-			<xs:pattern value="([0-9]{0,4}|X)"/>
+			<xs:pattern value="([0-9]{1,4}|X)"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- Country Codes accordyng to ISO 3166-1 (retrieved 2011-09-20) -->
