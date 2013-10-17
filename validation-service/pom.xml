@@ -25,19 +25,6 @@
 
 
 	<repositories>
-
-		<repository>
-			<id>maven repo 1</id>
-			<name>Maven Repository Manager</name>
-			<url>http://repo1.maven.org/maven2/</url>
-		</repository>
-
-		<repository>
-			<id>maven repo 2</id>
-			<name>Maven Repository Manager</name>
-			<url>http://repo2.maven.org/maven2/</url>
-		</repository>
-
 		<!-- Apache repository -->
 		<repository>
 			<id>apache.snapshots</id>
@@ -63,13 +50,6 @@
 			<releases>
 				<enabled>true</enabled>
 			</releases>
-		</repository>
-
-		<repository>
-			<!-- Java.net repository -->
-			<id>maven2-repository.dev.java.net</id>
-			<name>Java.net Maven 2 Repository</name>
-			<url>http://download.java.net/maven/2</url>
 		</repository>
 
 		<!-- Wicket Wiquery Components Repository -->
@@ -249,7 +229,9 @@
 
 
 	<scm>
-		<developerConnection>scm:svn:svn+ssh://svn.isis.tuwien.ac.at/home/UMMStarAlliance/repository/Projects/ebInterface/validierungsservice</developerConnection>
+		<developerConnection>scm:git:git@github.com:pliegl/ebinterface.git</developerConnection>
+    <url>http://github.com/pliegl/ebinterface/tree/master/validation-service</url>
+    <tag>HEAD</tag>
 	</scm>
 
 	<organization>
