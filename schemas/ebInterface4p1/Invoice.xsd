@@ -96,6 +96,7 @@
 	<xs:element name="ReductionAndSurchargeListLineItemDetails" type="ReductionAndSurchargeListLineItemDetailsType"/>
 	<xs:element name="ReductionListLineItem" type="ReductionAndSurchargeBaseType"/>
 	<xs:element name="ReferenceDate" type="xs:date"/>
+	<xs:element name="RelatedInvoice" type="IDType"/>
 	<xs:element name="Salutation" type="xs:string"/>
 	<xs:element name="SEPADirectDebit" type="SEPADirectDebitType"/>
 	<xs:element name="SerialNumber" type="xs:string"/>
@@ -126,6 +127,7 @@
 	<xs:attribute name="BankCodeType" type="CountryCodeType"/>
 	<xs:attribute name="BaseQuantity" type="Decimal4Type"/>
 	<xs:attribute name="CancelledOriginalDocument" type="IDType"/>
+	<xs:attribute name="CancelledOriginalDocumentDate" type="xs:date"/>
 	<xs:attribute name="CheckSum" type="CheckSumType"/>
 	<xs:attribute name="ClassificationSchema" type="xs:string"/>
 	<xs:attribute name="ConsolidatorPayable" type="xs:boolean"/>
@@ -139,7 +141,6 @@
 	<xs:attribute name="InvoiceCurrency" type="CurrencyType"/>
 	<xs:attribute name="Language" type="LanguageType"/>
 	<xs:attribute name="ManualProcessing" type="xs:boolean"/>
-	<xs:attribute name="RelatedInvoice" type="IDType"/>
 	<xs:attribute name="TaxCode" type="TaxCodeType"/>
 	<xs:attribute name="TaxExemptionCode" type="xs:string"/>
 	<xs:attribute name="Unit" type="xs:string"/>
@@ -1314,6 +1315,7 @@
 			<xs:element ref="dsig:Signature" minOccurs="0"/>
 			<xs:element ref="InvoiceNumber"/>
 			<xs:element ref="InvoiceDate"/>
+			<xs:element ref="RelatedInvoice" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="Delivery" minOccurs="0"/>
 			<xs:element ref="Biller"/>
 			<xs:element ref="InvoiceRecipient"/>
@@ -1331,13 +1333,13 @@
 		</xs:sequence>
 		<xs:attribute ref="GeneratingSystem" use="required"/>
 		<xs:attribute ref="CancelledOriginalDocument" use="optional"/>
-		<xs:attribute ref="RelatedInvoice" use="optional"/>
+		<xs:attribute ref="CancelledOriginalDocumentDate" use="optional"/>
 		<xs:attribute ref="DocumentType" use="required"/>
 		<xs:attribute ref="InvoiceCurrency" use="required"/>
 		<xs:attribute ref="ManualProcessing" use="optional"/>
 		<xs:attribute ref="DocumentTitle" use="optional"/>
 		<xs:attribute ref="Language" use="optional"/>
-		<xs:attribute ref="IsDuplicate" use="required"/>
+		<xs:attribute ref="IsDuplicate" use="optional" default="false"/>
 	</xs:complexType>
 	<xs:complexType name="InvoiceRecipientType">
 		<xs:complexContent>
