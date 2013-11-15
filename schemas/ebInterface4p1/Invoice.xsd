@@ -100,7 +100,7 @@
 	<xs:element name="ReductionAndSurchargeListLineItemDetails" type="ReductionAndSurchargeListLineItemDetailsType"/>
 	<xs:element name="ReductionListLineItem" type="ReductionAndSurchargeBaseType"/>
 	<xs:element name="ReferenceDate" type="xs:date"/>
-	<xs:element name="RelatedInvoice" type="RelatedInvoiceType"/>
+	<xs:element name="RelatedDocument" type="RelatedDocumentType"/>
 	<xs:element name="Salutation" type="xs:string"/>
 	<xs:element name="SEPADirectDebit" type="SEPADirectDebitType"/>
 	<xs:element name="SerialNumber" type="xs:string"/>
@@ -1326,7 +1326,7 @@
 			<xs:element ref="InvoiceNumber"/>
 			<xs:element ref="InvoiceDate"/>
 			<xs:element ref="CancelledOriginalDocument" minOccurs="0"/>
-			<xs:element ref="RelatedInvoice" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RelatedDocument" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="Delivery" minOccurs="0"/>
 			<xs:element ref="Biller"/>
 			<xs:element ref="InvoiceRecipient"/>
@@ -1520,7 +1520,7 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:complexType name="RelatedInvoiceType">
+	<xs:complexType name="RelatedDocumentType">
 		<xs:sequence>
 			<xs:element ref="InvoiceNumber" minOccurs="1"/>
 			<xs:element ref="InvoiceDate" minOccurs="0"/>
@@ -1555,7 +1555,7 @@
 	</xs:complexType>
 	<xs:complexType name="TaxType">
 		<xs:sequence>
-			<xs:element ref="OtherVATableTax"/>
+			<xs:element ref="OtherVATableTax" minOccurs="0"/>
 			<xs:element ref="VAT"/>
 			<xs:element ref="OtherTax" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="ext:TaxExtension" minOccurs="0"/>
