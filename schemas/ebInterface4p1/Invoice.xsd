@@ -6,7 +6,7 @@
 	<xs:annotation>
 		<xs:documentation>
             schema version: 4.1
-            last update: 2013-10-14
+            last update: 2013-11-18
             documentation: http://www.ebinterface.at/download/documentation/ebInvoice_4p1.pdf
         </xs:documentation>
 	</xs:annotation>
@@ -34,6 +34,7 @@
 	<xs:element name="BillersOrderingPartyID" type="IDType"/>
 	<xs:element name="BillersOrderReference" type="OrderReferenceDetailType"/>
 	<xs:element name="Boxes" type="xs:positiveInteger"/>
+	<xs:element name="CancelledOriginalDocument" type="CancelledOriginalDocumentType"/>
 	<xs:element name="ChargeNumber" type="xs:string"/>
 	<xs:element name="Classification" type="ClassificationType"/>
 	<xs:element name="Color" type="xs:string"/>
@@ -51,6 +52,7 @@
 	<xs:element name="DirectDebit" type="DirectDebitType"/>
 	<xs:element name="Discount" type="DiscountType"/>
 	<xs:element name="DiscountFlag" type="xs:boolean"/>
+	<xs:element name="DocumentType" type="DocumentTypeType"/>
 	<xs:element name="DueDate" type="xs:date"/>
 	<xs:element name="Email" type="xs:string"/>
 	<xs:element name="FooterDescription" type="xs:string"/>
@@ -63,7 +65,7 @@
 	<xs:element name="InvoiceRecipient" type="InvoiceRecipientType"/>
 	<xs:element name="InvoiceRecipientsBillerID" type="IDType"/>
 	<xs:element name="InvoiceRecipientsOrderReference" type="OrderReferenceDetailType"/>
-	<xs:element name="Item" type="ItemType"/>
+	<xs:element name="VATItem" type="VATItemType"/>
 	<xs:element name="ItemList" type="ItemListType"/>
 	<xs:element name="LayoutID" type="IDType"/>
 	<xs:element name="LineItemAmount" type="Decimal2Type"/>
@@ -78,6 +80,7 @@
 	<xs:element name="OrderPositionNumber" type="xs:string"/>
 	<xs:element name="OrderReference" type="OrderReferenceType"/>
 	<xs:element name="OtherTax" type="OtherTaxType"/>
+	<xs:element name="OtherVATableTax" type="OtherVATableTaxType"/>
 	<xs:element name="PayableAmount" type="Decimal2Type"/>
 	<xs:element name="PaymentConditions" type="PaymentConditionsType"/>
 	<xs:element name="PaymentDate" type="xs:date"/>
@@ -96,6 +99,7 @@
 	<xs:element name="ReductionAndSurchargeListLineItemDetails" type="ReductionAndSurchargeListLineItemDetailsType"/>
 	<xs:element name="ReductionListLineItem" type="ReductionAndSurchargeBaseType"/>
 	<xs:element name="ReferenceDate" type="xs:date"/>
+	<xs:element name="RelatedDocument" type="RelatedDocumentType"/>
 	<xs:element name="Salutation" type="xs:string"/>
 	<xs:element name="SEPADirectDebit" type="SEPADirectDebitType"/>
 	<xs:element name="SerialNumber" type="xs:string"/>
@@ -125,7 +129,6 @@
 	<xs:attribute name="ArticleNumberType" type="ArticleNumberTypeType"/>
 	<xs:attribute name="BankCodeType" type="CountryCodeType"/>
 	<xs:attribute name="BaseQuantity" type="Decimal4Type"/>
-	<xs:attribute name="CancelledOriginalDocument" type="IDType"/>
 	<xs:attribute name="CheckSum" type="CheckSumType"/>
 	<xs:attribute name="ClassificationSchema" type="xs:string"/>
 	<xs:attribute name="ConsolidatorPayable" type="xs:boolean"/>
@@ -139,7 +142,6 @@
 	<xs:attribute name="InvoiceCurrency" type="CurrencyType"/>
 	<xs:attribute name="Language" type="LanguageType"/>
 	<xs:attribute name="ManualProcessing" type="xs:boolean"/>
-	<xs:attribute name="RelatedInvoice" type="IDType"/>
 	<xs:attribute name="TaxCode" type="TaxCodeType"/>
 	<xs:attribute name="TaxExemptionCode" type="xs:string"/>
 	<xs:attribute name="Unit" type="xs:string"/>
@@ -1261,6 +1263,14 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:complexType name="CancelledOriginalDocumentType">
+		<xs:sequence>
+			<xs:element ref="InvoiceNumber"/>
+			<xs:element ref="InvoiceDate"/>
+			<xs:element ref="DocumentType" minOccurs="0"/>
+			<xs:element ref="Comment" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="ClassificationType">
 		<xs:simpleContent>
 			<xs:extension base="xs:string">
@@ -1314,6 +1324,8 @@
 			<xs:element ref="dsig:Signature" minOccurs="0"/>
 			<xs:element ref="InvoiceNumber"/>
 			<xs:element ref="InvoiceDate"/>
+			<xs:element ref="CancelledOriginalDocument" minOccurs="0"/>
+			<xs:element ref="RelatedDocument" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="Delivery" minOccurs="0"/>
 			<xs:element ref="Biller"/>
 			<xs:element ref="InvoiceRecipient"/>
@@ -1330,14 +1342,12 @@
 			<xs:element ref="ext:InvoiceRootExtension" minOccurs="0"/>
 		</xs:sequence>
 		<xs:attribute ref="GeneratingSystem" use="required"/>
-		<xs:attribute ref="CancelledOriginalDocument" use="optional"/>
-		<xs:attribute ref="RelatedInvoice" use="optional"/>
 		<xs:attribute ref="DocumentType" use="required"/>
 		<xs:attribute ref="InvoiceCurrency" use="required"/>
 		<xs:attribute ref="ManualProcessing" use="optional"/>
 		<xs:attribute ref="DocumentTitle" use="optional"/>
 		<xs:attribute ref="Language" use="optional"/>
-		<xs:attribute ref="IsDuplicate" use="required"/>
+		<xs:attribute ref="IsDuplicate" use="optional"/>
 	</xs:complexType>
 	<xs:complexType name="InvoiceRecipientType">
 		<xs:complexContent>
@@ -1356,16 +1366,6 @@
 			<xs:element ref="HeaderDescription" minOccurs="0"/>
 			<xs:element ref="ListLineItem" maxOccurs="unbounded"/>
 			<xs:element ref="FooterDescription" minOccurs="0"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="ItemType">
-		<xs:sequence>
-			<xs:element ref="TaxedAmount"/>
-			<xs:choice>
-				<xs:element ref="TaxExemption"/>
-				<xs:element ref="TaxRate"/>
-			</xs:choice>
-			<xs:element ref="Amount"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ListLineItemType">
@@ -1422,6 +1422,14 @@
 		<xs:sequence>
 			<xs:element ref="Comment"/>
 			<xs:element ref="Amount"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OtherVATableTaxType">
+		<xs:sequence>
+			<xs:element ref="TaxedAmount"/>
+			<xs:element ref="TaxRate"/>
+			<xs:element ref="Amount"/>
+			<xs:element ref="Comment"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PaymentConditionsType">
@@ -1506,6 +1514,14 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:complexType name="RelatedDocumentType">
+		<xs:sequence>
+			<xs:element ref="InvoiceNumber" minOccurs="1"/>
+			<xs:element ref="InvoiceDate" minOccurs="0"/>
+			<xs:element ref="DocumentType" minOccurs="0"/>
+			<xs:element ref="Comment" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="SEPADirectDebitType">
 		<xs:sequence>
 			<xs:element ref="Type"/>
@@ -1533,6 +1549,7 @@
 	</xs:complexType>
 	<xs:complexType name="TaxType">
 		<xs:sequence>
+			<xs:element ref="OtherVATableTax" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="VAT"/>
 			<xs:element ref="OtherTax" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="ext:TaxExtension" minOccurs="0"/>
@@ -1559,9 +1576,19 @@
 		</xs:sequence>
 		<xs:attribute ref="ConsolidatorPayable" use="optional"/>
 	</xs:complexType>
+	<xs:complexType name="VATItemType">
+		<xs:sequence>
+			<xs:element ref="TaxedAmount"/>
+			<xs:choice>
+				<xs:element ref="TaxExemption"/>
+				<xs:element ref="TaxRate"/>
+			</xs:choice>
+			<xs:element ref="Amount"/>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="VATType">
 		<xs:sequence>
-			<xs:element ref="Item" maxOccurs="unbounded"/>
+			<xs:element ref="VATItem" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>
