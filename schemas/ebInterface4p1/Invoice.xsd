@@ -81,7 +81,6 @@
 	<xs:element name="OrderReference" type="OrderReferenceType"/>
 	<xs:element name="OtherTax" type="OtherTaxType"/>
 	<xs:element name="OtherVATableTax" type="OtherVATableTaxType"/>
-	<xs:element name="OtherVATableTaxItem" type="OtherVATableTaxItemType"/>
 	<xs:element name="PayableAmount" type="Decimal2Type"/>
 	<xs:element name="PaymentConditions" type="PaymentConditionsType"/>
 	<xs:element name="PaymentDate" type="xs:date"/>
@@ -1425,17 +1424,12 @@
 			<xs:element ref="Amount"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="OtherVATableTaxItemType">
+	<xs:complexType name="OtherVATableTaxType">
 		<xs:sequence>
 			<xs:element ref="TaxedAmount"/>
 			<xs:element ref="TaxRate"/>
 			<xs:element ref="Amount"/>
 			<xs:element ref="Comment"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="OtherVATableTaxType">
-		<xs:sequence>
-			<xs:element ref="OtherVATableTaxItem" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PaymentConditionsType">
@@ -1555,7 +1549,7 @@
 	</xs:complexType>
 	<xs:complexType name="TaxType">
 		<xs:sequence>
-			<xs:element ref="OtherVATableTax" minOccurs="0"/>
+			<xs:element ref="OtherVATableTax" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="VAT"/>
 			<xs:element ref="OtherTax" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="ext:TaxExtension" minOccurs="0"/>
