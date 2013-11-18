@@ -6,7 +6,7 @@
 	<xs:annotation>
 		<xs:documentation>
             schema version: 4.1
-            last update: 2013-10-14
+            last update: 2013-11-18
             documentation: http://www.ebinterface.at/download/documentation/ebInvoice_4p1.pdf
         </xs:documentation>
 	</xs:annotation>

@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2010 rel. 3 sp1 (http://www.altova.com) by - (Vienna University of Technology, Business Informatics) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.ebinterface.at/schema/4p1/extensions/ext" xmlns:sv="http://www.ebinterface.at/schema/4p1/extensions/sv" xmlns:pharmaceuticals="http://www.ebinterface.at/schema/4p1/extensions/pharmaceuticals" targetNamespace="http://www.ebinterface.at/schema/4p1/extensions/ext" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:annotation>
+		<xs:documentation>
+			ebInterface extension Schema
+            schema version: 4.1
+            last update: 2013-11-18
+            documentation: http://www.ebinterface.at/download/documentation/ebInvoice_4p1.pdf
+        </xs:documentation>
+	</xs:annotation>
 	<!-- Import the industry specific namespaces -->
 	<xs:import namespace="http://www.ebinterface.at/schema/4p1/extensions/sv" schemaLocation="ext/ebInterfaceExtension_SV.xsd"/>
 	<!-- === Element declarations === -->
