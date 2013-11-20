@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Mit XMLSpy v2013 rel. 2 sp2 (http://www.altova.com) von Philipp Liegl (ecosio) bearbeitet -->
+<!-- Mit XMLSpy v2013 rel. 2 sp2 (http://www.altova.com) von Pli (Vienna University of Technology, Business Informatics) bearbeitet -->
 <xs:schema xmlns="http://www.ebinterface.at/schema/4p1/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:ext="http://www.ebinterface.at/schema/4p1/extensions/ext" targetNamespace="http://www.ebinterface.at/schema/4p1/" elementFormDefault="qualified" attributeFormDefault="qualified">
 	<xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="http://www.w3.org/TR/2002/REC-xmldsig-core-20020212/xmldsig-core-schema.xsd"/>
 	<xs:import namespace="http://www.ebinterface.at/schema/4p1/extensions/ext" schemaLocation="ebInterfaceExtension.xsd"/>
@@ -640,14 +640,14 @@
 	</xs:simpleType>
 	<xs:simpleType name="DocumentTypeType">
 		<xs:restriction base="xs:string">
+			<xs:enumeration value="CreditMemo"/>
+			<xs:enumeration value="FinalSettlement"/>
 			<xs:enumeration value="Invoice"/>
 			<xs:enumeration value="InvoiceForAdvancePayment"/>
 			<xs:enumeration value="InvoiceForPartialDelivery"/>
-			<xs:enumeration value="FinalSettlement"/>
-			<xs:enumeration value="SubsequentCredit"/>
-			<xs:enumeration value="CreditMemo"/>
-			<xs:enumeration value="SubsequentDebit"/>
 			<xs:enumeration value="SelfBilling"/>
+			<xs:enumeration value="SubsequentCredit"/>
+			<xs:enumeration value="SubsequentDebit"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ISO 13616 und EBS-Standard (European Banking Standard): 
@@ -1427,7 +1427,7 @@
 	<xs:complexType name="OtherVATableTaxType">
 		<xs:sequence>
 			<xs:element ref="TaxedAmount"/>
-			<xs:element ref="TaxRate"/>
+			<xs:element name="TaxRate" type="PercentageType"/>
 			<xs:element ref="Amount"/>
 			<xs:element ref="Comment"/>
 		</xs:sequence>
