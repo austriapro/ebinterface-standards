@@ -6,7 +6,7 @@
 	<xs:annotation>
 		<xs:documentation>
             schema version: 4.1
-            last update: 2013-11-18
+            last update: 2013-11-28
             documentation: http://www.ebinterface.at/download/documentation/ebInvoice_4p1.pdf
         </xs:documentation>
 	</xs:annotation>
@@ -80,7 +80,6 @@
 	<xs:element name="OrderPositionNumber" type="xs:string"/>
 	<xs:element name="OrderReference" type="OrderReferenceType"/>
 	<xs:element name="OtherTax" type="OtherTaxType"/>
-	<xs:element name="OtherVATableTax" type="OtherVATableTaxType"/>
 	<xs:element name="PayableAmount" type="Decimal2Type"/>
 	<xs:element name="PaymentConditions" type="PaymentConditionsType"/>
 	<xs:element name="PaymentDate" type="xs:date"/>
@@ -1424,14 +1423,6 @@
 			<xs:element ref="Amount"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="OtherVATableTaxType">
-		<xs:sequence>
-			<xs:element ref="TaxedAmount"/>
-			<xs:element name="TaxRate" type="PercentageType"/>
-			<xs:element ref="Amount"/>
-			<xs:element ref="Comment"/>
-		</xs:sequence>
-	</xs:complexType>
 	<xs:complexType name="PaymentConditionsType">
 		<xs:sequence>
 			<xs:element ref="DueDate"/>
@@ -1549,7 +1540,6 @@
 	</xs:complexType>
 	<xs:complexType name="TaxType">
 		<xs:sequence>
-			<xs:element ref="OtherVATableTax" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="VAT"/>
 			<xs:element ref="OtherTax" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="ext:TaxExtension" minOccurs="0"/>
