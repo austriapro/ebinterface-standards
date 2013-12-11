@@ -81,6 +81,8 @@
 	<xs:element name="OrderPositionNumber" type="xs:string"/>
 	<xs:element name="OrderReference" type="OrderReferenceType"/>
 	<xs:element name="OtherTax" type="OtherTaxType"/>
+	<xs:element name="OtherVATableTax" type="OtherVATableTaxType"/>
+	<xs:element name="OtherVATableTaxListLineItem" type="OtherVATableTaxBaseType"/>
 	<xs:element name="PayableAmount" type="Decimal2Type"/>
 	<xs:element name="PaymentConditions" type="PaymentConditionsType"/>
 	<xs:element name="PaymentDate" type="xs:date"/>
@@ -1332,6 +1334,7 @@
 			<xs:element ref="OrderingParty" minOccurs="0"/>
 			<xs:element ref="Details"/>
 			<xs:element ref="ReductionAndSurchargeDetails" minOccurs="0"/>
+			<xs:element ref="OtherVATableTax" minOccurs="0"/>
 			<xs:element ref="Tax"/>
 			<xs:element ref="TotalGrossAmount"/>
 			<xs:element ref="PayableAmount"/>
@@ -1431,6 +1434,24 @@
 			<xs:element ref="Amount"/>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:complexType name="OtherVATableTaxBaseType">
+		<xs:sequence>
+			<xs:element ref="BaseAmount"/>
+			<xs:element ref="Percentage" minOccurs="0"/>
+			<xs:element ref="Amount"/>
+			<xs:element name="TaxID" type="IDType"/>
+			<xs:element ref="Comment" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OtherVATableTaxType">
+		<xs:complexContent>
+			<xs:extension base="OtherVATableTaxBaseType">
+				<xs:sequence>
+					<xs:element ref="TaxRate"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 	<xs:complexType name="PaymentConditionsType">
 		<xs:sequence>
 			<xs:element ref="DueDate"/>
@@ -1494,6 +1515,7 @@
 		<xs:choice minOccurs="0" maxOccurs="unbounded">
 			<xs:element ref="ReductionListLineItem"/>
 			<xs:element ref="SurchargeListLineItem"/>
+			<xs:element ref="OtherVATableTaxListLineItem"/>
 		</xs:choice>
 	</xs:complexType>
 	<xs:complexType name="ReductionAndSurchargeBaseType">
