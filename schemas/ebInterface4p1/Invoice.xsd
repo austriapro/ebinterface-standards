@@ -70,7 +70,6 @@
 	<xs:element name="LayoutID" type="IDType"/>
 	<xs:element name="LineItemAmount" type="Decimal2Type"/>
 	<xs:element name="ListLineItem" type="ListLineItemType"/>
-	<xs:element name="LineTax" type="LineTaxType"/>
 	<xs:element name="LogoURL" type="xs:anyURI"/>
 	<xs:element name="MandateReference" type="ID35Type"/>
 	<xs:element name="MinimumPayment" type="Decimal2Type"/>
@@ -1379,7 +1378,7 @@
 			<xs:element ref="UnitPrice"/>
 			<xs:choice>
 				<xs:element ref="TaxExemption"/>
-				<xs:element ref="LineTax"/>
+				<xs:element ref="VATRate"/>
 			</xs:choice>
 			<xs:element ref="DiscountFlag" minOccurs="0"/>
 			<xs:element ref="ReductionAndSurchargeListLineItemDetails" minOccurs="0"/>
@@ -1389,14 +1388,6 @@
 			<xs:element ref="AdditionalInformation" minOccurs="0"/>
 			<xs:element ref="LineItemAmount"/>
 			<xs:element ref="ext:ListLineItemExtension" minOccurs="0"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="LineTaxType">
-		<xs:sequence>
-			<xs:element ref="TaxedAmount"/>
-			<xs:element ref="VATRate"/>
-			<xs:element ref="Amount"/>
-			<xs:element ref="Comment" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="NoPaymentType">
