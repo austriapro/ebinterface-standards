@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Mit XMLSpy v2013 rel. 2 sp2 (http://www.altova.com) von Pli (Vienna University of Technology, Business Informatics) bearbeitet -->
 <xs:schema xmlns="http://www.ebinterface.at/schema/4p1/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:ext="http://www.ebinterface.at/schema/4p1/extensions/ext" targetNamespace="http://www.ebinterface.at/schema/4p1/" elementFormDefault="qualified" attributeFormDefault="qualified">
 	<xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="http://www.w3.org/TR/2002/REC-xmldsig-core-20020212/xmldsig-core-schema.xsd"/>
 	<xs:import namespace="http://www.ebinterface.at/schema/4p1/extensions/ext" schemaLocation="ebInterfaceExtension.xsd"/>
 	<xs:annotation>
 		<xs:documentation>
             schema version: 4.1
-            last update: 2013-11-28
+            last update: 2013-12-11
             documentation: http://www.ebinterface.at/download/documentation/ebInvoice_4p1.pdf
         </xs:documentation>
 	</xs:annotation>
