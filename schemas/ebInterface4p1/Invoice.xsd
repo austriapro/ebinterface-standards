@@ -114,7 +114,6 @@
 	<xs:element name="Tax" type="TaxType"/>
 	<xs:element name="TaxedAmount" type="Decimal2Type"/>
 	<xs:element name="TaxExemption" type="TaxExemptionType"/>
-	<xs:element name="TaxRate" type="TaxRateType"/>
 	<xs:element name="ToDate" type="xs:date"/>
 	<xs:element name="TotalGrossAmount" type="Decimal2Type"/>
 	<xs:element name="Town" type="xs:string"/>
@@ -124,6 +123,7 @@
 	<xs:element name="URL" type="xs:anyURI"/>
 	<xs:element name="VAT" type="VATType"/>
 	<xs:element name="VATIdentificationNumber" type="xs:string"/>
+	<xs:element name="VATRate" type="VATRateType"/>
 	<xs:element name="Weight" type="UnitType"/>
 	<xs:element name="ZIP" type="xs:string"/>
 	<!-- === Attribute Deklarations === -->
@@ -1334,7 +1334,6 @@
 			<xs:element ref="OrderingParty" minOccurs="0"/>
 			<xs:element ref="Details"/>
 			<xs:element ref="ReductionAndSurchargeDetails" minOccurs="0"/>
-			<xs:element ref="OtherVATableTax" minOccurs="0"/>
 			<xs:element ref="Tax"/>
 			<xs:element ref="TotalGrossAmount"/>
 			<xs:element ref="PayableAmount"/>
@@ -1395,8 +1394,9 @@
 	<xs:complexType name="LineTaxType">
 		<xs:sequence>
 			<xs:element ref="TaxedAmount"/>
-			<xs:element ref="TaxRate"/>
+			<xs:element ref="VATRate"/>
 			<xs:element ref="Amount"/>
+			<xs:element ref="Comment" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="NoPaymentType">
@@ -1447,7 +1447,7 @@
 		<xs:complexContent>
 			<xs:extension base="OtherVATableTaxBaseType">
 				<xs:sequence>
-					<xs:element ref="TaxRate"/>
+					<xs:element ref="VATRate"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -1507,6 +1507,7 @@
 			<xs:choice maxOccurs="unbounded">
 				<xs:element ref="Reduction" minOccurs="0"/>
 				<xs:element ref="Surcharge" minOccurs="0"/>
+				<xs:element ref="OtherVATableTax" minOccurs="0"/>
 			</xs:choice>
 			<xs:element ref="ext:ReductionAndSurchargeDetailsExtension" minOccurs="0"/>
 		</xs:sequence>
@@ -1530,7 +1531,7 @@
 		<xs:complexContent>
 			<xs:extension base="ReductionAndSurchargeBaseType">
 				<xs:sequence>
-					<xs:element ref="TaxRate"/>
+					<xs:element ref="VATRate"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -1558,13 +1559,6 @@
 		<xs:simpleContent>
 			<xs:extension base="xs:string">
 				<xs:attribute ref="TaxExemptionCode" use="optional"/>
-			</xs:extension>
-		</xs:simpleContent>
-	</xs:complexType>
-	<xs:complexType name="TaxRateType">
-		<xs:simpleContent>
-			<xs:extension base="PercentageType">
-				<xs:attribute ref="TaxCode" use="optional"/>
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -1601,10 +1595,17 @@
 			<xs:element ref="TaxedAmount"/>
 			<xs:choice>
 				<xs:element ref="TaxExemption"/>
-				<xs:element ref="TaxRate"/>
+				<xs:element ref="VATRate"/>
 			</xs:choice>
 			<xs:element ref="Amount"/>
 		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VATRateType">
+		<xs:simpleContent>
+			<xs:extension base="PercentageType">
+				<xs:attribute ref="TaxCode" use="optional"/>
+			</xs:extension>
+		</xs:simpleContent>
 	</xs:complexType>
 	<xs:complexType name="VATType">
 		<xs:sequence>
