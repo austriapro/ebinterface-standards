@@ -1503,10 +1503,10 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ReductionAndSurchargeListLineItemDetailsType">
-		<xs:choice minOccurs="0" maxOccurs="unbounded">
-			<xs:element ref="ReductionListLineItem"/>
-			<xs:element ref="SurchargeListLineItem"/>
-			<xs:element ref="OtherVATableTaxListLineItem"/>
+		<xs:choice maxOccurs="unbounded">
+			<xs:element ref="ReductionListLineItem" minOccurs="0"/>
+			<xs:element ref="SurchargeListLineItem" minOccurs="0"/>
+			<xs:element ref="OtherVATableTaxListLineItem" minOccurs="0"/>
 		</xs:choice>
 	</xs:complexType>
 	<xs:complexType name="ReductionAndSurchargeBaseType">
