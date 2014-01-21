@@ -18,35 +18,35 @@ import at.ebinterface.validation.web.components.CodeBox;
  *
  */
 public class ShowRulesPage extends BasePage {
-	
-	
-	public ShowRulesPage(String selectedSchematron, String selectedSchematronFile) {
-		
-		//Add a label showing the selected Schematron file
-		add(new Label("selectedSchematron", Model.of(selectedSchematron)));
-		
-		
-		//Add a return link
-		add(new Link("returnLink") {
-			@Override
-			public void onClick() {
-				setResponsePage(StartPage.class);
-			}			
-		});
-						
-		StringWriter writer = new StringWriter();
-		try {
-			IOUtils.copy(this.getClass().getResourceAsStream(selectedSchematronFile), writer, "UTF-8");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		//Add the codebox for showing the schematron rules
-		CodeBox codeBox = new CodeBox("message", writer.toString()).setDisplayLineNumbers(true);
-		add(codeBox);
-		 
-		
-	}
+
+
+  public ShowRulesPage(final String selectedSchematron, final String selectedSchematronFile) {
+
+    //Add a label showing the selected Schematron file
+    add(new Label("selectedSchematron", Model.of(selectedSchematron)));
+
+
+    //Add a return link
+    add(new Link<Object>("returnLink") {
+      @Override
+      public void onClick() {
+        setResponsePage(StartPage.class);
+      }
+    });
+
+    final StringWriter writer = new StringWriter();
+    try {
+      IOUtils.copy(this.getClass().getResourceAsStream(selectedSchematronFile), writer, "UTF-8");
+    } catch (final IOException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+
+    //Add the codebox for showing the schematron rules
+    final CodeBox codeBox = new CodeBox("message", writer.toString()).setDisplayLineNumbers(true);
+    add(codeBox);
+
+
+  }
 
 }

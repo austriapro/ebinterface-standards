@@ -7,47 +7,40 @@ package at.ebinterface.validation.validator;
  */
 public enum EbInterfaceVersion {
 
-	
-	E3P0("http://www.ebinterface.at/schema/3p0/"), E3P02("http://www.ebinterface.at/schema/3p02/"), E4P0("http://www.ebinterface.at/schema/4p0/");
-	
-	private final String namespace;
-	private boolean signed;
-	private String signatureNamespacePrefix;
 
-	
-	private EbInterfaceVersion(String s) {
-		this.namespace = s;		
-	}
+  E3P0("http://www.ebinterface.at/schema/3p0/"), E3P02("http://www.ebinterface.at/schema/3p02/"), E4P0("http://www.ebinterface.at/schema/4p0/");
+
+  private final String namespace;
+  private boolean signed;
+  private String signatureNamespacePrefix;
 
 
-	public String getNamespace() {
-		return namespace;
-	}
+  private EbInterfaceVersion(final String s) {
+    this.namespace = s;
+  }
 
 
-	public boolean isSigned() {
-		return signed;
-	}
+  public String getNamespace() {
+    return namespace;
+  }
 
 
-	public void setSigned(boolean signed) {
-		this.signed = signed;
-	}
+  public boolean isSigned() {
+    return signed;
+  }
 
 
-	public String getSignatureNamespacePrefix() {
-		return signatureNamespacePrefix;
-	}
+  public void setSigned(final boolean signed) {
+    this.signed = signed;
+  }
 
 
-	public void setSignatureNamespacePrefix(String signatureNamespacePrefix) {
-		this.signatureNamespacePrefix = signatureNamespacePrefix;
-	}
-	
+  public String getSignatureNamespacePrefix() {
+    return signatureNamespacePrefix;
+  }
 
-	
-	
-	
-	
-	
+
+  public void setSignatureNamespacePrefix(final String signatureNamespacePrefix) {
+    this.signatureNamespacePrefix = signatureNamespacePrefix;
+  }
 }

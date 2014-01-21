@@ -1,6 +1,5 @@
 package at.ebinterface.validation.web.pages;
 
-import org.apache.wicket.markup.MarkupType;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.model.Model;
@@ -12,18 +11,14 @@ import org.apache.wicket.model.Model;
  */
 public class PrintViewPage extends WebPage {
 
-	
-	public PrintViewPage(String xsltOutput) {
-						
-		Label printViewLabel = new Label("printViewPanel", Model.of(xsltOutput));
-		printViewLabel.setEscapeModelStrings(false);
-		add(printViewLabel);
-				
-	}
 
-	
-	
-	
-	
-	
+  public PrintViewPage(final String xsltOutput) {
+
+    final Label printViewLabel = new Label("printViewPanel", Model.of(xsltOutput));
+    printViewLabel.setEscapeModelStrings(false);
+    add(printViewLabel);
+
+  }
+
+
 }

@@ -9,22 +9,16 @@ import java.io.Serializable;
  */
 public class InputModel implements Serializable {
 
-	
-	
-	private String ruleSelector;
 
-	public String getRuleSelector() {
-		return ruleSelector;
-	}
 
-	public void setRuleSelector(String ruleSelector) {
-		this.ruleSelector = ruleSelector;
-	}
-	
-	
-	
-	
-	
-	
-	
+  private String ruleSelector;
+
+  public String getRuleSelector() {
+    return ruleSelector;
+  }
+
+  public void setRuleSelector(final String ruleSelector) {
+    this.ruleSelector = ruleSelector;
+  }
+
 }
