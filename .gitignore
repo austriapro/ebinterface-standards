@@ -5,3 +5,5 @@
 *.jar
 *.war
 *.ear
+validation-service/.idea/
+validation-service/validierungsservice.iml
