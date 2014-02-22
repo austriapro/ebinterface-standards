@@ -7,3 +7,5 @@
 *.ear
 validation-service/.idea/
 validation-service/validierungsservice.iml
+validation-service/out/
+validation-service/src/main/resources/rebel.xml

@@ -25,6 +25,55 @@ import at.ebinterface.validation.validator.jaxb.Result;
 public class EbInterfaceValidatorTest
 {
 
+
+
+
+
+    /**
+     * Test the schema validator
+     *
+     * @throws IOException
+     */
+    @Test
+    public void test4p1SchemaValidator () throws IOException
+    {
+
+        // Valid schema
+        InputStream input = this.getClass ().getResourceAsStream ("/ebinterface/4p0/testinstance-valid-schema.xml");
+        byte [] uploadedData = null;
+
+        assertNotNull (input);
+        // Step 1 - validate against the schema
+        uploadedData = IOUtils.toByteArray (input);
+        EbInterfaceValidator validator = new EbInterfaceValidator ();
+        ValidationResult result = validator.validateXMLInstanceAgainstSchema (uploadedData);
+        assertTrue (StringUtils.isEmpty (result.getSchemaValidationErrorMessage ()));
+
+        input = this.getClass ().getResourceAsStream ("/ebinterface/4p0/ebinterface4-test1.xml");
+        uploadedData = IOUtils.toByteArray (input);
+        validator = new EbInterfaceValidator ();
+        result = validator.validateXMLInstanceAgainstSchema (uploadedData);
+        assertTrue (StringUtils.isEmpty (result.getSchemaValidationErrorMessage ()));
+
+        // Invalid schema
+        input = this.getClass ().getResourceAsStream ("/ebinterface/4p0/testinstance-invalid-schema.xml");
+        uploadedData = IOUtils.toByteArray (input);
+        validator = new EbInterfaceValidator ();
+        result = validator.validateXMLInstanceAgainstSchema (uploadedData);
+        assertFalse (StringUtils.isEmpty (result.getSchemaValidationErrorMessage ()));
+
+        input = this.getClass ().getResourceAsStream ("/ebinterface/4p0/ebinterface4-test1-noprefix.xml");
+        uploadedData = IOUtils.toByteArray (input);
+        validator = new EbInterfaceValidator ();
+        result = validator.validateXMLInstanceAgainstSchema (uploadedData);
+        assertFalse (StringUtils.isEmpty (result.getSchemaValidationErrorMessage ()));
+
+        System.out.println (result);
+
+    }
+
+
+
   /**
    * Test the schema validator
    * 

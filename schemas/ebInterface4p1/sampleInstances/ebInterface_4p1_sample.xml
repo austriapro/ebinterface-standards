@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../Invoice1.xslt"?>
+<Invoice n1:GeneratingSystem="String" n1:DocumentType="Invoice" n1:InvoiceCurrency="EUR" n1:ManualProcessing="true" n1:DocumentTitle="Rechnung für Jänner 2014" n1:Language="ger" n1:IsDuplicate="true" xsi:schemaLocation="http://www.ebinterface.at/schema/4p1/ ../Invoice.xsd" xmlns="http://www.ebinterface.at/schema/4p1/" xmlns:n2="http://www.altova.com/samplexml/other-namespace" xmlns:n1="http://www.ebinterface.at/schema/4p1/" xmlns:ext="http://www.ebinterface.at/schema/4p1/extensions/ext" xmlns:sv="http://www.ebinterface.at/schema/4p1/extensions/sv" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">	
+	<InvoiceNumber>RNR 2014/2</InvoiceNumber>
+	<InvoiceDate>2014-02-16</InvoiceDate>
+	<CancelledOriginalDocument>
+		<InvoiceNumber>RNR 49384</InvoiceNumber>
+		<InvoiceDate>2014-02-18</InvoiceDate>
+		<DocumentType>Invoice</DocumentType>
+		<Comment>Storno für ungültige Rechnung</Comment>
+	</CancelledOriginalDocument>
+	<RelatedDocument>
+		<InvoiceNumber>RNR 3939</InvoiceNumber>
+		<InvoiceDate>2014-02-15</InvoiceDate>
+		<DocumentType>Invoice</DocumentType>
+		<Comment>Teilrechnung 1</Comment>
+	</RelatedDocument>
+	<RelatedDocument>
+		<InvoiceNumber>RNR 3940</InvoiceNumber>
+		<InvoiceDate>2014-02-16</InvoiceDate>
+		<DocumentType>Invoice</DocumentType>
+		<Comment>Teilrechnung 2</Comment>
+	</RelatedDocument>	
+	<Delivery>
+		<DeliveryID>Liefernummer 4893</DeliveryID>
+		<Date>1967-08-13</Date>
+		<Address>
+			<AddressIdentifier n1:AddressIdentifierType="GLN">String</AddressIdentifier>
+			<Salutation>String</Salutation>
+			<Name>String</Name>
+			<Street>String</Street>
+			<POBox>String</POBox>
+			<Town>String</Town>
+			<ZIP>String</ZIP>
+			<Country n1:CountryCode="YT">text</Country>
+			<Phone>String</Phone>
+			<Email>String</Email>
+			<Contact>String</Contact>
+			<AddressExtension>String</AddressExtension>
+		</Address>
+		<Description>String</Description>
+		<ext:DeliveryExtension>
+			<sv:DeliveryExtension/>
+			<ext:Custom>
+				<n2:auto-generated_for_wildcard/>
+			</ext:Custom>
+		</ext:DeliveryExtension>
+	</Delivery>
+	<Biller>
+		<VATIdentificationNumber>UID12384938</VATIdentificationNumber>
+		<FurtherIdentification n1:IdentificationType="FBNR">FN 393823 e</FurtherIdentification>
+		<OrderReference>
+			<OrderID>Bestellung Nr. 1293</OrderID>
+			<ReferenceDate>2014-02-12</ReferenceDate>
+			<Description>Faxbestellung</Description>
+		</OrderReference>
+		<Address>
+			<AddressIdentifier n1:AddressIdentifierType="GLN">9856545212354</AddressIdentifier>
+			<AddressIdentifier n1:AddressIdentifierType="ProprietaryAddressID">IKL3993</AddressIdentifier>
+			<Salutation>Firma</Salutation>
+			<Name>Lieferant Mustermann</Name>
+			<Street>Favoritenstraße 329/32</Street>
+			<POBox>4711</POBox>			
+			<Town>Wien</Town>
+			<ZIP>1040</ZIP>
+			<Country n1:CountryCode="AT">Österreich</Country>
+			<Phone>+43 1 58801 8857452</Phone>
+			<Email>office@lieferant-mustermann.at</Email>
+			<Contact>Herr Karl-Heinz Riegler</Contact>
+		</Address>
+		<InvoiceRecipientsBillerID>ID39384</InvoiceRecipientsBillerID>
+	</Biller>
+	<InvoiceRecipient>
+		<VATIdentificationNumber>UID84389384</VATIdentificationNumber>
+		<FurtherIdentification n1:IdentificationType="FBNR">FN 49948 p</FurtherIdentification>
+		<FurtherIdentification n1:IdentificationType="DVR">2342345</FurtherIdentification>		
+		<Address>
+			<AddressIdentifier n1:AddressIdentifierType="GLN">8654599542369</AddressIdentifier>
+			<AddressIdentifier n1:AddressIdentifierType="DUNS">4854859047858</AddressIdentifier>
+			<Salutation>Firma</Salutation>
+			<Name>VGB GmbH &amp; Co KG</Name>
+			<Street>Walserbergstraße 32</Street>
+			<Town>Salzburg</Town>
+			<ZIP>5021</ZIP>
+			<Country n1:CountryCode="AT">Österreich</Country>
+			<Phone>+43 662 565 585</Phone>
+			<Email>office@vgbgmbh.at</Email>
+			<Contact>Frau Helga Schneider</Contact>
+		</Address>
+		<BillersInvoiceRecipientID>39494</BillersInvoiceRecipientID>
+		<AccountingArea>FIBU34</AccountingArea>
+		<SubOrganizationID>Orga33</SubOrganizationID>
+	</InvoiceRecipient>
+	<OrderingParty>
+		<VATIdentificationNumber>String</VATIdentificationNumber>
+		<FurtherIdentification n1:IdentificationType="String">a</FurtherIdentification>
+		<OrderReference>
+			<OrderID>a</OrderID>
+			<ReferenceDate>1967-08-13</ReferenceDate>
+			<Description>String</Description>
+		</OrderReference>
+		<Address>
+			<AddressIdentifier n1:AddressIdentifierType="DUNS">String</AddressIdentifier>
+			<Salutation>String</Salutation>
+			<Name>String</Name>
+			<Street>String</Street>
+			<POBox>String</POBox>
+			<Town>String</Town>
+			<ZIP>String</ZIP>
+			<Country n1:CountryCode="IO">text</Country>
+			<Phone>String</Phone>
+			<Email>String</Email>
+			<Contact>String</Contact>
+			<AddressExtension>String</AddressExtension>
+		</Address>
+		<BillersOrderingPartyID>a</BillersOrderingPartyID>
+		<ext:OrderingPartyExtension>
+			<sv:OrderingPartyExtension/>
+			<ext:Custom>
+				<n2:auto-generated_for_wildcard/>
+			</ext:Custom>
+		</ext:OrderingPartyExtension>
+	</OrderingParty>
+	<Details>
+		<HeaderDescription>String</HeaderDescription>
+		<ItemList>
+			<HeaderDescription>String</HeaderDescription>
+			<ListLineItem>
+				<PositionNumber>2</PositionNumber>
+				<Description>String</Description>
+				<ArticleNumber n1:ArticleNumberType="BillersArticleNumber">text</ArticleNumber>
+				<Quantity n1:Unit="String">1.1234</Quantity>
+				<UnitPrice n1:BaseQuantity="1.1234">1.1234</UnitPrice>
+				<TaxExemption n1:TaxExemptionCode="String">String</TaxExemption>
+				<DiscountFlag>true</DiscountFlag>
+				<ReductionAndSurchargeListLineItemDetails>
+					<ReductionListLineItem>
+						<BaseAmount>1.12</BaseAmount>
+						<Percentage>0</Percentage>
+						<Amount>1.12</Amount>
+						<Comment>String</Comment>
+					</ReductionListLineItem>
+				</ReductionAndSurchargeListLineItemDetails>
+				<Delivery>
+					<DeliveryID>a</DeliveryID>
+					<Date>1967-08-13</Date>
+					<Address>
+						<AddressIdentifier n1:AddressIdentifierType="DUNS">String</AddressIdentifier>
+						<Salutation>String</Salutation>
+						<Name>String</Name>
+						<Street>String</Street>
+						<POBox>String</POBox>
+						<Town>String</Town>
+						<ZIP>String</ZIP>
+						<Country n1:CountryCode="TJ">text</Country>
+						<Phone>String</Phone>
+						<Email>String</Email>
+						<Contact>String</Contact>
+						<AddressExtension>String</AddressExtension>
+					</Address>
+					<Description>String</Description>
+					<ext:DeliveryExtension>
+						<sv:DeliveryExtension/>
+						<ext:Custom>
+							<n2:auto-generated_for_wildcard/>
+						</ext:Custom>
+					</ext:DeliveryExtension>
+				</Delivery>
+				<BillersOrderReference>
+					<OrderID>a</OrderID>
+					<ReferenceDate>1967-08-13</ReferenceDate>
+					<Description>String</Description>
+					<OrderPositionNumber>String</OrderPositionNumber>
+				</BillersOrderReference>
+				<InvoiceRecipientsOrderReference>
+					<OrderID>a</OrderID>
+					<ReferenceDate>1967-08-13</ReferenceDate>
+					<Description>String</Description>
+					<OrderPositionNumber>String</OrderPositionNumber>
+				</InvoiceRecipientsOrderReference>
+				<AdditionalInformation>
+					<SerialNumber>String</SerialNumber>
+					<ChargeNumber>String</ChargeNumber>
+					<Classification n1:ClassificationSchema="String">String</Classification>
+					<AlternativeQuantity n1:Unit="String">1.1234</AlternativeQuantity>
+					<Size>String</Size>
+					<Weight n1:Unit="String">1.1234</Weight>
+					<Boxes>2</Boxes>
+					<Color>String</Color>
+				</AdditionalInformation>
+				<LineItemAmount>1.12</LineItemAmount>
+				<ext:ListLineItemExtension>
+					<sv:ListLineItemExtension>
+						<sv:BeneficiarySocialInsuranceNumber>0000000000</sv:BeneficiarySocialInsuranceNumber>
+					</sv:ListLineItemExtension>
+					<ext:Custom>
+						<n2:auto-generated_for_wildcard/>
+					</ext:Custom>
+				</ext:ListLineItemExtension>
+			</ListLineItem>
+			<FooterDescription>String</FooterDescription>
+		</ItemList>
+		<FooterDescription>String</FooterDescription>
+		<BelowTheLineItem>
+			<Description>String</Description>
+			<LineItemAmount>1.12</LineItemAmount>
+			<Reason n1:Date="1967-08-13">String</Reason>
+		</BelowTheLineItem>
+	</Details>
+	<ReductionAndSurchargeDetails>
+		<Reduction>
+			<BaseAmount>1.12</BaseAmount>
+			<Percentage>0</Percentage>
+			<Amount>1.12</Amount>
+			<Comment>String</Comment>
+			<VATRate n1:TaxCode="ATXXX">0</VATRate>
+		</Reduction>
+		<ext:ReductionAndSurchargeDetailsExtension>
+			<sv:ReductionAndSurchargeDetailsExtension/>
+			<ext:Custom>
+				<n2:auto-generated_for_wildcard/>
+			</ext:Custom>
+		</ext:ReductionAndSurchargeDetailsExtension>
+	</ReductionAndSurchargeDetails>
+	<Tax>
+		<VAT>
+			<VATItem>
+				<TaxedAmount>1.12</TaxedAmount>
+				<TaxExemption n1:TaxExemptionCode="String">String</TaxExemption>
+				<Amount>1.12</Amount>
+			</VATItem>
+		</VAT>
+		<OtherTax>
+			<Comment>String</Comment>
+			<Amount>1.12</Amount>
+		</OtherTax>
+		<ext:TaxExtension>
+			<sv:TaxExtension/>
+			<ext:Custom>
+				<n2:auto-generated_for_wildcard/>
+			</ext:Custom>
+		</ext:TaxExtension>
+	</Tax>
+	<TotalGrossAmount>1.12</TotalGrossAmount>
+	<PayableAmount>1.12</PayableAmount>
+	<PaymentMethod>
+		<Comment>String</Comment>
+		<NoPayment/>
+		<ext:PaymentMethodExtension>
+			<sv:PaymentMethodExtension/>
+			<ext:Custom>
+				<n2:auto-generated_for_wildcard/>
+			</ext:Custom>
+		</ext:PaymentMethodExtension>
+	</PaymentMethod>
+	<PaymentConditions>
+		<DueDate>1967-08-13</DueDate>
+		<Discount>
+			<PaymentDate>1967-08-13</PaymentDate>
+			<BaseAmount>1.12</BaseAmount>
+			<Percentage>0</Percentage>
+			<Amount>1.12</Amount>
+		</Discount>
+		<MinimumPayment>1.12</MinimumPayment>
+		<Comment>String</Comment>
+		<ext:PaymentConditionsExtension>
+			<sv:PaymentConditionsExtension/>
+			<ext:Custom>
+				<n2:auto-generated_for_wildcard/>
+			</ext:Custom>
+		</ext:PaymentConditionsExtension>
+	</PaymentConditions>
+	<PresentationDetails>
+		<URL>http://www.ecosio.com</URL>
+		<LogoURL>https://s3-eu-west-1.amazonaws.com/cdn.ecosio.com/company-images/manuallyUploaded/lieferant_mustermann_logo.png</LogoURL>
+		<LayoutID>a</LayoutID>
+		<SuppressZero>true</SuppressZero>
+		<ext:PresentationDetailsExtension>
+			<sv:PresentationDetailsExtension/>
+			<ext:Custom>
+				<n2:auto-generated_for_wildcard/>
+			</ext:Custom>
+		</ext:PresentationDetailsExtension>
+	</PresentationDetails>
+	<Comment>String</Comment>
+	<ext:InvoiceRootExtension>
+		<sv:InvoiceRootExtension/>
+		<ext:Custom>
+			<n2:auto-generated_for_wildcard/>
+		</ext:Custom>
+	</ext:InvoiceRootExtension>
+</Invoice>

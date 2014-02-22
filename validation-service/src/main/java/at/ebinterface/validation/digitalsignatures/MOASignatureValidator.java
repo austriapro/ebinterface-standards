@@ -1,17 +1,5 @@
 package at.ebinterface.validation.digitalsignatures;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.xml.transform.TransformerException;
-
-import org.apache.commons.lang.StringUtils;
-import org.apache.xml.security.exceptions.XMLSecurityException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import at.gv.egovernment.moa.spss.MOAException;
 import at.gv.egovernment.moa.spss.api.SPSSFactory;
 import at.gv.egovernment.moa.spss.api.SignatureVerificationService;
@@ -21,6 +9,14 @@ import at.gv.egovernment.moa.spss.api.xmlverify.VerifySignatureInfo;
 import at.gv.egovernment.moa.spss.api.xmlverify.VerifySignatureLocation;
 import at.gv.egovernment.moa.spss.api.xmlverify.VerifyXMLSignatureRequest;
 import at.gv.egovernment.moa.spss.api.xmlverify.VerifyXMLSignatureResponse;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
+import javax.xml.transform.TransformerException;
+import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public enum MOASignatureValidator {
 
@@ -47,9 +43,7 @@ public enum MOASignatureValidator {
   /**
    * Convenience method to allow calling w/ byte array.
    * 
-   * @throws TransformerException
-   * @throws org.apache.xml.security.signature.XMLSignatureException
-   * @throws XMLSecurityException
+   * @throws Exception
    */
   public VerifyXMLSignatureResponse validate(final byte[] signed, final String signatureNameSpacePrefix) throws Exception
   {
@@ -58,16 +52,9 @@ public enum MOASignatureValidator {
   }
 
   /**
+   * Validate an enveloped XML signature
    * @throws Exception
-   * @throws org.apache.xml.security.signature.XMLSignatureException
-   * @throws XMLSecurityException
-   *             Validate an enveloped XML signature
-   * 
-   * @throws SignatureValidationException
-   * @throws TransformerException
-   * @throws ClassNotFoundException
-   * @throws InstantiationException
-   * @throws Exception
+
    */
   public VerifyXMLSignatureResponse validate(final InputStream signed, final String signatureNamespacePrefix) throws Exception {
 

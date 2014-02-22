@@ -8,7 +8,10 @@ package at.ebinterface.validation.validator;
 public enum EbInterfaceVersion {
 
 
-  E3P0("http://www.ebinterface.at/schema/3p0/"), E3P02("http://www.ebinterface.at/schema/3p02/"), E4P0("http://www.ebinterface.at/schema/4p0/");
+  E3P0("http://www.ebinterface.at/schema/3p0/"),
+  E3P02("http://www.ebinterface.at/schema/3p02/"),
+  E4P0("http://www.ebinterface.at/schema/4p0/"),
+  E4P1("http://www.ebinterface.at/schema/4p1/");
 
   private final String namespace;
   private boolean signed;
