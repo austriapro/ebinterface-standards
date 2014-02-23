@@ -22,29 +22,22 @@
 		<Comment>Teilrechnung 2</Comment>
 	</RelatedDocument>	
 	<Delivery>
-		<DeliveryID>Liefernummer 4893</DeliveryID>
-		<Date>1967-08-13</Date>
+		<DeliveryID>4893</DeliveryID>
+		<Date>2014-02-15</Date>
 		<Address>
-			<AddressIdentifier n1:AddressIdentifierType="GLN">String</AddressIdentifier>
-			<Salutation>String</Salutation>
-			<Name>String</Name>
-			<Street>String</Street>
-			<POBox>String</POBox>
-			<Town>String</Town>
-			<ZIP>String</ZIP>
-			<Country n1:CountryCode="YT">text</Country>
-			<Phone>String</Phone>
-			<Email>String</Email>
-			<Contact>String</Contact>
-			<AddressExtension>String</AddressExtension>
+			<AddressIdentifier n1:AddressIdentifierType="GLN">5632545698754</AddressIdentifier>
+			<Salutation>Firma</Salutation>
+			<Name>Planck GmbH</Name>
+			<Street>Triester Straße 134</Street>
+			<Town>Wien</Town>
+			<ZIP>1100</ZIP>
+			<Country n1:CountryCode="AT">Österreich</Country>
+			<Phone>+43 1 6525 5487</Phone>
+			<Email>office@firma-planck.at</Email>
+			<Contact>Herr Hannes Anzengruber (Tel.: 0664 8934 483 44)</Contact>
+			<AddressExtension>Hinweis: Neuer Firmensitz ab 01.01.2014</AddressExtension>
 		</Address>
-		<Description>String</Description>
-		<ext:DeliveryExtension>
-			<sv:DeliveryExtension/>
-			<ext:Custom>
-				<n2:auto-generated_for_wildcard/>
-			</ext:Custom>
-		</ext:DeliveryExtension>
+		<Description>Keine Anlieferungen ohne vorheriges Lieferavis (DESADV) möglich!</Description>
 	</Delivery>
 	<Biller>
 		<VATIdentificationNumber>UID12384938</VATIdentificationNumber>
@@ -92,42 +85,35 @@
 		<SubOrganizationID>Orga33</SubOrganizationID>
 	</InvoiceRecipient>
 	<OrderingParty>
-		<VATIdentificationNumber>String</VATIdentificationNumber>
-		<FurtherIdentification n1:IdentificationType="String">a</FurtherIdentification>
+		<VATIdentificationNumber>ATU9990394</VATIdentificationNumber>
+		<FurtherIdentification n1:IdentificationType="FBNR">FN 939484 g</FurtherIdentification>
 		<OrderReference>
-			<OrderID>a</OrderID>
-			<ReferenceDate>1967-08-13</ReferenceDate>
-			<Description>String</Description>
+			<OrderID>ORD34939</OrderID>
+			<ReferenceDate>2014-02-02</ReferenceDate>
+			<Description>Ursprüngliche Bestellung per Fax</Description>
 		</OrderReference>
 		<Address>
-			<AddressIdentifier n1:AddressIdentifierType="DUNS">String</AddressIdentifier>
-			<Salutation>String</Salutation>
-			<Name>String</Name>
-			<Street>String</Street>
-			<POBox>String</POBox>
-			<Town>String</Town>
-			<ZIP>String</ZIP>
-			<Country n1:CountryCode="IO">text</Country>
-			<Phone>String</Phone>
-			<Email>String</Email>
-			<Contact>String</Contact>
-			<AddressExtension>String</AddressExtension>
+			<AddressIdentifier n1:AddressIdentifierType="DUNS">55658585</AddressIdentifier>
+			<AddressIdentifier n1:AddressIdentifierType="GLN">5698532156548</AddressIdentifier>
+			<Salutation>Firma</Salutation>
+			<Name>Gustavson Industriebedarf</Name>
+			<Street>Implerstraße 3</Street>
+			<Town>München</Town>
+			<ZIP>85652</ZIP>
+			<Country n1:CountryCode="DE">Deutschland</Country>
+			<Phone>+49 89 343 55874</Phone>
+			<Email>office@gustavson-industriebedarf.de</Email>
+			<Contact>Frau Alexandra Mayer</Contact>
 		</Address>
-		<BillersOrderingPartyID>a</BillersOrderingPartyID>
-		<ext:OrderingPartyExtension>
-			<sv:OrderingPartyExtension/>
-			<ext:Custom>
-				<n2:auto-generated_for_wildcard/>
-			</ext:Custom>
-		</ext:OrderingPartyExtension>
+		<BillersOrderingPartyID>58855</BillersOrderingPartyID>
 	</OrderingParty>
 	<Details>
-		<HeaderDescription>String</HeaderDescription>
+		<HeaderDescription>Wir erlauben uns die folgenden Positionen in Rechnung zu stellen</HeaderDescription>
 		<ItemList>
-			<HeaderDescription>String</HeaderDescription>
+			<HeaderDescription>Rechnungspositionen basierend auf der Faxbestellung</HeaderDescription>
 			<ListLineItem>
-				<PositionNumber>2</PositionNumber>
-				<Description>String</Description>
+				<PositionNumber>1</PositionNumber>
+				<Description>Produkt A</Description>
 				<ArticleNumber n1:ArticleNumberType="BillersArticleNumber">text</ArticleNumber>
 				<Quantity n1:Unit="String">1.1234</Quantity>
 				<UnitPrice n1:BaseQuantity="1.1234">1.1234</UnitPrice>
@@ -189,18 +175,21 @@
 					<Color>String</Color>
 				</AdditionalInformation>
 				<LineItemAmount>1.12</LineItemAmount>
-				<ext:ListLineItemExtension>
-					<sv:ListLineItemExtension>
-						<sv:BeneficiarySocialInsuranceNumber>0000000000</sv:BeneficiarySocialInsuranceNumber>
-					</sv:ListLineItemExtension>
-					<ext:Custom>
-						<n2:auto-generated_for_wildcard/>
-					</ext:Custom>
-				</ext:ListLineItemExtension>
-			</ListLineItem>
-			<FooterDescription>String</FooterDescription>
+			</ListLineItem>			
+			<FooterDescription>Wir bitten um vereinbarungsgemäße Zahlung</FooterDescription>
 		</ItemList>
-		<FooterDescription>String</FooterDescription>
+		<ItemList>
+			<HeaderDescription>Rechnungspositionen basierend auf der telefonischen Bestellung</HeaderDescription>
+			<ListLineItem xmlns:n3="http://www.ebinterface.at/schema/4p1/">
+				<Description></Description>
+				<Quantity n3:Unit="">1</Quantity>
+				<UnitPrice>1</UnitPrice>
+				<TaxExemption></TaxExemption>
+				<LineItemAmount>1</LineItemAmount>
+			</ListLineItem>
+			<FooterDescription>Wir bitten um genaue Nachkontrolle bei der telefonischen Bestellung!</FooterDescription>
+		</ItemList>
+		<FooterDescription>Lieferung erfolgt wie vereinbart.</FooterDescription>
 		<BelowTheLineItem>
 			<Description>String</Description>
 			<LineItemAmount>1.12</LineItemAmount>

@@ -17,7 +17,7 @@
 		<html lang="de">
 			<head>
 				<title>
-					<xsl:value-of select="//eb:Invoice/@eb:DocumentTitle"/>
+					<xsl:value-of select="/eb:Invoice/@eb:DocumentTitle"/>
 				</title>
 				<link rel="stylesheet" href="../css/bootstrap.min.css"/>
 				<meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -30,45 +30,58 @@
 					<div class="row">
 						<div class="col-md-6">
 							<!-- Issuer of invoice -->
-							<xsl:apply-templates select="//eb:Biller"/>
+							<xsl:apply-templates select="/eb:Invoice/eb:Biller"/>
 							<br/>
 							<br/>
 							<!-- Invoice recipient -->
-							<xsl:apply-templates select="//eb:InvoiceRecipient"/>
+							<xsl:apply-templates select="/eb:Invoice/eb:InvoiceRecipient"/>
+							<br/>
+							<br/>
+							<!-- Auftragggeber -->
+							<xsl:apply-templates select="/eb:Invoice/eb:OrderingParty"/>
 						</div>
 						<div class="col-md-6">
 							<!-- Logo -->
-							<xsl:apply-templates select="//eb:PresentationDetails/eb:LogoURL"/>
+							<xsl:apply-templates select="/eb:Invoice/eb:PresentationDetails/eb:LogoURL"/>
 							<!-- Type of document -->
 							<h2>
 								<xsl:call-template name="getDocumentType">
-									<xsl:with-param name="documentType" select="//eb:Invoice/@eb:DocumentType"/>
+									<xsl:with-param name="documentType" select="/eb:Invoice/@eb:DocumentType"/>
 								</xsl:call-template>
 							</h2>
 							<!-- Document number -->
-							<xsl:apply-templates select="eb:Invoice/eb:InvoiceNumber"/>
+							<xsl:apply-templates select="/eb:Invoice/eb:InvoiceNumber"/>
 							<!-- Document date -->
-							<xsl:apply-templates select="eb:Invoice/eb:InvoiceDate"/>
+							<xsl:apply-templates select="/eb:Invoice/eb:InvoiceDate"/>
 							<!-- Optional document title -->
-							<xsl:if test="eb:Invoice/@eb:DocumentTitle">
-								<xsl:value-of select="eb:Invoice/@eb:DocumentTitle"/>
+							<xsl:if test="/eb:Invoice/@eb:DocumentTitle">
+								<xsl:value-of select="/eb:Invoice/@eb:DocumentTitle"/>
 								<br/>
 							</xsl:if>
 							<!-- Original or copy? -->
-							<xsl:if test="eb:Invoice/@eb:IsDuplicate">
+							<xsl:if test="/eb:Invoice/@eb:IsDuplicate">
 								<span class="label label-danger">Das ist eine Rechnungskopie</span>
 								<br/>
 							</xsl:if>
 							<!-- Cancelled document -->
-							<xsl:apply-templates select="eb:Invoice/eb:CancelledOriginalDocument"/>
+							<xsl:apply-templates select="/eb:Invoice/eb:CancelledOriginalDocument"/>
 							<!-- Related documents -->
-							<xsl:if test="eb:Invoice/eb:RelatedDocument">
+							<xsl:if test="/eb:Invoice/eb:RelatedDocument">
 								<br/>
 								Referenzierte Dokumente:<br/>
 								<ul>									
-										<xsl:apply-templates select="eb:Invoice/eb:RelatedDocument"/>
+										<xsl:apply-templates select="/eb:Invoice/eb:RelatedDocument"/>
 								</ul>								
-							</xsl:if>							
+							</xsl:if>
+							<!-- Delivery details -->
+							<xsl:apply-templates select="/eb:Invoice/eb:Delivery"/>						
+														
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<h3>Rechnungsdetails</h3>
+							<xsl:apply-templates select="/eb:Invoice/eb:Details"/>
 						</div>
 					</div>
 				</div>
@@ -95,6 +108,11 @@
 		<xsl:apply-templates select="eb:Phone"/>
 		<xsl:apply-templates select="eb:Email"/>
 		<xsl:apply-templates select="eb:Contact"/>
+		<xsl:apply-templates select="eb:AddressExtension"/>
+		<xsl:apply-templates select="eb:AddressIdentifier"/>
+	</xsl:template>
+	<xsl:template match="eb:AddressExtension">
+		<xsl:value-of select="."/><br/>
 	</xsl:template>
 	<xsl:template match="eb:Contact">
 		Ansprechperson: <xsl:value-of select="."/>
@@ -129,7 +147,14 @@
 	<xsl:template match="//eb:AddressIdentifier">
 		<xsl:choose>
 			<xsl:when test=".">
-				<xsl:value-of select="@eb:AddressIdentifierType"/>
+				<!-- Print a German expression for ProprietaryAddressID -->
+				<xsl:choose>
+				<xsl:when test="@eb:AddressIdentifierType = 'ProprietaryAddressID'">
+					Propietäre ID</xsl:when>
+				<xsl:otherwise>
+					<xsl:value-of select="@eb:AddressIdentifierType"/>				
+				</xsl:otherwise>
+				</xsl:choose>
 				<xsl:text>: </xsl:text>
 				<xsl:value-of select="."/>
 				<br/>
@@ -137,7 +162,7 @@
 		</xsl:choose>
 	</xsl:template>
 	<!-- ==================== Biller ==================== -->
-	<xsl:template match="//eb:Biller">
+	<xsl:template match="/eb:Invoice/eb:Biller">
 		<span class="label label-primary">Rechnungssteller</span>
 		<br/>
 		<xsl:apply-templates select="eb:Address"/>
@@ -152,7 +177,7 @@
 		<br/>
 	</xsl:template>
 	<!-- ==================== Cancelled Orginal Document ==================== -->
-	<xsl:template match="//eb:Invoice/eb:CancelledOriginalDocument">
+	<xsl:template match="/eb:Invoice/eb:CancelledOriginalDocument">
 		<br/>
 		Storno für für fehlerhafte		
         <xsl:call-template name="getDocumentType">
@@ -167,6 +192,105 @@
 		(<xsl:value-of select="eb:Comment"/>)
 		<br/>
 	</xsl:template>
+	<!-- ==================== Delivery ==================== -->	
+	<xsl:template match="/eb:Invoice/eb:Delivery">
+		<span class="label label-primary">Lieferdetails</span> <br/>		
+		<xsl:apply-templates select="eb:Address"/>
+		<br/>
+		<xsl:apply-templates select="eb:DeliveryID"/>
+		<xsl:apply-templates select="eb:Date"/>
+		<xsl:apply-templates select="eb:Period"/>
+		<xsl:apply-templates select="eb:Description"/>				
+	</xsl:template>
+	<xsl:template match="eb:Date">
+		Lieferdatum: 		
+		<xsl:call-template name="prettyPrintDateFunction">
+			<xsl:with-param name="dateString" select="."/>
+		</xsl:call-template>			
+		<br/>
+	</xsl:template>
+	<xsl:template match="eb:DeliveryID">
+		Liefer-ID: <xsl:value-of select="."/>
+		<br/>
+	</xsl:template>
+	<xsl:template match="eb:Period">
+		Lieferzeit zwischen
+		<xsl:call-template name="prettyPrintDateFunction">
+			<xsl:with-param name="dateString" select="eb:FromDate"/>
+		</xsl:call-template>
+		und
+		<xsl:call-template name="prettyPrintDateFunction">
+			<xsl:with-param name="dateString" select="eb:ToDate"/>
+		</xsl:call-template>		
+	</xsl:template>	
+	
+	<!-- ==================== Details ==================== -->		
+	<xsl:template match="/eb:Invoice/eb:Details">
+
+		<!-- Header description per ItemList -->
+		<xsl:apply-templates select="eb:HeaderDescription"/>
+
+		<!-- Iterate over the different item lists -->
+		<xsl:for-each select="eb:ItemList">
+					<h4>Verrechnete Positionen</h4>					
+					<xsl:apply-templates select="eb:HeaderDescription"/>
+
+					<table class="table table-condensed">
+					    <thead>
+										<tr>
+											<th>Pos-Nr.</th>
+											<th>Bezeichnung</th>
+											<th>Artikelnr.</th>
+											<th>Menge</th>
+											<th>Einzelpreis</th>
+											<th>Gesamtpreis</th>
+										</tr>
+						</thead>
+						<tbody>
+							<xsl:for-each select="eb:ListLineItem">						
+								<tr>
+									<td>
+										<!-- Position number -->
+										<xsl:choose>
+											<xsl:when test="eb:PositionNumber">
+												<xsl:value-of select="eb:PositionNumber"/>
+											</xsl:when>
+											<xsl:otherwise>
+												<!-- If no position number is present, we take the current iterator value -->
+												<xsl:value-of select="position()" />
+											</xsl:otherwise>
+										</xsl:choose>
+									</td>
+									<td>
+										<!-- Description -->
+										<xsl:value-of select="eb:Description" />
+									</td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							</xsl:for-each>							
+						</tbody>
+					</table>					
+					<xsl:apply-templates select="eb:FooterDescription"/>
+		</xsl:for-each>
+		
+		<!-- Footer description per ItemList -->
+		<xsl:apply-templates select="eb:FooterDescription"/>
+		
+	</xsl:template>		
+	<xsl:template match="eb:FooterDescription">
+		<xsl:value-of select="."/><br/><br/>
+	</xsl:template>	
+	<xsl:template match="eb:HeaderDescription">
+		<xsl:value-of select="."/><br/><br/>
+	</xsl:template>
+	
+	
+	<!-- ==================== Description ==================== -->	
+	<xsl:template match="/eb:Description">
+		Hinweise zur Lieferung: <xsl:value-of select="."/><br/>
+	</xsl:template>	
 	<!-- ==================== Further identification ==================== -->
 	<xsl:template match="//eb:FurtherIdentification">
 		<xsl:choose>
@@ -179,7 +303,7 @@
 		</xsl:choose>
 	</xsl:template>
 	<!-- ==================== Invoice date ==================== -->
-	<xsl:template match="eb:Invoice/eb:InvoiceDate">
+	<xsl:template match="/eb:Invoice/eb:InvoiceDate">
 		Datum: 		
 		<xsl:call-template name="prettyPrintDateFunction">
 			<xsl:with-param name="dateString" select="."/>
@@ -187,12 +311,12 @@
 		<br/>
 	</xsl:template>
 	<!-- ==================== Invoice number ==================== -->
-	<xsl:template match="eb:Invoice/eb:InvoiceNumber">		
+	<xsl:template match="/eb:Invoice/eb:InvoiceNumber">		
 		Nr.: <xsl:value-of select="."/>
 		<br/>
 	</xsl:template>
 	<!-- ==================== InvoiceRecipient ==================== -->
-	<xsl:template match="//eb:InvoiceRecipient">
+	<xsl:template match="/eb:Invoice/eb:InvoiceRecipient">
 		<span class="label label-primary">Rechnungsempfänger</span>
 		<br/>
 		<xsl:apply-templates select="eb:Address"/>
@@ -231,8 +355,24 @@
 		</xsl:if>
 		<br/>
 	</xsl:template>
+
+	<!-- ==================== Ordering party ==================== -->
+	<xsl:template match="//eb:OrderingParty">
+		<span class="label label-primary">Auftraggeber</span>
+		<br/>
+		<xsl:apply-templates select="eb:Address"/>
+		<br/>
+		<xsl:apply-templates select="eb:BillersOrderingPartyID"/>
+		<xsl:apply-templates select="eb:VATIdentificationNumber"/>
+		<xsl:apply-templates select="eb:FurtherIdentification"/>
+		<xsl:apply-templates select="eb:OrderReference"/>		
+	</xsl:template>	
+	<xsl:template match="eb:BillersOrderingPartyID">
+		ID beim Besteller: <xsl:value-of select="."/><br/>
+	</xsl:template>
+	
 	<!-- ==================== Presentation Details ==================== -->
-	<xsl:template match="//eb:PresentationDetails/eb:LogoURL">
+	<xsl:template match="/eb:PresentationDetails/eb:LogoURL">
 		<xsl:choose>
 			<xsl:when test="preceding::eb:URL">
 				<xsl:element name="a">
@@ -270,9 +410,9 @@
 	
 	<!-- ==================== VAT Number ==================== -->
 	<xsl:template match="//eb:VATIdentificationNumber">
+	    UID Nummer: 
 		<xsl:choose>
-			<xsl:when test=".">
-				<xsl:text>UID-Nummer: </xsl:text>
+			<xsl:when test=".">				
 				<xsl:value-of select="."/>
 				<br/>
 			</xsl:when>
