@@ -203,25 +203,46 @@
 		</ItemList>
 		<FooterDescription>Lieferung erfolgt wie vereinbart.</FooterDescription>
 		<BelowTheLineItem>
-			<Description>String</Description>
-			<LineItemAmount>1.12</LineItemAmount>
-			<Reason n1:Date="1967-08-13">String</Reason>
+			<Description>Drittleistung</Description>
+			<LineItemAmount>32.12</LineItemAmount>
+			<Reason n1:Date="2014-01-30">Bereits durch Dritte beglichener Teilbetrag</Reason>
+		</BelowTheLineItem>
+		<BelowTheLineItem>
+			<Description>Anzahlung</Description>
+			<LineItemAmount>50.43</LineItemAmount>
+			<Reason n1:Date="2014-01-25">Angezahlter Betrag</Reason>
 		</BelowTheLineItem>
 	</Details>
 	<ReductionAndSurchargeDetails>
 		<Reduction>
-			<BaseAmount>1.12</BaseAmount>
-			<Percentage>0</Percentage>
-			<Amount>1.12</Amount>
-			<Comment>String</Comment>
-			<VATRate n1:TaxCode="ATXXX">0</VATRate>
+			<BaseAmount>454</BaseAmount>
+			<Percentage>3</Percentage>
+			<Amount>13.62</Amount>
+			<Comment>Mengenrabatt</Comment>
+			<VATRate n1:TaxCode="AT029">10</VATRate>
 		</Reduction>
-		<ext:ReductionAndSurchargeDetailsExtension>
-			<sv:ReductionAndSurchargeDetailsExtension/>
-			<ext:Custom>
-				<n2:auto-generated_for_wildcard/>
-			</ext:Custom>
-		</ext:ReductionAndSurchargeDetailsExtension>
+		<Reduction>
+			<BaseAmount>540</BaseAmount>
+			<Percentage>2</Percentage>
+			<Amount>10.8</Amount>
+			<Comment>Stammkundenrabatt</Comment>
+			<VATRate n1:TaxCode="AT022">20</VATRate>
+		</Reduction>
+		<Surcharge>
+			<BaseAmount>1021</BaseAmount>
+			<Percentage>3</Percentage>
+			<Amount>30.63</Amount>
+			<Comment>Gefahrenaufschlag</Comment>
+			<VATRate n1:TaxCode="AT022">20</VATRate>
+		</Surcharge>
+		<OtherVATableTax>
+			<BaseAmount>454</BaseAmount>
+			<Percentage>4</Percentage>
+			<Amount>18.16</Amount>
+			<TaxID>MS</TaxID>
+			<Comment>Enthaltene Mineralölsteuer</Comment>
+			<VATRate>10</VATRate>
+		</OtherVATableTax>		
 	</ReductionAndSurchargeDetails>
 	<Tax>
 		<VAT>

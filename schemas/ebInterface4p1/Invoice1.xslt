@@ -76,10 +76,71 @@
 							<xsl:apply-templates select="/eb:Invoice/eb:Delivery"/>
 						</div>
 					</div>
+					<!-- Line item details -->
 					<div class="row">
 						<div class="col-md-12">
 							<h3>Rechnungsdetails</h3>
 							<xsl:apply-templates select="/eb:Invoice/eb:Details"/>
+						</div>
+					</div>
+					<!-- Below the line items -->
+					<div class="row">
+						<div class="col-md-12">
+							<!-- Below the line items -->
+							<xsl:if test="/eb:Invoice/eb:Details/eb:BelowTheLineItem">
+								<h4>Weitere nicht steuerrelevante Beträge</h4>
+								<table class="table">
+									<thead>
+										<tr>
+											<th>Beschreibung</th>
+											<th>Begründung</th>
+											<th>Datum</th>
+											<th>Betrag</th>
+										</tr>
+									</thead>
+									<tbody>
+										<xsl:apply-templates select="/eb:Invoice/eb:Details/eb:BelowTheLineItem"/>
+									</tbody>
+								</table>
+							</xsl:if>
+						</div>
+					</div>
+					<!-- Reductions and surcharges (ROOT level) -->
+					<div class="row">
+						<div class="col-md-12">
+							<xsl:if test="/eb:Invoice/eb:ReductionAndSurchargeDetails">
+								<h4>Auf-/Abschläge</h4>
+								<table class="table">
+									<thead>
+										<tr>
+											<th>Art</th>
+											<th>
+												<p class="text-right">Basisbetrag</p>
+											</th>
+											<th>
+												<p class="text-right">Prozent</p>
+											</th>
+											<th>
+												<p class="text-right">Steuer</p>
+											</th>
+											<th>
+												<p class="text-right">Betrag</p>
+											</th>
+										</tr>
+									</thead>
+									<tbody>
+										<xsl:apply-templates select="/eb:Invoice/eb:ReductionAndSurchargeDetails/eb:Reduction"/>
+										<xsl:apply-templates select="/eb:Invoice/eb:ReductionAndSurchargeDetails/eb:Surcharge"/>
+										<xsl:apply-templates select="/eb:Invoice/eb:ReductionAndSurchargeDetails/eb:OtherVATableTax"/>
+									</tbody>
+								</table>
+							</xsl:if>
+						</div>
+					</div>
+					<!-- Steuern -->
+					<div class="row">
+						<div class="col-md-12">
+							<h4>Steuern</h4>
 						</div>
 					</div>
 				</div>
@@ -160,6 +221,27 @@
 			</xsl:when>
 		</xsl:choose>
 	</xsl:template>
+	<!-- ==================== Below the line items ==================== -->
+	<xsl:template match="/eb:Invoice/eb:Details/eb:BelowTheLineItem">
+		<tr>
+			<td>
+				<xsl:value-of select="eb:Description"/>
+			</td>
+			<td>
+				<xsl:value-of select="eb:Reason"/>
+			</td>
+			<td>
+				<xsl:call-template name="prettyPrintDateFunction">
+					<xsl:with-param name="dateString" select="eb:Reason/@eb:Date"/>
+				</xsl:call-template>
+			</td>
+			<td>
+				<p class="text-right">
+					<xsl:value-of select="eb:LineItemAmount"/>
+				</p>
+			</td>
+		</tr>
+	</xsl:template>
 	<!-- ==================== Biller ==================== -->
 	<xsl:template match="/eb:Invoice/eb:Biller">
 		<span class="label label-primary">Rechnungssteller</span>
@@ -193,9 +275,10 @@
 	</xsl:template>
 	<!-- ==================== Delivery (ROOT level) ==================== -->
 	<xsl:template match="/eb:Invoice/eb:Delivery">
-		<span class="label label-primary">Lieferdetails</span><br/>		
+		<span class="label label-primary">Lieferdetails</span>
+		<br/>
 		<xsl:apply-templates select="node()"/>
-	</xsl:template>	
+	</xsl:template>
 	<!-- ==================== Delivery  ==================== -->
 	<xsl:template match="eb:Delivery">
 		<br/>
@@ -204,9 +287,9 @@
 		<xsl:apply-templates select="eb:DeliveryID"/>
 		<xsl:apply-templates select="eb:Date"/>
 		<xsl:apply-templates select="eb:Period"/>
-		<xsl:apply-templates select="eb:Description"/>	
+		<xsl:apply-templates select="eb:Description"/>
 	</xsl:template>
-	<!-- ==================== Date ==================== -->		
+	<!-- ==================== Date ==================== -->
 	<xsl:template match="eb:Date">
 		Lieferdatum: 		
 		<xsl:call-template name="prettyPrintDateFunction">
@@ -214,7 +297,7 @@
 		</xsl:call-template>
 		<br/>
 	</xsl:template>
-	<!-- ==================== DeliveryID ==================== -->	
+	<!-- ==================== DeliveryID ==================== -->
 	<xsl:template match="eb:DeliveryID">
 		Liefer-ID: <xsl:value-of select="."/>
 		<br/>
@@ -300,7 +383,7 @@
 						</tr>
 						<!-- Second row for the other article details -->
 						<tr>
-							<td colspan="4">														
+							<td colspan="4">
 								<strong>Zusätzliche Informationen zum Artikel:</strong>
 								<br/>
 								<ul>
@@ -316,7 +399,7 @@
 							</td>
 							<td colspan="3">
 								<!-- Delivery address for this article -->
-								<xsl:apply-templates select="eb:Delivery"/>								
+								<xsl:apply-templates select="eb:Delivery"/>
 							</td>
 							<td>&#160;</td>
 						</tr>
@@ -331,27 +414,28 @@
 	<!-- =========================================================== -->
 	<!-- ==================== Details helper templates ==================== -->
 	<!-- =========================================================== -->
-
-	<!-- ==================== AdditionalInformation(LineItem level)  ==================== -->	
-    <xsl:template match="eb:AdditionalInformation">
+	<!-- ==================== AdditionalInformation(LineItem level)  ==================== -->
+	<xsl:template match="eb:AdditionalInformation">
 		<br/>
-		<strong>Weitere Artikeldetails:</strong><br/>
-		<ul>		
+		<strong>Weitere Artikeldetails:</strong>
+		<br/>
+		<ul>
 			<xsl:apply-templates select="eb:SerialNumber"/>
 			<xsl:apply-templates select="eb:ChargeNumber"/>
-			<xsl:apply-templates select="eb:Classification"/>	
-			<xsl:apply-templates select="eb:AlternativeQuantity"/>	
-			<xsl:apply-templates select="eb:Size"/>			
-			<xsl:apply-templates select="eb:Weight"/>		
-			<xsl:apply-templates select="eb:Boxes"/>		
-			<xsl:apply-templates select="eb:Color"/>					
+			<xsl:apply-templates select="eb:Classification"/>
+			<xsl:apply-templates select="eb:AlternativeQuantity"/>
+			<xsl:apply-templates select="eb:Size"/>
+			<xsl:apply-templates select="eb:Weight"/>
+			<xsl:apply-templates select="eb:Boxes"/>
+			<xsl:apply-templates select="eb:Color"/>
 		</ul>
 	</xsl:template>
-	<!-- ==================== Alternative Quantity (LineItem level)  ==================== -->	
-	<xsl:template match="eb:AlternativeQuantity">		
-		<li>Alternative Menge: <xsl:value-of select="."/>&#160;<xsl:value-of select="@eb:Unit"/></li>
-	</xsl:template>	
-	<!-- ==================== ArticleNumber(LineItem level)  ==================== -->		
+	<!-- ==================== Alternative Quantity (LineItem level)  ==================== -->
+	<xsl:template match="eb:AlternativeQuantity">
+		<li>Alternative Menge: <xsl:value-of select="."/>&#160;<xsl:value-of select="@eb:Unit"/>
+		</li>
+	</xsl:template>
+	<!-- ==================== ArticleNumber(LineItem level)  ==================== -->
 	<xsl:template match="eb:ArticleNumber">
 		<xsl:choose>
 			<xsl:when test=".">
@@ -370,7 +454,7 @@
 			</xsl:when>
 		</xsl:choose>
 	</xsl:template>
-	<!-- ==================== BillersOrderReference (LineItem level)  ==================== -->	
+	<!-- ==================== BillersOrderReference (LineItem level)  ==================== -->
 	<xsl:template match="eb:BillersOrderReference">
 		<li>
 		Vom Rechnungssteller vergebene Referenz auf die zugrundeliegende Bestellung: 
@@ -389,27 +473,33 @@
 			</xsl:if>
 		</li>
 	</xsl:template>
-	<!-- ==================== Boxes (LineItem level) ==================== -->	
+	<!-- ==================== Boxes (LineItem level) ==================== -->
 	<xsl:template match="eb:Boxes">
-		<li>Kisten/Container: <xsl:value-of select="."/></li>
-	</xsl:template>		
-	<!-- ==================== Charge number (LineItem level) ==================== -->	
+		<li>Kisten/Container: <xsl:value-of select="."/>
+		</li>
+	</xsl:template>
+	<!-- ==================== Charge number (LineItem level) ==================== -->
 	<xsl:template match="eb:ChargeNumber">
-		<li>Chargennummer: <xsl:value-of select="."/></li>
-	</xsl:template>	
-	<!-- ==================== Classification (LineItem level) ==================== -->	
+		<li>Chargennummer: <xsl:value-of select="."/>
+		</li>
+	</xsl:template>
+	<!-- ==================== Classification (LineItem level) ==================== -->
 	<xsl:template match="eb:Classification">
-		<li><xsl:value-of select="@eb:ClassificationSchema"/>: <xsl:value-of select="."/></li>
-	</xsl:template>		
-	<!-- ==================== Color (LineItem level) ==================== -->	
+		<li>
+			<xsl:value-of select="@eb:ClassificationSchema"/>: <xsl:value-of select="."/>
+		</li>
+	</xsl:template>
+	<!-- ==================== Color (LineItem level) ==================== -->
 	<xsl:template match="eb:Color">
-		<li>Farbe: <xsl:value-of select="."/></li>
-	</xsl:template>		
+		<li>Farbe: <xsl:value-of select="."/>
+		</li>
+	</xsl:template>
 	<!-- ==================== Delivery (LineItem level)  ==================== -->
 	<xsl:template match="eb:ListLineItem/eb:Delivery">
-		<span class="label label-primary">Lieferadresse für diesen Artikel:</span><br/>
-		<xsl:apply-templates select="node()"/>		
-	</xsl:template>	
+		<span class="label label-primary">Lieferadresse für diesen Artikel:</span>
+		<br/>
+		<xsl:apply-templates select="node()"/>
+	</xsl:template>
 	<!-- ==================== Discount flag (LineItem level)  ==================== -->
 	<xsl:template match="eb:DiscountFlag">
 		<li>
@@ -436,7 +526,7 @@
 		<br/>
 		<br/>
 	</xsl:template>
-	<!-- ==================== InvoiceRecipientsOrderReference (LineItem level)  ==================== -->	
+	<!-- ==================== InvoiceRecipientsOrderReference (LineItem level)  ==================== -->
 	<xsl:template match="eb:InvoiceRecipientsOrderReference">
 		<li>
 		Vom Rechnungsempfänger vergebene Referenz auf die zugrundeliegende Bestellung: 
@@ -454,8 +544,8 @@
 			Relevante Positionsnummer in der Bestellung: <xsl:value-of select="eb:OrderPositionNumber"/>
 			</xsl:if>
 		</li>
-	</xsl:template>	
-	<!-- ==================== LineItemAmount (LineItem level)  ==================== -->	
+	</xsl:template>
+	<!-- ==================== LineItemAmount (LineItem level)  ==================== -->
 	<xsl:template match="eb:LineItemAmount">
 		<xsl:call-template name="prettyPrintNumberFunction">
 			<xsl:with-param name="number" select="."/>
@@ -466,11 +556,13 @@
 		<xsl:call-template name="prettyPrintNumberFunction">
 			<xsl:with-param name="number" select="."/>
 		</xsl:call-template>&#160;<xsl:value-of select="@eb:Unit"/>
-	</xsl:template>	
+	</xsl:template>
 	<!-- ==================== Reduction & Surcharge (LineItem level) ==================== -->
 	<xsl:template match="eb:ReductionAndSurchargeListLineItemDetails/eb:OtherVATableTaxListLineItem">
-		<strong>Weitere Steuern, die nicht der USt unterliegen</strong><br/>
-		Basisbetrag: <xsl:value-of select="eb:BaseAmount"/>		
+		<br/>
+		<strong>Weitere Steuern, die nicht der USt unterliegen:</strong>
+		<br/>
+		Basisbetrag: <xsl:value-of select="eb:BaseAmount"/>
 		<xsl:if test="eb:Percentage">
 			<br/>Prozent: <xsl:value-of select="eb:Percentage"/>%
 		</xsl:if>
@@ -479,7 +571,7 @@
 		</xsl:if>
 		<xsl:if test="eb:Comment">
 			<br/>Kommentar: <xsl:value-of select="eb:Comment"/>
-		</xsl:if>		
+		</xsl:if>
 	</xsl:template>
 	<!-- ==================== Reduction and surcharge (LineItem level) ==================== -->
 	<xsl:template match="eb:ReductionAndSurchargeListLineItemDetails/eb:ReductionListLineItem | eb:ReductionAndSurchargeListLineItemDetails/eb:SurchargeListLineItem">
@@ -503,15 +595,17 @@
 		<xsl:if test="eb:Comment">
 			<br/>Kommentar: <xsl:value-of select="eb:Comment"/>
 		</xsl:if>
-	</xsl:template>	
-	<!-- ==================== Serial number (LineItem level) ==================== -->	
-	<xsl:template match="eb:SerialNumber">
-		<li>Seriennummer: <xsl:value-of select="."/></li>
 	</xsl:template>
-	<!-- ==================== Size (LineItem level) ==================== -->	
+	<!-- ==================== Serial number (LineItem level) ==================== -->
+	<xsl:template match="eb:SerialNumber">
+		<li>Seriennummer: <xsl:value-of select="."/>
+		</li>
+	</xsl:template>
+	<!-- ==================== Size (LineItem level) ==================== -->
 	<xsl:template match="eb:Size">
-		<li>Größe: <xsl:value-of select="."/></li>
-	</xsl:template>	
+		<li>Größe: <xsl:value-of select="."/>
+		</li>
+	</xsl:template>
 	<!-- ====================Tax exemption (LineItem level) ==================== -->
 	<xsl:template match="eb:TaxExemption">
 		<xsl:value-of select="."/>
@@ -529,16 +623,16 @@
 				Einheiten
 			</xsl:otherwise>
 		</xsl:choose>)
-	</xsl:template>	
+	</xsl:template>
 	<!-- ==================== Weight (LineItem level) ==================== -->
 	<xsl:template match="eb:Weight">
 		<li>
 		Gewicht: 
 		<xsl:call-template name="prettyPrintNumberFunction">
-			<xsl:with-param name="number" select="."/>
-		</xsl:call-template>&#160;<xsl:value-of select="@eb:Unit"/>
+				<xsl:with-param name="number" select="."/>
+			</xsl:call-template>&#160;<xsl:value-of select="@eb:Unit"/>
 		</li>
-	</xsl:template>		
+	</xsl:template>
 	<!-- =========================================================== -->
 	<!-- ==================== End of details helper ======================== -->
 	<!-- =========================================================== -->
@@ -589,17 +683,17 @@
 		<xsl:apply-templates select="eb:FurtherIdentification"/>
 		<xsl:apply-templates select="eb:OrderReference"/>
 	</xsl:template>
-	<!-- ==================== AccountingArea ==================== -->		
+	<!-- ==================== AccountingArea ==================== -->
 	<xsl:template match="eb:AccountingArea">
 		Buchungskreis: <xsl:value-of select="."/>
 		<br/>
 	</xsl:template>
-	<!-- ==================== BillersInvoiceRecipientID ==================== -->	
+	<!-- ==================== BillersInvoiceRecipientID ==================== -->
 	<xsl:template match="eb:BillersInvoiceRecipientID">
 		ID beim Rechnungsssteller: <xsl:value-of select="."/>
 		<br/>
 	</xsl:template>
-	<!-- ==================== SubOrganizationID ==================== -->	
+	<!-- ==================== SubOrganizationID ==================== -->
 	<xsl:template match="eb:SubOrganizationID">
 		Interne Referenz:<xsl:value-of select="."/>
 		<br/>
@@ -634,6 +728,42 @@
 		ID beim Besteller: <xsl:value-of select="."/>
 		<br/>
 	</xsl:template>
+	<!-- ==================== OtherVATableTax ==================== -->
+	<xsl:template match="eb:OtherVATableTax">
+		<tr>
+			<td>
+				Sonstige Steuer, die nicht mehr der USt unterliegt <br/>
+				TaxID: <xsl:value-of select="eb:TaxID"/>
+				<xsl:if test="eb:Comment">
+					(<xsl:value-of select="eb:Comment"/>)
+				</xsl:if>
+			</td>
+			<td>
+				<p class="text-right">
+					<xsl:call-template name="prettyPrintNumberFunction">
+						<xsl:with-param name="number" select="eb:BaseAmount"/>
+					</xsl:call-template>
+				</p>
+			</td>
+			<td>
+				<p class="text-right">
+					<xsl:value-of select="eb:Percentage"/>%
+				</p>
+			</td>
+			<td>
+				<p class="text-right">
+					<xsl:value-of select="eb:VATRate"/>%
+				</p>
+			</td>
+			<td>
+				<p class="text-right">
+					<xsl:call-template name="prettyPrintNumberFunction">
+						<xsl:with-param name="number" select="eb:Amount"/>
+					</xsl:call-template>
+				</p>
+			</td>
+		</tr>
+	</xsl:template>
 	<!-- ==================== Presentation Details ==================== -->
 	<xsl:template match="/eb:PresentationDetails/eb:LogoURL">
 		<xsl:choose>
@@ -653,6 +783,45 @@
 				</xsl:element>
 			</xsl:otherwise>
 		</xsl:choose>
+	</xsl:template>
+	<!-- ==================== Reductions and Surcharges ==================== -->
+	<xsl:template match="eb:Reduction | eb:Surcharge">
+		<tr>
+			<td>
+				<xsl:choose>
+					<xsl:when test="name() = 'Reduction'">
+					Abschlag
+				</xsl:when>
+					<xsl:otherwise>
+				    Aufschlag
+				</xsl:otherwise>
+				</xsl:choose>
+			</td>
+			<td>
+				<p class="text-right">
+					<xsl:call-template name="prettyPrintNumberFunction">
+						<xsl:with-param name="number" select="eb:BaseAmount"/>
+					</xsl:call-template>
+				</p>
+			</td>
+			<td>
+				<p class="text-right">
+					<xsl:value-of select="eb:Percentage"/>%
+				</p>
+			</td>
+			<td>
+				<p class="text-right">
+					<xsl:value-of select="eb:VATRate"/>%
+				</p>
+			</td>
+			<td>
+				<p class="text-right">
+					<xsl:call-template name="prettyPrintNumberFunction">
+						<xsl:with-param name="number" select="eb:Amount"/>
+					</xsl:call-template>
+				</p>
+			</td>
+		</tr>
 	</xsl:template>
 	<!-- ==================== Related document ==================== -->
 	<xsl:template match="//eb:RelatedDocument">
@@ -679,7 +848,7 @@
 			</xsl:when>
 		</xsl:choose>
 	</xsl:template>
-	<!-- ==================== VAT Rate ==================== -->	
+	<!-- ==================== VAT Rate ==================== -->
 	<xsl:template match="//eb:VATRate">
 		<xsl:value-of select="."/>%
 	</xsl:template>
