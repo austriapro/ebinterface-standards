@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../Invoice1.xslt"?>
-<Invoice n1:GeneratingSystem="String" n1:DocumentType="Invoice" n1:InvoiceCurrency="EUR" n1:ManualProcessing="true" n1:DocumentTitle="Rechnung für Jänner 2014" n1:Language="ger" n1:IsDuplicate="true" xsi:schemaLocation="http://www.ebinterface.at/schema/4p1/ ../Invoice.xsd" xmlns="http://www.ebinterface.at/schema/4p1/" xmlns:n2="http://www.altova.com/samplexml/other-namespace" xmlns:n1="http://www.ebinterface.at/schema/4p1/" xmlns:ext="http://www.ebinterface.at/schema/4p1/extensions/ext" xmlns:sv="http://www.ebinterface.at/schema/4p1/extensions/sv" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">	
+<Invoice n1:GeneratingSystem="String" n1:DocumentType="Invoice" n1:InvoiceCurrency="EUR" n1:ManualProcessing="true" n1:DocumentTitle="Rechnung für Jänner 2014" n1:Language="ger" n1:IsDuplicate="true" xsi:schemaLocation="http://www.ebinterface.at/schema/4p1/ ../Invoice.xsd" xmlns="http://www.ebinterface.at/schema/4p1/" xmlns:n2="http://www.altova.com/samplexml/other-namespace" xmlns:n1="http://www.ebinterface.at/schema/4p1/" xmlns:ext="http://www.ebinterface.at/schema/4p1/extensions/ext" xmlns:sv="http://www.ebinterface.at/schema/4p1/extensions/sv" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<InvoiceNumber>RNR 2014/2</InvoiceNumber>
 	<InvoiceDate>2014-02-16</InvoiceDate>
 	<CancelledOriginalDocument>
@@ -20,7 +20,7 @@
 		<InvoiceDate>2014-02-16</InvoiceDate>
 		<DocumentType>Invoice</DocumentType>
 		<Comment>Teilrechnung 2</Comment>
-	</RelatedDocument>	
+	</RelatedDocument>
 	<Delivery>
 		<DeliveryID>4893</DeliveryID>
 		<Date>2014-02-15</Date>
@@ -53,7 +53,7 @@
 			<Salutation>Firma</Salutation>
 			<Name>Lieferant Mustermann</Name>
 			<Street>Favoritenstraße 329/32</Street>
-			<POBox>4711</POBox>			
+			<POBox>4711</POBox>
 			<Town>Wien</Town>
 			<ZIP>1040</ZIP>
 			<Country n1:CountryCode="AT">Österreich</Country>
@@ -66,7 +66,7 @@
 	<InvoiceRecipient>
 		<VATIdentificationNumber>UID84389384</VATIdentificationNumber>
 		<FurtherIdentification n1:IdentificationType="FBNR">FN 49948 p</FurtherIdentification>
-		<FurtherIdentification n1:IdentificationType="DVR">2342345</FurtherIdentification>		
+		<FurtherIdentification n1:IdentificationType="DVR">2342345</FurtherIdentification>
 		<Address>
 			<AddressIdentifier n1:AddressIdentifierType="GLN">8654599542369</AddressIdentifier>
 			<AddressIdentifier n1:AddressIdentifierType="DUNS">4854859047858</AddressIdentifier>
@@ -114,77 +114,89 @@
 			<ListLineItem>
 				<PositionNumber>1</PositionNumber>
 				<Description>Produkt A</Description>
-				<ArticleNumber n1:ArticleNumberType="BillersArticleNumber">text</ArticleNumber>
-				<Quantity n1:Unit="String">1.1234</Quantity>
-				<UnitPrice n1:BaseQuantity="1.1234">1.1234</UnitPrice>
-				<TaxExemption n1:TaxExemptionCode="String">String</TaxExemption>
+				<ArticleNumber n1:ArticleNumberType="BillersArticleNumber">BAN 123</ArticleNumber>
+				<ArticleNumber n1:ArticleNumberType="InvoiceRecipientsArticleNumber">SAN 345</ArticleNumber>
+				<ArticleNumber n1:ArticleNumberType="PZN">PZN39483</ArticleNumber>
+				<ArticleNumber n1:ArticleNumberType="GTIN">54563256987542</ArticleNumber>
+				<Quantity n1:Unit="kg">33.00</Quantity>
+				<UnitPrice n1:BaseQuantity="1">7.33</UnitPrice>
+				<TaxExemption n1:TaxExemptionCode="S69">Steuerfrei (gemäß § x UStG)</TaxExemption>
 				<DiscountFlag>true</DiscountFlag>
 				<ReductionAndSurchargeListLineItemDetails>
 					<ReductionListLineItem>
-						<BaseAmount>1.12</BaseAmount>
-						<Percentage>0</Percentage>
-						<Amount>1.12</Amount>
-						<Comment>String</Comment>
+						<BaseAmount>241.89</BaseAmount>
+						<Percentage>2</Percentage>
+						<Amount>4.84</Amount>
+						<Comment>Frühbucherrabatt</Comment>
 					</ReductionListLineItem>
+					<SurchargeListLineItem>
+						<BaseAmount>241.89</BaseAmount>
+						<Percentage>3</Percentage>
+						<Amount>7.26</Amount>
+						<Comment>Versäumnisgebühr</Comment>
+					</SurchargeListLineItem>
+					<OtherVATableTaxListLineItem>
+						<BaseAmount>241.89</BaseAmount>
+						<Percentage>4</Percentage>
+						<Amount>9.68</Amount>
+						<TaxID>BS</TaxID>
+						<Comment>Biersteuer</Comment>
+					</OtherVATableTaxListLineItem>
 				</ReductionAndSurchargeListLineItemDetails>
 				<Delivery>
-					<DeliveryID>a</DeliveryID>
-					<Date>1967-08-13</Date>
+					<DeliveryID>4895</DeliveryID>
+					<Date>2014-02-16</Date>
 					<Address>
-						<AddressIdentifier n1:AddressIdentifierType="DUNS">String</AddressIdentifier>
-						<Salutation>String</Salutation>
-						<Name>String</Name>
-						<Street>String</Street>
-						<POBox>String</POBox>
-						<Town>String</Town>
-						<ZIP>String</ZIP>
-						<Country n1:CountryCode="TJ">text</Country>
-						<Phone>String</Phone>
-						<Email>String</Email>
-						<Contact>String</Contact>
-						<AddressExtension>String</AddressExtension>
+						<AddressIdentifier n1:AddressIdentifierType="GLN">4893783938432</AddressIdentifier>
+						<Salutation>Firma</Salutation>
+						<Name>Cisco GmbH</Name>
+						<Street>Nußdorfer Allee 53</Street>
+						<Town>Wien</Town>
+						<ZIP>1090</ZIP>
+						<Country n1:CountryCode="AT">Österreich</Country>
+						<Phone>+43 1 6543 434</Phone>
+						<Email>office@firma-cisco.at</Email>
+						<Contact>Herr Georg Rasinger (Tel.: 0664 5434 432 32)</Contact>
+						<AddressExtension>Achtung! Abweichende Lieferadresse!</AddressExtension>
 					</Address>
-					<Description>String</Description>
-					<ext:DeliveryExtension>
-						<sv:DeliveryExtension/>
-						<ext:Custom>
-							<n2:auto-generated_for_wildcard/>
-						</ext:Custom>
-					</ext:DeliveryExtension>
+					<Description>Lieferung auf Anfrage auch ohne DESADV möglich!</Description>
 				</Delivery>
 				<BillersOrderReference>
-					<OrderID>a</OrderID>
-					<ReferenceDate>1967-08-13</ReferenceDate>
-					<Description>String</Description>
-					<OrderPositionNumber>String</OrderPositionNumber>
+					<OrderID>BORD1234</OrderID>
+					<ReferenceDate>2014-01-30</ReferenceDate>
+					<Description>Faxbestellung</Description>
+					<OrderPositionNumber>12</OrderPositionNumber>
 				</BillersOrderReference>
 				<InvoiceRecipientsOrderReference>
-					<OrderID>a</OrderID>
-					<ReferenceDate>1967-08-13</ReferenceDate>
-					<Description>String</Description>
-					<OrderPositionNumber>String</OrderPositionNumber>
+					<OrderID>INVORD394</OrderID>
+					<ReferenceDate>2014-01-29</ReferenceDate>
+					<Description>Per Fax versendete Bestellung</Description>
+					<OrderPositionNumber>10</OrderPositionNumber>
 				</InvoiceRecipientsOrderReference>
 				<AdditionalInformation>
-					<SerialNumber>String</SerialNumber>
-					<ChargeNumber>String</ChargeNumber>
-					<Classification n1:ClassificationSchema="String">String</Classification>
-					<AlternativeQuantity n1:Unit="String">1.1234</AlternativeQuantity>
-					<Size>String</Size>
-					<Weight n1:Unit="String">1.1234</Weight>
+					<SerialNumber>Seriennr 3939494</SerialNumber>
+					<SerialNumber>Seriennr 4839384</SerialNumber>					
+					<ChargeNumber>Charge 37</ChargeNumber>
+					<ChargeNumber>Charge 47322</ChargeNumber>					
+					<Classification n1:ClassificationSchema="Skala 7">3 Punkte</Classification>
+					<Classification n1:ClassificationSchema="Skala 8">43 Punkte</Classification>
+					<AlternativeQuantity n1:Unit="dkg">330</AlternativeQuantity>
+					<Size>L</Size>
+					<Weight n1:Unit="t">0.5</Weight>
 					<Boxes>2</Boxes>
-					<Color>String</Color>
+					<Color>Grün</Color>
 				</AdditionalInformation>
-				<LineItemAmount>1.12</LineItemAmount>
-			</ListLineItem>			
+				<LineItemAmount>253.99</LineItemAmount>
+			</ListLineItem>
 			<FooterDescription>Wir bitten um vereinbarungsgemäße Zahlung</FooterDescription>
 		</ItemList>
 		<ItemList>
 			<HeaderDescription>Rechnungspositionen basierend auf der telefonischen Bestellung</HeaderDescription>
 			<ListLineItem xmlns:n3="http://www.ebinterface.at/schema/4p1/">
-				<Description></Description>
+				<Description/>
 				<Quantity n3:Unit="">1</Quantity>
 				<UnitPrice>1</UnitPrice>
-				<TaxExemption></TaxExemption>
+				<VATRate n3:TaxCode="AT022">20.00</VATRate>
 				<LineItemAmount>1</LineItemAmount>
 			</ListLineItem>
 			<FooterDescription>Wir bitten um genaue Nachkontrolle bei der telefonischen Bestellung!</FooterDescription>
