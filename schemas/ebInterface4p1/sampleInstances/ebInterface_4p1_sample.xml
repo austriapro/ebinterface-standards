@@ -247,14 +247,32 @@
 	<Tax>
 		<VAT>
 			<VATItem>
-				<TaxedAmount>1.12</TaxedAmount>
-				<TaxExemption n1:TaxExemptionCode="String">String</TaxExemption>
-				<Amount>1.12</Amount>
+				<TaxedAmount>550.00</TaxedAmount>
+				<VATRate n1:TaxCode="AT022">20</VATRate>
+				<Amount>110</Amount>
+			</VATItem>		
+			<VATItem>
+				<TaxedAmount>2200.00</TaxedAmount>
+				<VATRate n1:TaxCode="AT029">10</VATRate>
+				<Amount>220</Amount>
+			</VATItem>
+			<VATItem>
+				<TaxedAmount>202.00</TaxedAmount>
+				<TaxExemption n1:TaxExemptionCode="RCH">Reverse Charge </TaxExemption>
+				<Amount>0.00</Amount>
 			</VATItem>
 		</VAT>
 		<OtherTax>
-			<Comment>String</Comment>
-			<Amount>1.12</Amount>
+			<Comment>Biersteuer</Comment>
+			<Amount>34.40</Amount>
+		</OtherTax>
+		<OtherTax>
+			<Comment>Mineralölsteuer</Comment>
+			<Amount>493.39</Amount>
+		</OtherTax>
+		<OtherTax>
+			<Comment>Werbeabgabe</Comment>
+			<Amount>49.30</Amount>
 		</OtherTax>
 		<ext:TaxExtension>
 			<sv:TaxExtension/>
@@ -263,17 +281,29 @@
 			</ext:Custom>
 		</ext:TaxExtension>
 	</Tax>
-	<TotalGrossAmount>1.12</TotalGrossAmount>
-	<PayableAmount>1.12</PayableAmount>
+	<TotalGrossAmount>49391.12</TotalGrossAmount>
+	<PayableAmount>44329.12</PayableAmount>
 	<PaymentMethod>
-		<Comment>String</Comment>
-		<NoPayment/>
-		<ext:PaymentMethodExtension>
-			<sv:PaymentMethodExtension/>
-			<ext:Custom>
-				<n2:auto-generated_for_wildcard/>
-			</ext:Custom>
-		</ext:PaymentMethodExtension>
+		<Comment>Zahlbar per Überweisung. Bitte SEPA Voraussetzungen berücksichtigen.</Comment>
+		<UniversalBankTransaction n1:ConsolidatorPayable="true">
+			<BeneficiaryAccount>
+				<BankName>Sparkasse Freistadt</BankName>
+				<BankCode n1:BankCodeType="AT">34394939</BankCode>
+				<BIC>ARKEKEKE</BIC>
+				<BankAccountNr>asdfasf</BankAccountNr>
+				<IBAN>23424234</IBAN>
+				<BankAccountOwner>Geor Han</BankAccountOwner>				
+			</BeneficiaryAccount>
+			<BeneficiaryAccount>
+				<BankName>Sparkasse Radstadt</BankName>
+				<BankCode n1:BankCodeType="DE">234234</BankCode>
+				<BIC>ARKEKEKE</BIC>
+				<BankAccountNr>ertert3334</BankAccountNr>
+				<IBAN>345345dh</IBAN>
+				<BankAccountOwner>Geor Han</BankAccountOwner>				
+			</BeneficiaryAccount>	
+			<PaymentReference>234334</PaymentReference>		
+		</UniversalBankTransaction>
 	</PaymentMethod>
 	<PaymentConditions>
 		<DueDate>1967-08-13</DueDate>
@@ -283,32 +313,20 @@
 			<Percentage>0</Percentage>
 			<Amount>1.12</Amount>
 		</Discount>
+		<Discount>
+			<PaymentDate>1967-08-13</PaymentDate>
+			<BaseAmount>1.12</BaseAmount>
+			<Percentage>0</Percentage>
+			<Amount>1.12</Amount>
+		</Discount>		
 		<MinimumPayment>1.12</MinimumPayment>
-		<Comment>String</Comment>
-		<ext:PaymentConditionsExtension>
-			<sv:PaymentConditionsExtension/>
-			<ext:Custom>
-				<n2:auto-generated_for_wildcard/>
-			</ext:Custom>
-		</ext:PaymentConditionsExtension>
+		<Comment>Wir bitten um rasche Überweisung</Comment>
 	</PaymentConditions>
 	<PresentationDetails>
 		<URL>http://www.ecosio.com</URL>
 		<LogoURL>https://s3-eu-west-1.amazonaws.com/cdn.ecosio.com/company-images/manuallyUploaded/lieferant_mustermann_logo.png</LogoURL>
 		<LayoutID>a</LayoutID>
 		<SuppressZero>true</SuppressZero>
-		<ext:PresentationDetailsExtension>
-			<sv:PresentationDetailsExtension/>
-			<ext:Custom>
-				<n2:auto-generated_for_wildcard/>
-			</ext:Custom>
-		</ext:PresentationDetailsExtension>
 	</PresentationDetails>
-	<Comment>String</Comment>
-	<ext:InvoiceRootExtension>
-		<sv:InvoiceRootExtension/>
-		<ext:Custom>
-			<n2:auto-generated_for_wildcard/>
-		</ext:Custom>
-	</ext:InvoiceRootExtension>
+	<Comment>Allgemeiner Kommentar zur Rechnung</Comment>
 </Invoice>
