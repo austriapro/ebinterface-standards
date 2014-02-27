@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../Invoice1.xslt"?>
+<?xml-stylesheet type="text/xsl" href="../Invoice.xslt"?>
 <Invoice n1:GeneratingSystem="String" n1:DocumentType="Invoice" n1:InvoiceCurrency="EUR" n1:ManualProcessing="true" n1:DocumentTitle="Rechnung für Jänner 2014" n1:Language="ger" n1:IsDuplicate="true" xsi:schemaLocation="http://www.ebinterface.at/schema/4p1/ ../Invoice.xsd" xmlns="http://www.ebinterface.at/schema/4p1/" xmlns:n2="http://www.altova.com/samplexml/other-namespace" xmlns:n1="http://www.ebinterface.at/schema/4p1/" xmlns:ext="http://www.ebinterface.at/schema/4p1/extensions/ext" xmlns:sv="http://www.ebinterface.at/schema/4p1/extensions/sv" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<InvoiceNumber>RNR 2014/2</InvoiceNumber>
 	<InvoiceDate>2014-02-16</InvoiceDate>
@@ -193,11 +193,11 @@
 		<ItemList>
 			<HeaderDescription>Rechnungspositionen basierend auf der telefonischen Bestellung</HeaderDescription>
 			<ListLineItem xmlns:n3="http://www.ebinterface.at/schema/4p1/">
-				<Description/>
-				<Quantity n3:Unit="">1</Quantity>
-				<UnitPrice>1</UnitPrice>
+				<Description>Produkt B</Description>
+				<Quantity n3:Unit="">345</Quantity>
+				<UnitPrice>12</UnitPrice>
 				<VATRate n3:TaxCode="AT022">20.00</VATRate>
-				<LineItemAmount>1</LineItemAmount>
+				<LineItemAmount>4140</LineItemAmount>
 			</ListLineItem>
 			<FooterDescription>Wir bitten um genaue Nachkontrolle bei der telefonischen Bestellung!</FooterDescription>
 		</ItemList>
@@ -309,17 +309,17 @@
 		<DueDate>1967-08-13</DueDate>
 		<Discount>
 			<PaymentDate>1967-08-13</PaymentDate>
-			<BaseAmount>1.12</BaseAmount>
-			<Percentage>0</Percentage>
-			<Amount>1.12</Amount>
+			<BaseAmount>4343.12</BaseAmount>
+			<Percentage>2</Percentage>
+			<Amount>23.12</Amount>
 		</Discount>
 		<Discount>
 			<PaymentDate>1967-08-13</PaymentDate>
-			<BaseAmount>1.12</BaseAmount>
-			<Percentage>0</Percentage>
-			<Amount>1.12</Amount>
+			<BaseAmount>234.12</BaseAmount>
+			<Percentage>4</Percentage>
+			<Amount>323.12</Amount>
 		</Discount>		
-		<MinimumPayment>1.12</MinimumPayment>
+		<MinimumPayment>32321.12</MinimumPayment>
 		<Comment>Wir bitten um rasche Überweisung</Comment>
 	</PaymentConditions>
 	<PresentationDetails>
