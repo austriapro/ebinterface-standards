@@ -1,0 +1,1605 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.ebinterface.at/schema/4p1/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:ext="http://www.ebinterface.at/schema/4p1/extensions/ext" targetNamespace="http://www.ebinterface.at/schema/4p1/" elementFormDefault="qualified" attributeFormDefault="qualified">
+	<xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="http://www.w3.org/TR/2002/REC-xmldsig-core-20020212/xmldsig-core-schema.xsd"/>
+	<xs:import namespace="http://www.ebinterface.at/schema/4p1/extensions/ext" schemaLocation="http://www.ebinterface.at/schema/4p1/extensions/ext"/>
+	<xs:annotation>
+		<xs:documentation>
+            schema version: 4.1
+            last update: 2013-12-11
+            documentation: http://www.ebinterface.at/download/documentation/ebInvoice_4p1.pdf
+        </xs:documentation>
+	</xs:annotation>
+	<!-- === Root Element === -->
+	<xs:element name="Invoice" type="InvoiceType"/>
+	<!-- === Element Declarations === -->
+	<xs:element name="AccountingArea" type="AccountingAreaType"/>
+	<xs:element name="AdditionalInformation" type="AdditionalInformationType"/>
+	<xs:element name="Address" type="AddressType"/>
+	<xs:element name="AddressExtension" type="xs:string"/>
+	<xs:element name="AddressIdentifier" type="AddressIdentifierType"/>
+	<xs:element name="AlternativeQuantity" type="UnitType"/>
+	<xs:element name="Amount" type="Decimal2Type"/>
+	<xs:element name="ArticleNumber" type="ArticleNumberType"/>
+	<xs:element name="BankAccountNr" type="xs:string"/>
+	<xs:element name="BankAccountOwner" type="BankAccountOwnerType"/>
+	<xs:element name="BankCode" type="BankCodeType"/>
+	<xs:element name="BankName" type="BankNameType"/>
+	<xs:element name="BaseAmount" type="Decimal2Type"/>
+	<xs:element name="BelowTheLineItem" type="BelowTheLineItemType"/>
+	<xs:element name="BeneficiaryAccount" type="AccountType"/>
+	<xs:element name="BIC" type="BICType"/>
+	<xs:element name="Biller" type="BillerType"/>
+	<xs:element name="BillersInvoiceRecipientID" type="IDType"/>
+	<xs:element name="BillersOrderingPartyID" type="IDType"/>
+	<xs:element name="BillersOrderReference" type="OrderReferenceDetailType"/>
+	<xs:element name="Boxes" type="xs:positiveInteger"/>
+	<xs:element name="CancelledOriginalDocument" type="CancelledOriginalDocumentType"/>
+	<xs:element name="ChargeNumber" type="xs:string"/>
+	<xs:element name="Classification" type="ClassificationType"/>
+	<xs:element name="Color" type="xs:string"/>
+	<xs:element name="Comment" type="xs:string"/>
+	<xs:element name="ConsolidatorsBillerID" type="IDType"/>
+	<xs:element name="Contact" type="xs:string"/>
+	<xs:element name="Country" type="CountryType"/>
+	<xs:element name="CreditorID" type="ID35Type"/>
+	<xs:element name="Date" type="xs:date"/>
+	<xs:element name="DebitCollectionDate" type="xs:date"/>
+	<xs:element name="Delivery" type="DeliveryType"/>
+	<xs:element name="DeliveryID" type="IDType"/>
+	<xs:element name="Description" type="xs:string"/>
+	<xs:element name="Details" type="DetailsType"/>
+	<xs:element name="DirectDebit" type="DirectDebitType"/>
+	<xs:element name="Discount" type="DiscountType"/>
+	<xs:element name="DiscountFlag" type="xs:boolean"/>
+	<xs:element name="DocumentType" type="DocumentTypeType"/>
+	<xs:element name="DueDate" type="xs:date"/>
+	<xs:element name="Email" type="xs:string"/>
+	<xs:element name="FooterDescription" type="xs:string"/>
+	<xs:element name="FromDate" type="xs:date"/>
+	<xs:element name="FurtherIdentification" type="FurtherIdentificationType"/>
+	<xs:element name="HeaderDescription" type="xs:string"/>
+	<xs:element name="IBAN" type="IBANType"/>
+	<xs:element name="InvoiceDate" type="xs:date"/>
+	<xs:element name="InvoiceNumber" type="IDType"/>
+	<xs:element name="InvoiceRecipient" type="InvoiceRecipientType"/>
+	<xs:element name="InvoiceRecipientsBillerID" type="IDType"/>
+	<xs:element name="InvoiceRecipientsOrderReference" type="OrderReferenceDetailType"/>
+	<xs:element name="VATItem" type="VATItemType"/>
+	<xs:element name="ItemList" type="ItemListType"/>
+	<xs:element name="LayoutID" type="IDType"/>
+	<xs:element name="LineItemAmount" type="Decimal2Type"/>
+	<xs:element name="ListLineItem" type="ListLineItemType"/>
+	<xs:element name="LogoURL" type="xs:anyURI"/>
+	<xs:element name="MandateReference" type="ID35Type"/>
+	<xs:element name="MinimumPayment" type="Decimal2Type"/>
+	<xs:element name="Name" type="xs:string"/>
+	<xs:element name="NoPayment" type="NoPaymentType"/>
+	<xs:element name="OrderID" type="IDType"/>
+	<xs:element name="OrderingParty" type="OrderingPartyType"/>
+	<xs:element name="OrderPositionNumber" type="xs:string"/>
+	<xs:element name="OrderReference" type="OrderReferenceType"/>
+	<xs:element name="OtherTax" type="OtherTaxType"/>
+	<xs:element name="OtherVATableTax" type="OtherVATableTaxType"/>
+	<xs:element name="OtherVATableTaxListLineItem" type="OtherVATableTaxBaseType"/>
+	<xs:element name="PayableAmount" type="Decimal2Type"/>
+	<xs:element name="PaymentConditions" type="PaymentConditionsType"/>
+	<xs:element name="PaymentDate" type="xs:date"/>
+	<xs:element name="PaymentMethod" type="PaymentMethodType"/>
+	<xs:element name="PaymentReference" type="PaymentReferenceType"/>
+	<xs:element name="Percentage" type="PercentageType"/>
+	<xs:element name="Period" type="PeriodType"/>
+	<xs:element name="Phone" type="xs:string"/>
+	<xs:element name="POBox" type="xs:string"/>
+	<xs:element name="PositionNumber" type="xs:positiveInteger"/>
+	<xs:element name="PresentationDetails" type="PresentationDetailsType"/>
+	<xs:element name="Quantity" type="UnitType"/>
+	<xs:element name="Reason" type="ReasonType"/>
+	<xs:element name="Reduction" type="ReductionAndSurchargeType"/>
+	<xs:element name="ReductionAndSurchargeDetails" type="ReductionAndSurchargeDetailsType"/>
+	<xs:element name="ReductionAndSurchargeListLineItemDetails" type="ReductionAndSurchargeListLineItemDetailsType"/>
+	<xs:element name="ReductionListLineItem" type="ReductionAndSurchargeBaseType"/>
+	<xs:element name="ReferenceDate" type="xs:date"/>
+	<xs:element name="RelatedDocument" type="RelatedDocumentType"/>
+	<xs:element name="Salutation" type="xs:string"/>
+	<xs:element name="SEPADirectDebit" type="SEPADirectDebitType"/>
+	<xs:element name="SerialNumber" type="xs:string"/>
+	<xs:element name="Size" type="xs:string"/>
+	<xs:element name="Street" type="xs:string"/>
+	<xs:element name="SubOrganizationID" type="xs:string"/>
+	<xs:element name="SuppressZero" type="xs:boolean"/>
+	<xs:element name="Surcharge" type="ReductionAndSurchargeType"/>
+	<xs:element name="SurchargeListLineItem" type="ReductionAndSurchargeBaseType"/>
+	<xs:element name="Tax" type="TaxType"/>
+	<xs:element name="TaxedAmount" type="Decimal2Type"/>
+	<xs:element name="TaxExemption" type="TaxExemptionType"/>
+	<xs:element name="ToDate" type="xs:date"/>
+	<xs:element name="TotalGrossAmount" type="Decimal2Type"/>
+	<xs:element name="Town" type="xs:string"/>
+	<xs:element name="Type" type="SEPADirectDebitTypeType"/>
+	<xs:element name="UnitPrice" type="UnitPriceType"/>
+	<xs:element name="UniversalBankTransaction" type="UniversalBankTransactionType"/>
+	<xs:element name="URL" type="xs:anyURI"/>
+	<xs:element name="VAT" type="VATType"/>
+	<xs:element name="VATIdentificationNumber" type="xs:string"/>
+	<xs:element name="VATRate" type="VATRateType"/>
+	<xs:element name="Weight" type="UnitType"/>
+	<xs:element name="ZIP" type="xs:string"/>
+	<!-- === Attribute Deklarations === -->
+	<xs:attribute name="AddressIdentifierType" type="AddressIdentifierTypeType"/>
+	<xs:attribute name="ArticleNumberType" type="ArticleNumberTypeType"/>
+	<xs:attribute name="BankCodeType" type="CountryCodeType"/>
+	<xs:attribute name="BaseQuantity" type="Decimal4Type"/>
+	<xs:attribute name="CheckSum" type="CheckSumType"/>
+	<xs:attribute name="ClassificationSchema" type="xs:string"/>
+	<xs:attribute name="ConsolidatorPayable" type="xs:boolean"/>
+	<xs:attribute name="CountryCode" type="CountryCodeType"/>
+	<xs:attribute name="Date" type="xs:date"/>
+	<xs:attribute name="DocumentTitle" type="xs:string"/>
+	<xs:attribute name="DocumentType" type="DocumentTypeType"/>
+	<xs:attribute name="GeneratingSystem" type="xs:string"/>
+	<xs:attribute name="IdentificationType" type="xs:string"/>
+	<xs:attribute name="IsDuplicate" type="xs:boolean"/>
+	<xs:attribute name="InvoiceCurrency" type="CurrencyType"/>
+	<xs:attribute name="Language" type="LanguageType"/>
+	<xs:attribute name="ManualProcessing" type="xs:boolean"/>
+	<xs:attribute name="TaxCode" type="TaxCodeType"/>
+	<xs:attribute name="TaxExemptionCode" type="xs:string"/>
+	<xs:attribute name="Unit" type="xs:string"/>
+	<!-- === Simple Types === -->
+	<xs:simpleType name="AccountingAreaType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AddressIdentifierTypeType">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="GLN"/>
+			<xs:enumeration value="DUNS"/>
+			<xs:enumeration value="ProprietaryAddressID"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ArticleNumberTypeType">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="PZN"/>
+			<xs:enumeration value="GTIN"/>
+			<xs:enumeration value="InvoiceRecipientsArticleNumber"/>
+			<xs:enumeration value="BillersArticleNumber"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BankAccountOwnerType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="70"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BankNameType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="255"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- BICs either have 8  or 11 characters (ISO 9362) -->
+	<xs:simpleType name="BICType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9A-Za-z]{8}([0-9A-Za-z]{3})?"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CheckSumType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="([0-9]{1,4}|X)"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Country Codes accordyng to ISO 3166-1 (retrieved 2011-09-20) -->
+	<xs:simpleType name="CountryCodeType">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="AF"/>
+			<xs:enumeration value="AX"/>
+			<xs:enumeration value="AL"/>
+			<xs:enumeration value="DZ"/>
+			<xs:enumeration value="AS"/>
+			<xs:enumeration value="AD"/>
+			<xs:enumeration value="AO"/>
+			<xs:enumeration value="AI"/>
+			<xs:enumeration value="AQ"/>
+			<xs:enumeration value="AG"/>
+			<xs:enumeration value="AR"/>
+			<xs:enumeration value="AM"/>
+			<xs:enumeration value="AW"/>
+			<xs:enumeration value="AU"/>
+			<xs:enumeration value="AT"/>
+			<xs:enumeration value="AZ"/>
+			<xs:enumeration value="BS"/>
+			<xs:enumeration value="BH"/>
+			<xs:enumeration value="BD"/>
+			<xs:enumeration value="BB"/>
+			<xs:enumeration value="BY"/>
+			<xs:enumeration value="BE"/>
+			<xs:enumeration value="BZ"/>
+			<xs:enumeration value="BJ"/>
+			<xs:enumeration value="BM"/>
+			<xs:enumeration value="BT"/>
+			<xs:enumeration value="BO"/>
+			<xs:enumeration value="BQ"/>
+			<xs:enumeration value="BA"/>
+			<xs:enumeration value="BW"/>
+			<xs:enumeration value="BV"/>
+			<xs:enumeration value="BR"/>
+			<xs:enumeration value="IO"/>
+			<xs:enumeration value="BN"/>
+			<xs:enumeration value="BG"/>
+			<xs:enumeration value="BF"/>
+			<xs:enumeration value="BI"/>
+			<xs:enumeration value="KH"/>
+			<xs:enumeration value="CM"/>
+			<xs:enumeration value="CA"/>
+			<xs:enumeration value="CV"/>
+			<xs:enumeration value="KY"/>
+			<xs:enumeration value="CF"/>
+			<xs:enumeration value="TD"/>
+			<xs:enumeration value="CL"/>
+			<xs:enumeration value="CN"/>
+			<xs:enumeration value="CX"/>
+			<xs:enumeration value="CC"/>
+			<xs:enumeration value="CO"/>
+			<xs:enumeration value="KM"/>
+			<xs:enumeration value="CG"/>
+			<xs:enumeration value="CD"/>
+			<xs:enumeration value="CK"/>
+			<xs:enumeration value="CR"/>
+			<xs:enumeration value="CI"/>
+			<xs:enumeration value="HR"/>
+			<xs:enumeration value="CU"/>
+			<xs:enumeration value="CW"/>
+			<xs:enumeration value="CY"/>
+			<xs:enumeration value="CZ"/>
+			<xs:enumeration value="DK"/>
+			<xs:enumeration value="DJ"/>
+			<xs:enumeration value="DM"/>
+			<xs:enumeration value="DO"/>
+			<xs:enumeration value="EC"/>
+			<xs:enumeration value="EG"/>
+			<xs:enumeration value="SV"/>
+			<xs:enumeration value="GQ"/>
+			<xs:enumeration value="ER"/>
+			<xs:enumeration value="EE"/>
+			<xs:enumeration value="ET"/>
+			<xs:enumeration value="FK"/>
+			<xs:enumeration value="FO"/>
+			<xs:enumeration value="FJ"/>
+			<xs:enumeration value="FI"/>
+			<xs:enumeration value="FR"/>
+			<xs:enumeration value="GF"/>
+			<xs:enumeration value="PF"/>
+			<xs:enumeration value="TF"/>
+			<xs:enumeration value="GA"/>
+			<xs:enumeration value="GM"/>
+			<xs:enumeration value="GE"/>
+			<xs:enumeration value="DE"/>
+			<xs:enumeration value="GH"/>
+			<xs:enumeration value="GI"/>
+			<xs:enumeration value="GR"/>
+			<xs:enumeration value="GL"/>
+			<xs:enumeration value="GD"/>
+			<xs:enumeration value="GP"/>
+			<xs:enumeration value="GU"/>
+			<xs:enumeration value="GT"/>
+			<xs:enumeration value="GG"/>
+			<xs:enumeration value="GN"/>
+			<xs:enumeration value="GW"/>
+			<xs:enumeration value="GY"/>
+			<xs:enumeration value="HT"/>
+			<xs:enumeration value="HM"/>
+			<xs:enumeration value="VA"/>
+			<xs:enumeration value="HN"/>
+			<xs:enumeration value="HK"/>
+			<xs:enumeration value="HU"/>
+			<xs:enumeration value="IS"/>
+			<xs:enumeration value="IN"/>
+			<xs:enumeration value="ID"/>
+			<xs:enumeration value="IR"/>
+			<xs:enumeration value="IQ"/>
+			<xs:enumeration value="IE"/>
+			<xs:enumeration value="IM"/>
+			<xs:enumeration value="IL"/>
+			<xs:enumeration value="IT"/>
+			<xs:enumeration value="JM"/>
+			<xs:enumeration value="JP"/>
+			<xs:enumeration value="JE"/>
+			<xs:enumeration value="JO"/>
+			<xs:enumeration value="KZ"/>
+			<xs:enumeration value="KE"/>
+			<xs:enumeration value="KI"/>
+			<xs:enumeration value="KP"/>
+			<xs:enumeration value="KR"/>
+			<xs:enumeration value="KW"/>
+			<xs:enumeration value="KG"/>
+			<xs:enumeration value="LA"/>
+			<xs:enumeration value="LV"/>
+			<xs:enumeration value="LB"/>
+			<xs:enumeration value="LS"/>
+			<xs:enumeration value="LR"/>
+			<xs:enumeration value="LY"/>
+			<xs:enumeration value="LI"/>
+			<xs:enumeration value="LT"/>
+			<xs:enumeration value="LU"/>
+			<xs:enumeration value="MO"/>
+			<xs:enumeration value="MK"/>
+			<xs:enumeration value="MG"/>
+			<xs:enumeration value="MW"/>
+			<xs:enumeration value="MY"/>
+			<xs:enumeration value="MV"/>
+			<xs:enumeration value="ML"/>
+			<xs:enumeration value="MT"/>
+			<xs:enumeration value="MH"/>
+			<xs:enumeration value="MQ"/>
+			<xs:enumeration value="MR"/>
+			<xs:enumeration value="MU"/>
+			<xs:enumeration value="YT"/>
+			<xs:enumeration value="MX"/>
+			<xs:enumeration value="FM"/>
+			<xs:enumeration value="MD"/>
+			<xs:enumeration value="MC"/>
+			<xs:enumeration value="MN"/>
+			<xs:enumeration value="ME"/>
+			<xs:enumeration value="MS"/>
+			<xs:enumeration value="MA"/>
+			<xs:enumeration value="MZ"/>
+			<xs:enumeration value="MM"/>
+			<xs:enumeration value="NA"/>
+			<xs:enumeration value="NR"/>
+			<xs:enumeration value="NP"/>
+			<xs:enumeration value="NL"/>
+			<xs:enumeration value="NC"/>
+			<xs:enumeration value="NZ"/>
+			<xs:enumeration value="NI"/>
+			<xs:enumeration value="NE"/>
+			<xs:enumeration value="NG"/>
+			<xs:enumeration value="NU"/>
+			<xs:enumeration value="NF"/>
+			<xs:enumeration value="MP"/>
+			<xs:enumeration value="NO"/>
+			<xs:enumeration value="OM"/>
+			<xs:enumeration value="PK"/>
+			<xs:enumeration value="PW"/>
+			<xs:enumeration value="PS"/>
+			<xs:enumeration value="PA"/>
+			<xs:enumeration value="PG"/>
+			<xs:enumeration value="PY"/>
+			<xs:enumeration value="PE"/>
+			<xs:enumeration value="PH"/>
+			<xs:enumeration value="PN"/>
+			<xs:enumeration value="PL"/>
+			<xs:enumeration value="PT"/>
+			<xs:enumeration value="PR"/>
+			<xs:enumeration value="QA"/>
+			<xs:enumeration value="RE"/>
+			<xs:enumeration value="RO"/>
+			<xs:enumeration value="RU"/>
+			<xs:enumeration value="RW"/>
+			<xs:enumeration value="BL"/>
+			<xs:enumeration value="SH"/>
+			<xs:enumeration value="KN"/>
+			<xs:enumeration value="LC"/>
+			<xs:enumeration value="MF"/>
+			<xs:enumeration value="PM"/>
+			<xs:enumeration value="VC"/>
+			<xs:enumeration value="WS"/>
+			<xs:enumeration value="SM"/>
+			<xs:enumeration value="ST"/>
+			<xs:enumeration value="SA"/>
+			<xs:enumeration value="SN"/>
+			<xs:enumeration value="RS"/>
+			<xs:enumeration value="SC"/>
+			<xs:enumeration value="SL"/>
+			<xs:enumeration value="SG"/>
+			<xs:enumeration value="SX"/>
+			<xs:enumeration value="SK"/>
+			<xs:enumeration value="SI"/>
+			<xs:enumeration value="SB"/>
+			<xs:enumeration value="SO"/>
+			<xs:enumeration value="ZA"/>
+			<xs:enumeration value="GS"/>
+			<xs:enumeration value="SS"/>
+			<xs:enumeration value="ES"/>
+			<xs:enumeration value="LK"/>
+			<xs:enumeration value="SD"/>
+			<xs:enumeration value="SR"/>
+			<xs:enumeration value="SJ"/>
+			<xs:enumeration value="SZ"/>
+			<xs:enumeration value="SE"/>
+			<xs:enumeration value="CH"/>
+			<xs:enumeration value="SY"/>
+			<xs:enumeration value="TW"/>
+			<xs:enumeration value="TJ"/>
+			<xs:enumeration value="TZ"/>
+			<xs:enumeration value="TH"/>
+			<xs:enumeration value="TL"/>
+			<xs:enumeration value="TG"/>
+			<xs:enumeration value="TK"/>
+			<xs:enumeration value="TO"/>
+			<xs:enumeration value="TT"/>
+			<xs:enumeration value="TN"/>
+			<xs:enumeration value="TR"/>
+			<xs:enumeration value="TM"/>
+			<xs:enumeration value="TC"/>
+			<xs:enumeration value="TV"/>
+			<xs:enumeration value="UG"/>
+			<xs:enumeration value="UA"/>
+			<xs:enumeration value="AE"/>
+			<xs:enumeration value="GB"/>
+			<xs:enumeration value="US"/>
+			<xs:enumeration value="UM"/>
+			<xs:enumeration value="UY"/>
+			<xs:enumeration value="UZ"/>
+			<xs:enumeration value="VU"/>
+			<xs:enumeration value="VE"/>
+			<xs:enumeration value="VN"/>
+			<xs:enumeration value="VG"/>
+			<xs:enumeration value="VI"/>
+			<xs:enumeration value="WF"/>
+			<xs:enumeration value="EH"/>
+			<xs:enumeration value="YE"/>
+			<xs:enumeration value="ZM"/>
+			<xs:enumeration value="ZW"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Currency Codes according ISO 4217 (retrieved 2011-09-20 - duplicates have been removed)-->
+	<xs:simpleType name="CurrencyType">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="AED"/>
+			<xs:enumeration value="AFN"/>
+			<xs:enumeration value="ALL"/>
+			<xs:enumeration value="AMD"/>
+			<xs:enumeration value="ANG"/>
+			<xs:enumeration value="AOA"/>
+			<xs:enumeration value="ARS"/>
+			<xs:enumeration value="AUD"/>
+			<xs:enumeration value="AWG"/>
+			<xs:enumeration value="AZN"/>
+			<xs:enumeration value="BAM"/>
+			<xs:enumeration value="BBD"/>
+			<xs:enumeration value="BDT"/>
+			<xs:enumeration value="BGN"/>
+			<xs:enumeration value="BHD"/>
+			<xs:enumeration value="BIF"/>
+			<xs:enumeration value="BMD"/>
+			<xs:enumeration value="BND"/>
+			<xs:enumeration value="BOB"/>
+			<xs:enumeration value="BOV"/>
+			<xs:enumeration value="BRL"/>
+			<xs:enumeration value="BSD"/>
+			<xs:enumeration value="BTN"/>
+			<xs:enumeration value="BWP"/>
+			<xs:enumeration value="BYR"/>
+			<xs:enumeration value="BZD"/>
+			<xs:enumeration value="CAD"/>
+			<xs:enumeration value="CDF"/>
+			<xs:enumeration value="CHE"/>
+			<xs:enumeration value="CHF"/>
+			<xs:enumeration value="CHW"/>
+			<xs:enumeration value="CLF"/>
+			<xs:enumeration value="CLP"/>
+			<xs:enumeration value="CNY"/>
+			<xs:enumeration value="COP"/>
+			<xs:enumeration value="COU"/>
+			<xs:enumeration value="CRC"/>
+			<xs:enumeration value="CUC"/>
+			<xs:enumeration value="CUP"/>
+			<xs:enumeration value="CVE"/>
+			<xs:enumeration value="CZK"/>
+			<xs:enumeration value="DJF"/>
+			<xs:enumeration value="DKK"/>
+			<xs:enumeration value="DOP"/>
+			<xs:enumeration value="DZD"/>
+			<xs:enumeration value="EGP"/>
+			<xs:enumeration value="ERN"/>
+			<xs:enumeration value="ETB"/>
+			<xs:enumeration value="EUR"/>
+			<xs:enumeration value="FJD"/>
+			<xs:enumeration value="FKP"/>
+			<xs:enumeration value="GBP"/>
+			<xs:enumeration value="GEL"/>
+			<xs:enumeration value="GHS"/>
+			<xs:enumeration value="GIP"/>
+			<xs:enumeration value="GMD"/>
+			<xs:enumeration value="GNF"/>
+			<xs:enumeration value="GTQ"/>
+			<xs:enumeration value="GYD"/>
+			<xs:enumeration value="HKD"/>
+			<xs:enumeration value="HNL"/>
+			<xs:enumeration value="HRK"/>
+			<xs:enumeration value="HTG"/>
+			<xs:enumeration value="HUF"/>
+			<xs:enumeration value="IDR"/>
+			<xs:enumeration value="ILS"/>
+			<xs:enumeration value="INR"/>
+			<xs:enumeration value="IQD"/>
+			<xs:enumeration value="IRR"/>
+			<xs:enumeration value="ISK"/>
+			<xs:enumeration value="JMD"/>
+			<xs:enumeration value="JOD"/>
+			<xs:enumeration value="JPY"/>
+			<xs:enumeration value="KES"/>
+			<xs:enumeration value="KGS"/>
+			<xs:enumeration value="KHR"/>
+			<xs:enumeration value="KMF"/>
+			<xs:enumeration value="KPW"/>
+			<xs:enumeration value="KRW"/>
+			<xs:enumeration value="KWD"/>
+			<xs:enumeration value="KYD"/>
+			<xs:enumeration value="KZT"/>
+			<xs:enumeration value="LAK"/>
+			<xs:enumeration value="LBP"/>
+			<xs:enumeration value="LKR"/>
+			<xs:enumeration value="LRD"/>
+			<xs:enumeration value="LSL"/>
+			<xs:enumeration value="LTL"/>
+			<xs:enumeration value="LVL"/>
+			<xs:enumeration value="LYD"/>
+			<xs:enumeration value="MAD"/>
+			<xs:enumeration value="MDL"/>
+			<xs:enumeration value="MGA"/>
+			<xs:enumeration value="MKD"/>
+			<xs:enumeration value="MMK"/>
+			<xs:enumeration value="MNT"/>
+			<xs:enumeration value="MOP"/>
+			<xs:enumeration value="MRO"/>
+			<xs:enumeration value="MUR"/>
+			<xs:enumeration value="MVR"/>
+			<xs:enumeration value="MWK"/>
+			<xs:enumeration value="MXN"/>
+			<xs:enumeration value="MXV"/>
+			<xs:enumeration value="MYR"/>
+			<xs:enumeration value="MZN"/>
+			<xs:enumeration value="NAD"/>
+			<xs:enumeration value="NGN"/>
+			<xs:enumeration value="NIO"/>
+			<xs:enumeration value="NOK"/>
+			<xs:enumeration value="NPR"/>
+			<xs:enumeration value="NZD"/>
+			<xs:enumeration value="OMR"/>
+			<xs:enumeration value="PAB"/>
+			<xs:enumeration value="PEN"/>
+			<xs:enumeration value="PGK"/>
+			<xs:enumeration value="PHP"/>
+			<xs:enumeration value="PKR"/>
+			<xs:enumeration value="PLN"/>
+			<xs:enumeration value="PYG"/>
+			<xs:enumeration value="QAR"/>
+			<xs:enumeration value="RON"/>
+			<xs:enumeration value="RSD"/>
+			<xs:enumeration value="RUB"/>
+			<xs:enumeration value="RWF"/>
+			<xs:enumeration value="SAR"/>
+			<xs:enumeration value="SBD"/>
+			<xs:enumeration value="SCR"/>
+			<xs:enumeration value="SDG"/>
+			<xs:enumeration value="SEK"/>
+			<xs:enumeration value="SGD"/>
+			<xs:enumeration value="SHP"/>
+			<xs:enumeration value="SLL"/>
+			<xs:enumeration value="SOS"/>
+			<xs:enumeration value="SRD"/>
+			<xs:enumeration value="SSP"/>
+			<xs:enumeration value="STD"/>
+			<xs:enumeration value="SVC"/>
+			<xs:enumeration value="SYP"/>
+			<xs:enumeration value="SZL"/>
+			<xs:enumeration value="THB"/>
+			<xs:enumeration value="TJS"/>
+			<xs:enumeration value="TMT"/>
+			<xs:enumeration value="TND"/>
+			<xs:enumeration value="TOP"/>
+			<xs:enumeration value="TRY"/>
+			<xs:enumeration value="TTD"/>
+			<xs:enumeration value="TWD"/>
+			<xs:enumeration value="TZS"/>
+			<xs:enumeration value="UAH"/>
+			<xs:enumeration value="UGX"/>
+			<xs:enumeration value="USD"/>
+			<xs:enumeration value="USN"/>
+			<xs:enumeration value="USS"/>
+			<xs:enumeration value="UYI"/>
+			<xs:enumeration value="UYU"/>
+			<xs:enumeration value="UZS"/>
+			<xs:enumeration value="VEF"/>
+			<xs:enumeration value="VND"/>
+			<xs:enumeration value="VUV"/>
+			<xs:enumeration value="WST"/>
+			<xs:enumeration value="XAF"/>
+			<xs:enumeration value="XAG"/>
+			<xs:enumeration value="XAU"/>
+			<xs:enumeration value="XBA"/>
+			<xs:enumeration value="XBB"/>
+			<xs:enumeration value="XBC"/>
+			<xs:enumeration value="XBD"/>
+			<xs:enumeration value="XCD"/>
+			<xs:enumeration value="XDR"/>
+			<xs:enumeration value="XFU"/>
+			<xs:enumeration value="XOF"/>
+			<xs:enumeration value="XPD"/>
+			<xs:enumeration value="XPF"/>
+			<xs:enumeration value="XPT"/>
+			<xs:enumeration value="XSU"/>
+			<xs:enumeration value="XTS"/>
+			<xs:enumeration value="XUA"/>
+			<xs:enumeration value="XXX"/>
+			<xs:enumeration value="YER"/>
+			<xs:enumeration value="ZAR"/>
+			<xs:enumeration value="ZMK"/>
+			<xs:enumeration value="ZWL"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Decimal2Type">
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Decimal4Type">
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DocumentTypeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="CreditMemo"/>
+			<xs:enumeration value="FinalSettlement"/>
+			<xs:enumeration value="Invoice"/>
+			<xs:enumeration value="InvoiceForAdvancePayment"/>
+			<xs:enumeration value="InvoiceForPartialDelivery"/>
+			<xs:enumeration value="SelfBilling"/>
+			<xs:enumeration value="SubsequentCredit"/>
+			<xs:enumeration value="SubsequentDebit"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ISO 13616 und EBS-Standard (European Banking Standard): 
+        max. 34 Stellen, alphanummerisch -->
+	<xs:simpleType name="IBANType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="34"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IDType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="255"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ID35Type">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="35"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Language Codes according to ISO 639-2 -->
+	<xs:simpleType name="LanguageType">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="aar"/>
+			<xs:enumeration value="abk"/>
+			<xs:enumeration value="ace"/>
+			<xs:enumeration value="ach"/>
+			<xs:enumeration value="ada"/>
+			<xs:enumeration value="ady"/>
+			<xs:enumeration value="afa"/>
+			<xs:enumeration value="afh"/>
+			<xs:enumeration value="afr"/>
+			<xs:enumeration value="aka"/>
+			<xs:enumeration value="akk"/>
+			<xs:enumeration value="alb"/>
+			<xs:enumeration value="ale"/>
+			<xs:enumeration value="alg"/>
+			<xs:enumeration value="amh"/>
+			<xs:enumeration value="ang"/>
+			<xs:enumeration value="apa"/>
+			<xs:enumeration value="ara"/>
+			<xs:enumeration value="arc"/>
+			<xs:enumeration value="arg"/>
+			<xs:enumeration value="arm"/>
+			<xs:enumeration value="arn"/>
+			<xs:enumeration value="arp"/>
+			<xs:enumeration value="art"/>
+			<xs:enumeration value="arw"/>
+			<xs:enumeration value="asm"/>
+			<xs:enumeration value="ast"/>
+			<xs:enumeration value="ath"/>
+			<xs:enumeration value="aus"/>
+			<xs:enumeration value="ava"/>
+			<xs:enumeration value="ave"/>
+			<xs:enumeration value="awa"/>
+			<xs:enumeration value="aym"/>
+			<xs:enumeration value="aze"/>
+			<xs:enumeration value="bad"/>
+			<xs:enumeration value="bai"/>
+			<xs:enumeration value="bak"/>
+			<xs:enumeration value="bal"/>
+			<xs:enumeration value="bam"/>
+			<xs:enumeration value="ban"/>
+			<xs:enumeration value="baq"/>
+			<xs:enumeration value="bas"/>
+			<xs:enumeration value="bat"/>
+			<xs:enumeration value="bej"/>
+			<xs:enumeration value="bem"/>
+			<xs:enumeration value="ben"/>
+			<xs:enumeration value="ber"/>
+			<xs:enumeration value="bho"/>
+			<xs:enumeration value="bih"/>
+			<xs:enumeration value="bik"/>
+			<xs:enumeration value="bin"/>
+			<xs:enumeration value="bis"/>
+			<xs:enumeration value="bla"/>
+			<xs:enumeration value="bnt"/>
+			<xs:enumeration value="bod"/>
+			<xs:enumeration value="bos"/>
+			<xs:enumeration value="bra"/>
+			<xs:enumeration value="bre"/>
+			<xs:enumeration value="btk"/>
+			<xs:enumeration value="bua"/>
+			<xs:enumeration value="bug"/>
+			<xs:enumeration value="bul"/>
+			<xs:enumeration value="bur"/>
+			<xs:enumeration value="byn"/>
+			<xs:enumeration value="cad"/>
+			<xs:enumeration value="cai"/>
+			<xs:enumeration value="car"/>
+			<xs:enumeration value="cat"/>
+			<xs:enumeration value="cau"/>
+			<xs:enumeration value="ceb"/>
+			<xs:enumeration value="cel"/>
+			<xs:enumeration value="ces"/>
+			<xs:enumeration value="cha"/>
+			<xs:enumeration value="chb"/>
+			<xs:enumeration value="che"/>
+			<xs:enumeration value="chg"/>
+			<xs:enumeration value="chi"/>
+			<xs:enumeration value="chk"/>
+			<xs:enumeration value="chm"/>
+			<xs:enumeration value="chn"/>
+			<xs:enumeration value="cho"/>
+			<xs:enumeration value="chp"/>
+			<xs:enumeration value="chr"/>
+			<xs:enumeration value="chu"/>
+			<xs:enumeration value="chv"/>
+			<xs:enumeration value="chy"/>
+			<xs:enumeration value="cmc"/>
+			<xs:enumeration value="cop"/>
+			<xs:enumeration value="cor"/>
+			<xs:enumeration value="cos"/>
+			<xs:enumeration value="cpe"/>
+			<xs:enumeration value="cpf"/>
+			<xs:enumeration value="cpp"/>
+			<xs:enumeration value="cre"/>
+			<xs:enumeration value="crh"/>
+			<xs:enumeration value="crp"/>
+			<xs:enumeration value="csb"/>
+			<xs:enumeration value="cus"/>
+			<xs:enumeration value="cym"/>
+			<xs:enumeration value="cze"/>
+			<xs:enumeration value="dak"/>
+			<xs:enumeration value="dan"/>
+			<xs:enumeration value="dar"/>
+			<xs:enumeration value="day"/>
+			<xs:enumeration value="del"/>
+			<xs:enumeration value="den"/>
+			<xs:enumeration value="deu"/>
+			<xs:enumeration value="dgr"/>
+			<xs:enumeration value="din"/>
+			<xs:enumeration value="div"/>
+			<xs:enumeration value="doi"/>
+			<xs:enumeration value="dra"/>
+			<xs:enumeration value="dsb"/>
+			<xs:enumeration value="dua"/>
+			<xs:enumeration value="dum"/>
+			<xs:enumeration value="dut"/>
+			<xs:enumeration value="dyu"/>
+			<xs:enumeration value="dzo"/>
+			<xs:enumeration value="efi"/>
+			<xs:enumeration value="egy"/>
+			<xs:enumeration value="eka"/>
+			<xs:enumeration value="ell"/>
+			<xs:enumeration value="elx"/>
+			<xs:enumeration value="eng"/>
+			<xs:enumeration value="enm"/>
+			<xs:enumeration value="epo"/>
+			<xs:enumeration value="est"/>
+			<xs:enumeration value="eus"/>
+			<xs:enumeration value="ewe"/>
+			<xs:enumeration value="ewo"/>
+			<xs:enumeration value="fan"/>
+			<xs:enumeration value="fao"/>
+			<xs:enumeration value="fas"/>
+			<xs:enumeration value="fat"/>
+			<xs:enumeration value="fij"/>
+			<xs:enumeration value="fil"/>
+			<xs:enumeration value="fin"/>
+			<xs:enumeration value="fiu"/>
+			<xs:enumeration value="fon"/>
+			<xs:enumeration value="fra"/>
+			<xs:enumeration value="fre"/>
+			<xs:enumeration value="frm"/>
+			<xs:enumeration value="fro"/>
+			<xs:enumeration value="fry"/>
+			<xs:enumeration value="ful"/>
+			<xs:enumeration value="fur"/>
+			<xs:enumeration value="gaa"/>
+			<xs:enumeration value="gay"/>
+			<xs:enumeration value="gba"/>
+			<xs:enumeration value="gem"/>
+			<xs:enumeration value="geo"/>
+			<xs:enumeration value="ger"/>
+			<xs:enumeration value="gez"/>
+			<xs:enumeration value="gil"/>
+			<xs:enumeration value="gla"/>
+			<xs:enumeration value="gle"/>
+			<xs:enumeration value="glg"/>
+			<xs:enumeration value="glv"/>
+			<xs:enumeration value="gmh"/>
+			<xs:enumeration value="goh"/>
+			<xs:enumeration value="gon"/>
+			<xs:enumeration value="gor"/>
+			<xs:enumeration value="got"/>
+			<xs:enumeration value="grb"/>
+			<xs:enumeration value="grc"/>
+			<xs:enumeration value="gre"/>
+			<xs:enumeration value="grn"/>
+			<xs:enumeration value="guj"/>
+			<xs:enumeration value="gwi"/>
+			<xs:enumeration value="hai"/>
+			<xs:enumeration value="hat"/>
+			<xs:enumeration value="hau"/>
+			<xs:enumeration value="haw"/>
+			<xs:enumeration value="heb"/>
+			<xs:enumeration value="her"/>
+			<xs:enumeration value="hil"/>
+			<xs:enumeration value="him"/>
+			<xs:enumeration value="hin"/>
+			<xs:enumeration value="hit"/>
+			<xs:enumeration value="hmn"/>
+			<xs:enumeration value="hmo"/>
+			<xs:enumeration value="hrv"/>
+			<xs:enumeration value="hsb"/>
+			<xs:enumeration value="hun"/>
+			<xs:enumeration value="hup"/>
+			<xs:enumeration value="hye"/>
+			<xs:enumeration value="iba"/>
+			<xs:enumeration value="ibo"/>
+			<xs:enumeration value="ice"/>
+			<xs:enumeration value="ido"/>
+			<xs:enumeration value="iii"/>
+			<xs:enumeration value="ijo"/>
+			<xs:enumeration value="iku"/>
+			<xs:enumeration value="ile"/>
+			<xs:enumeration value="ilo"/>
+			<xs:enumeration value="ina"/>
+			<xs:enumeration value="inc"/>
+			<xs:enumeration value="ind"/>
+			<xs:enumeration value="ine"/>
+			<xs:enumeration value="inh"/>
+			<xs:enumeration value="ipk"/>
+			<xs:enumeration value="ira"/>
+			<xs:enumeration value="iro"/>
+			<xs:enumeration value="isl"/>
+			<xs:enumeration value="ita"/>
+			<xs:enumeration value="jav"/>
+			<xs:enumeration value="jbo"/>
+			<xs:enumeration value="jpn"/>
+			<xs:enumeration value="jpr"/>
+			<xs:enumeration value="jrb"/>
+			<xs:enumeration value="kaa"/>
+			<xs:enumeration value="kab"/>
+			<xs:enumeration value="kac"/>
+			<xs:enumeration value="kal"/>
+			<xs:enumeration value="kam"/>
+			<xs:enumeration value="kan"/>
+			<xs:enumeration value="kar"/>
+			<xs:enumeration value="kas"/>
+			<xs:enumeration value="kat"/>
+			<xs:enumeration value="kau"/>
+			<xs:enumeration value="kaw"/>
+			<xs:enumeration value="kaz"/>
+			<xs:enumeration value="kbd"/>
+			<xs:enumeration value="kha"/>
+			<xs:enumeration value="khi"/>
+			<xs:enumeration value="khm"/>
+			<xs:enumeration value="kho"/>
+			<xs:enumeration value="kik"/>
+			<xs:enumeration value="kin"/>
+			<xs:enumeration value="kir"/>
+			<xs:enumeration value="kmb"/>
+			<xs:enumeration value="kok"/>
+			<xs:enumeration value="kom"/>
+			<xs:enumeration value="kon"/>
+			<xs:enumeration value="kor"/>
+			<xs:enumeration value="kos"/>
+			<xs:enumeration value="kpe"/>
+			<xs:enumeration value="krc"/>
+			<xs:enumeration value="kro"/>
+			<xs:enumeration value="kru"/>
+			<xs:enumeration value="kua"/>
+			<xs:enumeration value="kum"/>
+			<xs:enumeration value="kur"/>
+			<xs:enumeration value="kut"/>
+			<xs:enumeration value="lad"/>
+			<xs:enumeration value="lah"/>
+			<xs:enumeration value="lam"/>
+			<xs:enumeration value="lao"/>
+			<xs:enumeration value="lat"/>
+			<xs:enumeration value="lav"/>
+			<xs:enumeration value="lez"/>
+			<xs:enumeration value="lim"/>
+			<xs:enumeration value="lin"/>
+			<xs:enumeration value="lit"/>
+			<xs:enumeration value="lol"/>
+			<xs:enumeration value="loz"/>
+			<xs:enumeration value="ltz"/>
+			<xs:enumeration value="lua"/>
+			<xs:enumeration value="lub"/>
+			<xs:enumeration value="lug"/>
+			<xs:enumeration value="lui"/>
+			<xs:enumeration value="lun"/>
+			<xs:enumeration value="luo"/>
+			<xs:enumeration value="lus"/>
+			<xs:enumeration value="mac"/>
+			<xs:enumeration value="mad"/>
+			<xs:enumeration value="mag"/>
+			<xs:enumeration value="mah"/>
+			<xs:enumeration value="mai"/>
+			<xs:enumeration value="mak"/>
+			<xs:enumeration value="mal"/>
+			<xs:enumeration value="man"/>
+			<xs:enumeration value="mao"/>
+			<xs:enumeration value="map"/>
+			<xs:enumeration value="mar"/>
+			<xs:enumeration value="mas"/>
+			<xs:enumeration value="may"/>
+			<xs:enumeration value="mdf"/>
+			<xs:enumeration value="mdr"/>
+			<xs:enumeration value="men"/>
+			<xs:enumeration value="mga"/>
+			<xs:enumeration value="mic"/>
+			<xs:enumeration value="min"/>
+			<xs:enumeration value="mis"/>
+			<xs:enumeration value="mkd"/>
+			<xs:enumeration value="mkh"/>
+			<xs:enumeration value="mlg"/>
+			<xs:enumeration value="mlt"/>
+			<xs:enumeration value="mnc"/>
+			<xs:enumeration value="mni"/>
+			<xs:enumeration value="mno"/>
+			<xs:enumeration value="moh"/>
+			<xs:enumeration value="mol"/>
+			<xs:enumeration value="mon"/>
+			<xs:enumeration value="mos"/>
+			<xs:enumeration value="mri"/>
+			<xs:enumeration value="msa"/>
+			<xs:enumeration value="mul"/>
+			<xs:enumeration value="mun"/>
+			<xs:enumeration value="mus"/>
+			<xs:enumeration value="mwl"/>
+			<xs:enumeration value="mwr"/>
+			<xs:enumeration value="mya"/>
+			<xs:enumeration value="myn"/>
+			<xs:enumeration value="myv"/>
+			<xs:enumeration value="nah"/>
+			<xs:enumeration value="nai"/>
+			<xs:enumeration value="nap"/>
+			<xs:enumeration value="nau"/>
+			<xs:enumeration value="nav"/>
+			<xs:enumeration value="nbl"/>
+			<xs:enumeration value="nde"/>
+			<xs:enumeration value="ndo"/>
+			<xs:enumeration value="nds"/>
+			<xs:enumeration value="nep"/>
+			<xs:enumeration value="new"/>
+			<xs:enumeration value="nia"/>
+			<xs:enumeration value="nic"/>
+			<xs:enumeration value="niu"/>
+			<xs:enumeration value="nld"/>
+			<xs:enumeration value="nno"/>
+			<xs:enumeration value="nob"/>
+			<xs:enumeration value="nog"/>
+			<xs:enumeration value="non"/>
+			<xs:enumeration value="nor"/>
+			<xs:enumeration value="nso"/>
+			<xs:enumeration value="nub"/>
+			<xs:enumeration value="nwc"/>
+			<xs:enumeration value="nya"/>
+			<xs:enumeration value="nym"/>
+			<xs:enumeration value="nyn"/>
+			<xs:enumeration value="nyo"/>
+			<xs:enumeration value="nzi"/>
+			<xs:enumeration value="oci"/>
+			<xs:enumeration value="oji"/>
+			<xs:enumeration value="ori"/>
+			<xs:enumeration value="orm"/>
+			<xs:enumeration value="osa"/>
+			<xs:enumeration value="oss"/>
+			<xs:enumeration value="ota"/>
+			<xs:enumeration value="oto"/>
+			<xs:enumeration value="paa"/>
+			<xs:enumeration value="pag"/>
+			<xs:enumeration value="pal"/>
+			<xs:enumeration value="pam"/>
+			<xs:enumeration value="pan"/>
+			<xs:enumeration value="pap"/>
+			<xs:enumeration value="pau"/>
+			<xs:enumeration value="peo"/>
+			<xs:enumeration value="per"/>
+			<xs:enumeration value="phi"/>
+			<xs:enumeration value="phn"/>
+			<xs:enumeration value="pli"/>
+			<xs:enumeration value="pol"/>
+			<xs:enumeration value="pon"/>
+			<xs:enumeration value="por"/>
+			<xs:enumeration value="pra"/>
+			<xs:enumeration value="pro"/>
+			<xs:enumeration value="pus"/>
+			<xs:enumeration value="que"/>
+			<xs:enumeration value="raj"/>
+			<xs:enumeration value="rap"/>
+			<xs:enumeration value="rar"/>
+			<xs:enumeration value="roa"/>
+			<xs:enumeration value="roh"/>
+			<xs:enumeration value="rom"/>
+			<xs:enumeration value="ron"/>
+			<xs:enumeration value="rum"/>
+			<xs:enumeration value="run"/>
+			<xs:enumeration value="rus"/>
+			<xs:enumeration value="sad"/>
+			<xs:enumeration value="sag"/>
+			<xs:enumeration value="sah"/>
+			<xs:enumeration value="sai"/>
+			<xs:enumeration value="sal"/>
+			<xs:enumeration value="sam"/>
+			<xs:enumeration value="san"/>
+			<xs:enumeration value="sas"/>
+			<xs:enumeration value="sat"/>
+			<xs:enumeration value="scc"/>
+			<xs:enumeration value="scn"/>
+			<xs:enumeration value="sco"/>
+			<xs:enumeration value="scr"/>
+			<xs:enumeration value="sel"/>
+			<xs:enumeration value="sem"/>
+			<xs:enumeration value="sga"/>
+			<xs:enumeration value="sgn"/>
+			<xs:enumeration value="shn"/>
+			<xs:enumeration value="sid"/>
+			<xs:enumeration value="sin"/>
+			<xs:enumeration value="sio"/>
+			<xs:enumeration value="sit"/>
+			<xs:enumeration value="sla"/>
+			<xs:enumeration value="slk"/>
+			<xs:enumeration value="slo"/>
+			<xs:enumeration value="slv"/>
+			<xs:enumeration value="sma"/>
+			<xs:enumeration value="sme"/>
+			<xs:enumeration value="smi"/>
+			<xs:enumeration value="smj"/>
+			<xs:enumeration value="smn"/>
+			<xs:enumeration value="smo"/>
+			<xs:enumeration value="sms"/>
+			<xs:enumeration value="sna"/>
+			<xs:enumeration value="snd"/>
+			<xs:enumeration value="snk"/>
+			<xs:enumeration value="sog"/>
+			<xs:enumeration value="som"/>
+			<xs:enumeration value="son"/>
+			<xs:enumeration value="sot"/>
+			<xs:enumeration value="spa"/>
+			<xs:enumeration value="sqi"/>
+			<xs:enumeration value="srd"/>
+			<xs:enumeration value="srp"/>
+			<xs:enumeration value="srr"/>
+			<xs:enumeration value="ssa"/>
+			<xs:enumeration value="ssw"/>
+			<xs:enumeration value="suk"/>
+			<xs:enumeration value="sun"/>
+			<xs:enumeration value="sus"/>
+			<xs:enumeration value="sux"/>
+			<xs:enumeration value="swa"/>
+			<xs:enumeration value="swe"/>
+			<xs:enumeration value="syr"/>
+			<xs:enumeration value="tah"/>
+			<xs:enumeration value="tai"/>
+			<xs:enumeration value="tam"/>
+			<xs:enumeration value="tat"/>
+			<xs:enumeration value="tel"/>
+			<xs:enumeration value="tem"/>
+			<xs:enumeration value="ter"/>
+			<xs:enumeration value="tet"/>
+			<xs:enumeration value="tgk"/>
+			<xs:enumeration value="tgl"/>
+			<xs:enumeration value="tha"/>
+			<xs:enumeration value="tib"/>
+			<xs:enumeration value="tig"/>
+			<xs:enumeration value="tir"/>
+			<xs:enumeration value="tiv"/>
+			<xs:enumeration value="tkl"/>
+			<xs:enumeration value="tlh"/>
+			<xs:enumeration value="tli"/>
+			<xs:enumeration value="tmh"/>
+			<xs:enumeration value="tog"/>
+			<xs:enumeration value="ton"/>
+			<xs:enumeration value="tpi"/>
+			<xs:enumeration value="tsi"/>
+			<xs:enumeration value="tsn"/>
+			<xs:enumeration value="tso"/>
+			<xs:enumeration value="tuk"/>
+			<xs:enumeration value="tum"/>
+			<xs:enumeration value="tup"/>
+			<xs:enumeration value="tur"/>
+			<xs:enumeration value="tut"/>
+			<xs:enumeration value="tvl"/>
+			<xs:enumeration value="twi"/>
+			<xs:enumeration value="tyv"/>
+			<xs:enumeration value="udm"/>
+			<xs:enumeration value="uga"/>
+			<xs:enumeration value="uig"/>
+			<xs:enumeration value="ukr"/>
+			<xs:enumeration value="umb"/>
+			<xs:enumeration value="und"/>
+			<xs:enumeration value="urd"/>
+			<xs:enumeration value="uzb"/>
+			<xs:enumeration value="vai"/>
+			<xs:enumeration value="ven"/>
+			<xs:enumeration value="vie"/>
+			<xs:enumeration value="vol"/>
+			<xs:enumeration value="vot"/>
+			<xs:enumeration value="wak"/>
+			<xs:enumeration value="wal"/>
+			<xs:enumeration value="war"/>
+			<xs:enumeration value="was"/>
+			<xs:enumeration value="wel"/>
+			<xs:enumeration value="wen"/>
+			<xs:enumeration value="wln"/>
+			<xs:enumeration value="wol"/>
+			<xs:enumeration value="xal"/>
+			<xs:enumeration value="xho"/>
+			<xs:enumeration value="yao"/>
+			<xs:enumeration value="yap"/>
+			<xs:enumeration value="yid"/>
+			<xs:enumeration value="yor"/>
+			<xs:enumeration value="ypk"/>
+			<xs:enumeration value="zap"/>
+			<xs:enumeration value="zen"/>
+			<xs:enumeration value="zha"/>
+			<xs:enumeration value="zho"/>
+			<xs:enumeration value="znd"/>
+			<xs:enumeration value="zul"/>
+			<xs:enumeration value="zun"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PercentageType">
+		<xs:restriction base="xs:decimal">
+			<xs:maxInclusive value="100"/>
+			<xs:minInclusive value="0"/>
+			<xs:fractionDigits value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SEPADirectDebitTypeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="B2C"/>
+			<xs:enumeration value="B2B"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TaxCodeType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="AT(XXX|[0-9]{3})"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- === Complex Types === -->
+	<xs:complexType name="AbstractPartyType">
+		<xs:sequence>
+			<xs:element ref="VATIdentificationNumber"/>
+			<xs:element ref="FurtherIdentification" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="OrderReference" minOccurs="0"/>
+			<xs:element ref="Address"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AccountType">
+		<xs:sequence>
+			<xs:element ref="BankName" minOccurs="0"/>
+			<xs:element ref="BankCode" minOccurs="0"/>
+			<xs:element ref="BIC" minOccurs="0"/>
+			<xs:element ref="BankAccountNr" minOccurs="0"/>
+			<xs:element ref="IBAN" minOccurs="0"/>
+			<xs:element ref="BankAccountOwner" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AdditionalInformationType">
+		<xs:sequence>
+			<xs:element ref="SerialNumber" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="ChargeNumber" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="Classification" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="AlternativeQuantity" minOccurs="0"/>
+			<xs:element ref="Size" minOccurs="0"/>
+			<xs:element ref="Weight" minOccurs="0"/>
+			<xs:element ref="Boxes" minOccurs="0"/>
+			<xs:element ref="Color" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AddressIdentifierType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute ref="AddressIdentifierType" use="optional"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AddressType">
+		<xs:sequence>
+			<xs:element ref="AddressIdentifier" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="Salutation" minOccurs="0"/>
+			<xs:element ref="Name"/>
+			<xs:element ref="Street"/>
+			<xs:element ref="POBox" minOccurs="0"/>
+			<xs:element ref="Town"/>
+			<xs:element ref="ZIP"/>
+			<xs:element ref="Country"/>
+			<xs:element ref="Phone" minOccurs="0"/>
+			<xs:element ref="Email" minOccurs="0"/>
+			<xs:element ref="Contact" minOccurs="0"/>
+			<xs:element ref="AddressExtension" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ArticleNumberType" mixed="true">
+		<xs:attribute ref="ArticleNumberType" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="BankCodeType">
+		<xs:simpleContent>
+			<xs:extension base="xs:integer">
+				<xs:attribute ref="BankCodeType" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="BelowTheLineItemType">
+		<xs:sequence>
+			<xs:element ref="Description"/>
+			<xs:element ref="LineItemAmount"/>
+			<xs:element ref="Reason" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BillerType">
+		<xs:complexContent>
+			<xs:extension base="AbstractPartyType">
+				<xs:sequence>
+					<xs:element ref="InvoiceRecipientsBillerID" minOccurs="0"/>
+					<xs:element ref="ext:BillerExtension" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CancelledOriginalDocumentType">
+		<xs:sequence>
+			<xs:element ref="InvoiceNumber"/>
+			<xs:element ref="InvoiceDate"/>
+			<xs:element ref="DocumentType" minOccurs="0"/>
+			<xs:element ref="Comment" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ClassificationType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute ref="ClassificationSchema" use="optional"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="CountryType" mixed="true">
+		<xs:attribute ref="CountryCode" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="DeliveryType">
+		<xs:sequence>
+			<xs:element ref="DeliveryID" minOccurs="0"/>
+			<xs:choice>
+				<xs:element ref="Date"/>
+				<xs:element ref="Period"/>
+			</xs:choice>
+			<xs:element ref="Address" minOccurs="0"/>
+			<xs:element ref="Description" minOccurs="0"/>
+			<xs:element ref="ext:DeliveryExtension" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DetailsType">
+		<xs:sequence>
+			<xs:element ref="HeaderDescription" minOccurs="0"/>
+			<xs:element ref="ItemList" maxOccurs="unbounded"/>
+			<xs:element ref="FooterDescription" minOccurs="0"/>
+			<xs:element ref="BelowTheLineItem" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DirectDebitType">
+		<!-- Empty type -->
+	</xs:complexType>
+	<xs:complexType name="DiscountType">
+		<xs:sequence>
+			<xs:element ref="PaymentDate"/>
+			<xs:element ref="BaseAmount" minOccurs="0"/>
+			<xs:element ref="Percentage" minOccurs="0"/>
+			<xs:element ref="Amount" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FurtherIdentificationType">
+		<xs:simpleContent>
+			<xs:extension base="IDType">
+				<xs:attribute ref="IdentificationType" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="InvoiceType">
+		<xs:sequence>
+			<xs:element ref="dsig:Signature" minOccurs="0"/>
+			<xs:element ref="InvoiceNumber"/>
+			<xs:element ref="InvoiceDate"/>
+			<xs:element ref="CancelledOriginalDocument" minOccurs="0"/>
+			<xs:element ref="RelatedDocument" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="Delivery" minOccurs="0"/>
+			<xs:element ref="Biller"/>
+			<xs:element ref="InvoiceRecipient"/>
+			<xs:element ref="OrderingParty" minOccurs="0"/>
+			<xs:element ref="Details"/>
+			<xs:element ref="ReductionAndSurchargeDetails" minOccurs="0"/>
+			<xs:element ref="Tax"/>
+			<xs:element ref="TotalGrossAmount"/>
+			<xs:element ref="PayableAmount"/>
+			<xs:element ref="PaymentMethod" minOccurs="0"/>
+			<xs:element ref="PaymentConditions" minOccurs="0"/>
+			<xs:element ref="PresentationDetails" minOccurs="0"/>
+			<xs:element ref="Comment" minOccurs="0"/>
+			<xs:element ref="ext:InvoiceRootExtension" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute ref="GeneratingSystem" use="required"/>
+		<xs:attribute ref="DocumentType" use="required"/>
+		<xs:attribute ref="InvoiceCurrency" use="required"/>
+		<xs:attribute ref="ManualProcessing" use="optional"/>
+		<xs:attribute ref="DocumentTitle" use="optional"/>
+		<xs:attribute ref="Language" use="optional"/>
+		<xs:attribute ref="IsDuplicate" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="InvoiceRecipientType">
+		<xs:complexContent>
+			<xs:extension base="AbstractPartyType">
+				<xs:sequence>
+					<xs:element ref="BillersInvoiceRecipientID" minOccurs="0"/>
+					<xs:element ref="AccountingArea" minOccurs="0"/>
+					<xs:element ref="SubOrganizationID" minOccurs="0"/>
+					<xs:element ref="ext:InvoiceRecipientExtension" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ItemListType">
+		<xs:sequence>
+			<xs:element ref="HeaderDescription" minOccurs="0"/>
+			<xs:element ref="ListLineItem" maxOccurs="unbounded"/>
+			<xs:element ref="FooterDescription" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ListLineItemType">
+		<xs:sequence>
+			<xs:element ref="PositionNumber" minOccurs="0"/>
+			<xs:element ref="Description" maxOccurs="unbounded"/>
+			<xs:element ref="ArticleNumber" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="Quantity"/>
+			<xs:element ref="UnitPrice"/>
+			<xs:choice>
+				<xs:element ref="TaxExemption"/>
+				<xs:element ref="VATRate"/>
+			</xs:choice>
+			<xs:element ref="DiscountFlag" minOccurs="0"/>
+			<xs:element ref="ReductionAndSurchargeListLineItemDetails" minOccurs="0"/>
+			<xs:element ref="Delivery" minOccurs="0"/>
+			<xs:element ref="BillersOrderReference" minOccurs="0"/>
+			<xs:element ref="InvoiceRecipientsOrderReference" minOccurs="0"/>
+			<xs:element ref="AdditionalInformation" minOccurs="0"/>
+			<xs:element ref="LineItemAmount"/>
+			<xs:element ref="ext:ListLineItemExtension" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoPaymentType">
+		<!-- Empty type -->
+	</xs:complexType>
+	<xs:complexType name="OrderingPartyType">
+		<xs:complexContent>
+			<xs:extension base="AbstractPartyType">
+				<xs:sequence>
+					<xs:element ref="BillersOrderingPartyID"/>
+					<xs:element ref="ext:OrderingPartyExtension" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OrderReferenceDetailType">
+		<xs:complexContent>
+			<xs:extension base="OrderReferenceType">
+				<xs:sequence>
+					<xs:element ref="OrderPositionNumber" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OrderReferenceType">
+		<xs:sequence>
+			<xs:element ref="OrderID"/>
+			<xs:element ref="ReferenceDate" minOccurs="0"/>
+			<xs:element ref="Description" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OtherTaxType">
+		<xs:sequence>
+			<xs:element ref="Comment"/>
+			<xs:element ref="Amount"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OtherVATableTaxBaseType">
+		<xs:sequence>
+			<xs:element ref="BaseAmount"/>
+			<xs:element ref="Percentage" minOccurs="0"/>
+			<xs:element ref="Amount"/>
+			<xs:element name="TaxID" type="IDType"/>
+			<xs:element ref="Comment" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OtherVATableTaxType">
+		<xs:complexContent>
+			<xs:extension base="OtherVATableTaxBaseType">
+				<xs:sequence>
+					<xs:element ref="VATRate"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PaymentConditionsType">
+		<xs:sequence>
+			<xs:element ref="DueDate"/>
+			<xs:element ref="Discount" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="MinimumPayment" minOccurs="0"/>
+			<xs:element ref="Comment" minOccurs="0"/>
+			<xs:element ref="ext:PaymentConditionsExtension" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PaymentMethodType">
+		<xs:sequence>
+			<xs:element ref="Comment" minOccurs="0"/>
+			<xs:choice>
+				<xs:element ref="NoPayment"/>
+				<xs:element ref="DirectDebit"/>
+				<xs:element ref="SEPADirectDebit"/>
+				<xs:element ref="UniversalBankTransaction"/>
+			</xs:choice>
+			<xs:element ref="ext:PaymentMethodExtension" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PaymentReferenceType">
+		<xs:simpleContent>
+			<xs:extension base="ID35Type">
+				<xs:attribute ref="CheckSum" use="optional"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="PeriodType">
+		<xs:sequence>
+			<xs:element ref="FromDate"/>
+			<xs:element ref="ToDate"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PresentationDetailsType">
+		<xs:sequence>
+			<xs:element ref="URL" minOccurs="0"/>
+			<xs:element ref="LogoURL" minOccurs="0"/>
+			<xs:element ref="LayoutID" minOccurs="0"/>
+			<xs:element ref="SuppressZero" minOccurs="0"/>
+			<xs:element ref="ext:PresentationDetailsExtension" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReasonType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute ref="Date" use="optional"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ReductionAndSurchargeDetailsType">
+		<xs:sequence>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element ref="Reduction" minOccurs="0"/>
+				<xs:element ref="Surcharge" minOccurs="0"/>
+				<xs:element ref="OtherVATableTax" minOccurs="0"/>
+			</xs:choice>
+			<xs:element ref="ext:ReductionAndSurchargeDetailsExtension" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReductionAndSurchargeListLineItemDetailsType">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element ref="ReductionListLineItem" minOccurs="0"/>
+			<xs:element ref="SurchargeListLineItem" minOccurs="0"/>
+			<xs:element ref="OtherVATableTaxListLineItem" minOccurs="0"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="ReductionAndSurchargeBaseType">
+		<xs:sequence>
+			<xs:element ref="BaseAmount"/>
+			<xs:element ref="Percentage" minOccurs="0"/>
+			<xs:element ref="Amount" minOccurs="0"/>
+			<xs:element ref="Comment" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReductionAndSurchargeType">
+		<xs:complexContent>
+			<xs:extension base="ReductionAndSurchargeBaseType">
+				<xs:sequence>
+					<xs:element ref="VATRate"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="RelatedDocumentType">
+		<xs:sequence>
+			<xs:element ref="InvoiceNumber" minOccurs="1"/>
+			<xs:element ref="InvoiceDate" minOccurs="0"/>
+			<xs:element ref="DocumentType" minOccurs="0"/>
+			<xs:element ref="Comment" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SEPADirectDebitType">
+		<xs:sequence>
+			<xs:element ref="Type"/>
+			<xs:element ref="BIC"/>
+			<xs:element ref="IBAN"/>
+			<xs:element ref="BankAccountOwner"/>
+			<xs:element ref="CreditorID"/>
+			<xs:element ref="MandateReference"/>
+			<xs:element ref="DebitCollectionDate"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TaxExemptionType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute ref="TaxExemptionCode" use="optional"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="TaxType">
+		<xs:sequence>
+			<xs:element ref="VAT"/>
+			<xs:element ref="OtherTax" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="ext:TaxExtension" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UnitType">
+		<xs:simpleContent>
+			<xs:extension base="Decimal4Type">
+				<xs:attribute ref="Unit" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="UnitPriceType">
+		<xs:simpleContent>
+			<xs:extension base="Decimal4Type">
+				<xs:attribute ref="BaseQuantity" use="optional"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="UniversalBankTransactionType">
+		<xs:sequence>
+			<xs:element ref="BeneficiaryAccount" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="PaymentReference" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute ref="ConsolidatorPayable" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="VATItemType">
+		<xs:sequence>
+			<xs:element ref="TaxedAmount"/>
+			<xs:choice>
+				<xs:element ref="TaxExemption"/>
+				<xs:element ref="VATRate"/>
+			</xs:choice>
+			<xs:element ref="Amount"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VATRateType">
+		<xs:simpleContent>
+			<xs:extension base="PercentageType">
+				<xs:attribute ref="TaxCode" use="optional"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="VATType">
+		<xs:sequence>
+			<xs:element ref="VATItem" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
