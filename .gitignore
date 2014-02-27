@@ -7,3 +7,9 @@
 *.ear
 validation-service/.idea/
 validation-service/validierungsservice.iml
+validation-service/out/
+validation-service/src/main/resources/rebel.xml
+validation-service/validation-service.iml
+validation-service/ebinterface-core.iml
+validation-service/ebinterface-parent.iml
+validation-service/ebinterface-web.iml

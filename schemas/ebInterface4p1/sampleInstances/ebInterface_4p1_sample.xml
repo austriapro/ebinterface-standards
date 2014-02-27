@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../Invoice.xslt"?>
+<Invoice n1:GeneratingSystem="String" n1:DocumentType="Invoice" n1:InvoiceCurrency="EUR" n1:ManualProcessing="true" n1:DocumentTitle="Rechnung für Jänner 2014" n1:Language="ger" n1:IsDuplicate="true" xsi:schemaLocation="http://www.ebinterface.at/schema/4p1/ ../Invoice.xsd" xmlns="http://www.ebinterface.at/schema/4p1/" xmlns:n2="http://www.altova.com/samplexml/other-namespace" xmlns:n1="http://www.ebinterface.at/schema/4p1/" xmlns:ext="http://www.ebinterface.at/schema/4p1/extensions/ext" xmlns:sv="http://www.ebinterface.at/schema/4p1/extensions/sv" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<InvoiceNumber>RNR 2014/2</InvoiceNumber>
+	<InvoiceDate>2014-02-16</InvoiceDate>
+	<CancelledOriginalDocument>
+		<InvoiceNumber>RNR 49384</InvoiceNumber>
+		<InvoiceDate>2014-02-18</InvoiceDate>
+		<DocumentType>Invoice</DocumentType>
+		<Comment>Storno für ungültige Rechnung</Comment>
+	</CancelledOriginalDocument>
+	<RelatedDocument>
+		<InvoiceNumber>RNR 3939</InvoiceNumber>
+		<InvoiceDate>2014-02-15</InvoiceDate>
+		<DocumentType>Invoice</DocumentType>
+		<Comment>Teilrechnung 1</Comment>
+	</RelatedDocument>
+	<RelatedDocument>
+		<InvoiceNumber>RNR 3940</InvoiceNumber>
+		<InvoiceDate>2014-02-16</InvoiceDate>
+		<DocumentType>Invoice</DocumentType>
+		<Comment>Teilrechnung 2</Comment>
+	</RelatedDocument>
+	<Delivery>
+		<DeliveryID>4893</DeliveryID>
+		<Date>2014-02-15</Date>
+		<Address>
+			<AddressIdentifier n1:AddressIdentifierType="GLN">5632545698754</AddressIdentifier>
+			<Salutation>Firma</Salutation>
+			<Name>Planck GmbH</Name>
+			<Street>Triester Straße 134</Street>
+			<Town>Wien</Town>
+			<ZIP>1100</ZIP>
+			<Country n1:CountryCode="AT">Österreich</Country>
+			<Phone>+43 1 6525 5487</Phone>
+			<Email>office@firma-planck.at</Email>
+			<Contact>Herr Hannes Anzengruber (Tel.: 0664 8934 483 44)</Contact>
+			<AddressExtension>Hinweis: Neuer Firmensitz ab 01.01.2014</AddressExtension>
+		</Address>
+		<Description>Keine Anlieferungen ohne vorheriges Lieferavis (DESADV) möglich!</Description>
+	</Delivery>
+	<Biller>
+		<VATIdentificationNumber>UID12384938</VATIdentificationNumber>
+		<FurtherIdentification n1:IdentificationType="FBNR">FN 393823 e</FurtherIdentification>
+		<OrderReference>
+			<OrderID>Bestellung Nr. 1293</OrderID>
+			<ReferenceDate>2014-02-12</ReferenceDate>
+			<Description>Faxbestellung</Description>
+		</OrderReference>
+		<Address>
+			<AddressIdentifier n1:AddressIdentifierType="GLN">9856545212354</AddressIdentifier>
+			<AddressIdentifier n1:AddressIdentifierType="ProprietaryAddressID">IKL3993</AddressIdentifier>
+			<Salutation>Firma</Salutation>
+			<Name>Lieferant Mustermann</Name>
+			<Street>Favoritenstraße 329/32</Street>
+			<POBox>4711</POBox>
+			<Town>Wien</Town>
+			<ZIP>1040</ZIP>
+			<Country n1:CountryCode="AT">Österreich</Country>
+			<Phone>+43 1 58801 8857452</Phone>
+			<Email>office@lieferant-mustermann.at</Email>
+			<Contact>Herr Karl-Heinz Riegler</Contact>
+		</Address>
+		<InvoiceRecipientsBillerID>ID39384</InvoiceRecipientsBillerID>
+	</Biller>
+	<InvoiceRecipient>
+		<VATIdentificationNumber>UID84389384</VATIdentificationNumber>
+		<FurtherIdentification n1:IdentificationType="FBNR">FN 49948 p</FurtherIdentification>
+		<FurtherIdentification n1:IdentificationType="DVR">2342345</FurtherIdentification>
+		<Address>
+			<AddressIdentifier n1:AddressIdentifierType="GLN">8654599542369</AddressIdentifier>
+			<AddressIdentifier n1:AddressIdentifierType="DUNS">4854859047858</AddressIdentifier>
+			<Salutation>Firma</Salutation>
+			<Name>VGB GmbH &amp; Co KG</Name>
+			<Street>Walserbergstraße 32</Street>
+			<Town>Salzburg</Town>
+			<ZIP>5021</ZIP>
+			<Country n1:CountryCode="AT">Österreich</Country>
+			<Phone>+43 662 565 585</Phone>
+			<Email>office@vgbgmbh.at</Email>
+			<Contact>Frau Helga Schneider</Contact>
+		</Address>
+		<BillersInvoiceRecipientID>39494</BillersInvoiceRecipientID>
+		<AccountingArea>FIBU34</AccountingArea>
+		<SubOrganizationID>Orga33</SubOrganizationID>
+	</InvoiceRecipient>
+	<OrderingParty>
+		<VATIdentificationNumber>ATU9990394</VATIdentificationNumber>
+		<FurtherIdentification n1:IdentificationType="FBNR">FN 939484 g</FurtherIdentification>
+		<OrderReference>
+			<OrderID>ORD34939</OrderID>
+			<ReferenceDate>2014-02-02</ReferenceDate>
+			<Description>Ursprüngliche Bestellung per Fax</Description>
+		</OrderReference>
+		<Address>
+			<AddressIdentifier n1:AddressIdentifierType="DUNS">55658585</AddressIdentifier>
+			<AddressIdentifier n1:AddressIdentifierType="GLN">5698532156548</AddressIdentifier>
+			<Salutation>Firma</Salutation>
+			<Name>Gustavson Industriebedarf</Name>
+			<Street>Implerstraße 3</Street>
+			<Town>München</Town>
+			<ZIP>85652</ZIP>
+			<Country n1:CountryCode="DE">Deutschland</Country>
+			<Phone>+49 89 343 55874</Phone>
+			<Email>office@gustavson-industriebedarf.de</Email>
+			<Contact>Frau Alexandra Mayer</Contact>
+		</Address>
+		<BillersOrderingPartyID>58855</BillersOrderingPartyID>
+	</OrderingParty>
+	<Details>
+		<HeaderDescription>Wir erlauben uns die folgenden Positionen in Rechnung zu stellen</HeaderDescription>
+		<ItemList>
+			<HeaderDescription>Rechnungspositionen basierend auf der Faxbestellung</HeaderDescription>
+			<ListLineItem>
+				<PositionNumber>1</PositionNumber>
+				<Description>Produkt A</Description>
+				<ArticleNumber n1:ArticleNumberType="BillersArticleNumber">BAN 123</ArticleNumber>
+				<ArticleNumber n1:ArticleNumberType="InvoiceRecipientsArticleNumber">SAN 345</ArticleNumber>
+				<ArticleNumber n1:ArticleNumberType="PZN">PZN39483</ArticleNumber>
+				<ArticleNumber n1:ArticleNumberType="GTIN">54563256987542</ArticleNumber>
+				<Quantity n1:Unit="kg">33.00</Quantity>
+				<UnitPrice n1:BaseQuantity="1">7.33</UnitPrice>
+				<TaxExemption n1:TaxExemptionCode="S69">Steuerfrei (gemäß § x UStG)</TaxExemption>
+				<DiscountFlag>true</DiscountFlag>
+				<ReductionAndSurchargeListLineItemDetails>
+					<ReductionListLineItem>
+						<BaseAmount>241.89</BaseAmount>
+						<Percentage>2</Percentage>
+						<Amount>4.84</Amount>
+						<Comment>Frühbucherrabatt</Comment>
+					</ReductionListLineItem>
+					<SurchargeListLineItem>
+						<BaseAmount>241.89</BaseAmount>
+						<Percentage>3</Percentage>
+						<Amount>7.26</Amount>
+						<Comment>Versäumnisgebühr</Comment>
+					</SurchargeListLineItem>
+					<OtherVATableTaxListLineItem>
+						<BaseAmount>241.89</BaseAmount>
+						<Percentage>4</Percentage>
+						<Amount>9.68</Amount>
+						<TaxID>BS</TaxID>
+						<Comment>Biersteuer</Comment>
+					</OtherVATableTaxListLineItem>
+				</ReductionAndSurchargeListLineItemDetails>
+				<Delivery>
+					<DeliveryID>4895</DeliveryID>
+					<Date>2014-02-16</Date>
+					<Address>
+						<AddressIdentifier n1:AddressIdentifierType="GLN">4893783938432</AddressIdentifier>
+						<Salutation>Firma</Salutation>
+						<Name>Cisco GmbH</Name>
+						<Street>Nußdorfer Allee 53</Street>
+						<Town>Wien</Town>
+						<ZIP>1090</ZIP>
+						<Country n1:CountryCode="AT">Österreich</Country>
+						<Phone>+43 1 6543 434</Phone>
+						<Email>office@firma-cisco.at</Email>
+						<Contact>Herr Georg Rasinger (Tel.: 0664 5434 432 32)</Contact>
+						<AddressExtension>Achtung! Abweichende Lieferadresse!</AddressExtension>
+					</Address>
+					<Description>Lieferung auf Anfrage auch ohne DESADV möglich!</Description>
+				</Delivery>
+				<BillersOrderReference>
+					<OrderID>BORD1234</OrderID>
+					<ReferenceDate>2014-01-30</ReferenceDate>
+					<Description>Faxbestellung</Description>
+					<OrderPositionNumber>12</OrderPositionNumber>
+				</BillersOrderReference>
+				<InvoiceRecipientsOrderReference>
+					<OrderID>INVORD394</OrderID>
+					<ReferenceDate>2014-01-29</ReferenceDate>
+					<Description>Per Fax versendete Bestellung</Description>
+					<OrderPositionNumber>10</OrderPositionNumber>
+				</InvoiceRecipientsOrderReference>
+				<AdditionalInformation>
+					<SerialNumber>Seriennr 3939494</SerialNumber>
+					<SerialNumber>Seriennr 4839384</SerialNumber>					
+					<ChargeNumber>Charge 37</ChargeNumber>
+					<ChargeNumber>Charge 47322</ChargeNumber>					
+					<Classification n1:ClassificationSchema="Skala 7">3 Punkte</Classification>
+					<Classification n1:ClassificationSchema="Skala 8">43 Punkte</Classification>
+					<AlternativeQuantity n1:Unit="dkg">330</AlternativeQuantity>
+					<Size>L</Size>
+					<Weight n1:Unit="t">0.5</Weight>
+					<Boxes>2</Boxes>
+					<Color>Grün</Color>
+				</AdditionalInformation>
+				<LineItemAmount>253.99</LineItemAmount>
+			</ListLineItem>
+			<FooterDescription>Wir bitten um vereinbarungsgemäße Zahlung</FooterDescription>
+		</ItemList>
+		<ItemList>
+			<HeaderDescription>Rechnungspositionen basierend auf der telefonischen Bestellung</HeaderDescription>
+			<ListLineItem xmlns:n3="http://www.ebinterface.at/schema/4p1/">
+				<Description>Produkt B</Description>
+				<Quantity n3:Unit="">345</Quantity>
+				<UnitPrice>12</UnitPrice>
+				<VATRate n3:TaxCode="AT022">20.00</VATRate>
+				<LineItemAmount>4140</LineItemAmount>
+			</ListLineItem>
+			<FooterDescription>Wir bitten um genaue Nachkontrolle bei der telefonischen Bestellung!</FooterDescription>
+		</ItemList>
+		<FooterDescription>Lieferung erfolgt wie vereinbart.</FooterDescription>
+		<BelowTheLineItem>
+			<Description>Drittleistung</Description>
+			<LineItemAmount>32.12</LineItemAmount>
+			<Reason n1:Date="2014-01-30">Bereits durch Dritte beglichener Teilbetrag</Reason>
+		</BelowTheLineItem>
+		<BelowTheLineItem>
+			<Description>Anzahlung</Description>
+			<LineItemAmount>50.43</LineItemAmount>
+			<Reason n1:Date="2014-01-25">Angezahlter Betrag</Reason>
+		</BelowTheLineItem>
+	</Details>
+	<ReductionAndSurchargeDetails>
+		<Reduction>
+			<BaseAmount>454</BaseAmount>
+			<Percentage>3</Percentage>
+			<Amount>13.62</Amount>
+			<Comment>Mengenrabatt</Comment>
+			<VATRate n1:TaxCode="AT029">10</VATRate>
+		</Reduction>
+		<Reduction>
+			<BaseAmount>540</BaseAmount>
+			<Percentage>2</Percentage>
+			<Amount>10.8</Amount>
+			<Comment>Stammkundenrabatt</Comment>
+			<VATRate n1:TaxCode="AT022">20</VATRate>
+		</Reduction>
+		<Surcharge>
+			<BaseAmount>1021</BaseAmount>
+			<Percentage>3</Percentage>
+			<Amount>30.63</Amount>
+			<Comment>Gefahrenaufschlag</Comment>
+			<VATRate n1:TaxCode="AT022">20</VATRate>
+		</Surcharge>
+		<OtherVATableTax>
+			<BaseAmount>454</BaseAmount>
+			<Percentage>4</Percentage>
+			<Amount>18.16</Amount>
+			<TaxID>MS</TaxID>
+			<Comment>Enthaltene Mineralölsteuer</Comment>
+			<VATRate>10</VATRate>
+		</OtherVATableTax>		
+	</ReductionAndSurchargeDetails>
+	<Tax>
+		<VAT>
+			<VATItem>
+				<TaxedAmount>550.00</TaxedAmount>
+				<VATRate n1:TaxCode="AT022">20</VATRate>
+				<Amount>110</Amount>
+			</VATItem>		
+			<VATItem>
+				<TaxedAmount>2200.00</TaxedAmount>
+				<VATRate n1:TaxCode="AT029">10</VATRate>
+				<Amount>220</Amount>
+			</VATItem>
+			<VATItem>
+				<TaxedAmount>202.00</TaxedAmount>
+				<TaxExemption n1:TaxExemptionCode="RCH">Reverse Charge </TaxExemption>
+				<Amount>0.00</Amount>
+			</VATItem>
+		</VAT>
+		<OtherTax>
+			<Comment>Biersteuer</Comment>
+			<Amount>34.40</Amount>
+		</OtherTax>
+		<OtherTax>
+			<Comment>Mineralölsteuer</Comment>
+			<Amount>493.39</Amount>
+		</OtherTax>
+		<OtherTax>
+			<Comment>Werbeabgabe</Comment>
+			<Amount>49.30</Amount>
+		</OtherTax>
+		<ext:TaxExtension>
+			<sv:TaxExtension/>
+			<ext:Custom>
+				<n2:auto-generated_for_wildcard/>
+			</ext:Custom>
+		</ext:TaxExtension>
+	</Tax>
+	<TotalGrossAmount>49391.12</TotalGrossAmount>
+	<PayableAmount>44329.12</PayableAmount>
+	<PaymentMethod>
+		<Comment>Zahlbar per Überweisung. Bitte SEPA Voraussetzungen berücksichtigen.</Comment>
+		<UniversalBankTransaction n1:ConsolidatorPayable="true">
+			<BeneficiaryAccount>
+				<BankName>Sparkasse Freistadt</BankName>
+				<BankCode n1:BankCodeType="AT">34394939</BankCode>
+				<BIC>ARKEKEKE</BIC>
+				<BankAccountNr>asdfasf</BankAccountNr>
+				<IBAN>23424234</IBAN>
+				<BankAccountOwner>Geor Han</BankAccountOwner>				
+			</BeneficiaryAccount>
+			<BeneficiaryAccount>
+				<BankName>Sparkasse Radstadt</BankName>
+				<BankCode n1:BankCodeType="DE">234234</BankCode>
+				<BIC>ARKEKEKE</BIC>
+				<BankAccountNr>ertert3334</BankAccountNr>
+				<IBAN>345345dh</IBAN>
+				<BankAccountOwner>Geor Han</BankAccountOwner>				
+			</BeneficiaryAccount>	
+			<PaymentReference>234334</PaymentReference>		
+		</UniversalBankTransaction>
+	</PaymentMethod>
+	<PaymentConditions>
+		<DueDate>1967-08-13</DueDate>
+		<Discount>
+			<PaymentDate>1967-08-13</PaymentDate>
+			<BaseAmount>4343.12</BaseAmount>
+			<Percentage>2</Percentage>
+			<Amount>23.12</Amount>
+		</Discount>
+		<Discount>
+			<PaymentDate>1967-08-13</PaymentDate>
+			<BaseAmount>234.12</BaseAmount>
+			<Percentage>4</Percentage>
+			<Amount>323.12</Amount>
+		</Discount>		
+		<MinimumPayment>32321.12</MinimumPayment>
+		<Comment>Wir bitten um rasche Überweisung</Comment>
+	</PaymentConditions>
+	<PresentationDetails>
+		<URL>http://www.ecosio.com</URL>
+		<LogoURL>https://s3-eu-west-1.amazonaws.com/cdn.ecosio.com/company-images/manuallyUploaded/lieferant_mustermann_logo.png</LogoURL>
+		<LayoutID>a</LayoutID>
+		<SuppressZero>true</SuppressZero>
+	</PresentationDetails>
+	<Comment>Allgemeiner Kommentar zur Rechnung</Comment>
+</Invoice>

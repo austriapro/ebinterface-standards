@@ -1,18 +1,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-    <groupId>at.ebinterface</groupId>
-	<artifactId>ebinterface-parent</artifactId>
-	<packaging>pom</packaging>
+	<artifactId>ebinterface-web</artifactId>
+	<packaging>war</packaging>
 	<version>1.0.0</version>
 	<modelVersion>4.0.0</modelVersion>
-	<name>ebInterface validation service parent</name>
+	<name>ebInterface validation web interface</name>
 
 
-    <modules>
-        <module>ebinterface-core</module>
-        <module>ebinterface-web</module>
-    </modules>
+    <parent>
+        <groupId>at.ebinterface</groupId>
+        <artifactId>ebinterface-parent</artifactId>
+        <version>1.0.0</version>
+    </parent>
 
 
 	<properties>
@@ -68,6 +68,14 @@
 
 	<dependencies>
 
+        <!-- ebInterface core for the validation logic -->
+        <dependency>
+            <groupId>at.ebinterface</groupId>
+            <artifactId>ebinterface-core</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+
 		<!-- Wicket -->
 		<dependency>
 			<groupId>org.apache.wicket</groupId>
@@ -83,18 +91,6 @@
 		</dependency>
 
 
-		<!-- Xerces -->
-		<dependency>
-			<groupId>xerces</groupId>
-			<artifactId>xercesImpl</artifactId>
-			<version>2.11.0</version>
-		</dependency>
-		<dependency>
-			<groupId>xml-resolver</groupId>
-			<artifactId>xml-resolver</artifactId>
-			<version>1.2</version>
-		</dependency>
-
 		<!-- Apache Commons -->
 		<dependency>
 			<groupId>commons-lang</groupId>
@@ -109,45 +105,6 @@
 		</dependency>
 
 
-		<!-- http://cxf.apache.org/faq.html -->
-		<dependency>
-			<groupId>com.sun.xml.bind</groupId>
-			<artifactId>jaxb-xjc</artifactId>
-			<version>2.2.2</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.xml.bind</groupId>
-			<artifactId>jaxb-impl</artifactId>
-			<version>2.2.2</version>
-		</dependency>
-
-		<!-- JAXB Basics plugin -->
-		<dependency>
-			<groupId>org.jvnet.jaxb2_commons</groupId>
-			<artifactId>jaxb2-basics</artifactId>
-			<version>0.6.0</version>
-		</dependency>
-		<dependency>
-			<groupId>net.sf.saxon</groupId>
-			<artifactId>Saxon-HE</artifactId>
-			<version>9.4</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-
-		<!-- XML Digital Signature Validation -->
-		<dependency>
-			<groupId>org.bouncycastle</groupId>
-			<artifactId>bcprov-jdk16</artifactId>
-			<version>1.46</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.santuario</groupId>
-			<artifactId>xmlsec</artifactId>
-			<version>1.5.5</version>
-			<scope>runtime</scope>
-		</dependency>
 
 		<!-- logging -->
 		<dependency>
@@ -185,48 +142,10 @@
 		</dependency>
 
 
-		<!-- MOA SP/SS references -->
-		<dependency>
-			<groupId>MOA.spss.server</groupId>
-			<artifactId>moa-spss-lib</artifactId>
-			<version>1.5.1</version>
-		</dependency>
-
-		<dependency>
-			<groupId>jaxen</groupId>
-			<artifactId>jaxen</artifactId>
-			<version>1.0-FCS</version>
-		</dependency>
-
-		<dependency>
-			<groupId>saxpath</groupId>
-			<artifactId>saxpath</artifactId>
-			<version>1.0-FCS</version>
-		</dependency>
-
-		<dependency>
-			<groupId>commons-discovery</groupId>
-			<artifactId>commons-discovery</artifactId>
-			<version>0.2</version>
-		</dependency>
-
-		<dependency>
-			<groupId>javax.mail</groupId>
-			<artifactId>mail</artifactId>
-			<version>1.4</version>
-		</dependency>
-
-		<dependency>
-			<groupId>javax.activation</groupId>
-			<artifactId>activation</artifactId>
-			<version>1.1</version>
-		</dependency>
-
-
 	</dependencies>
 
 
-	<description>The ebInterface validation service allows to check ebInterface 4.0 instances against predefined Schematron rules</description>
+	<description>The ebInterface validation web interface offers a web-based interface for the ebinterface-core validation service</description>
 	<url>http://ebinterface.at</url>
 
 
