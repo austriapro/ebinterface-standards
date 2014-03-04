@@ -4,7 +4,7 @@
 		XSLT for ebInterface 4.1
 		For more information on ebInterface see http://www.ebinterface.at/
 		
-		Last update:	19.02.2013
+		Last update:	19.02.2014
 		Author: 			Philipp Liegl, Vienna University of Technology
 -->
 	<xsl:output method="html" encoding="utf-8" indent="yes"/>
@@ -16,7 +16,7 @@
 				<title>
 					<xsl:value-of select="/eb:Invoice/@eb:DocumentTitle"/>
 				</title>
-				<link rel="stylesheet" href="../css/bootstrap.min.css"/>
+				<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
 				<meta name="viewport" content="width=device-width, initial-scale=1"/>
 			</head>
 			<body>
