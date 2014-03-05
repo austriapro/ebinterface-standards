@@ -16,8 +16,6 @@
 
 
 	<properties>
-		<!-- Wicket related -->
-		<wicket-version>1.5.8</wicket-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<logback-version>1.0.0</logback-version>
 		<slf4j-version>1.6.4</slf4j-version>
