@@ -29,7 +29,7 @@ The validation contains two main artifacts
 
 ##Prerequisites
 
-Please note, that the RTR Web Service is not open to the public, but requires credentials for its HTTP basic authentication in order to be accessed. Username and password must be provided in a properties file named ```rtr.properties``` which must contain the following values:
+Please note, that the RTR Web Service is not open to the public, but requires credentials for its HTTP basic authentication in order to be accessed. Username and password must be provided in a properties file named ```rtr.properties```, which must contain the following values:
 
 ``` 
 rtr.username=<username>
