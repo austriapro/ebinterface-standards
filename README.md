@@ -15,11 +15,11 @@ Using this repository, the development versions of the different ebInterface sta
 #ebInterface validation service
 
 
-The ebInterface validation service allows to validate ebInterface instances according to the ebInterface XML Schema version 3.0, 3.02, 4.0 and 4.01.
+The ebInterface validation service allows to validate ebInterface instances according to ebInterface XML Schema version 3.0, 3.02, 4.0, and 4.01.
 
 The validation includes XML Schema conformance, conformance to predefined Schematron rules, and the validation of digital signatures. For the validation of digital signatures the Web Service of [Rundfunk & Telekom Regulierungs-GmbH](http://www.rtr.at) https://pruefung.signatur.rtr.at/ is used.
 
-Additionally, the validation service allows to visualize ebInterface XML instances by applying XSL stylesheets.
+Additionally, the validation service allows to visualize ebInterface XML instances by applying XSLT stylesheets.
 
 The validation contains two main artifacts
 
