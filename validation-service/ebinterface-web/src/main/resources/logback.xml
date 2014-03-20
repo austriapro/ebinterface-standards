@@ -5,10 +5,9 @@
 			<pattern>%-5p %c{2} %m %throwable %n</pattern>
 		</encoder>
 	</appender>
-	
-	<logger name="at.ebinterface.validation.digitalsignatures" level="debug" />
-	<logger name="org.apache.jcp.xml.dsig.internal.dom" level="debug"/>
-	
+
+	<logger name="at.ebinterface.validation" level="debug" />
+
 	<root>
 		<level value="info" />
 		<appender-ref ref="console" />

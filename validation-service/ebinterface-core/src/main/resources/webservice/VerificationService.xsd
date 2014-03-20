@@ -1,0 +1,80 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:tns="http://reference.e-government.gv.at/namespace/verificationservice/20120922#" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://reference.e-government.gv.at/namespace/verificationservice/20120922#">
+<xsd:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+<xsd:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="dsig.xsd"/>
+<xsd:element name="VerifyDocumentRequest">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="0" name="Version" type="xsd:int"/>
+<xsd:element name="Document" type="xsd:base64Binary"/>
+<xsd:element minOccurs="0" name="FileID" type="xsd:token"/>
+<xsd:element minOccurs="0" name="TrustProfileID" type="xsd:token"/>
+<xsd:element minOccurs="0" name="RequestPDFReport" type="xsd:boolean"/>
+<xsd:element minOccurs="0" name="Language" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="VerifyDocumentResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element minOccurs="0" name="Version" type="xsd:int"/>
+<xsd:element name="VerificationReport" type="tns:VerificationReportType"/>
+<xsd:element minOccurs="0" name="PDFDocument" type="xsd:base64Binary"/>
+<xsd:element ref="dsig:Signature"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="VerificationReportType">
+<xsd:sequence>
+<xsd:element name="FileInfo" type="tns:FileInfoType"/>
+<xsd:element maxOccurs="unbounded" name="SignatureInfo" type="tns:SignatureInfoType"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="FileInfoType">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="FileID" type="xsd:token"/>
+<xsd:element name="FileType" type="xsd:string"/>
+<xsd:element name="File-Hash" type="xsd:base64Binary"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="SignatureInfoType">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="InputData" type="tns:ContentExLocRefBaseType"/>
+<xsd:element name="SignerName" type="xsd:string"/>
+<xsd:element minOccurs="0" name="SignatureCheck" type="tns:CheckResultType"/>
+<xsd:element name="CertificateCheck" type="tns:CheckResultType"/>
+<xsd:element minOccurs="0" name="ManifestCheck" type="tns:ManifestCheckType"/>
+<xsd:element minOccurs="0" name="Annotations" type="tns:AnnotationsType"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ContentExLocRefBaseType">
+<xsd:sequence>
+<xsd:element name="Base64Content" type="xsd:base64Binary"/>
+<xsd:element name="FileType" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="AnnotationsType">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="Annotation" type="tns:CheckResultType"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ManifestCheckType">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="Manifest" type="tns:CheckResultType"/>
+<xsd:element minOccurs="0" name="XMLDsigManifest" type="tns:CheckResultType"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="CheckResultType">
+<xsd:sequence>
+<xsd:element name="Code" type="xsd:integer"/>
+<xsd:element minOccurs="0" name="Info" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="ErrorResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ErrorCode" type="xsd:integer"/>
+<xsd:element name="Info" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:schema>

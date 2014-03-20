@@ -108,47 +108,6 @@
 			<version>2.4</version>
 		</dependency>
 
-
-		<!-- http://cxf.apache.org/faq.html -->
-		<dependency>
-			<groupId>com.sun.xml.bind</groupId>
-			<artifactId>jaxb-xjc</artifactId>
-			<version>2.2.2</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.xml.bind</groupId>
-			<artifactId>jaxb-impl</artifactId>
-			<version>2.2.2</version>
-		</dependency>
-
-		<!-- JAXB Basics plugin -->
-		<dependency>
-			<groupId>org.jvnet.jaxb2_commons</groupId>
-			<artifactId>jaxb2-basics</artifactId>
-			<version>0.6.0</version>
-		</dependency>
-		<dependency>
-			<groupId>net.sf.saxon</groupId>
-			<artifactId>Saxon-HE</artifactId>
-			<version>9.4</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-
-		<!-- XML Digital Signature Validation -->
-		<dependency>
-			<groupId>org.bouncycastle</groupId>
-			<artifactId>bcprov-jdk16</artifactId>
-			<version>1.46</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.santuario</groupId>
-			<artifactId>xmlsec</artifactId>
-			<version>1.5.5</version>
-			<scope>runtime</scope>
-		</dependency>
-
 		<!-- logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -184,13 +143,6 @@
 			<scope>provided</scope>
 		</dependency>
 
-
-		<!-- MOA SP/SS references -->
-		<dependency>
-			<groupId>MOA.spss.server</groupId>
-			<artifactId>moa-spss-lib</artifactId>
-			<version>1.5.1</version>
-		</dependency>
 
 		<dependency>
 			<groupId>jaxen</groupId>

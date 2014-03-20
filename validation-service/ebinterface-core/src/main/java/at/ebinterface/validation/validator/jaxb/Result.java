@@ -13,17 +13,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
-import org.jvnet.jaxb2_commons.lang.Equals;
-import org.jvnet.jaxb2_commons.lang.EqualsStrategy;
-import org.jvnet.jaxb2_commons.lang.HashCode;
-import org.jvnet.jaxb2_commons.lang.HashCodeStrategy;
-import org.jvnet.jaxb2_commons.lang.JAXBEqualsStrategy;
-import org.jvnet.jaxb2_commons.lang.JAXBHashCodeStrategy;
-import org.jvnet.jaxb2_commons.lang.JAXBToStringStrategy;
-import org.jvnet.jaxb2_commons.lang.ToString;
-import org.jvnet.jaxb2_commons.lang.ToStringStrategy;
-import org.jvnet.jaxb2_commons.locator.ObjectLocator;
-import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 
 /**
@@ -81,7 +70,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 })
 @XmlRootElement(name = "Result")
 public class Result
-    implements Serializable, Equals, HashCode, ToString
+    implements Serializable
 {
 
     @XmlElement(name = "Namespace")
@@ -165,106 +154,6 @@ public class Result
         this.validationPassed = value;
     }
 
-    public String toString() {
-        final ToStringStrategy strategy = JAXBToStringStrategy.INSTANCE;
-        final StringBuilder buffer = new StringBuilder();
-        append(null, buffer, strategy);
-        return buffer.toString();
-    }
-
-    public StringBuilder append(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
-        strategy.appendStart(locator, this, buffer);
-        appendFields(locator, buffer, strategy);
-        strategy.appendEnd(locator, this, buffer);
-        return buffer;
-    }
-
-    public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
-        {
-            List<Result.Namespace> theNamespaces;
-            theNamespaces = this.getNamespaces();
-            strategy.appendField(locator, this, "namespaces", buffer, theNamespaces);
-        }
-        {
-            List<Result.Error> theErrors;
-            theErrors = this.getErrors();
-            strategy.appendField(locator, this, "errors", buffer, theErrors);
-        }
-        {
-            boolean theValidationPassed;
-            theValidationPassed = this.isValidationPassed();
-            strategy.appendField(locator, this, "validationPassed", buffer, theValidationPassed);
-        }
-        return buffer;
-    }
-
-    public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
-        int currentHashCode = 1;
-        {
-            List<Result.Namespace> theNamespaces;
-            theNamespaces = this.getNamespaces();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "namespaces", theNamespaces), currentHashCode, theNamespaces);
-        }
-        {
-            List<Result.Error> theErrors;
-            theErrors = this.getErrors();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "errors", theErrors), currentHashCode, theErrors);
-        }
-        {
-            boolean theValidationPassed;
-            theValidationPassed = this.isValidationPassed();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "validationPassed", theValidationPassed), currentHashCode, theValidationPassed);
-        }
-        return currentHashCode;
-    }
-
-    public int hashCode() {
-        final HashCodeStrategy strategy = JAXBHashCodeStrategy.INSTANCE;
-        return this.hashCode(null, strategy);
-    }
-
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if (!(object instanceof Result)) {
-            return false;
-        }
-        if (this == object) {
-            return true;
-        }
-        final Result that = ((Result) object);
-        {
-            List<Result.Namespace> lhsNamespaces;
-            lhsNamespaces = this.getNamespaces();
-            List<Result.Namespace> rhsNamespaces;
-            rhsNamespaces = that.getNamespaces();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "namespaces", lhsNamespaces), LocatorUtils.property(thatLocator, "namespaces", rhsNamespaces), lhsNamespaces, rhsNamespaces)) {
-                return false;
-            }
-        }
-        {
-            List<Result.Error> lhsErrors;
-            lhsErrors = this.getErrors();
-            List<Result.Error> rhsErrors;
-            rhsErrors = that.getErrors();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "errors", lhsErrors), LocatorUtils.property(thatLocator, "errors", rhsErrors), lhsErrors, rhsErrors)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsValidationPassed;
-            lhsValidationPassed = this.isValidationPassed();
-            boolean rhsValidationPassed;
-            rhsValidationPassed = that.isValidationPassed();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "validationPassed", lhsValidationPassed), LocatorUtils.property(thatLocator, "validationPassed", rhsValidationPassed), lhsValidationPassed, rhsValidationPassed)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public boolean equals(Object object) {
-        final EqualsStrategy strategy = JAXBEqualsStrategy.INSTANCE;
-        return equals(null, null, object, strategy);
-    }
 
     public Result withNamespaces(Result.Namespace... values) {
         if (values!= null) {
@@ -330,7 +219,7 @@ public class Result
         "violatingElement"
     })
     public static class Error
-        implements Serializable, Equals, HashCode, ToString
+        implements Serializable
     {
 
         @XmlElement(name = "ErrorMessage", required = true)
@@ -386,87 +275,7 @@ public class Result
             this.violatingElement = value;
         }
 
-        public String toString() {
-            final ToStringStrategy strategy = JAXBToStringStrategy.INSTANCE;
-            final StringBuilder buffer = new StringBuilder();
-            append(null, buffer, strategy);
-            return buffer.toString();
-        }
 
-        public StringBuilder append(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
-            strategy.appendStart(locator, this, buffer);
-            appendFields(locator, buffer, strategy);
-            strategy.appendEnd(locator, this, buffer);
-            return buffer;
-        }
-
-        public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
-            {
-                String theErrorMessage;
-                theErrorMessage = this.getErrorMessage();
-                strategy.appendField(locator, this, "errorMessage", buffer, theErrorMessage);
-            }
-            {
-                String theViolatingElement;
-                theViolatingElement = this.getViolatingElement();
-                strategy.appendField(locator, this, "violatingElement", buffer, theViolatingElement);
-            }
-            return buffer;
-        }
-
-        public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
-            int currentHashCode = 1;
-            {
-                String theErrorMessage;
-                theErrorMessage = this.getErrorMessage();
-                currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "errorMessage", theErrorMessage), currentHashCode, theErrorMessage);
-            }
-            {
-                String theViolatingElement;
-                theViolatingElement = this.getViolatingElement();
-                currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "violatingElement", theViolatingElement), currentHashCode, theViolatingElement);
-            }
-            return currentHashCode;
-        }
-
-        public int hashCode() {
-            final HashCodeStrategy strategy = JAXBHashCodeStrategy.INSTANCE;
-            return this.hashCode(null, strategy);
-        }
-
-        public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-            if (!(object instanceof Result.Error)) {
-                return false;
-            }
-            if (this == object) {
-                return true;
-            }
-            final Result.Error that = ((Result.Error) object);
-            {
-                String lhsErrorMessage;
-                lhsErrorMessage = this.getErrorMessage();
-                String rhsErrorMessage;
-                rhsErrorMessage = that.getErrorMessage();
-                if (!strategy.equals(LocatorUtils.property(thisLocator, "errorMessage", lhsErrorMessage), LocatorUtils.property(thatLocator, "errorMessage", rhsErrorMessage), lhsErrorMessage, rhsErrorMessage)) {
-                    return false;
-                }
-            }
-            {
-                String lhsViolatingElement;
-                lhsViolatingElement = this.getViolatingElement();
-                String rhsViolatingElement;
-                rhsViolatingElement = that.getViolatingElement();
-                if (!strategy.equals(LocatorUtils.property(thisLocator, "violatingElement", lhsViolatingElement), LocatorUtils.property(thatLocator, "violatingElement", rhsViolatingElement), lhsViolatingElement, rhsViolatingElement)) {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        public boolean equals(Object object) {
-            final EqualsStrategy strategy = JAXBEqualsStrategy.INSTANCE;
-            return equals(null, null, object, strategy);
-        }
 
         public Result.Error withErrorMessage(String value) {
             setErrorMessage(value);
@@ -504,7 +313,7 @@ public class Result
         "value"
     })
     public static class Namespace
-        implements Serializable, Equals, HashCode, ToString
+        implements Serializable
     {
 
         @XmlValue
@@ -588,106 +397,7 @@ public class Result
             this.uri = value;
         }
 
-        public String toString() {
-            final ToStringStrategy strategy = JAXBToStringStrategy.INSTANCE;
-            final StringBuilder buffer = new StringBuilder();
-            append(null, buffer, strategy);
-            return buffer.toString();
-        }
 
-        public StringBuilder append(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
-            strategy.appendStart(locator, this, buffer);
-            appendFields(locator, buffer, strategy);
-            strategy.appendEnd(locator, this, buffer);
-            return buffer;
-        }
-
-        public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
-            {
-                String theValue;
-                theValue = this.getValue();
-                strategy.appendField(locator, this, "value", buffer, theValue);
-            }
-            {
-                String thePrefix;
-                thePrefix = this.getPrefix();
-                strategy.appendField(locator, this, "prefix", buffer, thePrefix);
-            }
-            {
-                String theUri;
-                theUri = this.getUri();
-                strategy.appendField(locator, this, "uri", buffer, theUri);
-            }
-            return buffer;
-        }
-
-        public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
-            int currentHashCode = 1;
-            {
-                String theValue;
-                theValue = this.getValue();
-                currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "value", theValue), currentHashCode, theValue);
-            }
-            {
-                String thePrefix;
-                thePrefix = this.getPrefix();
-                currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "prefix", thePrefix), currentHashCode, thePrefix);
-            }
-            {
-                String theUri;
-                theUri = this.getUri();
-                currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "uri", theUri), currentHashCode, theUri);
-            }
-            return currentHashCode;
-        }
-
-        public int hashCode() {
-            final HashCodeStrategy strategy = JAXBHashCodeStrategy.INSTANCE;
-            return this.hashCode(null, strategy);
-        }
-
-        public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-            if (!(object instanceof Result.Namespace)) {
-                return false;
-            }
-            if (this == object) {
-                return true;
-            }
-            final Result.Namespace that = ((Result.Namespace) object);
-            {
-                String lhsValue;
-                lhsValue = this.getValue();
-                String rhsValue;
-                rhsValue = that.getValue();
-                if (!strategy.equals(LocatorUtils.property(thisLocator, "value", lhsValue), LocatorUtils.property(thatLocator, "value", rhsValue), lhsValue, rhsValue)) {
-                    return false;
-                }
-            }
-            {
-                String lhsPrefix;
-                lhsPrefix = this.getPrefix();
-                String rhsPrefix;
-                rhsPrefix = that.getPrefix();
-                if (!strategy.equals(LocatorUtils.property(thisLocator, "prefix", lhsPrefix), LocatorUtils.property(thatLocator, "prefix", rhsPrefix), lhsPrefix, rhsPrefix)) {
-                    return false;
-                }
-            }
-            {
-                String lhsUri;
-                lhsUri = this.getUri();
-                String rhsUri;
-                rhsUri = that.getUri();
-                if (!strategy.equals(LocatorUtils.property(thisLocator, "uri", lhsUri), LocatorUtils.property(thatLocator, "uri", rhsUri), lhsUri, rhsUri)) {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        public boolean equals(Object object) {
-            final EqualsStrategy strategy = JAXBEqualsStrategy.INSTANCE;
-            return equals(null, null, object, strategy);
-        }
 
         public Result.Namespace withValue(String value) {
             setValue(value);

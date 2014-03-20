@@ -1,11 +1,11 @@
 package at.ebinterface.validation.validator;
 
-import at.ebinterface.validation.digitalsignatures.MOASignatureValidator;
 import at.ebinterface.validation.exception.NamespaceUnknownException;
 import at.ebinterface.validation.parser.CustomParser;
+import at.ebinterface.validation.rtr.VerificationServiceInvoker;
+import at.ebinterface.validation.rtr.generated.VerifyDocumentRequest;
+import at.ebinterface.validation.rtr.generated.VerifyDocumentResponse;
 import at.ebinterface.validation.validator.jaxb.Result;
-import at.gv.egovernment.moa.spss.api.common.SignerInfo;
-import at.gv.egovernment.moa.spss.api.xmlverify.VerifyXMLSignatureResponse;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.StringReader;
@@ -233,40 +233,24 @@ public class EbInterfaceValidator {
         try {
             if (version.isSigned()) {
 
-                final VerifyXMLSignatureResponse verificationResponse = MOASignatureValidator.INSTANCE.validate(uploadedData, version.getSignatureNamespacePrefix());
+                //Build the request for the verification Web Service
+                //Create a verification request
+                VerifyDocumentRequest request = new VerifyDocumentRequest();
 
-                //Set the result of the certificate check
-                if (verificationResponse.getCertificateCheck().getCode() == 0) {
-                    result.setCertificateOK(true);
-                } else {
-                    result.setCertificateOK(false);
-                }
+                //Set the document
+                request.setDocument(uploadedData);
+                //No PDF report required
+                request.setRequestPDFReport(false);
+                //Expect German results
+                request.setLanguage("de");
 
-                //Set the result of the signature check
-                if (verificationResponse.getSignatureCheck().getCode() == 0) {
-                    result.setSignatureOK(true);
-                } else {
-                    result.setSignatureOK(false);
-                }
-
-                //Set the certificate details
-                // Besondere Eigenschaften des Signatorzertifikats
-                final SignerInfo signerInfo = verificationResponse.getSignerInfo();
-                if (signerInfo != null) {
-                    result.setCertificateIssuer(signerInfo.getSignerCertificate().getIssuerDN().toString());
-                    result.setCertificateSubject(signerInfo.getSignerCertificate().getSubjectDN().toString());
-                    result.setCertificateSerialNumber(signerInfo.getSignerCertificate().getSerialNumber().toString());
-
-                    result.setCertificateOfSignatorQualified(Boolean.valueOf(signerInfo.isQualifiedCertificate()));
-                    result.setCertificateOfSignatorFromAPublicAuthority(Boolean.valueOf(signerInfo.isPublicAuthority()));
-
-                }
+                VerifyDocumentResponse response = VerificationServiceInvoker.verifyDocument(request);
+                result.setVerifyDocumentResponse(response);
 
             }
 
         } catch (final Exception e) {
-            result.setCertificateOK(false);
-            result.setSignatureOK(false);
+            LOG.error("Unable to get signature verification result", e);
         }
 
         return result;

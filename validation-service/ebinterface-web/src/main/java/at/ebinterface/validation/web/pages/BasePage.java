@@ -1,11 +1,9 @@
 package at.ebinterface.validation.web.pages;
 
-import org.apache.wicket.markup.html.IHeaderResponse;
+import at.ebinterface.validation.web.pages.images.ImagesLogoAccessor;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.image.Image;
 import org.apache.wicket.request.resource.PackageResourceReference;
-
-import at.ebinterface.validation.web.pages.images.ImagesLogoAccessor;
 
 /**
  * Base page for all web pages
@@ -28,23 +26,7 @@ public abstract class BasePage extends WebPage {
 		 
 	}
 	
-	
-	
-	
-	
-	
-	@Override
-	public void renderHead(IHeaderResponse response) {
-		super.renderHead(response);
-		
-		// Add the necessary CSS references for bootstrap
-		response.renderCSSReference(new PackageResourceReference(BasePage.class,
-				"css/bootstrap.css"));
-		response.renderCSSReference(new PackageResourceReference(BasePage.class,
-				"css/bootstrap-responsive.css"));
 
-	}
-	
 		
 	
 }

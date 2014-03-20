@@ -7,22 +7,22 @@
 
 
 	<div class="row">
-		<div class="span8">
+		<div class="col-md-8">
 			<h3>Ergebnisse</h3>
 			<br />
 		</div>
-		<div class="span4">&nbsp;</div>
+		<div class="col-md-4">&nbsp;</div>
 	</div>
 
 
 	<div class="row">
-		<div class="span8">
+		<div class="col-md-8">
 			<h4>
 				Erkannte Version:
 				<wicket:container wicket:id="schemaVersion" />
 			</h4>
 		</div>
-		<div class="span4">&nbsp;</div>
+		<div class="col-md-4">&nbsp;</div>
 	</div>
 
 
@@ -30,30 +30,30 @@
 
 
 		<div class="row">
-			<div class="span12">
+			<div class="col-md-12">
 				<br />
 				<h4>Schemavalidierung</h4>
 			</div>
 		</div>
 		<div class="row">
-			<div class="span8 alert alert-success">
+			<div class="col-md-8 alert alert-success">
 				<p>Die gew&auml;hlte ebInterface Instanz entspricht den Vorgaben
 					des ebInterface Schemas.</p>
 			</div>
-			<div class="span4">&nbsp;</div>
+			<div class="col-md-4">&nbsp;</div>
 		</div>
 	</div>
 
 
 	<div wicket:id="schemvalidationNOK">
 		<div class="row">
-			<div class="span12">
+			<div class="col-md-12">
 				<br />
 				<h4>Schemavalidierung</h4>
 			</div>
 		</div>
 		<div class="row">
-			<div class="span8 alert alert-error">
+			<div class="col-md-8 alert alert-error">
 				<p>Die gew&auml;hlte ebInterface Instanz entspricht nicht den
 					Vorgaben des ebInterface Schemas.</p>
 				<p>
@@ -61,7 +61,7 @@
 					<wicket:container wicket:id="schemaValidationError" />
 				</p>
 			</div>
-			<div class="span4">&nbsp;</div>
+			<div class="col-md-4">&nbsp;</div>
 		</div>
 
 	</div>
@@ -71,40 +71,32 @@
 	<div wicket:id="signatureResultContainer">
 
 		<div class="row">
-			<div class="span12">
+			<div class="col-md-12">
 				<br />
 				<h4>Validierung der XML Signatur</h4>
 			</div>
 		</div>
 		<div class="row">
-			<div class="span8">
-				<p wicket:id="signatureResult"></p>
-			</div>
-			<div class="span4">&nbsp;</div>
-		</div>
-		<div class="row">
-			<div class="span12">
-				<br />
-				<h4>Validierung des für die Signatur verwendeten Zertifikats</h4>
-			</div>
-		</div>
-		<div class="row">
-			<div class="span8">
-				<p wicket:id="certificateResult"></p>
-				<br /> <b>Zertifikat des Signators qualifiziert:</b>
-				<wicket:container wicket:id="certificateQualified" />
-				<br /> <b>Zertifikat des Signators von einer Behörde:</b>
-				<wicket:container wicket:id="certificateFromAPublicAuthority" />
-				<br /> <b>Aussteller: </b>
-				<wicket:container wicket:id="issuer" />
-				<br /> <b>Subject: </b>
-				<wicket:container wicket:id="subject" />
-				<br /> <b>Seriennummer: </b>
-				<wicket:container wicket:id="serialNumber" />
-				<br />
+            <div class="col-md-8">
 
-			</div>
-			<div class="span4">&nbsp;</div>
+                <br />Signatur
+
+                <p wicket:id="signatureResult"></p>
+                <p wicket:id="signatureText"></p>
+
+
+                <br />Zertifikat:
+
+                <p wicket:id="certificateResult"></p>
+                <p wicket:id="certificateText"></p>
+
+                <br />Manifest:
+
+                <p wicket:id="manifestResult"></p>
+                <p wicket:id="manifestText"></p>
+
+            </div>
+			<div class="col-md-4">&nbsp;</div>
 		</div>
 	</div>
 
@@ -114,7 +106,7 @@
 	<div wicket:id="schematronOK">
 
 		<div class="row">
-			<div class="span12">
+			<div class="col-md-12">
 				<br />
 				<h4>
 					Schematronvalidierung
@@ -124,7 +116,7 @@
 		</div>
 		<div class="row">
 
-			<div class="span12 alert alert-success">
+			<div class="col-md-12 alert alert-success">
 
 				<p>Die gew&auml;hlte ebInterface Instanz verletzt keine der
 					Schematronregeln</p>
@@ -138,7 +130,7 @@
 
 
 
-			<div class="span12">
+			<div class="col-md-12">
 				<br />
 				<h4>
 					Schematronvalidierung
@@ -149,7 +141,7 @@
 		</div>
 		<div class="row">
 
-			<div class="span12 alert alert-error">
+			<div class="col-md-12 alert alert-error">
 
 				<p>Die gew&auml;hlte ebInterface Instanz verletzt Schematron
 					Regeln:</p>
@@ -160,8 +152,8 @@
 
 
 	<div class="row">
-		<div class="span12">
-			<br /> <br /> <a class="btn" wicket:id="returnLink">Neue
+		<div class="col-md-12">
+			<br /> <br /> <a class="btn btn-default" wicket:id="returnLink">Neue
 				Validierung starten</a> <br /> <br /> <br /> <br />
 		</div>
 	</div>

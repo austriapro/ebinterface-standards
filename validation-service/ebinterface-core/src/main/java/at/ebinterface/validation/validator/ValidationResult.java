@@ -1,5 +1,6 @@
 package at.ebinterface.validation.validator;
 
+import at.ebinterface.validation.rtr.generated.VerifyDocumentResponse;
 import at.ebinterface.validation.validator.jaxb.Result;
 
 /**
@@ -17,15 +18,7 @@ public class ValidationResult {
   private Result result;
 
   //Certificate specific results
-  private boolean certificateOK;
-  private boolean signatureOK;
-
-  private String certificateIssuer;
-  private String certificateSubject;
-  private String certificateSerialNumber;
-
-  private Boolean certificateOfSignatorQualified;
-  private Boolean certificateOfSignatorFromAPublicAuthority;
+  private VerifyDocumentResponse verifyDocumentResponse;
 
 
 
@@ -48,55 +41,12 @@ public class ValidationResult {
   public void setResult(final Result result) {
     this.result = result;
   }
-  public boolean isCertificateOK() {
-    return certificateOK;
-  }
-  public void setCertificateOK(final boolean certificateOK) {
-    this.certificateOK = certificateOK;
-  }
-  public boolean isSignatureOK() {
-    return signatureOK;
-  }
-  public void setSignatureOK(final boolean signatureOK) {
-    this.signatureOK = signatureOK;
-  }
-  public String getCertificateIssuer() {
-    return certificateIssuer;
-  }
-  public void setCertificateIssuer(final String certificateIssuer) {
-    this.certificateIssuer = certificateIssuer;
-  }
-  public String getCertificateSubject() {
-    return certificateSubject;
-  }
-  public void setCertificateSubject(final String certificateSubject) {
-    this.certificateSubject = certificateSubject;
-  }
-  public String getCertificateSerialNumber() {
-    return certificateSerialNumber;
-  }
-  public void setCertificateSerialNumber(final String certificateSerialNumber) {
-    this.certificateSerialNumber = certificateSerialNumber;
-  }
-  public Boolean getCertificateOfSignatorQualified() {
-    return certificateOfSignatorQualified;
-  }
-  public void setCertificateOfSignatorQualified(
-                                                final Boolean certificateOfSignatorQualified) {
-    this.certificateOfSignatorQualified = certificateOfSignatorQualified;
-  }
-  public Boolean getCertificateOfSignatorFromAPublicAuthority() {
-    return certificateOfSignatorFromAPublicAuthority;
-  }
-  public void setCertificateOfSignatorFromAPublicAuthority(
-                                                           final Boolean certificateOfSignatorFromAPublicAuthority) {
-    this.certificateOfSignatorFromAPublicAuthority = certificateOfSignatorFromAPublicAuthority;
-  }
 
+    public VerifyDocumentResponse getVerifyDocumentResponse() {
+        return verifyDocumentResponse;
+    }
 
-
-
-
-
-
+    public void setVerifyDocumentResponse(VerifyDocumentResponse verifyDocumentResponse) {
+        this.verifyDocumentResponse = verifyDocumentResponse;
+    }
 }

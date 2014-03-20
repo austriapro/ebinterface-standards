@@ -25,6 +25,8 @@ import at.ebinterface.validation.validator.ValidationResult;
 import at.ebinterface.validation.validator.jaxb.Result;
 import at.ebinterface.validation.web.model.InputModel;
 import at.ebinterface.validation.web.pages.images.ImagesLogoAccessor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * First page of the ebInterface Validation Service
@@ -35,6 +37,9 @@ public class StartPage extends BasePage {
 
   /** The three possible actions */
   public enum ActionType {SCHEMA_VALIDATION, SCHEMA_AND_SCHEMATRON_VALIDATION, VISUALIZATION}
+
+
+    private static final Logger LOG = LoggerFactory.getLogger(StartPage.class.getName());
 
   /**
    * Construc the start page
@@ -51,9 +56,6 @@ public class StartPage extends BasePage {
     final ShowRulesForm showRulesForm = new ShowRulesForm("showRulesForm");
     add(showRulesForm);
 
-    //Logos
-    add(new Image("freefinanceLogo", new PackageResourceReference(ImagesLogoAccessor.class,	"freefinance.png", getLocale(), getStyle(), null)));
-    add(new Image("riseLogo", new PackageResourceReference(ImagesLogoAccessor.class, "rise.gif", getLocale(), getStyle(), null)));
 
   }
 
@@ -259,7 +261,7 @@ public class StartPage extends BasePage {
         final InputStream inputStream = upload.getInputStream();
         uploadedData = IOUtils.toByteArray(inputStream);
       } catch (final IOException e) {
-        e.printStackTrace();
+        LOG.error("Unable to get content of uploaded file", e);
       }
 
       //Validate the XML instance

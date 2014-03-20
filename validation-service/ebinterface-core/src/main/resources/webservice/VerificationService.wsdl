@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://reference.e-government.gv.at/namespace/verificationservice/20120922#" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://reference.e-government.gv.at/namespace/verificationservice/20120922#" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <wsdl:types>
+    <xsd:schema>
+			<xsd:import namespace="http://reference.e-government.gv.at/namespace/verificationservice/20120922#" schemaLocation="VerificationService.xsd"/>
+		</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="VerifyDocumentInput">
+    <wsdl:part name="input" element="tns:VerifyDocumentRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="VerificationFault">
+    <wsdl:part name="fault" element="tns:ErrorResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="VerifyDocumentOutput">
+    <wsdl:part name="output" element="tns:VerifyDocumentResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="VerificationServicePortType">
+    <wsdl:operation name="verifyDocument">
+      <wsdl:input name="verifyDocumentInput" message="tns:VerifyDocumentInput">
+    </wsdl:input>
+      <wsdl:output name="verifyDocumentOutput" message="tns:VerifyDocumentOutput">
+    </wsdl:output>
+      <wsdl:fault name="verifyDocumentFailed" message="tns:VerificationFault">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="VerificationServiceSOAP12" type="tns:VerificationServicePortType">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="verifyDocument">
+      <soap12:operation soapAction="https://pruefung.signatur.rtr.at/signature-verification/services/verifyDocument"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="verifyDocumentFailed">
+        <soap12:fault name="verifyDocumentFailed" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="VerificationServiceSOAP" type="tns:VerificationServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="verifyDocument">
+      <soap:operation soapAction="https://pruefung.signatur.rtr.at/signature-verification/services/verifyDocument"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="verifyDocumentFailed">
+        <soap:fault name="verifyDocumentFailed" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="VerificationService">
+    <wsdl:port name="VerificationServicePortSOAP" binding="tns:VerificationServiceSOAP">
+      <soap:address location="https://pruefung.signatur.rtr.at/signature-verification/services/VerificationService/"/>
+    </wsdl:port>
+    <wsdl:port name="VerificationServicePortSOAP12" binding="tns:VerificationServiceSOAP12">
+      <soap12:address location="https://pruefung.signatur.rtr.at/signature-verification/services/VerificationService/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
