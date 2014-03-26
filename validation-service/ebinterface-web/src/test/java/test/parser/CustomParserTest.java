@@ -1,4 +1,4 @@
-package at.ebinterface.validation.test.parser;
+package test.parser;
 
 import java.io.InputStream;
 

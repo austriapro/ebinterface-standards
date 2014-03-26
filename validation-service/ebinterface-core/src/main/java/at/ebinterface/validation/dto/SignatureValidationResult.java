@@ -1,8 +1,8 @@
-package at.ebinterface.validation.web.model;
+package at.ebinterface.validation.dto;
 
 import at.ebinterface.validation.rtr.generated.SignatureInfoType;
 import at.ebinterface.validation.rtr.generated.VerifyDocumentResponse;
-import at.ebinterface.validation.validator.ValidationResult;
+
 import java.math.BigInteger;
 
 /**

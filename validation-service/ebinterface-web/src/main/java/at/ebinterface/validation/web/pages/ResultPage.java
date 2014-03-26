@@ -1,21 +1,16 @@
 package at.ebinterface.validation.web.pages;
 
-import at.ebinterface.validation.rtr.generated.SignatureInfoType;
-import at.ebinterface.validation.web.model.SignatureValidationResult;
-import java.math.BigInteger;
-import org.apache.commons.lang.StringUtils;
-import org.apache.wicket.behavior.AttributeAppender;
-import org.apache.wicket.markup.html.WebMarkupContainer;
-import org.apache.wicket.markup.html.basic.Label;
-import org.apache.wicket.markup.html.link.Link;
-import org.apache.wicket.markup.html.panel.EmptyPanel;
-import org.apache.wicket.model.IModel;
-import org.apache.wicket.model.Model;
-
+import at.ebinterface.validation.dto.SignatureValidationResult;
 import at.ebinterface.validation.validator.ValidationResult;
 import at.ebinterface.validation.validator.jaxb.Result;
 import at.ebinterface.validation.web.pages.StartPage.ActionType;
 import at.ebinterface.validation.web.panels.ErrorDetailsPanel;
+import org.apache.commons.lang.StringUtils;
+import org.apache.wicket.markup.html.WebMarkupContainer;
+import org.apache.wicket.markup.html.basic.Label;
+import org.apache.wicket.markup.html.link.Link;
+import org.apache.wicket.markup.html.panel.EmptyPanel;
+import org.apache.wicket.model.Model;
 
 /**
  * Used to show the results of a validation

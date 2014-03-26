@@ -1,4 +1,4 @@
-package at.ebinterface.validation.test.validator;
+package test.validator;
 
 import java.io.IOException;
 import java.io.InputStream;

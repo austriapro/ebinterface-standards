@@ -1,4 +1,4 @@
-package at.ebinterface.validation.test.validator;
+package test.validator;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -280,7 +280,7 @@ public class EbInterfaceValidatorTest
     final String schematronFile = Rules.getSchematronFile ("Sozialversicherung");
     assertNotNull (input);
 
-    // No rule must fire in this case and not error must be produced
+    // No rule must fire in this case and no error must be produced
     final EbInterfaceValidator validator = new EbInterfaceValidator ();
     Result result = validator.validateXMLInstanceAgainstSchematron (uploadedData, schematronFile);
     List <Result.Error> errors = result.getErrors ();
