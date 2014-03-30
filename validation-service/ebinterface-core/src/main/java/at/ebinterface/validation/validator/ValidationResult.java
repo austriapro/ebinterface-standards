@@ -17,7 +17,10 @@ public class ValidationResult {
   /** Schematronvalidation result */
   private Result result;
 
-  //Certificate specific results
+  /** Holds a potential signature validation exception, which is returned by the validation service **/
+  private String signatureValidationExceptionMessage;
+
+  /** Certificate specific results */
   private VerifyDocumentResponse verifyDocumentResponse;
 
 
@@ -48,5 +51,14 @@ public class ValidationResult {
 
     public void setVerifyDocumentResponse(VerifyDocumentResponse verifyDocumentResponse) {
         this.verifyDocumentResponse = verifyDocumentResponse;
+    }
+
+
+    public String getSignatureValidationExceptionMessage() {
+        return signatureValidationExceptionMessage;
+    }
+
+    public void setSignatureValidationExceptionMessage(String signatureValidationExceptionMessage) {
+        this.signatureValidationExceptionMessage = signatureValidationExceptionMessage;
     }
 }

@@ -3,33 +3,32 @@ package at.ebinterface.validation.validator;
 import at.ebinterface.validation.exception.NamespaceUnknownException;
 import at.ebinterface.validation.parser.CustomParser;
 import at.ebinterface.validation.rtr.VerificationServiceInvoker;
+import at.ebinterface.validation.rtr.generated.VerificationFault;
 import at.ebinterface.validation.rtr.generated.VerifyDocumentRequest;
 import at.ebinterface.validation.rtr.generated.VerifyDocumentResponse;
 import at.ebinterface.validation.validator.jaxb.Result;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.StringReader;
-import java.io.StringWriter;
+import org.apache.xerces.util.XMLCatalogResolver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+
 import javax.xml.XMLConstants;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.util.JAXBResult;
-import javax.xml.transform.Source;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.*;
 import javax.xml.transform.sax.SAXSource;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
-import org.apache.xerces.util.XMLCatalogResolver;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
+import javax.xml.ws.soap.SOAPFaultException;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.StringReader;
+import java.io.StringWriter;
 
 /**
  * This class validates a given ebInterface XML instance against a schematron
@@ -77,13 +76,14 @@ public class EbInterfaceValidator {
      * JAXBContext for generating the result
      */
     private static JAXBContext jaxb;
-    
+
     private static final Logger LOG = LoggerFactory.getLogger(EbInterfaceValidator.class.getName());
 
     /**
      * Initialize the validator
      */
     static {
+
 
         final SchemaFactory factory = SchemaFactory
                 .newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
@@ -97,16 +97,20 @@ public class EbInterfaceValidator {
         // Load a WXS schema, represented by a Schema instance.
         final Source ebInterface3p0schemaFile = new StreamSource(
                 EbInterfaceValidator.class
-                        .getResourceAsStream("/ebinterface/ebInterface3p0.xsd"));
+                        .getResourceAsStream("/ebinterface/ebInterface3p0.xsd")
+        );
         final Source ebInterface3p02schemaFile = new StreamSource(
                 EbInterfaceValidator.class
-                        .getResourceAsStream("/ebinterface/ebInterface3p02.xsd"));
+                        .getResourceAsStream("/ebinterface/ebInterface3p02.xsd")
+        );
         final Source ebInterface4p0schemaFile = new StreamSource(
                 EbInterfaceValidator.class
-                        .getResourceAsStream("/ebinterface/ebInterface4p0.xsd"));
+                        .getResourceAsStream("/ebinterface/ebInterface4p0.xsd")
+        );
         final Source ebInterface4p1schemaFile = new StreamSource(
                 EbInterfaceValidator.class
-                        .getResourceAsStream("/ebinterface/ebInterface4p1.xsd"));
+                        .getResourceAsStream("/ebinterface/ebInterface4p1.xsd")
+        );
 
 
         try {
@@ -218,8 +222,7 @@ public class EbInterfaceValidator {
                 ebInterface3p02Validator.validate(saxSource);
             } else if (version == EbInterfaceVersion.E4P0) {
                 ebInterface4p0Validator.validate(saxSource);
-            }
-            else {
+            } else {
                 ebInterface4p1Validator.validate(saxSource);
             }
 
@@ -230,28 +233,33 @@ public class EbInterfaceValidator {
         }
 
         // Step 3 - in case the document is signed, check the signature as well
-        try {
-            if (version.isSigned()) {
 
-                //Build the request for the verification Web Service
-                //Create a verification request
-                VerifyDocumentRequest request = new VerifyDocumentRequest();
+        if (version.isSigned()) {
 
-                //Set the document
-                request.setDocument(uploadedData);
-                //No PDF report required
-                request.setRequestPDFReport(false);
-                //Expect German results
-                request.setLanguage("de");
+            //Build the request for the verification Web Service
+            //Create a verification request
+            VerifyDocumentRequest request = new VerifyDocumentRequest();
 
-                VerifyDocumentResponse response = VerificationServiceInvoker.verifyDocument(request);
+            //Set the document
+            request.setDocument(uploadedData);
+            //No PDF report required
+            request.setRequestPDFReport(false);
+            //Expect German results
+            request.setLanguage("de");
+
+
+            VerifyDocumentResponse response = null;
+            try {
+                response = VerificationServiceInvoker.verifyDocument(request);
                 result.setVerifyDocumentResponse(response);
-
+            } catch (SOAPFaultException sfe) {
+                result.setSignatureValidationExceptionMessage(sfe.getMessage());
+            } catch (Exception e) {
+                result.setSignatureValidationExceptionMessage(e.getMessage());
             }
 
-        } catch (final Exception e) {
-            LOG.error("Unable to get signature verification result", e);
         }
+
 
         return result;
     }
@@ -269,21 +277,24 @@ public class EbInterfaceValidator {
 
             if (version == EbInterfaceVersion.E3P0) {
                 ebInterface3p0Transformer.transform(new StreamSource(
-                        new ByteArrayInputStream(uploadedData)),
-                        new StreamResult(sw));
+                                new ByteArrayInputStream(uploadedData)),
+                        new StreamResult(sw)
+                );
             } else if (version == EbInterfaceVersion.E3P02) {
                 ebInterface3p02Transformer.transform(new StreamSource(
-                        new ByteArrayInputStream(uploadedData)),
-                        new StreamResult(sw));
+                                new ByteArrayInputStream(uploadedData)),
+                        new StreamResult(sw)
+                );
             } else if (version == EbInterfaceVersion.E4P0) {
                 ebInterface4p0Transformer.transform(new StreamSource(
-                        new ByteArrayInputStream(uploadedData)),
-                        new StreamResult(sw));
-            }
-            else {
+                                new ByteArrayInputStream(uploadedData)),
+                        new StreamResult(sw)
+                );
+            } else {
                 ebInterface4p1Transformer.transform(new StreamSource(
-                        new ByteArrayInputStream(uploadedData)),
-                        new StreamResult(sw));
+                                new ByteArrayInputStream(uploadedData)),
+                        new StreamResult(sw)
+                );
             }
             return sw.toString();
 
@@ -344,7 +355,7 @@ public class EbInterfaceValidator {
 
         final StringWriter sw = new StringWriter();
 
-    /* Read the Schematron source */
+        /* Read the Schematron source */
         final String schematronDocumentUrl = this.getClass()
                 .getResource(urlPath).toString();
 

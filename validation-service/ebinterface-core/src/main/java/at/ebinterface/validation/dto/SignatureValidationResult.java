@@ -3,6 +3,7 @@ package at.ebinterface.validation.dto;
 import at.ebinterface.validation.rtr.generated.SignatureInfoType;
 import at.ebinterface.validation.rtr.generated.VerifyDocumentResponse;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 
 /**
@@ -11,7 +12,7 @@ import java.math.BigInteger;
  * Date: 20.03.14
  * Time: 12:43
  */
-public class SignatureValidationResult {
+public class SignatureValidationResult implements Serializable {
 
     private boolean signatureValid;
     private boolean certificateValid;

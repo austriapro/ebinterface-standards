@@ -54,18 +54,45 @@
             <version>1.2</version>
         </dependency>
 
+        <!-- Jaxen XPath library -->
         <dependency>
             <groupId>jaxen</groupId>
             <artifactId>jaxen</artifactId>
             <version>1.0-FCS</version>
         </dependency>
 
+        <!-- Simple API for XPath -->
         <dependency>
             <groupId>saxpath</groupId>
             <artifactId>saxpath</artifactId>
             <version>1.0-FCS</version>
         </dependency>
 
+        <!-- Saxon XSLT processing for Java -->
+        <dependency>
+            <groupId>net.sf.saxon</groupId>
+            <artifactId>Saxon-HE</artifactId>
+            <version>9.4</version>
+        </dependency>
+
+        <!-- http://cxf.apache.org/faq.html -->
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-xjc</artifactId>
+            <version>2.2.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>2.2.2</version>
+        </dependency>
+
+        <!-- JAXB Basics plugin -->
+        <dependency>
+            <groupId>org.jvnet.jaxb2_commons</groupId>
+            <artifactId>jaxb2-basics</artifactId>
+            <version>0.6.0</version>
+        </dependency>
 
     </dependencies>
 

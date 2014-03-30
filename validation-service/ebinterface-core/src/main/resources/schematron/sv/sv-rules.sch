@@ -62,28 +62,7 @@ Der Divisionsrest aus der Division der Summe der Produkte durch 11 ergibt die Pr
 -->
 	<iso:pattern>
 		<iso:rule context="/n1:Invoice/n1:Details/n1:ItemList/n1:ListLineItem/ext:ListLineItemExtension/sv:ListLineItemExtension">
-			<iso:assert test="if (sv:BeneficiarySocialInsuranceNumber) then ((
-number(substring(sv:BeneficiarySocialInsuranceNumber, 1,1))*3
-+
-number(substring(sv:BeneficiarySocialInsuranceNumber, 2,1))*7
-+
-number(substring(sv:BeneficiarySocialInsuranceNumber, 3,1))*9
-+
-number(substring(sv:BeneficiarySocialInsuranceNumber, 5,1))*5
-+
-number(substring(sv:BeneficiarySocialInsuranceNumber, 6,1))*8
-+
-number(substring(sv:BeneficiarySocialInsuranceNumber, 7,1))*4
-+
-number(substring(sv:BeneficiarySocialInsuranceNumber, 8,1))*2
-+
-number(substring(sv:BeneficiarySocialInsuranceNumber, 9,1))
-+
-number(substring(sv:BeneficiarySocialInsuranceNumber, 10,1))*6) mod 11
-= 
-number(substring(sv:BeneficiarySocialInsuranceNumber, 4,1))
-) else boolean(1)
-">
+			<iso:assert test="if (sv:BeneficiarySocialInsuranceNumber) then ((number(substring(sv:BeneficiarySocialInsuranceNumber, 1,1))*3+number(substring(sv:BeneficiarySocialInsuranceNumber, 2,1))*7+number(substring(sv:BeneficiarySocialInsuranceNumber, 3,1))*9+number(substring(sv:BeneficiarySocialInsuranceNumber, 5,1))*5+number(substring(sv:BeneficiarySocialInsuranceNumber, 6,1))*8+number(substring(sv:BeneficiarySocialInsuranceNumber, 7,1))*4+number(substring(sv:BeneficiarySocialInsuranceNumber, 8,1))*2+number(substring(sv:BeneficiarySocialInsuranceNumber, 9,1))+number(substring(sv:BeneficiarySocialInsuranceNumber, 10,1))*6) mod 11=number(substring(sv:BeneficiarySocialInsuranceNumber, 4,1))) else boolean(1)">
 				BeneficiarySocialInsuranceNumber found. The BeneficiarySocialInsuranceNumber does not comply with the necessary rules for a BeneficiarySocialInsuranceNumber.
 			</iso:assert>
 		</iso:rule>
