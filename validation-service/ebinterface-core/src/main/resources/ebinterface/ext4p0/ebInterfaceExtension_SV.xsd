@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 sp1 (http://www.altova.com) by - (Vienna University of Technology, Business Informatics) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.ebinterface.at/schema/4p0/extensions/sv" targetNamespace="http://www.ebinterface.at/schema/4p0/extensions/sv" elementFormDefault="qualified" attributeFormDefault="qualified">
+	<!-- === Base Extension Element Definitions ===  -->
+	<xs:element name="BillerExtension" type="BillerExtensionType"/>
+	<xs:element name="DeliveryExtension" type="DeliveryExtensionType"/>
+	<xs:element name="DetailsExtension" type="DetailsExtensionType"/>
+	<xs:element name="InvoiceRecipientExtension" type="InvoiceRecipientExtensionType"/>
+	<xs:element name="InvoiceRootExtension" type="InvoiceRootExtensionType"/>
+	<xs:element name="ListLineItemExtension" type="ListLineItemExtensionType"/>
+	<xs:element name="OrderingPartyExtension" type="OrderingPartyExtensionType"/>
+	<xs:element name="PaymentConditionsExtension" type="PaymentConditionsExtensionType"/>
+	<xs:element name="PaymentMethodExtension" type="PaymentMethodExtensionType"/>
+	<xs:element name="ReductionAndSurchargeDetailsExtension" type="ReductionAndSurchargeDetailsExtensionType"/>
+	<xs:element name="PresentationDetailsExtension" type="PresentationDetailsExtensionType"/>
+	<xs:element name="TaxExtension" type="TaxExtensionType"/>
+	<!-- === Extension specific elements === -->
+	<xs:element name="BeneficiarySocialInsuranceNumber" type="DigitExact10Type"/>
+	<xs:element name="BillersContractPartnerNumber" type="DigitExact6Type"/>
+	<!-- === Simple Type definitions === -->
+	<xs:simpleType name="DigitExact6Type">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="(\d){6}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DigitExact10Type">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="(\d){10}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- === Complex Type declarations === -->
+	<xs:complexType name="BillerExtensionType">
+		<xs:sequence>
+			<xs:element ref="BillersContractPartnerNumber" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DeliveryExtensionType">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:complexType name="DetailsExtensionType">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:complexType name="InvoiceRecipientExtensionType">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:complexType name="InvoiceRootExtensionType">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:complexType name="ListLineItemExtensionType">
+		<xs:sequence>
+			<xs:element ref="BeneficiarySocialInsuranceNumber" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OrderingPartyExtensionType">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:complexType name="PaymentConditionsExtensionType">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:complexType name="PaymentMethodExtensionType">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:complexType name="PresentationDetailsExtensionType">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:complexType name="ReductionAndSurchargeDetailsExtensionType">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:complexType name="TaxExtensionType">
+		<xs:sequence/>
+	</xs:complexType>
+</xs:schema>

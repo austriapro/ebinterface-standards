@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.ebinterface.at/schema/4p1/extensions/ext" xmlns:sv="http://www.ebinterface.at/schema/4p1/extensions/sv" targetNamespace="http://www.ebinterface.at/schema/4p1/extensions/ext" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:annotation>
+		<xs:documentation>
+			ebInterface extension Schema
+            schema version: 4.1
+            last update: 2013-12-11
+            documentation: http://www.ebinterface.at/download/documentation/ebInvoice_4p1.pdf
+        </xs:documentation>
+	</xs:annotation>
+	<!-- Import the industry specific namespaces -->
+	<xs:import namespace="http://www.ebinterface.at/schema/4p1/extensions/sv" schemaLocation="ext/ebInterfaceExtension_SV.xsd"/>
+	<!-- === Element declarations === -->
+	<xs:element name="BillerExtension" type="BillerExtensionType"/>
+	<xs:element name="Custom" type="CustomType"/>
+	<xs:element name="DeliveryExtension" type="DeliveryExtensionType"/>
+	<xs:element name="DetailsExtension" type="DetailsExtensionType"/>
+	<xs:element name="InvoiceRecipientExtension" type="InvoiceRecipientExtensionType"/>
+	<xs:element name="InvoiceRootExtension" type="InvoiceRootExtensionType"/>
+	<xs:element name="ListLineItemExtension" type="ListLineItemExtensionType"/>
+	<xs:element name="OrderingPartyExtension" type="OrderingPartyExtensionType"/>
+	<xs:element name="PaymentConditionsExtension" type="PaymentConditionsExtensionType"/>
+	<xs:element name="PaymentMethodExtension" type="PaymentMethodExtensionType"/>
+	<xs:element name="PresentationDetailsExtension" type="PresentationDetailsExtensionType"/>
+	<xs:element name="ReductionAndSurchargeDetailsExtension" type="ReductionAndSurchargeDetailsExtensionType"/>
+	<xs:element name="TaxExtension" type="TaxExtensionType"/>
+	<!-- === Group Deklarations === -->
+	<xs:group name="Custom">
+		<xs:sequence>
+			<xs:any namespace="##other" processContents="lax"/>
+		</xs:sequence>
+	</xs:group>
+	<!-- === Complex Type declarations === -->
+	<xs:complexType name="BillerExtensionType">
+		<xs:sequence>
+			<xs:element ref="sv:BillerExtension" minOccurs="0"/>
+			<xs:element ref="Custom" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CustomType">
+		<xs:sequence>
+			<xs:group ref="Custom"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DeliveryExtensionType">
+		<xs:sequence>
+			<xs:element ref="sv:DeliveryExtension" minOccurs="0"/>
+			<xs:element ref="Custom" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DetailsExtensionType">
+		<xs:sequence>
+			<xs:element ref="sv:DetailsExtension" minOccurs="0"/>
+			<xs:element ref="Custom" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InvoiceRecipientExtensionType">
+		<xs:sequence>
+			<xs:element ref="sv:InvoiceRecipientExtension" minOccurs="0"/>
+			<xs:element ref="Custom" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InvoiceRootExtensionType">
+		<xs:sequence>
+			<xs:element ref="sv:InvoiceRootExtension" minOccurs="0"/>
+			<xs:element ref="Custom" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ListLineItemExtensionType">
+		<xs:sequence>
+			<xs:element ref="sv:ListLineItemExtension" minOccurs="0"/>
+			<xs:element ref="Custom" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OrderingPartyExtensionType">
+		<xs:sequence>
+			<xs:element ref="sv:OrderingPartyExtension" minOccurs="0"/>
+			<xs:element ref="Custom" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PaymentConditionsExtensionType">
+		<xs:sequence>
+			<xs:element ref="sv:PaymentConditionsExtension" minOccurs="0"/>
+			<xs:element ref="Custom" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PaymentMethodExtensionType">
+		<xs:sequence>
+			<xs:element ref="sv:PaymentMethodExtension" minOccurs="0"/>
+			<xs:element ref="Custom" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PresentationDetailsExtensionType">
+		<xs:sequence>
+			<xs:element ref="sv:PresentationDetailsExtension" minOccurs="0"/>
+			<xs:element ref="Custom" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReductionAndSurchargeDetailsExtensionType">
+		<xs:sequence>
+			<xs:element ref="sv:ReductionAndSurchargeDetailsExtension" minOccurs="0"/>
+			<xs:element ref="Custom" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TaxExtensionType">
+		<xs:sequence>
+			<xs:element ref="sv:TaxExtension" minOccurs="0"/>
+			<xs:element ref="Custom" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

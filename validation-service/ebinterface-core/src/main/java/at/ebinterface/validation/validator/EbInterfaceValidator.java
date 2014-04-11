@@ -88,11 +88,8 @@ public class EbInterfaceValidator {
         final SchemaFactory factory = SchemaFactory
                 .newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
 
-        final String catalog = EbInterfaceValidator.class.getResource(
-                "/schemas/catalog.xml").getFile();
-        final XMLCatalogResolver resolver = new XMLCatalogResolver(
-                new String[]{catalog});
-        factory.setResourceResolver(resolver);
+        //Set a custom schema resolver to avoid loading of Schemas from the Internet
+        factory.setResourceResolver(new LocalSchemaResolver(factory.getResourceResolver()));
 
         // Load a WXS schema, represented by a Schema instance.
         final Source ebInterface3p0schemaFile = new StreamSource(
