@@ -38,16 +38,6 @@ public class VerificationServiceInvoker {
 
     static {
 
-        //Set the manual keystore, otherwise the self-signed RTR certificate is not trusted
-        try {
-            URL url = VerificationServiceInvoker.class.getResource("/keystore.jks");
-            System.setProperty("javax.net.ssl.trustStore", url.getPath());
-            System.setProperty("javax.net.ssl.trustStorePassword", "");
-
-        } catch (Exception e1) {
-            throw new RuntimeException("Error while reading SSL Keystore. Unable to proceed.", e1);
-        }
-
         //Get username and password for the RTR Web Service, which requires HTTP Basic Authentication
         //That may be done more nicely using Spring, but we abstain to use Spring dependencies in this project...
         Properties prop = new Properties();

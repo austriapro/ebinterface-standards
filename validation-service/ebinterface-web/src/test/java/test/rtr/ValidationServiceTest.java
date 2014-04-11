@@ -12,6 +12,8 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.net.URL;
+
 import static org.junit.Assert.fail;
 
 public class ValidationServiceTest {
@@ -20,6 +22,19 @@ public class ValidationServiceTest {
 
     private static final Logger LOG = LoggerFactory.getLogger(ValidationServiceTest.class.getName());
 
+
+    static {
+        //Set the manual keystore, otherwise the RTR certificate is not trusted
+        try {
+            URL url = ValidationServiceTest.class.getResource("/keystore.jks");
+            System.setProperty("javax.net.ssl.trustStore", url.getPath());
+            System.setProperty("javax.net.ssl.trustStorePassword", "");
+
+        } catch (Exception e1) {
+            throw new RuntimeException("Error while reading SSL Keystore. Unable to proceed.", e1);
+        }
+
+    }
 
     @Test
     public void testValidationService() throws  Exception {
