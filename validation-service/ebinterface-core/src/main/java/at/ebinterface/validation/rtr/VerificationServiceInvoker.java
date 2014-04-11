@@ -40,7 +40,7 @@ public class VerificationServiceInvoker {
 
         //Set the manual keystore, otherwise the self-signed RTR certificate is not trusted
         try {
-            URL url = Thread.currentThread().getContextClassLoader().getResource("keystore.jks");
+            URL url = VerificationServiceInvoker.class.getResource("/keystore.jks");
             System.setProperty("javax.net.ssl.trustStore", url.getPath());
             System.setProperty("javax.net.ssl.trustStorePassword", "");
 
