@@ -52,4 +52,6 @@ public enum EbInterfaceVersion {
     public String getCaption() {
         return caption;
     }
+
+
 }

@@ -3,8 +3,10 @@ package at.ebinterface.validation.web.pages;
 import java.io.IOException;
 import java.io.StringWriter;
 
+import at.ebinterface.validation.validator.Rule;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;
+import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.util.io.IOUtils;
 
@@ -20,10 +22,10 @@ import at.ebinterface.validation.web.components.CodeBox;
 public class ShowRulesPage extends BasePage {
 
 
-  public ShowRulesPage(final String selectedSchematron, final String selectedSchematronFile) {
+  public ShowRulesPage(IModel<Rule> ruleModel) {
 
     //Add a label showing the selected Schematron file
-    add(new Label("selectedSchematron", Model.of(selectedSchematron)));
+    add(new Label("selectedSchematron", Model.of(ruleModel.getObject().getName())));
 
 
     //Add a return link
@@ -36,7 +38,7 @@ public class ShowRulesPage extends BasePage {
 
     final StringWriter writer = new StringWriter();
     try {
-      IOUtils.copy(this.getClass().getResourceAsStream(selectedSchematronFile), writer, "UTF-8");
+      IOUtils.copy(this.getClass().getResourceAsStream(ruleModel.getObject().getFileReference()), writer, "UTF-8");
     } catch (final IOException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
