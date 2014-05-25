@@ -31,27 +31,27 @@ public class LocalSchemaResolver implements LSResourceResolver {
 
             //Replace specific schema
             if (XMLSignature.XMLNS.equals(namespaceURI)) {
-                LOG.info("Trying to resolve XMLDSIG Schema");
+                LOG.debug("Trying to resolve XMLDSIG Schema");
                 url = "/schemas/xmldsig-core-schema.xsd";
             }
             //Replace the 4p0 extension schema
             else if ("http://www.ebinterface.at/schema/4p0/extensions/ext".equals(namespaceURI)) {
-                LOG.info("Trying to resolve 4p0 extension Schema");
+                LOG.debug("Trying to resolve 4p0 extension Schema");
                 url = "/ebinterface/ebInterfaceExtension4p0.xsd";
             }
             //Replace the 4p0 SV extension schema
             else if ("http://www.ebinterface.at/schema/4p0/extensions/sv".equals(namespaceURI)) {
-                LOG.info("Trying to resolve 4p0 SV extension Schema");
+                LOG.debug("Trying to resolve 4p0 SV extension Schema");
                 url = "/ebinterface/ext4p0/ebInterfaceExtension_SV.xsd";
             }
             //Replace the 4p1 extension schema
             else if ("http://www.ebinterface.at/schema/4p1/extensions/ext".equals(namespaceURI)) {
-                LOG.info("Trying to resolve 4p1 extension Schema");
+                LOG.debug("Trying to resolve 4p1 extension Schema");
                 url = "/ebinterface/ebInterfaceExtension4p1.xsd";
             }
             //Replace the 4p1 SV extension schema
             else if ("http://www.ebinterface.at/schema/4p1/extensions/sv".equals(namespaceURI)) {
-                LOG.info("Trying to resolve 4p1 SV extension Schema");
+                LOG.debug("Trying to resolve 4p1 SV extension Schema");
                 url = "/ebinterface/ext4p1/ebInterfaceExtension_SV.xsd";
             }
 
@@ -59,7 +59,7 @@ public class LocalSchemaResolver implements LSResourceResolver {
             if (url != null) {
                 InputStream is = this.getClass().getResourceAsStream(url);
                 if(is != null) {
-                    LOG.info("Found Schema at {}",this.getClass().getResource(url).toString());
+                    LOG.debug("Found Schema at {}",this.getClass().getResource(url).toString());
                     input.setByteStream(is);
                     return input;
                 }
