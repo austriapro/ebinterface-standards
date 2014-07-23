@@ -1,18 +1,17 @@
-
 package at.ebinterface.validation.rtr.generated;
 
-import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import java.math.BigInteger;
 
 
 /**
  * <p>Java class for CheckResultType complex type.
- * 
+ * <p/>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p/>
  * <pre>
  * &lt;complexType name="CheckResultType">
  *   &lt;complexContent>
@@ -25,13 +24,11 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CheckResultType", namespace = "http://reference.e-government.gv.at/namespace/verificationservice/20120922#", propOrder = {
-    "code",
-    "info"
+        "code",
+        "info"
 })
 public class CheckResultType {
 
@@ -42,11 +39,9 @@ public class CheckResultType {
 
     /**
      * Gets the value of the code property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @return possible object is
+     * {@link BigInteger }
      */
     public BigInteger getCode() {
         return code;
@@ -54,11 +49,9 @@ public class CheckResultType {
 
     /**
      * Sets the value of the code property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BigInteger }
      */
     public void setCode(BigInteger value) {
         this.code = value;
@@ -66,11 +59,9 @@ public class CheckResultType {
 
     /**
      * Gets the value of the info property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getInfo() {
         return info;
@@ -78,11 +69,9 @@ public class CheckResultType {
 
     /**
      * Sets the value of the info property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setInfo(String value) {
         this.info = value;

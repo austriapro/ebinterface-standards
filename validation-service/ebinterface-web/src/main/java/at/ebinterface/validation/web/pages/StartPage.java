@@ -1,10 +1,6 @@
 package at.ebinterface.validation.web.pages;
 
-import at.ebinterface.validation.validator.EbInterfaceValidator;
-import at.ebinterface.validation.validator.EbInterfaceVersion;
-import at.ebinterface.validation.validator.Rule;
-import at.ebinterface.validation.validator.Rules;
-import at.ebinterface.validation.validator.ValidationResult;
+import at.ebinterface.validation.validator.*;
 import at.ebinterface.validation.validator.jaxb.Result;
 import org.apache.commons.lang.StringUtils;
 import org.apache.wicket.feedback.ContainerFeedbackMessageFilter;

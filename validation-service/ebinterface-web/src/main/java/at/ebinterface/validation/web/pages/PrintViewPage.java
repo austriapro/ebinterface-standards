@@ -6,19 +6,19 @@ import org.apache.wicket.model.Model;
 
 /**
  * Page for showing the print view of an ebInterface instance
- * @author pl
  *
+ * @author pl
  */
 public class PrintViewPage extends WebPage {
 
 
-  public PrintViewPage(final String xsltOutput) {
+    public PrintViewPage(final String xsltOutput) {
 
-    final Label printViewLabel = new Label("printViewPanel", Model.of(xsltOutput));
-    printViewLabel.setEscapeModelStrings(false);
-    add(printViewLabel);
+        final Label printViewLabel = new Label("printViewPanel", Model.of(xsltOutput));
+        printViewLabel.setEscapeModelStrings(false);
+        add(printViewLabel);
 
-  }
+    }
 
 
 }

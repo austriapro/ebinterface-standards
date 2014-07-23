@@ -1,7 +1,6 @@
 package at.ebinterface.validation.validator;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -35,6 +34,7 @@ public class Rules {
 
     /**
      * Get a certain rule
+     *
      * @param name
      * @param version
      * @return

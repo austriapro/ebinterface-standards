@@ -1,23 +1,15 @@
 package at.ebinterface.validation.rtr;
 
-import at.ebinterface.validation.rtr.generated.VerificationFault;
-import at.ebinterface.validation.rtr.generated.VerificationService;
-import at.ebinterface.validation.rtr.generated.VerificationServicePortType;
-import at.ebinterface.validation.rtr.generated.VerifyDocumentRequest;
-import at.ebinterface.validation.rtr.generated.VerifyDocumentResponse;
-import java.io.FileInputStream;
+import at.ebinterface.validation.rtr.generated.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.xml.ws.BindingProvider;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.Authenticator;
 import java.net.PasswordAuthentication;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Properties;
-import javax.xml.ws.BindingProvider;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * Used to invoke the validation service - adds the HTTP basic parameters to the service invocation
@@ -94,7 +86,7 @@ public class VerificationServiceInvoker {
      * rtr.username=xyz
      * rtr.password=xyz
      *
-     * @param request  Web Service request
+     * @param request Web Service request
      * @return
      * @throws VerificationFault
      */

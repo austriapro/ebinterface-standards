@@ -1,32 +1,24 @@
 package at.ebinterface.validation.validator.jaxb;
 
 
+import javax.xml.bind.annotation.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.XmlValue;
 
 
 /**
- * 
- * 						If the validationPassed attribute is false,
- * 						validation failed. In this case Error Elements are present and
- * 						each
- * 						Error Element specifies the particular violation.
- * 					
- * 
+ * If the validationPassed attribute is false,
+ * validation failed. In this case Error Elements are present and
+ * each
+ * Error Element specifies the particular violation.
+ * <p/>
+ * <p/>
  * <p>Java class for ResultType complex type.
- * 
+ * <p/>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p/>
  * <pre>
  * &lt;complexType name="ResultType">
  *   &lt;complexContent>
@@ -60,18 +52,15 @@ import javax.xml.bind.annotation.XmlValue;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ResultType", propOrder = {
-    "namespaces",
-    "errors"
+        "namespaces",
+        "errors"
 })
 @XmlRootElement(name = "Result")
 public class Result
-    implements Serializable
-{
+        implements Serializable {
 
     @XmlElement(name = "Namespace")
     protected List<Result.Namespace> namespaces;
@@ -82,25 +71,23 @@ public class Result
 
     /**
      * Gets the value of the namespaces property.
-     * 
-     * <p>
+     * <p/>
+     * <p/>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the namespaces property.
-     * 
-     * <p>
+     * <p/>
+     * <p/>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getNamespaces().add(newItem);
      * </pre>
-     * 
-     * 
-     * <p>
+     * <p/>
+     * <p/>
+     * <p/>
      * Objects of the following type(s) are allowed in the list
      * {@link Result.Namespace }
-     * 
-     * 
      */
     public List<Result.Namespace> getNamespaces() {
         if (namespaces == null) {
@@ -111,25 +98,23 @@ public class Result
 
     /**
      * Gets the value of the errors property.
-     * 
-     * <p>
+     * <p/>
+     * <p/>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the errors property.
-     * 
-     * <p>
+     * <p/>
+     * <p/>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getErrors().add(newItem);
      * </pre>
-     * 
-     * 
-     * <p>
+     * <p/>
+     * <p/>
+     * <p/>
      * Objects of the following type(s) are allowed in the list
      * {@link Result.Error }
-     * 
-     * 
      */
     public List<Result.Error> getErrors() {
         if (errors == null) {
@@ -140,7 +125,6 @@ public class Result
 
     /**
      * Gets the value of the validationPassed property.
-     * 
      */
     public boolean isValidationPassed() {
         return validationPassed;
@@ -148,7 +132,6 @@ public class Result
 
     /**
      * Sets the value of the validationPassed property.
-     * 
      */
     public void setValidationPassed(boolean value) {
         this.validationPassed = value;
@@ -156,8 +139,8 @@ public class Result
 
 
     public Result withNamespaces(Result.Namespace... values) {
-        if (values!= null) {
-            for (Result.Namespace value: values) {
+        if (values != null) {
+            for (Result.Namespace value : values) {
                 getNamespaces().add(value);
             }
         }
@@ -165,15 +148,15 @@ public class Result
     }
 
     public Result withNamespaces(Collection<Result.Namespace> values) {
-        if (values!= null) {
+        if (values != null) {
             getNamespaces().addAll(values);
         }
         return this;
     }
 
     public Result withErrors(Result.Error... values) {
-        if (values!= null) {
-            for (Result.Error value: values) {
+        if (values != null) {
+            for (Result.Error value : values) {
                 getErrors().add(value);
             }
         }
@@ -181,7 +164,7 @@ public class Result
     }
 
     public Result withErrors(Collection<Result.Error> values) {
-        if (values!= null) {
+        if (values != null) {
             getErrors().addAll(values);
         }
         return this;
@@ -195,9 +178,9 @@ public class Result
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     * <p/>
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     * <p/>
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -210,17 +193,14 @@ public class Result
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "errorMessage",
-        "violatingElement"
+            "errorMessage",
+            "violatingElement"
     })
     public static class Error
-        implements Serializable
-    {
+            implements Serializable {
 
         @XmlElement(name = "ErrorMessage", required = true)
         protected String errorMessage;
@@ -229,11 +209,9 @@ public class Result
 
         /**
          * Gets the value of the errorMessage property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getErrorMessage() {
             return errorMessage;
@@ -241,11 +219,9 @@ public class Result
 
         /**
          * Sets the value of the errorMessage property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setErrorMessage(String value) {
             this.errorMessage = value;
@@ -253,11 +229,9 @@ public class Result
 
         /**
          * Gets the value of the violatingElement property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getViolatingElement() {
             return violatingElement;
@@ -265,16 +239,13 @@ public class Result
 
         /**
          * Sets the value of the violatingElement property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setViolatingElement(String value) {
             this.violatingElement = value;
         }
-
 
 
         public Result.Error withErrorMessage(String value) {
@@ -292,9 +263,9 @@ public class Result
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     * <p/>
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     * <p/>
      * <pre>
      * &lt;complexType>
      *   &lt;simpleContent>
@@ -305,16 +276,13 @@ public class Result
      *   &lt;/simpleContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "value"
+            "value"
     })
     public static class Namespace
-        implements Serializable
-    {
+            implements Serializable {
 
         @XmlValue
         protected String value;
@@ -327,11 +295,9 @@ public class Result
 
         /**
          * Gets the value of the value property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getValue() {
             return value;
@@ -339,11 +305,9 @@ public class Result
 
         /**
          * Sets the value of the value property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setValue(String value) {
             this.value = value;
@@ -351,11 +315,9 @@ public class Result
 
         /**
          * Gets the value of the prefix property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getPrefix() {
             return prefix;
@@ -363,11 +325,9 @@ public class Result
 
         /**
          * Sets the value of the prefix property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setPrefix(String value) {
             this.prefix = value;
@@ -375,11 +335,9 @@ public class Result
 
         /**
          * Gets the value of the uri property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getUri() {
             return uri;
@@ -387,16 +345,13 @@ public class Result
 
         /**
          * Sets the value of the uri property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setUri(String value) {
             this.uri = value;
         }
-
 
 
         public Result.Namespace withValue(String value) {

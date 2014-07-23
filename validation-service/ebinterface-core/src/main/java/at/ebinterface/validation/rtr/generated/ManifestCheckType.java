@@ -1,4 +1,3 @@
-
 package at.ebinterface.validation.rtr.generated;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -9,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for ManifestCheckType complex type.
- * 
+ * <p/>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p/>
  * <pre>
  * &lt;complexType name="ManifestCheckType">
  *   &lt;complexContent>
@@ -24,13 +23,11 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ManifestCheckType", namespace = "http://reference.e-government.gv.at/namespace/verificationservice/20120922#", propOrder = {
-    "manifest",
-    "xmlDsigManifest"
+        "manifest",
+        "xmlDsigManifest"
 })
 public class ManifestCheckType {
 
@@ -41,11 +38,9 @@ public class ManifestCheckType {
 
     /**
      * Gets the value of the manifest property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CheckResultType }
-     *     
+     *
+     * @return possible object is
+     * {@link CheckResultType }
      */
     public CheckResultType getManifest() {
         return manifest;
@@ -53,11 +48,9 @@ public class ManifestCheckType {
 
     /**
      * Sets the value of the manifest property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link CheckResultType }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link CheckResultType }
      */
     public void setManifest(CheckResultType value) {
         this.manifest = value;
@@ -65,11 +58,9 @@ public class ManifestCheckType {
 
     /**
      * Gets the value of the xmlDsigManifest property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CheckResultType }
-     *     
+     *
+     * @return possible object is
+     * {@link CheckResultType }
      */
     public CheckResultType getXMLDsigManifest() {
         return xmlDsigManifest;
@@ -77,11 +68,9 @@ public class ManifestCheckType {
 
     /**
      * Sets the value of the xmlDsigManifest property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link CheckResultType }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link CheckResultType }
      */
     public void setXMLDsigManifest(CheckResultType value) {
         this.xmlDsigManifest = value;

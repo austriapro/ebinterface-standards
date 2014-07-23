@@ -1,19 +1,15 @@
-
 package at.ebinterface.validation.rtr.generated;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAnyElement;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 import org.w3c.dom.Element;
+
+import javax.xml.bind.annotation.*;
 
 
 /**
  * <p>Java class for X509DataType complex type.
- * 
+ * <p/>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p/>
  * <pre>
  * &lt;complexType name="X509DataType">
  *   &lt;complexContent>
@@ -32,17 +28,15 @@ import org.w3c.dom.Element;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "X509DataType", propOrder = {
-    "x509IssuerSerial",
-    "x509SKI",
-    "x509SubjectName",
-    "x509Certificate",
-    "x509CRL",
-    "any"
+        "x509IssuerSerial",
+        "x509SKI",
+        "x509SubjectName",
+        "x509Certificate",
+        "x509CRL",
+        "any"
 })
 public class X509DataType {
 
@@ -61,11 +55,9 @@ public class X509DataType {
 
     /**
      * Gets the value of the x509IssuerSerial property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link X509IssuerSerialType }
-     *     
+     *
+     * @return possible object is
+     * {@link X509IssuerSerialType }
      */
     public X509IssuerSerialType getX509IssuerSerial() {
         return x509IssuerSerial;
@@ -73,11 +65,9 @@ public class X509DataType {
 
     /**
      * Sets the value of the x509IssuerSerial property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link X509IssuerSerialType }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link X509IssuerSerialType }
      */
     public void setX509IssuerSerial(X509IssuerSerialType value) {
         this.x509IssuerSerial = value;
@@ -85,10 +75,9 @@ public class X509DataType {
 
     /**
      * Gets the value of the x509SKI property.
-     * 
-     * @return
-     *     possible object is
-     *     byte[]
+     *
+     * @return possible object is
+     * byte[]
      */
     public byte[] getX509SKI() {
         return x509SKI;
@@ -96,10 +85,9 @@ public class X509DataType {
 
     /**
      * Sets the value of the x509SKI property.
-     * 
-     * @param value
-     *     allowed object is
-     *     byte[]
+     *
+     * @param value allowed object is
+     *              byte[]
      */
     public void setX509SKI(byte[] value) {
         this.x509SKI = value;
@@ -107,11 +95,9 @@ public class X509DataType {
 
     /**
      * Gets the value of the x509SubjectName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getX509SubjectName() {
         return x509SubjectName;
@@ -119,11 +105,9 @@ public class X509DataType {
 
     /**
      * Sets the value of the x509SubjectName property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setX509SubjectName(String value) {
         this.x509SubjectName = value;
@@ -131,10 +115,9 @@ public class X509DataType {
 
     /**
      * Gets the value of the x509Certificate property.
-     * 
-     * @return
-     *     possible object is
-     *     byte[]
+     *
+     * @return possible object is
+     * byte[]
      */
     public byte[] getX509Certificate() {
         return x509Certificate;
@@ -142,10 +125,9 @@ public class X509DataType {
 
     /**
      * Sets the value of the x509Certificate property.
-     * 
-     * @param value
-     *     allowed object is
-     *     byte[]
+     *
+     * @param value allowed object is
+     *              byte[]
      */
     public void setX509Certificate(byte[] value) {
         this.x509Certificate = value;
@@ -153,10 +135,9 @@ public class X509DataType {
 
     /**
      * Gets the value of the x509CRL property.
-     * 
-     * @return
-     *     possible object is
-     *     byte[]
+     *
+     * @return possible object is
+     * byte[]
      */
     public byte[] getX509CRL() {
         return x509CRL;
@@ -164,10 +145,9 @@ public class X509DataType {
 
     /**
      * Sets the value of the x509CRL property.
-     * 
-     * @param value
-     *     allowed object is
-     *     byte[]
+     *
+     * @param value allowed object is
+     *              byte[]
      */
     public void setX509CRL(byte[] value) {
         this.x509CRL = value;
@@ -175,12 +155,10 @@ public class X509DataType {
 
     /**
      * Gets the value of the any property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Object }
-     *     {@link Element }
-     *     
+     *
+     * @return possible object is
+     * {@link Object }
+     * {@link Element }
      */
     public Object getAny() {
         return any;
@@ -188,12 +166,10 @@ public class X509DataType {
 
     /**
      * Sets the value of the any property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Object }
-     *     {@link Element }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Object }
+     *              {@link Element }
      */
     public void setAny(Object value) {
         this.any = value;

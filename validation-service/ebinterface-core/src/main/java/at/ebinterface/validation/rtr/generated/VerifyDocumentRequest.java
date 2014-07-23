@@ -1,21 +1,15 @@
-
 package at.ebinterface.validation.rtr.generated;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ * <p/>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p/>
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -32,17 +26,15 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "version",
-    "document",
-    "fileID",
-    "trustProfileID",
-    "requestPDFReport",
-    "language"
+        "version",
+        "document",
+        "fileID",
+        "trustProfileID",
+        "requestPDFReport",
+        "language"
 })
 @XmlRootElement(name = "VerifyDocumentRequest", namespace = "http://reference.e-government.gv.at/namespace/verificationservice/20120922#")
 public class VerifyDocumentRequest {
@@ -66,11 +58,9 @@ public class VerifyDocumentRequest {
 
     /**
      * Gets the value of the version property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
+     *
+     * @return possible object is
+     * {@link Integer }
      */
     public Integer getVersion() {
         return version;
@@ -78,11 +68,9 @@ public class VerifyDocumentRequest {
 
     /**
      * Sets the value of the version property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Integer }
      */
     public void setVersion(Integer value) {
         this.version = value;
@@ -90,10 +78,9 @@ public class VerifyDocumentRequest {
 
     /**
      * Gets the value of the document property.
-     * 
-     * @return
-     *     possible object is
-     *     byte[]
+     *
+     * @return possible object is
+     * byte[]
      */
     public byte[] getDocument() {
         return document;
@@ -101,10 +88,9 @@ public class VerifyDocumentRequest {
 
     /**
      * Sets the value of the document property.
-     * 
-     * @param value
-     *     allowed object is
-     *     byte[]
+     *
+     * @param value allowed object is
+     *              byte[]
      */
     public void setDocument(byte[] value) {
         this.document = value;
@@ -112,11 +98,9 @@ public class VerifyDocumentRequest {
 
     /**
      * Gets the value of the fileID property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getFileID() {
         return fileID;
@@ -124,11 +108,9 @@ public class VerifyDocumentRequest {
 
     /**
      * Sets the value of the fileID property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setFileID(String value) {
         this.fileID = value;
@@ -136,11 +118,9 @@ public class VerifyDocumentRequest {
 
     /**
      * Gets the value of the trustProfileID property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTrustProfileID() {
         return trustProfileID;
@@ -148,11 +128,9 @@ public class VerifyDocumentRequest {
 
     /**
      * Sets the value of the trustProfileID property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTrustProfileID(String value) {
         this.trustProfileID = value;
@@ -160,11 +138,9 @@ public class VerifyDocumentRequest {
 
     /**
      * Gets the value of the requestPDFReport property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     *
+     * @return possible object is
+     * {@link Boolean }
      */
     public Boolean isRequestPDFReport() {
         return requestPDFReport;
@@ -172,11 +148,9 @@ public class VerifyDocumentRequest {
 
     /**
      * Sets the value of the requestPDFReport property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Boolean }
      */
     public void setRequestPDFReport(Boolean value) {
         this.requestPDFReport = value;
@@ -184,11 +158,9 @@ public class VerifyDocumentRequest {
 
     /**
      * Gets the value of the language property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getLanguage() {
         return language;
@@ -196,11 +168,9 @@ public class VerifyDocumentRequest {
 
     /**
      * Sets the value of the language property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setLanguage(String value) {
         this.language = value;

@@ -1,4 +1,3 @@
-
 package at.ebinterface.validation.rtr.generated;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -9,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for SignatureInfoType complex type.
- * 
+ * <p/>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p/>
  * <pre>
  * &lt;complexType name="SignatureInfoType">
  *   &lt;complexContent>
@@ -28,17 +27,15 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SignatureInfoType", namespace = "http://reference.e-government.gv.at/namespace/verificationservice/20120922#", propOrder = {
-    "inputData",
-    "signerName",
-    "signatureCheck",
-    "certificateCheck",
-    "manifestCheck",
-    "annotations"
+        "inputData",
+        "signerName",
+        "signatureCheck",
+        "certificateCheck",
+        "manifestCheck",
+        "annotations"
 })
 public class SignatureInfoType {
 
@@ -57,11 +54,9 @@ public class SignatureInfoType {
 
     /**
      * Gets the value of the inputData property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ContentExLocRefBaseType }
-     *     
+     *
+     * @return possible object is
+     * {@link ContentExLocRefBaseType }
      */
     public ContentExLocRefBaseType getInputData() {
         return inputData;
@@ -69,11 +64,9 @@ public class SignatureInfoType {
 
     /**
      * Sets the value of the inputData property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ContentExLocRefBaseType }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link ContentExLocRefBaseType }
      */
     public void setInputData(ContentExLocRefBaseType value) {
         this.inputData = value;
@@ -81,11 +74,9 @@ public class SignatureInfoType {
 
     /**
      * Gets the value of the signerName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getSignerName() {
         return signerName;
@@ -93,11 +84,9 @@ public class SignatureInfoType {
 
     /**
      * Sets the value of the signerName property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setSignerName(String value) {
         this.signerName = value;
@@ -105,11 +94,9 @@ public class SignatureInfoType {
 
     /**
      * Gets the value of the signatureCheck property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CheckResultType }
-     *     
+     *
+     * @return possible object is
+     * {@link CheckResultType }
      */
     public CheckResultType getSignatureCheck() {
         return signatureCheck;
@@ -117,11 +104,9 @@ public class SignatureInfoType {
 
     /**
      * Sets the value of the signatureCheck property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link CheckResultType }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link CheckResultType }
      */
     public void setSignatureCheck(CheckResultType value) {
         this.signatureCheck = value;
@@ -129,11 +114,9 @@ public class SignatureInfoType {
 
     /**
      * Gets the value of the certificateCheck property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CheckResultType }
-     *     
+     *
+     * @return possible object is
+     * {@link CheckResultType }
      */
     public CheckResultType getCertificateCheck() {
         return certificateCheck;
@@ -141,11 +124,9 @@ public class SignatureInfoType {
 
     /**
      * Sets the value of the certificateCheck property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link CheckResultType }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link CheckResultType }
      */
     public void setCertificateCheck(CheckResultType value) {
         this.certificateCheck = value;
@@ -153,11 +134,9 @@ public class SignatureInfoType {
 
     /**
      * Gets the value of the manifestCheck property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ManifestCheckType }
-     *     
+     *
+     * @return possible object is
+     * {@link ManifestCheckType }
      */
     public ManifestCheckType getManifestCheck() {
         return manifestCheck;
@@ -165,11 +144,9 @@ public class SignatureInfoType {
 
     /**
      * Sets the value of the manifestCheck property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ManifestCheckType }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link ManifestCheckType }
      */
     public void setManifestCheck(ManifestCheckType value) {
         this.manifestCheck = value;
@@ -177,11 +154,9 @@ public class SignatureInfoType {
 
     /**
      * Gets the value of the annotations property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link AnnotationsType }
-     *     
+     *
+     * @return possible object is
+     * {@link AnnotationsType }
      */
     public AnnotationsType getAnnotations() {
         return annotations;
@@ -189,11 +164,9 @@ public class SignatureInfoType {
 
     /**
      * Sets the value of the annotations property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link AnnotationsType }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link AnnotationsType }
      */
     public void setAnnotations(AnnotationsType value) {
         this.annotations = value;

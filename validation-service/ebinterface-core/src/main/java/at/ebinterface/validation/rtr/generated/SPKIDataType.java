@@ -1,19 +1,15 @@
-
 package at.ebinterface.validation.rtr.generated;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAnyElement;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 import org.w3c.dom.Element;
+
+import javax.xml.bind.annotation.*;
 
 
 /**
  * <p>Java class for SPKIDataType complex type.
- * 
+ * <p/>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p/>
  * <pre>
  * &lt;complexType name="SPKIDataType">
  *   &lt;complexContent>
@@ -26,13 +22,11 @@ import org.w3c.dom.Element;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SPKIDataType", propOrder = {
-    "spkiSexp",
-    "any"
+        "spkiSexp",
+        "any"
 })
 public class SPKIDataType {
 
@@ -43,10 +37,9 @@ public class SPKIDataType {
 
     /**
      * Gets the value of the spkiSexp property.
-     * 
-     * @return
-     *     possible object is
-     *     byte[]
+     *
+     * @return possible object is
+     * byte[]
      */
     public byte[] getSPKISexp() {
         return spkiSexp;
@@ -54,10 +47,9 @@ public class SPKIDataType {
 
     /**
      * Sets the value of the spkiSexp property.
-     * 
-     * @param value
-     *     allowed object is
-     *     byte[]
+     *
+     * @param value allowed object is
+     *              byte[]
      */
     public void setSPKISexp(byte[] value) {
         this.spkiSexp = value;
@@ -65,12 +57,10 @@ public class SPKIDataType {
 
     /**
      * Gets the value of the any property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Object }
-     *     {@link Element }
-     *     
+     *
+     * @return possible object is
+     * {@link Object }
+     * {@link Element }
      */
     public Object getAny() {
         return any;
@@ -78,12 +68,10 @@ public class SPKIDataType {
 
     /**
      * Sets the value of the any property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Object }
-     *     {@link Element }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Object }
+     *              {@link Element }
      */
     public void setAny(Object value) {
         this.any = value;

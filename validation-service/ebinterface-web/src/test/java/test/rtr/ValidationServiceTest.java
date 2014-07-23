@@ -19,7 +19,6 @@ import static org.junit.Assert.fail;
 public class ValidationServiceTest {
 
 
-
     private static final Logger LOG = LoggerFactory.getLogger(ValidationServiceTest.class.getName());
 
 
@@ -37,7 +36,7 @@ public class ValidationServiceTest {
     }
 
     @Test
-    public void testValidationService() throws  Exception {
+    public void testValidationService() throws Exception {
 
         //Get an invoice instance
         String invoice = IOUtils.toString(this.getClass().getResourceAsStream("/ebinterface/3p02/valid_and_signed.xml"));
@@ -64,8 +63,7 @@ public class ValidationServiceTest {
 
         } catch (VerificationFault verificationFault) {
             LOG.error("Fehler bei der Verarbeitung. Error code {}, Error message {}", verificationFault.getFaultInfo().getErrorCode(), verificationFault.getFaultInfo().getInfo());
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             LOG.error("Unable to get validation result. ", e);
             fail();
         }
@@ -88,15 +86,12 @@ public class ValidationServiceTest {
 
         } catch (VerificationFault verificationFault) {
             LOG.error("Fehler bei der Verarbeitung. Error code {}, Error message {}", verificationFault.getFaultInfo().getErrorCode(), verificationFault.getFaultInfo().getInfo());
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             LOG.error("Unable to get validation result. ", e);
         }
 
 
-
     }
-
 
 
 }

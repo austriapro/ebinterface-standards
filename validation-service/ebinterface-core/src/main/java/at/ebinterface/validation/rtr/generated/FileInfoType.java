@@ -1,20 +1,15 @@
-
 package at.ebinterface.validation.rtr.generated;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
  * <p>Java class for FileInfoType complex type.
- * 
+ * <p/>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p/>
  * <pre>
  * &lt;complexType name="FileInfoType">
  *   &lt;complexContent>
@@ -28,14 +23,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "FileInfoType", namespace = "http://reference.e-government.gv.at/namespace/verificationservice/20120922#", propOrder = {
-    "fileID",
-    "fileType",
-    "fileHash"
+        "fileID",
+        "fileType",
+        "fileHash"
 })
 public class FileInfoType {
 
@@ -50,11 +43,9 @@ public class FileInfoType {
 
     /**
      * Gets the value of the fileID property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getFileID() {
         return fileID;
@@ -62,11 +53,9 @@ public class FileInfoType {
 
     /**
      * Sets the value of the fileID property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setFileID(String value) {
         this.fileID = value;
@@ -74,11 +63,9 @@ public class FileInfoType {
 
     /**
      * Gets the value of the fileType property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getFileType() {
         return fileType;
@@ -86,11 +73,9 @@ public class FileInfoType {
 
     /**
      * Sets the value of the fileType property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setFileType(String value) {
         this.fileType = value;
@@ -98,10 +83,9 @@ public class FileInfoType {
 
     /**
      * Gets the value of the fileHash property.
-     * 
-     * @return
-     *     possible object is
-     *     byte[]
+     *
+     * @return possible object is
+     * byte[]
      */
     public byte[] getFileHash() {
         return fileHash;
@@ -109,10 +93,9 @@ public class FileInfoType {
 
     /**
      * Sets the value of the fileHash property.
-     * 
-     * @param value
-     *     allowed object is
-     *     byte[]
+     *
+     * @param value allowed object is
+     *              byte[]
      */
     public void setFileHash(byte[] value) {
         this.fileHash = value;

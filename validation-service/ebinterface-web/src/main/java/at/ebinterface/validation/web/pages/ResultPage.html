@@ -1,163 +1,158 @@
-
-
 <wicket:extend>
 
 
+    <div class="row">
+        <div class="col-md-8">
+            <h3>Ergebnisse</h3>
+            <br/>
+        </div>
+        <div class="col-md-4">&nbsp;</div>
+    </div>
 
 
-
-	<div class="row">
-		<div class="col-md-8">
-			<h3>Ergebnisse</h3>
-			<br />
-		</div>
-		<div class="col-md-4">&nbsp;</div>
-	</div>
-
-
-	<div class="row">
-		<div class="col-md-8">
-			<h4>
-				Erkannte Version:
-				<wicket:container wicket:id="schemaVersion" />
-			</h4>
-		</div>
-		<div class="col-md-4">&nbsp;</div>
-	</div>
+    <div class="row">
+        <div class="col-md-8">
+            <h4>
+                Erkannte Version:
+                <wicket:container wicket:id="schemaVersion"/>
+            </h4>
+        </div>
+        <div class="col-md-4">&nbsp;</div>
+    </div>
 
 
-	<div wicket:id="schemvalidationOK">
+    <div wicket:id="schemvalidationOK">
 
 
-		<div class="row">
-			<div class="col-md-12">
-				<br />
-				<h4>Schemavalidierung</h4>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-8 alert alert-success">
-				<p>Die gew&auml;hlte ebInterface Instanz entspricht den Vorgaben
-					des ebInterface Schemas.</p>
-			</div>
-			<div class="col-md-4">&nbsp;</div>
-		</div>
-	</div>
+        <div class="row">
+            <div class="col-md-12">
+                <br/>
+                <h4>Schemavalidierung</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 alert alert-success">
+                <p>Die gew&auml;hlte ebInterface Instanz entspricht den Vorgaben
+                    des ebInterface Schemas.</p>
+            </div>
+            <div class="col-md-4">&nbsp;</div>
+        </div>
+    </div>
 
 
-	<div wicket:id="schemvalidationNOK">
-		<div class="row">
-			<div class="col-md-12">
-				<br />
-				<h4>Schemavalidierung</h4>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-8 alert alert-error">
-				<p>Die gew&auml;hlte ebInterface Instanz entspricht nicht den
-					Vorgaben des ebInterface Schemas.</p>
-				<p>
-					<strong>Fehlerdetails: </strong>
-					<wicket:container wicket:id="schemaValidationError" />
-				</p>
-			</div>
-			<div class="col-md-4">&nbsp;</div>
-		</div>
+    <div wicket:id="schemvalidationNOK">
+        <div class="row">
+            <div class="col-md-12">
+                <br/>
+                <h4>Schemavalidierung</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 alert alert-error">
+                <p>Die gew&auml;hlte ebInterface Instanz entspricht nicht den
+                    Vorgaben des ebInterface Schemas.</p>
 
-	</div>
+                <p>
+                    <strong>Fehlerdetails: </strong>
+                    <wicket:container wicket:id="schemaValidationError"/>
+                </p>
+            </div>
+            <div class="col-md-4">&nbsp;</div>
+        </div>
+
+    </div>
 
 
+    <div wicket:id="signatureResultContainer">
 
-	<div wicket:id="signatureResultContainer">
-
-		<div class="row">
-			<div class="col-md-12">
-				<br />
-				<h4>Validierung der XML Signatur</h4>
-			</div>
-		</div>
-		<div class="row">
+        <div class="row">
+            <div class="col-md-12">
+                <br/>
+                <h4>Validierung der XML Signatur</h4>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-md-8">
 
-                <br />Signatur
+                <br/>Signatur
 
                 <p wicket:id="signatureResult"></p>
+
                 <p wicket:id="signatureText"></p>
 
 
-                <br />Zertifikat:
+                <br/>Zertifikat:
 
                 <p wicket:id="certificateResult"></p>
+
                 <p wicket:id="certificateText"></p>
 
-                <br />Manifest:
+                <br/>Manifest:
 
                 <p wicket:id="manifestResult"></p>
+
                 <p wicket:id="manifestText"></p>
 
             </div>
-			<div class="col-md-4">&nbsp;</div>
-		</div>
-	</div>
+            <div class="col-md-4">&nbsp;</div>
+        </div>
+    </div>
 
 
+    <div wicket:id="schematronOK">
+
+        <div class="row">
+            <div class="col-md-12">
+                <br/>
+                <h4>
+                    Schematronvalidierung
+                    <wicket:container wicket:id="selectedSchematron"/>
+                </h4>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-12 alert alert-success">
+
+                <p>Die gew&auml;hlte ebInterface Instanz verletzt keine der
+                    Schematronregeln</p>
+            </div>
+        </div>
+    </div>
+
+    <div wicket:id="schematronNOK">
+
+        <div class="row">
 
 
-	<div wicket:id="schematronOK">
+            <div class="col-md-12">
+                <br/>
+                <h4>
+                    Schematronvalidierung
+                    <wicket:container wicket:id="selectedSchematron"/>
+                </h4>
+            </div>
 
-		<div class="row">
-			<div class="col-md-12">
-				<br />
-				<h4>
-					Schematronvalidierung
-					<wicket:container wicket:id="selectedSchematron" />
-				</h4>
-			</div>
-		</div>
-		<div class="row">
+        </div>
+        <div class="row">
 
-			<div class="col-md-12 alert alert-success">
+            <div class="col-md-12 alert alert-error">
 
-				<p>Die gew&auml;hlte ebInterface Instanz verletzt keine der
-					Schematronregeln</p>
-			</div>
-		</div>
-	</div>
+                <p>Die gew&auml;hlte ebInterface Instanz verletzt Schematron
+                    Regeln:</p>
 
-	<div wicket:id="schematronNOK">
-
-		<div class="row">
+                <div wicket:id="errorDetailsPanel"></div>
+            </div>
+        </div>
+    </div>
 
 
-
-			<div class="col-md-12">
-				<br />
-				<h4>
-					Schematronvalidierung
-					<wicket:container wicket:id="selectedSchematron" />
-				</h4>
-			</div>
-
-		</div>
-		<div class="row">
-
-			<div class="col-md-12 alert alert-error">
-
-				<p>Die gew&auml;hlte ebInterface Instanz verletzt Schematron
-					Regeln:</p>
-				<div wicket:id="errorDetailsPanel"></div>
-			</div>
-		</div>
-	</div>
-
-
-	<div class="row">
-		<div class="col-md-12">
-			<br /> <br /> <a class="btn btn-default" wicket:id="returnLink">Neue
-				Validierung starten</a> <br /> <br /> <br /> <br />
-		</div>
-	</div>
-
+    <div class="row">
+        <div class="col-md-12">
+            <br/> <br/> <a class="btn btn-default" wicket:id="returnLink">Neue
+            Validierung starten</a> <br/> <br/> <br/> <br/>
+        </div>
+    </div>
 
 
 </wicket:extend>

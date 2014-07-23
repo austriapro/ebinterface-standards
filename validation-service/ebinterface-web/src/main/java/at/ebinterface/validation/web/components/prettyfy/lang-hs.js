@@ -13,7 +13,6 @@
 // limitations under the License.
 
 
-
 /**
  * @fileoverview
  * Registers a language handler for Haskell.
@@ -42,60 +41,60 @@
 PR.registerLangHandler(
     PR.createSimpleLexer(
         [
-         // Whitespace
-         // whitechar    ->    newline | vertab | space | tab | uniWhite
-         // newline      ->    return linefeed | return | linefeed | formfeed
-         [PR.PR_PLAIN,       /^[\t\n\x0B\x0C\r ]+/, null, '\t\n\x0B\x0C\r '],
-         // Single line double and single-quoted strings.
-         // char         ->    ' (graphic<' | \> | space | escape<\&>) '
-         // string       ->    " {graphic<" | \> | space | escape | gap}"
-         // escape       ->    \ ( charesc | ascii | decimal | o octal
-         //                        | x hexadecimal )
-         // charesc      ->    a | b | f | n | r | t | v | \ | " | ' | &
-         [PR.PR_STRING,      /^\"(?:[^\"\\\n\x0C\r]|\\[\s\S])*(?:\"|$)/,
-          null, '"'],
-         [PR.PR_STRING,      /^\'(?:[^\'\\\n\x0C\r]|\\[^&])\'?/,
-          null, "'"],
-         // decimal      ->    digit{digit}
-         // octal        ->    octit{octit}
-         // hexadecimal  ->    hexit{hexit}
-         // integer      ->    decimal
-         //               |    0o octal | 0O octal
-         //               |    0x hexadecimal | 0X hexadecimal
-         // float        ->    decimal . decimal [exponent]
-         //               |    decimal exponent
-         // exponent     ->    (e | E) [+ | -] decimal
-         [PR.PR_LITERAL,
-          /^(?:0o[0-7]+|0x[\da-f]+|\d+(?:\.\d+)?(?:e[+\-]?\d+)?)/i,
-          null, '0123456789']
+            // Whitespace
+            // whitechar    ->    newline | vertab | space | tab | uniWhite
+            // newline      ->    return linefeed | return | linefeed | formfeed
+            [PR.PR_PLAIN, /^[\t\n\x0B\x0C\r ]+/, null, '\t\n\x0B\x0C\r '],
+            // Single line double and single-quoted strings.
+            // char         ->    ' (graphic<' | \> | space | escape<\&>) '
+            // string       ->    " {graphic<" | \> | space | escape | gap}"
+            // escape       ->    \ ( charesc | ascii | decimal | o octal
+            //                        | x hexadecimal )
+            // charesc      ->    a | b | f | n | r | t | v | \ | " | ' | &
+            [PR.PR_STRING, /^\"(?:[^\"\\\n\x0C\r]|\\[\s\S])*(?:\"|$)/,
+                null, '"'],
+            [PR.PR_STRING, /^\'(?:[^\'\\\n\x0C\r]|\\[^&])\'?/,
+                null, "'"],
+            // decimal      ->    digit{digit}
+            // octal        ->    octit{octit}
+            // hexadecimal  ->    hexit{hexit}
+            // integer      ->    decimal
+            //               |    0o octal | 0O octal
+            //               |    0x hexadecimal | 0X hexadecimal
+            // float        ->    decimal . decimal [exponent]
+            //               |    decimal exponent
+            // exponent     ->    (e | E) [+ | -] decimal
+            [PR.PR_LITERAL,
+                /^(?:0o[0-7]+|0x[\da-f]+|\d+(?:\.\d+)?(?:e[+\-]?\d+)?)/i,
+                null, '0123456789']
         ],
         [
-         // Haskell does not have a regular lexical grammar due to the nested
-         // ncomment.
-         // comment      ->    dashes [ any<symbol> {any}] newline
-         // ncomment     ->    opencom ANYseq {ncomment ANYseq}closecom
-         // dashes       ->    '--' {'-'}
-         // opencom      ->    '{-'
-         // closecom     ->    '-}'
-         [PR.PR_COMMENT,     /^(?:(?:--+(?:[^\r\n\x0C]*)?)|(?:\{-(?:[^-]|-+[^-\}])*-\}))/],
-         // reservedid   ->    case | class | data | default | deriving | do
-         //               |    else | if | import | in | infix | infixl | infixr
-         //               |    instance | let | module | newtype | of | then
-         //               |    type | where | _
-         [PR.PR_KEYWORD,     /^(?:case|class|data|default|deriving|do|else|if|import|in|infix|infixl|infixr|instance|let|module|newtype|of|then|type|where|_)(?=[^a-zA-Z0-9\']|$)/, null],
-         // qvarid       ->    [ modid . ] varid
-         // qconid       ->    [ modid . ] conid
-         // varid        ->    (small {small | large | digit | ' })<reservedid>
-         // conid        ->    large {small | large | digit | ' }
-         // modid        ->    conid
-         // small        ->    ascSmall | uniSmall | _
-         // ascSmall     ->    a | b | ... | z
-         // uniSmall     ->    any Unicode lowercase letter
-         // large        ->    ascLarge | uniLarge
-         // ascLarge     ->    A | B | ... | Z
-         // uniLarge     ->    any uppercase or titlecase Unicode letter
-         [PR.PR_PLAIN,  /^(?:[A-Z][\w\']*\.)*[a-zA-Z][\w\']*/],
-         // matches the symbol production
-         [PR.PR_PUNCTUATION, /^[^\t\n\x0B\x0C\r a-zA-Z0-9\'\"]+/]
+            // Haskell does not have a regular lexical grammar due to the nested
+            // ncomment.
+            // comment      ->    dashes [ any<symbol> {any}] newline
+            // ncomment     ->    opencom ANYseq {ncomment ANYseq}closecom
+            // dashes       ->    '--' {'-'}
+            // opencom      ->    '{-'
+            // closecom     ->    '-}'
+            [PR.PR_COMMENT, /^(?:(?:--+(?:[^\r\n\x0C]*)?)|(?:\{-(?:[^-]|-+[^-\}])*-\}))/],
+            // reservedid   ->    case | class | data | default | deriving | do
+            //               |    else | if | import | in | infix | infixl | infixr
+            //               |    instance | let | module | newtype | of | then
+            //               |    type | where | _
+            [PR.PR_KEYWORD, /^(?:case|class|data|default|deriving|do|else|if|import|in|infix|infixl|infixr|instance|let|module|newtype|of|then|type|where|_)(?=[^a-zA-Z0-9\']|$)/, null],
+            // qvarid       ->    [ modid . ] varid
+            // qconid       ->    [ modid . ] conid
+            // varid        ->    (small {small | large | digit | ' })<reservedid>
+            // conid        ->    large {small | large | digit | ' }
+            // modid        ->    conid
+            // small        ->    ascSmall | uniSmall | _
+            // ascSmall     ->    a | b | ... | z
+            // uniSmall     ->    any Unicode lowercase letter
+            // large        ->    ascLarge | uniLarge
+            // ascLarge     ->    A | B | ... | Z
+            // uniLarge     ->    any uppercase or titlecase Unicode letter
+            [PR.PR_PLAIN, /^(?:[A-Z][\w\']*\.)*[a-zA-Z][\w\']*/],
+            // matches the symbol production
+            [PR.PR_PUNCTUATION, /^[^\t\n\x0B\x0C\r a-zA-Z0-9\'\"]+/]
         ]),
     ['hs']);

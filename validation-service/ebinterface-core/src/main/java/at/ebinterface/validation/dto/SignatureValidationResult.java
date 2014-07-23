@@ -26,6 +26,7 @@ public class SignatureValidationResult implements Serializable {
 
     /**
      * Contstruct a new signature validation result based on the results returned by the RTR Web Service
+     *
      * @param result
      */
     public SignatureValidationResult(VerifyDocumentResponse result) {
@@ -33,12 +34,12 @@ public class SignatureValidationResult implements Serializable {
         SignatureInfoType signatureInfo = null;
 
         if (result != null) {
-                if (result.getVerificationReport() != null) {
-                    if (result.getVerificationReport().getSignatureInfo() != null &&
-                            result.getVerificationReport().getSignatureInfo().size() > 0) {
-                        signatureInfo = result.getVerificationReport().getSignatureInfo().get(0);
-                    }
+            if (result.getVerificationReport() != null) {
+                if (result.getVerificationReport().getSignatureInfo() != null &&
+                        result.getVerificationReport().getSignatureInfo().size() > 0) {
+                    signatureInfo = result.getVerificationReport().getSignatureInfo().get(0);
                 }
+            }
 
         }
 
@@ -47,8 +48,7 @@ public class SignatureValidationResult implements Serializable {
             //Signature check details
             if (BigInteger.ZERO.equals(signatureInfo.getSignatureCheck().getCode())) {
                 signatureValid = true;
-            }
-            else {
+            } else {
                 signatureValid = false;
             }
             signatureText = signatureInfo.getSignatureCheck().getInfo();
@@ -57,8 +57,7 @@ public class SignatureValidationResult implements Serializable {
             //Certificate check details
             if (BigInteger.ZERO.equals(signatureInfo.getCertificateCheck().getCode())) {
                 certificateValid = true;
-            }
-            else {
+            } else {
                 certificateValid = false;
             }
             certificateText = signatureInfo.getCertificateCheck().getInfo();
@@ -66,8 +65,7 @@ public class SignatureValidationResult implements Serializable {
             //Manifest check
             if (BigInteger.ZERO.equals(signatureInfo.getManifestCheck().getManifest().getCode())) {
                 manifestValid = true;
-            }
-            else {
+            } else {
                 manifestValid = false;
             }
             manifestText = signatureInfo.getManifestCheck().getManifest().getInfo();
@@ -77,7 +75,6 @@ public class SignatureValidationResult implements Serializable {
 
 
     }
-
 
 
     public boolean isSignatureValid() {

@@ -20,14 +20,14 @@ package at.ebinterface.validation.web.components.prettyfy;
 import org.apache.wicket.request.resource.PackageResourceReference;
 
 /**
+ * @author Richard Nichols
  * @version $Id: PrettifyJSResourceReference.java 261 2011-03-08 20:53:16Z
  *          tibes80@gmail.com $
- * @author Richard Nichols
  */
 public class PrettifyJSResourceReference extends PackageResourceReference {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	public PrettifyJSResourceReference() {
-		super(PrettifyJSResourceReference.class, "prettify.js");
-	}
+    public PrettifyJSResourceReference() {
+        super(PrettifyJSResourceReference.class, "prettify.js");
+    }
 }

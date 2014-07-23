@@ -14,6 +14,7 @@ Using this repository, the development versions of the different ebInterface sta
 
 #ebInterface validation service
 
+##About the service
 
 The ebInterface validation service allows to validate ebInterface instances according to ebInterface XML Schema version 3.0, 3.02, 4.0, and 4.01.
 
@@ -26,6 +27,9 @@ The validation contains two main artifacts
  * *ebinterface-core.* This module contains the validation logic for ebInterface instances, the logic for applying stylesheets to ebInterface instances, as well as the Web Service client for the RTR Web Service
  * *ebinterface-web.* This module contains a Web frontend for the *ebinterface-core* module.
 
+##Code style
+
+For this project the Google code style is used. Please [download the code style file](https://code.google.com/p/google-styleguide/source/browse/trunk/intellij-java-google-style.xml) and set it in your IDE, before you commit to the repository. 
 
 ##Prerequisites
 

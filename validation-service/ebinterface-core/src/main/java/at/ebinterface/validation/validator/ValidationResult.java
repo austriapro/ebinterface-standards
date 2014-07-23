@@ -5,45 +5,55 @@ import at.ebinterface.validation.validator.jaxb.Result;
 
 /**
  * DTO for the validation result
- * @author pl
  *
+ * @author pl
  */
 public class ValidationResult {
 
 
-  private String schemaValidationErrorMessage;
-  private EbInterfaceVersion determinedEbInterfaceVersion;
+    private String schemaValidationErrorMessage;
+    private EbInterfaceVersion determinedEbInterfaceVersion;
 
-  /** Schematronvalidation result */
-  private Result result;
+    /**
+     * Schematronvalidation result
+     */
+    private Result result;
 
-  /** Holds a potential signature validation exception, which is returned by the validation service **/
-  private String signatureValidationExceptionMessage;
+    /**
+     * Holds a potential signature validation exception, which is returned by the validation service *
+     */
+    private String signatureValidationExceptionMessage;
 
-  /** Certificate specific results */
-  private VerifyDocumentResponse verifyDocumentResponse;
+    /**
+     * Certificate specific results
+     */
+    private VerifyDocumentResponse verifyDocumentResponse;
 
 
+    public String getSchemaValidationErrorMessage() {
+        return schemaValidationErrorMessage;
+    }
 
-  public String getSchemaValidationErrorMessage() {
-    return schemaValidationErrorMessage;
-  }
-  public void setSchemaValidationErrorMessage(final String schemaValidationErrorMessage) {
-    this.schemaValidationErrorMessage = schemaValidationErrorMessage;
-  }
-  public EbInterfaceVersion getDeterminedEbInterfaceVersion() {
-    return determinedEbInterfaceVersion;
-  }
-  public void setDeterminedEbInterfaceVersion(
-                                              final EbInterfaceVersion determinedEbInterfaceVersion) {
-    this.determinedEbInterfaceVersion = determinedEbInterfaceVersion;
-  }
-  public Result getResult() {
-    return result;
-  }
-  public void setResult(final Result result) {
-    this.result = result;
-  }
+    public void setSchemaValidationErrorMessage(final String schemaValidationErrorMessage) {
+        this.schemaValidationErrorMessage = schemaValidationErrorMessage;
+    }
+
+    public EbInterfaceVersion getDeterminedEbInterfaceVersion() {
+        return determinedEbInterfaceVersion;
+    }
+
+    public void setDeterminedEbInterfaceVersion(
+            final EbInterfaceVersion determinedEbInterfaceVersion) {
+        this.determinedEbInterfaceVersion = determinedEbInterfaceVersion;
+    }
+
+    public Result getResult() {
+        return result;
+    }
+
+    public void setResult(final Result result) {
+        this.result = result;
+    }
 
     public VerifyDocumentResponse getVerifyDocumentResponse() {
         return verifyDocumentResponse;
