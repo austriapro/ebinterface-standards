@@ -30,11 +30,14 @@ public class ResultPage extends BasePage {
     public ResultPage(final ValidationResult validationResult, final String selectedSchematron, final ActionType selectedAction) {
 
         final StringBuffer schemaVersion = new StringBuffer();
-        schemaVersion.append(validationResult.getDeterminedEbInterfaceVersion().getCaption());
-        if (validationResult.getDeterminedEbInterfaceVersion() != null && validationResult.getDeterminedEbInterfaceVersion().isSigned()) {
-            schemaVersion.append(" (signiert)");
-        } else {
-            schemaVersion.append(" (unsigniert)");
+
+        if (validationResult.getDeterminedEbInterfaceVersion() != null) {
+            schemaVersion.append(validationResult.getDeterminedEbInterfaceVersion().getCaption());
+            if (validationResult.getDeterminedEbInterfaceVersion().isSigned()) {
+                schemaVersion.append(" (signiert)");
+            } else {
+                schemaVersion.append(" (unsigniert)");
+            }
         }
 
         //Add a label with the schema version
