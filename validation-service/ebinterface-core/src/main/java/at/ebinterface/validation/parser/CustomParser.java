@@ -20,16 +20,8 @@ public enum CustomParser {
     INSTANCE;
 
     private static CustomHandler customHandler;
-    private static SAXParser saxParser;
 
     static {
-        final SAXParserFactory factory = SAXParserFactory.newInstance();
-        try {
-            saxParser = factory.newSAXParser();
-        } catch (final Exception e) {
-            throw new RuntimeException(e);
-        }
-
         customHandler = new CustomHandler();
     }
 
@@ -43,7 +35,7 @@ public enum CustomParser {
 
         //Get the namespace from the instace
         try {
-            saxParser.parse(source, customHandler);
+            at.ebinterface.validation.validator.SAXParserFactory.newInstance().parse(source, customHandler);
         } catch (final Exception e) {
             throw new NamespaceUnknownException("Der Namespace des Invoice-ROOT Elements konnte nicht bestimmt werden.");
         }

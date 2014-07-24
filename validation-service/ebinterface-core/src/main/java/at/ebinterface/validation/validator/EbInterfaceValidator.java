@@ -15,6 +15,7 @@ import javax.xml.XMLConstants;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.util.JAXBResult;
+import javax.xml.parsers.SAXParserFactory;
 import javax.xml.transform.*;
 import javax.xml.transform.sax.SAXSource;
 import javax.xml.transform.stream.StreamResult;
@@ -81,8 +82,6 @@ public class EbInterfaceValidator {
      * Initialize the validator
      */
     static {
-
-
         final SchemaFactory factory = SchemaFactory
                 .newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
 
@@ -126,7 +125,7 @@ public class EbInterfaceValidator {
         }
 
         // Get a transformer factory
-        tFactory = TransformerFactory.newInstance();
+        tFactory = net.sf.saxon.TransformerFactoryImpl.newInstance();
 
     /*
      * Initialize the XSLT Transformer for generating the interim XSLTs
@@ -208,7 +207,7 @@ public class EbInterfaceValidator {
         // version
         try {
 
-            final SAXSource saxSource = new SAXSource(new InputSource(
+            javax.xml.transform.sax.SAXSource saxSource = new javax.xml.transform.sax.SAXSource(new InputSource(
                     new ByteArrayInputStream(uploadedData)));
 
             if (version == EbInterfaceVersion.E3P0) {
@@ -242,7 +241,6 @@ public class EbInterfaceValidator {
             //Expect German results
             request.setLanguage("de");
 
-
             VerifyDocumentResponse response = null;
             try {
                 response = VerificationServiceInvoker.verifyDocument(request);
@@ -270,6 +268,9 @@ public class EbInterfaceValidator {
         try {
             final StringWriter sw = new StringWriter();
 
+            SAXSource saxSource = new SAXSource(at.ebinterface.validation.validator.SAXParserFactory.newInstance().getXMLReader(),
+                    (new InputSource(new ByteArrayInputStream(uploadedData))));
+
             if (version == EbInterfaceVersion.E3P0) {
                 ebInterface3p0Transformer.transform(new StreamSource(
                                 new ByteArrayInputStream(uploadedData)),
@@ -281,8 +282,7 @@ public class EbInterfaceValidator {
                         new StreamResult(sw)
                 );
             } else if (version == EbInterfaceVersion.E4P0) {
-                ebInterface4p0Transformer.transform(new StreamSource(
-                                new ByteArrayInputStream(uploadedData)),
+                ebInterface4p0Transformer.transform(saxSource,
                         new StreamResult(sw)
                 );
             } else {

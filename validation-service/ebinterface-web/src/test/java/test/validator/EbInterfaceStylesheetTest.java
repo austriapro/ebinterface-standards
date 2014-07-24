@@ -55,8 +55,22 @@ public class EbInterfaceStylesheetTest {
         Assert.assertFalse(hasError(s));
         System.out.print(s);
 
-
     }
+
+
+    @Test
+    public void testXXEExploit() throws IOException {
+
+        InputStream input = this.getClass().getResourceAsStream("/ebinterface/4p0/xxe-exploit.xml");
+        Assert.assertNotNull(input);
+        byte[] inputData = IOUtils.toByteArray(input);
+        EbInterfaceValidator validator = new EbInterfaceValidator();
+
+        String s = validator.transformInput(inputData, EbInterfaceVersion.E4P0);
+        Assert.assertTrue(hasError(s));
+        System.out.print(s);
+    }
+
 
 
     private boolean hasError(String s) {

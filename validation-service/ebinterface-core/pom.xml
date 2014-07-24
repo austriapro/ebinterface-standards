@@ -3,7 +3,7 @@
 
     <artifactId>ebinterface-core</artifactId>
     <packaging>jar</packaging>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
     <modelVersion>4.0.0</modelVersion>
     <name>ebInterface validation core</name>
 
@@ -11,7 +11,7 @@
     <parent>
         <groupId>at.ebinterface</groupId>
         <artifactId>ebinterface-parent</artifactId>
-        <version>1.0.4</version>
+        <version>1.0.5</version>
     </parent>
 
 
@@ -72,7 +72,7 @@
         <dependency>
             <groupId>net.sf.saxon</groupId>
             <artifactId>Saxon-HE</artifactId>
-            <version>9.4</version>
+            <version>9.5.1-6</version>
         </dependency>
 
         <!-- http://cxf.apache.org/faq.html -->
