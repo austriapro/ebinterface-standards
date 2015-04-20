@@ -1,46 +1,36 @@
-![alt text](https://github.com/pliegl/ebinterface/blob/master/site/images/logo.jpg?raw=true "ebInterface e-Invoice standard")
+![ebInterface Logo](https://github.com/pliegl/ebinterface/blob/master/site/images/logo.jpg?raw=true "ebInterface e-Invoice standard")
 
 
-Development repository of the Austrian e-Invoicing standard ebInterface. For the official standard versions please refer to the ebInterface website http://www.ebinterface.at
+Development repository of the Austrian e-Invoicing standard ebInterface. For the officially released standard versions as well as the standard documentations, please refer to the ebInterface website [http://www.ebinterface.at](http://www.ebinterface.at)
 
+#What's ebInterface?
 
-This repository contains two main artifacts:
+ebInterface is a lightweight XML standard for electronic invoices, developed by [AUSTRIAPRO](http://www.austriapro.at), a subsidiary of the Austrian Chamber of Commerce ([Wirtschaftskammer Österreich](http://www.wko.at)). The goal of ebInterface is to facilitate the exchange of electronic documents between businesses (B2B) as well as between businesses and governmental organizations (B2G).
+
+Since 1.1.2014 the Republic of Austria does not accept paper-based invoices any more and invoices must be submitted electronically using the ebInterface format or using the UBL format via PEPPOL.
+
+Further information for sending invoices to the Republic of Austria may be found under [http://www.e-rechnung.gv.at](http://www.e-rechnung.gv.at)
 
 #ebInterface XML Schema files
 
-
 Using this repository, the development versions of the different ebInterface standard schemas are shared among the standard developers.
 
+Currently, the repository holds the following XML Schema artifacts alongside with XSLTs and example XML instances.
 
-#ebInterface validation service
+ * ebInterface 1.0
+ * ebInterface 2.0
+ * ebInterface 3.0
+ * ebInterface 3.02
+ * ebInterface 4.0
+ * ebInterface 4.1
 
-##About the service
+#Getting involved
 
-The ebInterface validation service allows to validate ebInterface instances according to ebInterface XML Schema version 3.0, 3.02, 4.0, and 4.01.
+ebInterface standardization meetings are held on a regular basis on the premises of the Austrian Chamber of Commerce, Wiedner Hauptstraße 63, 1040 Wien.
 
-The validation includes XML Schema conformance, conformance to predefined Schematron rules, and the validation of digital signatures. For the validation of digital signatures the Web Service of [Rundfunk & Telekom Regulierungs-GmbH](http://www.rtr.at) https://pruefung.signatur.rtr.at/ is used.
+Checkout [AUSTRIAPRO's website](https://www.wko.at/Content.Node/AUSTRIAPRO/Arbeitskreise/ebilling/Arbeitskreis-E-Billing.html) for a list of previous and upcoming meetings and further contact details.
 
-Additionally, the validation service allows to visualize ebInterface XML instances by applying XSLT stylesheets.
 
-The validation contains two main artifacts
-
- * *ebinterface-core.* This module contains the validation logic for ebInterface instances, the logic for applying stylesheets to ebInterface instances, as well as the Web Service client for the RTR Web Service
- * *ebinterface-web.* This module contains a Web frontend for the *ebinterface-core* module.
-
-##Code style
-
-For this project the Google code style is used. Please [download the code style file](https://code.google.com/p/google-styleguide/source/browse/trunk/intellij-java-google-style.xml) and set it in your IDE, before you commit to the repository. 
-
-##Prerequisites
-
-Please note, that the RTR Web Service is not open to the public, but requires credentials for its HTTP basic authentication in order to be accessed. Username and password must be provided in a properties file named ```rtr.properties```, which must contain the following values:
-
-``` 
-rtr.username=<username>
-rtr.password=<password>
-```
-
-Username and password may be requested from RTR directly, and are not provided in this GitHub repository.
 
 
 
