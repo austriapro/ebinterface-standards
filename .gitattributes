@@ -22,6 +22,7 @@
 *.tld           crlf=input
 *.txt           crlf=input
 *.xml           crlf=input
+*.md            crlf=input
 
 # These files are binary and should be left untouched
 # (binary is a macro for -text -diff)
