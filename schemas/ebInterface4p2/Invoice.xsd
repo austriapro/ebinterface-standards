@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns="http://www.ebinterface.at/schema/4p1/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:ext="http://www.ebinterface.at/schema/4p2/extensions/ext" targetNamespace="http://www.ebinterface.at/schema/4p1/" elementFormDefault="qualified" attributeFormDefault="qualified">
+<xs:schema xmlns="http://www.ebinterface.at/schema/4p2/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:ext="http://www.ebinterface.at/schema/4p2/extensions/ext" targetNamespace="http://www.ebinterface.at/schema/4p2/" elementFormDefault="qualified" attributeFormDefault="qualified">
 	<xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="http://www.w3.org/TR/2002/REC-xmldsig-core-20020212/xmldsig-core-schema.xsd"/>
 	<xs:import namespace="http://www.ebinterface.at/schema/4p2/extensions/ext" schemaLocation="ebInterfaceExtension.xsd"/>
 	<xs:annotation>
