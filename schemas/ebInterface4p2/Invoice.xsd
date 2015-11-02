@@ -319,7 +319,7 @@
 			<xs:element ref="AddressExtension" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="ArticleNumberType" mixed="true">
+	<xs:complexType name="ArticleNumberType">
 		<xs:attribute ref="ArticleNumberType" use="optional"/>
 	</xs:complexType>
 	<xs:complexType name="BankCodeType">
@@ -361,7 +361,7 @@
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-	<xs:complexType name="CountryType" mixed="true">
+	<xs:complexType name="CountryType">
 		<xs:attribute ref="CountryCode" use="optional"/>
 	</xs:complexType>
 	<xs:complexType name="DeliveryType">
