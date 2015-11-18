@@ -187,7 +187,7 @@
 			<xs:pattern value="([0-9]{1,4}|X)"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- Country Codes accordyng to ISO 3166-1 -->
+	<!-- Country Codes accordyng to ISO 3166-1 Alpha-2 -->
 	<xs:simpleType name="CountryCodeType">
 		<xs:restriction base="xs:token">
 			<xs:minLength value="2"/>
@@ -527,7 +527,7 @@
 	</xs:complexType>
 	<xs:complexType name="PaymentConditionsType">
 		<xs:sequence>
-			<xs:element ref="DueDate"/>
+			<xs:element ref="DueDate" minOccurs="0"/>
 			<xs:element ref="Discount" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="MinimumPayment" minOccurs="0"/>
 			<xs:element ref="Comment" minOccurs="0"/>
