@@ -320,7 +320,11 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ArticleNumberType">
-		<xs:attribute ref="ArticleNumberType" use="optional"/>
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute ref="ArticleNumberType" use="optional"/>
+			</xs:extension>
+		</xs:simpleContent>
 	</xs:complexType>
 	<xs:complexType name="BankCodeType">
 		<xs:simpleContent>
@@ -362,7 +366,11 @@
 		</xs:simpleContent>
 	</xs:complexType>
 	<xs:complexType name="CountryType">
-		<xs:attribute ref="CountryCode" use="optional"/>
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute ref="CountryCode" use="optional"/>
+			</xs:extension>
+		</xs:simpleContent>
 	</xs:complexType>
 	<xs:complexType name="DeliveryType">
 		<xs:sequence>
