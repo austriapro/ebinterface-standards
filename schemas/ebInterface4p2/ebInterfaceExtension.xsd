@@ -4,7 +4,7 @@
 		<xs:documentation>
 			ebInterface extension Schema
             schema version: 4.2
-            last update: 2015-11-04
+            last update: 2015-12-10
             documentation: http://www.ebinterface.at/download/documentation/ebInvoice_4p2.pdf
         </xs:documentation>
 	</xs:annotation>

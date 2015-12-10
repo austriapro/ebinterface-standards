@@ -5,7 +5,7 @@
 	<xs:annotation>
 		<xs:documentation>
             schema version: 4.2
-            last update: 2015-11-04
+            last update: 2015-12-10
             documentation: http://www.ebinterface.at/download/documentation/ebInvoice_4p2.pdf
         </xs:documentation>
 	</xs:annotation>
@@ -223,7 +223,7 @@
 			<xs:enumeration value="SubsequentDebit"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- ISO 13616 und EBS-Standard (European Banking Standard): 
+	<!-- ISO 13616 und EBS-Standard (European Banking Standard):
         max. 34 Stellen, alphanummerisch -->
 	<xs:simpleType name="IBANType">
 		<xs:restriction base="xs:string">

@@ -4,7 +4,7 @@
 		<xs:documentation>
 			ebInterface extension Schema Sozialversicherung
             schema version: 4.2
-            last update: 2015-11-04
+            last update: 2015-12-10
         </xs:documentation>
 	</xs:annotation>
 	<!-- === Base Extension Element Definitions ===  -->
