@@ -23,6 +23,7 @@ Currently, the repository holds the following XML Schema artifacts alongside wit
  * ebInterface 3.02
  * ebInterface 4.0
  * ebInterface 4.1
+ * ebInterface 4.2
 
 #Getting involved
 
