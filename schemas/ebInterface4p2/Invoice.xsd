@@ -628,7 +628,7 @@
 	<xs:complexType name="SEPADirectDebitType">
 		<xs:sequence>
 			<xs:element ref="Type"/>
-			<xs:element ref="BIC"/>
+			<xs:element ref="BIC" minOccurs="0"/>
 			<xs:element ref="IBAN"/>
 			<xs:element ref="BankAccountOwner"/>
 			<xs:element ref="CreditorID"/>
