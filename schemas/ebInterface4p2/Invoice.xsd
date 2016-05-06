@@ -5,8 +5,9 @@
 	<xs:annotation>
 		<xs:documentation>
             schema version: 4.2
-            last update: 2015-12-10
+            last update: 2016-05-04
             documentation: http://www.ebinterface.at/download/documentation/ebInvoice_4p2.pdf
+						Please see the remark in section 1.3 of the documentation for the latest changes.
         </xs:documentation>
 	</xs:annotation>
 	<!-- === Root Element === -->
