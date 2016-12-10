@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.ebinterface.at/schema/4p21/extensions/ext" xmlns:sv="http://www.ebinterface.at/schema/4p21/extensions/sv" targetNamespace="http://www.ebinterface.at/schema/4p21/extensions/ext" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.ebinterface.at/schema/4p3/extensions/ext" xmlns:sv="http://www.ebinterface.at/schema/4p3/extensions/sv" targetNamespace="http://www.ebinterface.at/schema/4p3/extensions/ext" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:annotation>
 		<xs:documentation>
 			ebInterface extension Schema
-            schema version: 4.21
-            last update: 2016-11-29
-            documentation: http://www.ebinterface.at/download/documentation/ebInvoice_4p21.pdf
+            Schema version: 4.3
+            Last update: 2016-12-09
+            Documentation: http://www.ebinterface.at/download/documentation/ebInvoice_4p3.pdf
         </xs:documentation>
 	</xs:annotation>
 	<!-- Import the industry specific namespaces -->
-	<xs:import namespace="http://www.ebinterface.at/schema/4p21/extensions/sv" schemaLocation="ext/ebInterfaceExtension_SV.xsd"/>
+	<xs:import namespace="http://www.ebinterface.at/schema/4p3/extensions/sv" schemaLocation="ext/ebInterfaceExtension_SV.xsd"/>
 	<!-- === Element declarations === -->
 	<xs:element name="BillerExtension" type="BillerExtensionType"/>
 	<xs:element name="Custom" type="CustomType"/>

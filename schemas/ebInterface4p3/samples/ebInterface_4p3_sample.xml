@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Invoice n1:GeneratingSystem="String" n1:DocumentType="Invoice" n1:InvoiceCurrency="EUR" n1:ManualProcessing="true" n1:DocumentTitle="Rechnung für Jänner 2014" n1:Language="ger" n1:IsDuplicate="true" xsi:schemaLocation="http://www.ebinterface.at/schema/4p21/ ../Invoice.xsd" xmlns="http://www.ebinterface.at/schema/4p21/" xmlns:n2="http://www.altova.com/samplexml/other-namespace" xmlns:n1="http://www.ebinterface.at/schema/4p21/" xmlns:ext="http://www.ebinterface.at/schema/4p21/extensions/ext" xmlns:sv="http://www.ebinterface.at/schema/4p21/extensions/sv" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Invoice n1:GeneratingSystem="String" n1:DocumentType="Invoice" n1:InvoiceCurrency="EUR" n1:ManualProcessing="true" n1:DocumentTitle="Rechnung für Jänner 2014" n1:Language="ger" n1:IsDuplicate="true" xsi:schemaLocation="http://www.ebinterface.at/schema/4p3/ ../Invoice.xsd" xmlns="http://www.ebinterface.at/schema/4p3/" xmlns:n2="http://www.altova.com/samplexml/other-namespace" xmlns:n1="http://www.ebinterface.at/schema/4p3/" xmlns:ext="http://www.ebinterface.at/schema/4p3/extensions/ext" xmlns:sv="http://www.ebinterface.at/schema/4p3/extensions/sv" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<InvoiceNumber>RNR 2014/2</InvoiceNumber>
 	<InvoiceDate>2014-02-16</InvoiceDate>
 	<CancelledOriginalDocument>
@@ -174,9 +174,9 @@
 				</InvoiceRecipientsOrderReference>
 				<AdditionalInformation>
 					<SerialNumber>Seriennr 3939494</SerialNumber>
-					<SerialNumber>Seriennr 4839384</SerialNumber>					
+					<SerialNumber>Seriennr 4839384</SerialNumber>
 					<ChargeNumber>Charge 37</ChargeNumber>
-					<ChargeNumber>Charge 47322</ChargeNumber>					
+					<ChargeNumber>Charge 47322</ChargeNumber>
 					<Classification n1:ClassificationSchema="Skala 7">3 Punkte</Classification>
 					<Classification n1:ClassificationSchema="Skala 8">43 Punkte</Classification>
 					<AlternativeQuantity n1:Unit="dkg">330</AlternativeQuantity>
@@ -241,7 +241,7 @@
 			<TaxID>MS</TaxID>
 			<Comment>Enthaltene Mineralölsteuer</Comment>
 			<VATRate>10</VATRate>
-		</OtherVATableTax>		
+		</OtherVATableTax>
 	</ReductionAndSurchargeDetails>
 	<Tax>
 		<VAT>
@@ -249,7 +249,7 @@
 				<TaxedAmount>550.00</TaxedAmount>
 				<VATRate n1:TaxCode="AT022">20</VATRate>
 				<Amount>110</Amount>
-			</VATItem>		
+			</VATItem>
 			<VATItem>
 				<TaxedAmount>2200.00</TaxedAmount>
 				<VATRate n1:TaxCode="AT029">10</VATRate>
@@ -291,7 +291,7 @@
 				<BIC>ARKEKEKE</BIC>
 				<BankAccountNr>asdfasf</BankAccountNr>
 				<IBAN>23424234</IBAN>
-				<BankAccountOwner>Geor Han</BankAccountOwner>				
+				<BankAccountOwner>Geor Han</BankAccountOwner>
 			</BeneficiaryAccount>
 			<BeneficiaryAccount>
 				<BankName>Sparkasse Radstadt</BankName>
@@ -299,9 +299,9 @@
 				<BIC>ARKEKEKE</BIC>
 				<BankAccountNr>ertert3334</BankAccountNr>
 				<IBAN>345345dh</IBAN>
-				<BankAccountOwner>Geor Han</BankAccountOwner>				
-			</BeneficiaryAccount>	
-			<PaymentReference>234334</PaymentReference>		
+				<BankAccountOwner>Geor Han</BankAccountOwner>
+			</BeneficiaryAccount>
+			<PaymentReference>234334</PaymentReference>
 		</UniversalBankTransaction>
 	</PaymentMethod>
 	<PaymentConditions>
@@ -317,7 +317,7 @@
 			<BaseAmount>234.12</BaseAmount>
 			<Percentage>4</Percentage>
 			<Amount>323.12</Amount>
-		</Discount>		
+		</Discount>
 		<MinimumPayment>32321.12</MinimumPayment>
 		<Comment>Wir bitten um rasche Überweisung</Comment>
 	</PaymentConditions>
