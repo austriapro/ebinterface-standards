@@ -14,6 +14,7 @@
 	<xs:element name="Invoice" type="InvoiceType"/>
 	<!-- === Element Declarations === -->
 	<xs:element name="AccountingArea" type="AccountingAreaType"/>
+	<xs:element name="AccountingCurrencyAmount" type="AccountingCurrencyAmountType"/>
 	<xs:element name="AdditionalInformation" type="AdditionalInformationType"/>
 	<xs:element name="Address" type="AddressType"/>
 	<xs:element name="AddressExtension" type="xs:string"/>
@@ -274,6 +275,13 @@
 			<xs:element ref="OrderReference" minOccurs="0"/>
 			<xs:element ref="Address"/>
 		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AccountingCurrencyAmountType">
+		<xs:simpleContent>
+			<xs:extension base="xs:decimal">
+				<xs:attribute ref="InvoiceCurrency" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
 	</xs:complexType>
 	<xs:complexType name="AccountType">
 		<xs:sequence>
@@ -680,6 +688,7 @@
 				<xs:element ref="VATRate"/>
 			</xs:choice>
 			<xs:element ref="Amount"/>
+			<xs:element ref="AccountingCurrencyAmount" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="VATRateType">
