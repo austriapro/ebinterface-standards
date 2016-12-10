@@ -135,6 +135,7 @@
 	<xs:attribute name="ClassificationSchema" type="xs:string"/>
 	<xs:attribute name="ConsolidatorPayable" type="xs:boolean"/>
 	<xs:attribute name="CountryCode" type="CountryCodeType"/>
+	<xs:attribute name="Currency" type="CurrencyType"/>
 	<xs:attribute name="Date" type="xs:date"/>
 	<xs:attribute name="DocumentTitle" type="xs:string"/>
 	<xs:attribute name="DocumentType" type="DocumentTypeType"/>
@@ -279,7 +280,7 @@
 	<xs:complexType name="AccountingCurrencyAmountType">
 		<xs:simpleContent>
 			<xs:extension base="xs:decimal">
-				<xs:attribute ref="InvoiceCurrency" use="required"/>
+				<xs:attribute ref="Currency" use="required"/>
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
