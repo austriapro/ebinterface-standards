@@ -616,6 +616,7 @@
 			<xs:element ref="Percentage" minOccurs="0"/>
 			<xs:element ref="Amount" minOccurs="0"/>
 			<xs:element ref="Comment" minOccurs="0"/>
+			<xs:element ref="Classification" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ReductionAndSurchargeType">
