@@ -279,7 +279,7 @@
 	</xs:complexType>
 	<xs:complexType name="AccountingCurrencyAmountType">
 		<xs:simpleContent>
-			<xs:extension base="xs:decimal">
+			<xs:extension base="Decimal2Type">
 				<xs:attribute ref="Currency" use="required"/>
 			</xs:extension>
 		</xs:simpleContent>
