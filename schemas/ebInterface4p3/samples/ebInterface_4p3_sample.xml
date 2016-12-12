@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Invoice n1:GeneratingSystem="String" n1:DocumentType="Invoice" n1:InvoiceCurrency="EUR" n1:ManualProcessing="true" n1:DocumentTitle="Rechnung für Jänner 2014" n1:Language="ger" n1:IsDuplicate="true" xsi:schemaLocation="http://www.ebinterface.at/schema/4p3/ ../Invoice.xsd" xmlns="http://www.ebinterface.at/schema/4p3/" xmlns:n2="http://www.altova.com/samplexml/other-namespace" xmlns:n1="http://www.ebinterface.at/schema/4p3/" xmlns:ext="http://www.ebinterface.at/schema/4p3/extensions/ext" xmlns:sv="http://www.ebinterface.at/schema/4p3/extensions/sv" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<InvoiceNumber>RNR 2014/2</InvoiceNumber>
-	<InvoiceDate>2014-02-16</InvoiceDate>
+<Invoice n1:GeneratingSystem="String" n1:DocumentType="Invoice" n1:InvoiceCurrency="EUR" n1:ManualProcessing="true" n1:DocumentTitle="Rechnung für Dezember 2016" n1:Language="ger" n1:IsDuplicate="true" xsi:schemaLocation="http://www.ebinterface.at/schema/4p3/ ../Invoice.xsd" xmlns="http://www.ebinterface.at/schema/4p3/" xmlns:n2="http://www.altova.com/samplexml/other-namespace" xmlns:n1="http://www.ebinterface.at/schema/4p3/" xmlns:ext="http://www.ebinterface.at/schema/4p3/extensions/ext" xmlns:sv="http://www.ebinterface.at/schema/4p3/extensions/sv" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<InvoiceNumber>RNR 2016/2</InvoiceNumber>
+	<InvoiceDate>2016-02-16</InvoiceDate>
 	<CancelledOriginalDocument>
 		<InvoiceNumber>RNR 49384</InvoiceNumber>
-		<InvoiceDate>2014-02-18</InvoiceDate>
+		<InvoiceDate>2016-02-18</InvoiceDate>
 		<DocumentType>Invoice</DocumentType>
 		<Comment>Storno für ungültige Rechnung</Comment>
 	</CancelledOriginalDocument>
 	<RelatedDocument>
 		<InvoiceNumber>RNR 3939</InvoiceNumber>
-		<InvoiceDate>2014-02-15</InvoiceDate>
+		<InvoiceDate>2016-02-15</InvoiceDate>
 		<DocumentType>Invoice</DocumentType>
 		<Comment>Teilrechnung 1</Comment>
 	</RelatedDocument>
 	<RelatedDocument>
 		<InvoiceNumber>RNR 3940</InvoiceNumber>
-		<InvoiceDate>2014-02-16</InvoiceDate>
+		<InvoiceDate>2016-02-16</InvoiceDate>
 		<DocumentType>Invoice</DocumentType>
 		<Comment>Teilrechnung 2</Comment>
 	</RelatedDocument>
 	<Delivery>
 		<DeliveryID>4893</DeliveryID>
-		<Date>2014-02-15</Date>
+		<Date>2016-02-15</Date>
 		<Address>
 			<AddressIdentifier n1:AddressIdentifierType="GLN">5632545698754</AddressIdentifier>
 			<Salutation>Firma</Salutation>
@@ -34,7 +34,7 @@
 			<Phone>+43 1 6525 5487</Phone>
 			<Email>office@firma-planck.at</Email>
 			<Contact>Herr Hannes Anzengruber (Tel.: 0664 8934 483 44)</Contact>
-			<AddressExtension>Hinweis: Neuer Firmensitz ab 01.01.2014</AddressExtension>
+			<AddressExtension>Hinweis: Neuer Firmensitz ab 01.01.2016</AddressExtension>
 		</Address>
 		<Description>Keine Anlieferungen ohne vorheriges Lieferavis (DESADV) möglich!</Description>
 	</Delivery>
@@ -43,7 +43,7 @@
 		<FurtherIdentification n1:IdentificationType="FBNR">FN 393823 e</FurtherIdentification>
 		<OrderReference>
 			<OrderID>Bestellung Nr. 1293</OrderID>
-			<ReferenceDate>2014-02-12</ReferenceDate>
+			<ReferenceDate>2016-02-12</ReferenceDate>
 			<Description>Faxbestellung</Description>
 		</OrderReference>
 		<Address>
@@ -88,7 +88,7 @@
 		<FurtherIdentification n1:IdentificationType="FBNR">FN 939484 g</FurtherIdentification>
 		<OrderReference>
 			<OrderID>ORD34939</OrderID>
-			<ReferenceDate>2014-02-02</ReferenceDate>
+			<ReferenceDate>2016-02-02</ReferenceDate>
 			<Description>Ursprüngliche Bestellung per Fax</Description>
 		</OrderReference>
 		<Address>
@@ -144,7 +144,7 @@
 				</ReductionAndSurchargeListLineItemDetails>
 				<Delivery>
 					<DeliveryID>4895</DeliveryID>
-					<Date>2014-02-16</Date>
+					<Date>2016-02-16</Date>
 					<Address>
 						<AddressIdentifier n1:AddressIdentifierType="GLN">4893783938432</AddressIdentifier>
 						<Salutation>Firma</Salutation>
@@ -162,13 +162,13 @@
 				</Delivery>
 				<BillersOrderReference>
 					<OrderID>BORD1234</OrderID>
-					<ReferenceDate>2014-01-30</ReferenceDate>
+					<ReferenceDate>2016-01-30</ReferenceDate>
 					<Description>Faxbestellung</Description>
 					<OrderPositionNumber>12</OrderPositionNumber>
 				</BillersOrderReference>
 				<InvoiceRecipientsOrderReference>
 					<OrderID>INVORD394</OrderID>
-					<ReferenceDate>2014-01-29</ReferenceDate>
+					<ReferenceDate>2016-01-29</ReferenceDate>
 					<Description>Per Fax versendete Bestellung</Description>
 					<OrderPositionNumber>10</OrderPositionNumber>
 				</InvoiceRecipientsOrderReference>
@@ -204,12 +204,12 @@
 		<BelowTheLineItem>
 			<Description>Drittleistung</Description>
 			<LineItemAmount>32.12</LineItemAmount>
-			<Reason n1:Date="2014-01-30">Bereits durch Dritte beglichener Teilbetrag</Reason>
+			<Reason n1:Date="2016-01-30">Bereits durch Dritte beglichener Teilbetrag</Reason>
 		</BelowTheLineItem>
 		<BelowTheLineItem>
 			<Description>Anzahlung</Description>
 			<LineItemAmount>50.43</LineItemAmount>
-			<Reason n1:Date="2014-01-25">Angezahlter Betrag</Reason>
+			<Reason n1:Date="2016-01-25">Angezahlter Betrag</Reason>
 		</BelowTheLineItem>
 	</Details>
 	<ReductionAndSurchargeDetails>
@@ -249,7 +249,7 @@
 				<TaxedAmount>550.00</TaxedAmount>
 				<VATRate n1:TaxCode="AT022">20</VATRate>
 				<Amount>110</Amount>
-				<AccountingCurrencyAmount n1:InvoiceCurrency="EUR">110.00</AccountingCurrencyAmount>
+				<AccountingCurrencyAmount n1:Currency="EUR">110.00</AccountingCurrencyAmount>
 			</VATItem>
 			<VATItem>
 				<TaxedAmount>2200.00</TaxedAmount>

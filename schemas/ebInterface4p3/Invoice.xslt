@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xdt="http://www.w3.org/2005/xpath-datatypes" xmlns:eb="http://www.ebinterface.at/schema/4p21/" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xdt="http://www.w3.org/2005/xpath-datatypes" xmlns:eb="http://www.ebinterface.at/schema/4p3/" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#">
 	<!--
 		XSLT for ebInterface 4.3
 		For more information on ebInterface see http://www.ebinterface.at/
 
-		Last update:	2016-12-09
+		Last update:	2016-12-12
 		Author: 			Philipp Liegl, Vienna University of Technology
 -->
 	<xsl:output method="html" encoding="utf-8" indent="yes"/>
