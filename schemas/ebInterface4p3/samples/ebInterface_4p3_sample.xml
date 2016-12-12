@@ -249,6 +249,7 @@
 				<TaxedAmount>550.00</TaxedAmount>
 				<VATRate n1:TaxCode="AT022">20</VATRate>
 				<Amount>110</Amount>
+				<AccountingCurrencyAmount n1:InvoiceCurrency="EUR">110.00</AccountingCurrencyAmount>
 			</VATItem>
 			<VATItem>
 				<TaxedAmount>2200.00</TaxedAmount>
