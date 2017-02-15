@@ -17,6 +17,7 @@ ebInterface 5p0 wishlist
   * Es kann verschiedene Adressen zu einer Person geben
   * Es kann verschiedene Personen zu einer Adresse geben
 * Das Extension-Konzept sollte überdacht werden. Derzeit braucht man immer 4 XSDs (eb, extensions, SV und xmldsig) - evtl. können die Plugin-Anforderungen der SV in die reguläre Version (über Furtheridentification etc.) integriert werden und das Plugin-Konzept gekübelt werden
+* Signatur-Element entfernen
 * Die Unterstützung von EN 16931 (CEN/TC 434) muss enthalten sein
 * Evtl. sollte ein "Prepaid-Amount" unterstützt werden (ein Betrag der bereits bezahlt, und steuerlich abgehandelt ist - Anzahlung)
  
