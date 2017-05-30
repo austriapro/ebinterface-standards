@@ -90,7 +90,6 @@
 	<xs:element name="Phone" type="xs:string"/>
 	<xs:element name="POBox" type="xs:string"/>
 	<xs:element name="PositionNumber" type="xs:positiveInteger"/>
-	<xs:element name="PresentationDetails" type="PresentationDetailsType"/>
 	<xs:element name="Quantity" type="UnitType"/>
 	<xs:element name="Reason" type="ReasonType"/>
 	<xs:element name="Reduction" type="ReductionAndSurchargeType"/>
@@ -432,7 +431,6 @@
 			<xs:element ref="PayableAmount"/>
 			<xs:element ref="PaymentMethod" minOccurs="0"/>
 			<xs:element ref="PaymentConditions" minOccurs="0"/>
-			<xs:element ref="PresentationDetails" minOccurs="0"/>
 			<xs:element ref="Comment" minOccurs="0"/>
 		</xs:sequence>
 		<xs:attribute ref="GeneratingSystem" use="required"/>
