@@ -14,10 +14,8 @@
 	<xs:element name="AccountingCurrencyAmount" type="AccountingCurrencyAmountType"/>
 	<xs:element name="AdditionalInformation" type="AdditionalInformationType"/>
 	<xs:element name="Address" type="AddressType"/>
-	<xs:element name="AddressID" type="xs:ID"/>
 	<xs:element name="AddressExtension" type="xs:string"/>
 	<xs:element name="AddressIdentifier" type="AddressIdentifierType"/>
-	<xs:element name="AddressReference" type="xs:IDREF"/>
 	<xs:element name="Amount" type="Decimal2Type"/>
 	<xs:element name="ArticleNumber" type="ArticleNumberType"/>
 	<xs:element name="BankAccountNr" type="xs:string"/>
@@ -37,8 +35,6 @@
 	<xs:element name="Comment" type="xs:string"/>
 	<xs:element name="ConsolidatorsBillerID" type="IDType"/>
 	<xs:element name="Contact" type="ContactType"/>
-	<xs:element name="ContactID" type="xs:ID"/>
-	<xs:element name="ContactReference" type="xs:IDREF"/>	
 	<xs:element name="Country" type="CountryType"/>
 	<xs:element name="CreditorID" type="ID35Type"/>
 	<xs:element name="Date" type="xs:date"/>
@@ -268,8 +264,8 @@
 			<xs:element ref="VATIdentificationNumber"/>
 			<xs:element ref="FurtherIdentification" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="OrderReference" minOccurs="0"/>
-			<xs:element ref="Address" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="Contact" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="Address" minOccurs="0"/>
+			<xs:element ref="Contact" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="AccountingCurrencyAmountType">
@@ -306,7 +302,6 @@
 	<xs:complexType name="AddressType">
 		<xs:sequence>
 			<xs:element ref="AddressIdentifier" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="AddressID" minOccurs="0"/>
 			<xs:element ref="Name"/>
 			<xs:element ref="Street"/>
 			<xs:element ref="POBox" minOccurs="0"/>
@@ -315,7 +310,6 @@
 			<xs:element ref="Country"/>
 			<xs:element ref="Phone" minOccurs="0"/>
 			<xs:element ref="Email" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="ContactReference" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="AddressExtension" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -366,12 +360,10 @@
 	</xs:complexType>
 	<xs:complexType name="ContactType">
 		<xs:sequence>
-			<xs:element ref="ContactID" minOccurs="0"/>
 			<xs:element ref="Salutation" minOccurs="0"/>
 			<xs:element ref="Name"/>
 			<xs:element ref="Phone" minOccurs="0"/>
 			<xs:element ref="Email" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="AddressReference" minOccurs="0" maxOccurs="unbounded"/>			
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="CountryType">
