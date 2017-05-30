@@ -16,7 +16,6 @@
 	<xs:element name="Address" type="AddressType"/>
 	<xs:element name="AddressExtension" type="xs:string"/>
 	<xs:element name="AddressIdentifier" type="AddressIdentifierType"/>
-	<xs:element name="AlternativeQuantity" type="UnitType"/>
 	<xs:element name="Amount" type="Decimal2Type"/>
 	<xs:element name="ArticleNumber" type="ArticleNumberType"/>
 	<xs:element name="BankAccountNr" type="xs:string"/>
@@ -31,11 +30,8 @@
 	<xs:element name="BillersInvoiceRecipientID" type="IDType"/>
 	<xs:element name="BillersOrderingPartyID" type="IDType"/>
 	<xs:element name="BillersOrderReference" type="OrderReferenceDetailType"/>
-	<xs:element name="Boxes" type="xs:positiveInteger"/>
 	<xs:element name="CancelledOriginalDocument" type="CancelledOriginalDocumentType"/>
-	<xs:element name="ChargeNumber" type="xs:string"/>
 	<xs:element name="Classification" type="ClassificationType"/>
-	<xs:element name="Color" type="xs:string"/>
 	<xs:element name="Comment" type="xs:string"/>
 	<xs:element name="ConsolidatorsBillerID" type="IDType"/>
 	<xs:element name="Contact" type="xs:string"/>
@@ -100,8 +96,6 @@
 	<xs:element name="RelatedDocument" type="RelatedDocumentType"/>
 	<xs:element name="Salutation" type="xs:string"/>
 	<xs:element name="SEPADirectDebit" type="SEPADirectDebitType"/>
-	<xs:element name="SerialNumber" type="xs:string"/>
-	<xs:element name="Size" type="xs:string"/>
 	<xs:element name="Street" type="xs:string"/>
 	<xs:element name="SubOrganizationID" type="xs:string"/>
 	<xs:element name="SuppressZero" type="xs:boolean"/>
@@ -120,7 +114,6 @@
 	<xs:element name="VAT" type="VATType"/>
 	<xs:element name="VATIdentificationNumber" type="xs:string"/>
 	<xs:element name="VATRate" type="VATRateType"/>
-	<xs:element name="Weight" type="UnitType"/>
 	<xs:element name="ZIP" type="xs:string"/>
 	<!-- === Attribute Deklarations === -->
 	<xs:attribute name="AddressIdentifierType" type="AddressIdentifierTypeType"/>
@@ -139,6 +132,7 @@
 	<xs:attribute name="IdentificationType" type="xs:string"/>
 	<xs:attribute name="IsDuplicate" type="xs:boolean"/>
 	<xs:attribute name="InvoiceCurrency" type="CurrencyType"/>
+	<xs:attribute name="Key" type="xs:string"/>
 	<xs:attribute name="Language" type="LanguageType"/>
 	<xs:attribute name="ManualProcessing" type="xs:boolean"/>
 	<xs:attribute name="TaxCode" type="TaxCodeType"/>
@@ -291,16 +285,11 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="AdditionalInformationType">
-		<xs:sequence>
-			<xs:element ref="SerialNumber" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="ChargeNumber" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="Classification" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="AlternativeQuantity" minOccurs="0"/>
-			<xs:element ref="Size" minOccurs="0"/>
-			<xs:element ref="Weight" minOccurs="0"/>
-			<xs:element ref="Boxes" minOccurs="0"/>
-			<xs:element ref="Color" minOccurs="0"/>
-		</xs:sequence>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute ref="Key" use="optional"/>
+				</xs:extension>
+			</xs:simpleContent>
 	</xs:complexType>
 	<xs:complexType name="AddressIdentifierType">
 		<xs:simpleContent>
@@ -475,7 +464,8 @@
 			<xs:element ref="Delivery" minOccurs="0"/>
 			<xs:element ref="BillersOrderReference" minOccurs="0"/>
 			<xs:element ref="InvoiceRecipientsOrderReference" minOccurs="0"/>
-			<xs:element ref="AdditionalInformation" minOccurs="0"/>
+			<xs:element ref="Classification" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="AdditionalInformation" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="LineItemAmount"/>
 		</xs:sequence>
 	</xs:complexType>
