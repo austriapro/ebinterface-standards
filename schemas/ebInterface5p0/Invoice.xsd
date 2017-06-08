@@ -620,7 +620,7 @@
 			<xs:element ref="BankAccountOwner"/>
 			<xs:element ref="CreditorID"/>
 			<xs:element ref="MandateReference"/>
-			<xs:element ref="DebitCollectionDate"/>
+			<xs:element ref="DebitCollectionDate" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="TaxExemptionType">
