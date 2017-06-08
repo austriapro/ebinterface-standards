@@ -42,8 +42,7 @@
 	<xs:element name="Delivery" type="DeliveryType"/>
 	<xs:element name="DeliveryID" type="IDType"/>
 	<xs:element name="Description" type="xs:string"/>
-	<xs:element name="Details" type="DetailsType"/>
-	<xs:element name="DirectDebit" type="DirectDebitType"/>
+	<xs:element name="Details" type="DetailsType"/>	
 	<xs:element name="Discount" type="DiscountType"/>
 	<xs:element name="DiscountFlag" type="xs:boolean"/>
 	<xs:element name="DocumentType" type="DocumentTypeType"/>
@@ -392,9 +391,6 @@
 			<xs:element ref="BelowTheLineItem" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="DirectDebitType">
-		<!-- Empty type -->
-	</xs:complexType>
 	<xs:complexType name="DiscountType">
 		<xs:sequence>
 			<xs:element ref="PaymentDate"/>
@@ -541,7 +537,6 @@
 			<xs:element ref="Comment" minOccurs="0"/>
 			<xs:choice>
 				<xs:element ref="NoPayment"/>
-				<xs:element ref="DirectDebit"/>
 				<xs:element ref="SEPADirectDebit"/>
 				<xs:element ref="UniversalBankTransaction"/>
 			</xs:choice>
