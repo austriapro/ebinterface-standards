@@ -115,7 +115,7 @@
 	<xs:element name="VATRate" type="VATRateType"/>
 	<xs:element name="ZIP" type="xs:string"/>
 	<!-- === Attribute Deklarations === -->
-	<xs:attribute name="AddressIdentifierType" type="AddressIdentifierTypeType"/>
+	<xs:attribute name="AddressIdentifierType" type="xs:string"/>
 	<xs:attribute name="ArticleNumberType" type="ArticleNumberTypeType"/>
 	<xs:attribute name="BankCodeType" type="CountryCodeType"/>
 	<xs:attribute name="BaseQuantity" type="Decimal4Type"/>
@@ -141,13 +141,6 @@
 	<xs:simpleType name="AccountingAreaType">
 		<xs:restriction base="xs:string">
 			<xs:maxLength value="20"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="AddressIdentifierTypeType">
-		<xs:restriction base="xs:token">
-			<xs:enumeration value="GLN"/>
-			<xs:enumeration value="DUNS"/>
-			<xs:enumeration value="ProprietaryAddressID"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="ArticleNumberTypeType">
