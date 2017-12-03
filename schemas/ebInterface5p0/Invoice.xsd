@@ -61,10 +61,8 @@
 	<xs:element name="InvoiceRecipientsOrderReference" type="OrderReferenceDetailType"/>
 	<xs:element name="VATItem" type="VATItemType"/>
 	<xs:element name="ItemList" type="ItemListType"/>
-	<xs:element name="LayoutID" type="IDType"/>
 	<xs:element name="LineItemAmount" type="Decimal2Type"/>
 	<xs:element name="ListLineItem" type="ListLineItemType"/>
-	<xs:element name="LogoURL" type="xs:anyURI"/>
 	<xs:element name="MandateReference" type="ID35Type"/>
 	<xs:element name="MinimumPayment" type="Decimal2Type"/>
 	<xs:element name="Name" type="xs:string"/>
@@ -100,7 +98,6 @@
 	<xs:element name="SEPADirectDebit" type="SEPADirectDebitType"/>
 	<xs:element name="Street" type="xs:string"/>
 	<xs:element name="SubOrganizationID" type="xs:string"/>
-	<xs:element name="SuppressZero" type="xs:boolean"/>
 	<xs:element name="Surcharge" type="ReductionAndSurchargeType"/>
 	<xs:element name="SurchargeListLineItem" type="ReductionAndSurchargeBaseType"/>
 	<xs:element name="Tax" type="TaxType"/>
@@ -112,7 +109,6 @@
 	<xs:element name="Type" type="SEPADirectDebitTypeType"/>
 	<xs:element name="UnitPrice" type="UnitPriceType"/>
 	<xs:element name="UniversalBankTransaction" type="UniversalBankTransactionType"/>
-	<xs:element name="URL" type="xs:anyURI"/>
 	<xs:element name="VAT" type="VATType"/>
 	<xs:element name="VATIdentificationNumber" type="xs:string"/>
 	<xs:element name="VATRate" type="VATRateType"/>
@@ -529,8 +525,8 @@
 	</xs:complexType>
 	<xs:complexType name="PaymentCardType">
 		<xs:sequence>
-			<xs:element ref="PrimaryAccountNumber" />
-			<xs:element ref="CardHolderName" minOccurs="0" />
+			<xs:element ref="PrimaryAccountNumber"/>
+			<xs:element ref="CardHolderName" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PaymentConditionsType">
@@ -563,14 +559,6 @@
 		<xs:sequence>
 			<xs:element ref="FromDate"/>
 			<xs:element ref="ToDate"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="PresentationDetailsType">
-		<xs:sequence>
-			<xs:element ref="URL" minOccurs="0"/>
-			<xs:element ref="LogoURL" minOccurs="0"/>
-			<xs:element ref="LayoutID" minOccurs="0"/>
-			<xs:element ref="SuppressZero" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ReasonType">
