@@ -106,6 +106,7 @@
 	<xs:element name="ToDate" type="xs:date"/>
 	<xs:element name="TotalGrossAmount" type="Decimal2Type"/>
 	<xs:element name="Town" type="xs:string"/>
+	<xs:element name="TradingName" type="xs:string"/>
 	<xs:element name="Type" type="SEPADirectDebitTypeType"/>
 	<xs:element name="UnitPrice" type="UnitPriceType"/>
 	<xs:element name="UniversalBankTransaction" type="UniversalBankTransactionType"/>
@@ -301,6 +302,7 @@
 		<xs:sequence>
 			<xs:element ref="AddressIdentifier" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="Name"/>
+			<xs:element ref="TradingName" minOccurs="0"/>
 			<xs:element ref="Street"/>
 			<xs:element ref="POBox" minOccurs="0"/>
 			<xs:element ref="Town"/>
@@ -411,6 +413,7 @@
 			<xs:element ref="InvoiceDate"/>
 			<xs:element ref="CancelledOriginalDocument" minOccurs="0"/>
 			<xs:element ref="RelatedDocument" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="AdditionalInformation" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="Delivery" minOccurs="0"/>
 			<xs:element ref="Biller"/>
 			<xs:element ref="InvoiceRecipient"/>
