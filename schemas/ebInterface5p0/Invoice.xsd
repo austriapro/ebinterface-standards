@@ -102,7 +102,6 @@
 	<xs:element name="SurchargeListLineItem" type="ReductionAndSurchargeBaseType"/>
 	<xs:element name="Tax" type="TaxType"/>
 	<xs:element name="TaxedAmount" type="Decimal2Type"/>
-	<xs:element name="TaxExemption" type="TaxExemptionType"/>
 	<xs:element name="ToDate" type="xs:date"/>
 	<xs:element name="TotalGrossAmount" type="Decimal2Type"/>
 	<xs:element name="Town" type="xs:string"/>
@@ -112,7 +111,7 @@
 	<xs:element name="UniversalBankTransaction" type="UniversalBankTransactionType"/>
 	<xs:element name="VAT" type="VATType"/>
 	<xs:element name="VATIdentificationNumber" type="xs:string"/>
-	<xs:element name="VATRate" type="VATRateType"/>
+	<xs:element name="TaxItem" type="TaxItemType"/>
 	<xs:element name="ZIP" type="xs:string"/>
 	<!-- === Attribute Deklarations === -->
 	<xs:attribute name="AddressIdentifierType" type="xs:string"/>
@@ -134,8 +133,7 @@
 	<xs:attribute name="Key" type="xs:string"/>
 	<xs:attribute name="Language" type="LanguageType"/>
 	<xs:attribute name="ManualProcessing" type="xs:boolean"/>
-	<xs:attribute name="TaxCode" type="TaxCodeType"/>
-	<xs:attribute name="TaxExemptionCode" type="xs:string"/>
+	<xs:attribute name="TaxCode" type="xs:string"/>
 	<xs:attribute name="Unit" type="xs:string"/>
 	<!-- === Simple Types === -->
 	<xs:simpleType name="AccountingAreaType">
@@ -243,11 +241,6 @@
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="B2C"/>
 			<xs:enumeration value="B2B"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="TaxCodeType">
-		<xs:restriction base="xs:string">
-			<xs:pattern value="AT(XXX|[0-9]{3})"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- === Complex Types === -->
@@ -453,10 +446,7 @@
 			<xs:element ref="ArticleNumber" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="Quantity"/>
 			<xs:element ref="UnitPrice"/>
-			<xs:choice>
-				<xs:element ref="TaxExemption"/>
-				<xs:element ref="VATRate"/>
-			</xs:choice>
+			<xs:element ref="TaxItem"/>
 			<xs:element ref="DiscountFlag" minOccurs="0"/>
 			<xs:element ref="ReductionAndSurchargeListLineItemDetails" minOccurs="0"/>
 			<xs:element ref="Delivery" minOccurs="0"/>
@@ -514,7 +504,7 @@
 		<xs:complexContent>
 			<xs:extension base="OtherVATableTaxBaseType">
 				<xs:sequence>
-					<xs:element ref="VATRate"/>
+					<xs:element ref="TaxItem"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -593,7 +583,7 @@
 		<xs:complexContent>
 			<xs:extension base="ReductionAndSurchargeBaseType">
 				<xs:sequence>
-					<xs:element ref="VATRate"/>
+					<xs:element ref="TaxItem"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -616,13 +606,6 @@
 			<xs:element ref="MandateReference"/>
 			<xs:element ref="DebitCollectionDate" minOccurs="0"/>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="TaxExemptionType">
-		<xs:simpleContent>
-			<xs:extension base="xs:string">
-				<xs:attribute ref="TaxExemptionCode" use="optional"/>
-			</xs:extension>
-		</xs:simpleContent>
 	</xs:complexType>
 	<xs:complexType name="TaxType">
 		<xs:sequence>
@@ -654,15 +637,12 @@
 	<xs:complexType name="VATItemType">
 		<xs:sequence>
 			<xs:element ref="TaxedAmount"/>
-			<xs:choice>
-				<xs:element ref="TaxExemption"/>
-				<xs:element ref="VATRate"/>
-			</xs:choice>
+			<xs:element ref="TaxItem"/>
 			<xs:element ref="Amount"/>
 			<xs:element ref="AccountingCurrencyAmount" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="VATRateType">
+	<xs:complexType name="TaxItemType">
 		<xs:simpleContent>
 			<xs:extension base="PercentageType">
 				<xs:attribute ref="TaxCode" use="optional"/>
