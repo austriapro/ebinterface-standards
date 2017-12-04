@@ -70,6 +70,7 @@
 	<xs:element name="OrderingParty" type="OrderingPartyType"/>
 	<xs:element name="OrderPositionNumber" type="xs:string"/>
 	<xs:element name="OrderReference" type="OrderReferenceType"/>
+	<xs:element name="OtherPayment" type="OtherPaymentType"/>
 	<xs:element name="OtherTax" type="OtherTaxType"/>
 	<xs:element name="OtherVATableTax" type="OtherVATableTaxType"/>
 	<xs:element name="OtherVATableTaxListLineItem" type="OtherVATableTaxBaseType"/>
@@ -84,6 +85,7 @@
 	<xs:element name="Phone" type="xs:string"/>
 	<xs:element name="POBox" type="xs:string"/>
 	<xs:element name="PositionNumber" type="xs:positiveInteger"/>
+	<xs:element name="PrepaidAmount" type="Decimal2Type"/>
 	<xs:element name="PrimaryAccountNumber" type="xs:string"/>
 	<xs:element name="Quantity" type="UnitType"/>
 	<xs:element name="Reduction" type="ReductionAndSurchargeType"/>
@@ -92,6 +94,7 @@
 	<xs:element name="ReductionListLineItem" type="ReductionAndSurchargeBaseType"/>
 	<xs:element name="ReferenceDate" type="xs:date"/>
 	<xs:element name="RelatedDocument" type="RelatedDocumentType"/>
+	<xs:element name="RoundingAmount" type="Decimal2Type"/>
 	<xs:element name="Salutation" type="xs:string"/>
 	<xs:element name="SEPADirectDebit" type="SEPADirectDebitType"/>
 	<xs:element name="Street" type="xs:string"/>
@@ -398,6 +401,8 @@
 			<xs:element ref="ReductionAndSurchargeDetails" minOccurs="0"/>
 			<xs:element ref="Tax"/>
 			<xs:element ref="TotalGrossAmount"/>
+			<xs:element ref="PrepaidAmount" minOccurs="0"/>
+			<xs:element ref="RoundingAmount" minOccurs="0"/>
 			<xs:element ref="PayableAmount"/>
 			<xs:element ref="PaymentMethod" minOccurs="0"/>
 			<xs:element ref="PaymentConditions" minOccurs="0"/>
@@ -475,6 +480,9 @@
 			<xs:element ref="Description" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:complexType name="OtherPaymentType">
+		<!-- Empty type -->
+	</xs:complexType>	
 	<xs:complexType name="OtherTaxType">
 		<xs:sequence>
 			<xs:element ref="Comment"/>
@@ -517,10 +525,11 @@
 		<xs:sequence>
 			<xs:element ref="Comment" minOccurs="0"/>
 			<xs:choice>
-				<xs:element ref="NoPayment"/>
+				<xs:element ref="NoPayment"/>				
 				<xs:element ref="SEPADirectDebit"/>
 				<xs:element ref="UniversalBankTransaction"/>
 				<xs:element ref="PaymentCard"/>
+				<xs:element ref="OtherPayment"/>
 			</xs:choice>
 		</xs:sequence>
 	</xs:complexType>
@@ -581,12 +590,12 @@
 	</xs:complexType>
 	<xs:complexType name="SEPADirectDebitType">
 		<xs:sequence>
-			<xs:element ref="Type"/>
+			<xs:element ref="Type" minOccurs="0"/>
 			<xs:element ref="BIC" minOccurs="0"/>
-			<xs:element ref="IBAN"/>
-			<xs:element ref="BankAccountOwner"/>
-			<xs:element ref="CreditorID"/>
-			<xs:element ref="MandateReference"/>
+			<xs:element ref="IBAN" minOccurs="0"/>
+			<xs:element ref="BankAccountOwner" minOccurs="0"/>
+			<xs:element ref="CreditorID" minOccurs="0"/>
+			<xs:element ref="MandateReference" minOccurs="0"/>
 			<xs:element ref="DebitCollectionDate" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
