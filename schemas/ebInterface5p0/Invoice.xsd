@@ -58,7 +58,6 @@
 	<xs:element name="InvoiceRecipient" type="InvoiceRecipientType"/>
 	<xs:element name="InvoiceRecipientsBillerID" type="IDType"/>
 	<xs:element name="InvoiceRecipientsOrderReference" type="OrderReferenceDetailType"/>
-	<xs:element name="VATItem" type="VATItemType"/>
 	<xs:element name="ItemList" type="ItemListType"/>
 	<xs:element name="LineItemAmount" type="Decimal2Type"/>
 	<xs:element name="ListLineItem" type="ListLineItemType"/>
@@ -73,7 +72,7 @@
 	<xs:element name="OtherPayment" type="OtherPaymentType"/>
 	<xs:element name="OtherTax" type="OtherTaxType"/>
 	<xs:element name="OtherVATableTax" type="OtherVATableTaxType"/>
-	<xs:element name="OtherVATableTaxListLineItem" type="OtherVATableTaxBaseType"/>
+	<xs:element name="OtherVATableTaxListLineItem" type="OtherVATableTaxType"/>
 	<xs:element name="PayableAmount" type="Decimal2Type"/>
 	<xs:element name="PaymentCard" type="PaymentCardType"/>
 	<xs:element name="PaymentConditions" type="PaymentConditionsType"/>
@@ -102,7 +101,10 @@
 	<xs:element name="Surcharge" type="ReductionAndSurchargeType"/>
 	<xs:element name="SurchargeListLineItem" type="ReductionAndSurchargeBaseType"/>
 	<xs:element name="Tax" type="TaxType"/>
-	<xs:element name="TaxedAmount" type="Decimal2Type"/>
+	<xs:element name="TaxableAmount" type="Decimal2Type"/>
+	<xs:element name="TaxAmount" type="Decimal2Type"/>
+	<xs:element name="TaxID" type="IDType"/>
+	<xs:element name="TaxPercent" type="TaxPercentType"/>
 	<xs:element name="ToDate" type="xs:date"/>
 	<xs:element name="TotalGrossAmount" type="Decimal2Type"/>
 	<xs:element name="Town" type="xs:string"/>
@@ -110,7 +112,6 @@
 	<xs:element name="Type" type="SEPADirectDebitTypeType"/>
 	<xs:element name="UnitPrice" type="UnitPriceType"/>
 	<xs:element name="UniversalBankTransaction" type="UniversalBankTransactionType"/>
-	<xs:element name="VAT" type="VATType"/>
 	<xs:element name="VATIdentificationNumber" type="xs:string"/>
 	<xs:element name="TaxItem" type="TaxItemType"/>
 	<xs:element name="ZIP" type="xs:string"/>
@@ -134,7 +135,7 @@
 	<xs:attribute name="Key" type="xs:string"/>
 	<xs:attribute name="Language" type="LanguageType"/>
 	<xs:attribute name="ManualProcessing" type="xs:boolean"/>
-	<xs:attribute name="TaxCode" type="xs:string"/>
+	<xs:attribute name="TaxCategoryCode" type="xs:string"/>
 	<xs:attribute name="Unit" type="xs:string"/>
 	<!-- === Simple Types === -->
 	<xs:simpleType name="AccountingAreaType">
@@ -482,27 +483,18 @@
 	</xs:complexType>
 	<xs:complexType name="OtherPaymentType">
 		<!-- Empty type -->
-	</xs:complexType>	
+	</xs:complexType>
 	<xs:complexType name="OtherTaxType">
 		<xs:sequence>
 			<xs:element ref="Comment"/>
 			<xs:element ref="Amount"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="OtherVATableTaxBaseType">
-		<xs:sequence>
-			<xs:element ref="BaseAmount"/>
-			<xs:element ref="Percentage" minOccurs="0"/>
-			<xs:element ref="Amount"/>
-			<xs:element name="TaxID" type="IDType"/>
-			<xs:element ref="Comment" minOccurs="0"/>
-		</xs:sequence>
-	</xs:complexType>
 	<xs:complexType name="OtherVATableTaxType">
 		<xs:complexContent>
-			<xs:extension base="OtherVATableTaxBaseType">
+			<xs:extension base="TaxItemType">
 				<xs:sequence>
-					<xs:element ref="TaxItem"/>
+					<xs:element ref="TaxID"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -525,7 +517,7 @@
 		<xs:sequence>
 			<xs:element ref="Comment" minOccurs="0"/>
 			<xs:choice>
-				<xs:element ref="NoPayment"/>				
+				<xs:element ref="NoPayment"/>
 				<xs:element ref="SEPADirectDebit"/>
 				<xs:element ref="UniversalBankTransaction"/>
 				<xs:element ref="PaymentCard"/>
@@ -599,9 +591,16 @@
 			<xs:element ref="DebitCollectionDate" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:complexType name="TaxPercentType">
+		<xs:simpleContent>
+			<xs:extension base="PercentageType">
+				<xs:attribute ref="TaxCategoryCode" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
 	<xs:complexType name="TaxType">
 		<xs:sequence>
-			<xs:element ref="VAT"/>
+			<xs:element ref="TaxItem" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="OtherTax" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -626,24 +625,12 @@
 		</xs:sequence>
 		<xs:attribute ref="ConsolidatorPayable" use="optional"/>
 	</xs:complexType>
-	<xs:complexType name="VATItemType">
-		<xs:sequence>
-			<xs:element ref="TaxedAmount"/>
-			<xs:element ref="TaxItem"/>
-			<xs:element ref="Amount"/>
-			<xs:element ref="AccountingCurrencyAmount" minOccurs="0"/>
-		</xs:sequence>
-	</xs:complexType>
 	<xs:complexType name="TaxItemType">
-		<xs:simpleContent>
-			<xs:extension base="PercentageType">
-				<xs:attribute ref="TaxCode" use="optional"/>
-			</xs:extension>
-		</xs:simpleContent>
-	</xs:complexType>
-	<xs:complexType name="VATType">
 		<xs:sequence>
-			<xs:element ref="VATItem" maxOccurs="unbounded"/>
+			<xs:element ref="TaxableAmount"/>
+			<xs:element ref="TaxPercent"/>
+			<xs:element ref="TaxAmount" minOccurs="0"/>
+			<xs:element ref="AccountingCurrencyAmount" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>
