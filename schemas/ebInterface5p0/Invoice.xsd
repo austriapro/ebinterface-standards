@@ -337,6 +337,7 @@
         <xs:element ref="Period"/>
       </xs:choice>
       <xs:element ref="Address" minOccurs="0"/>
+      <xs:element ref="Contact" minOccurs="0"/>
       <xs:element ref="Description" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
