@@ -423,8 +423,8 @@
       <xs:element ref="InvoiceRecipientsOrderReference" minOccurs="0"/>
       <xs:element ref="Classification" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element ref="AdditionalInformation" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element ref="LineItemAmount"/>
       <xs:element ref="TaxItem"/>
+      <xs:element ref="LineItemAmount"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="NoPaymentType">
