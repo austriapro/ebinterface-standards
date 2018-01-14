@@ -2,7 +2,7 @@
 <xs:schema xmlns="http://www.ebinterface.at/schema/5p0/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ebinterface.at/schema/5p0/" elementFormDefault="qualified" attributeFormDefault="unqualified">
   <xs:annotation>
     <xs:documentation>
-      Schema version: 5.0-RC1 Last update: 2017-12-10 Documentation: http://www.ebinterface.at/download/documentation/ebInvoice_5p0.pdf
+      Schema version: 5.0-RC1 Last update: 2018-01-14 Documentation: http://www.ebinterface.at/download/documentation/ebInvoice_5p0.pdf
     </xs:documentation>
   </xs:annotation>
   <!-- === Root Element === -->
@@ -42,7 +42,6 @@
   <xs:element name="Description" type="xs:string"/>
   <xs:element name="Details" type="DetailsType"/>
   <xs:element name="Discount" type="DiscountType"/>
-  <xs:element name="DiscountFlag" type="xs:boolean"/>
   <xs:element name="DocumentType" type="DocumentTypeType"/>
   <xs:element name="DueDate" type="xs:date"/>
   <xs:element name="Email" type="xs:string"/>
@@ -418,7 +417,6 @@
       <xs:element ref="ArticleNumber" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element ref="Quantity"/>
       <xs:element ref="UnitPrice"/>
-      <xs:element ref="DiscountFlag" minOccurs="0"/>
       <xs:element ref="ReductionAndSurchargeListLineItemDetails" minOccurs="0"/>
       <xs:element ref="Delivery" minOccurs="0"/>
       <xs:element ref="BillersOrderReference" minOccurs="0"/>
