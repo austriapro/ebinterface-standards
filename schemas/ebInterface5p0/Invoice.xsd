@@ -2,7 +2,7 @@
 <xs:schema xmlns="http://www.ebinterface.at/schema/5p0/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ebinterface.at/schema/5p0/" elementFormDefault="qualified" attributeFormDefault="unqualified">
   <xs:annotation>
     <xs:documentation>
-      Schema version: 5.0-RC1 Last update: 2018-01-14 Documentation: http://www.ebinterface.at/download/documentation/ebInvoice_5p0.pdf
+      Schema version: 5.0-RC1 Last update: 2018-01-22 Documentation: http://www.ebinterface.at/download/documentation/ebInvoice_5p0.pdf
     </xs:documentation>
   </xs:annotation>
   <!-- === Root Element === -->
@@ -353,6 +353,7 @@
       <xs:element ref="BaseAmount" minOccurs="0"/>
       <xs:element ref="Percentage" minOccurs="0"/>
       <xs:element ref="Amount" minOccurs="0"/>
+      <xs:element ref="Comment" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="FurtherIdentificationType">
