@@ -270,7 +270,7 @@
       <xs:element ref="Town"/>
       <xs:element ref="ZIP"/>
       <xs:element ref="Country"/>
-      <xs:element ref="Phone" minOccurs="0"/>
+      <xs:element ref="Phone" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element ref="Email" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element ref="AddressExtension" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
