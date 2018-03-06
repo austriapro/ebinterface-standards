@@ -265,7 +265,7 @@
       <xs:element ref="AddressIdentifier" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element ref="Name"/>
       <xs:element ref="TradingName" minOccurs="0"/>
-      <xs:element ref="Street"/>
+      <xs:element ref="Street" minOccurs="0"/>
       <xs:element ref="POBox" minOccurs="0"/>
       <xs:element ref="Town"/>
       <xs:element ref="ZIP"/>
