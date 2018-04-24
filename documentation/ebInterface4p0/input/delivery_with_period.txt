@@ -1,0 +1,26 @@
+	<Delivery>
+		<DeliveryID>Lieferung 2011/1</DeliveryID>
+		<Period>
+			<FromDate>2011-09-15</FromDate>
+			<ToDate>2011-09-20</ToDate>
+		</Period>
+		<Address>
+			<AddressIdentifier n1:AddressIdentifierType="GLN">9123456789013</AddressIdentifier>
+			<Salutation>Firma</Salutation>
+			<Name>Mustermann GmbH</Name>
+			<Street>Hauptstraße 10</Street>
+			<Town>Graz</Town>
+			<ZIP>8020</ZIP>
+			<Country n1:CountryCode="AT">Österreich</Country>
+			<Contact>Hr. Max Mustermann</Contact>
+		</Address>
+		<Description>Lieferung wie Anfang September vereinbart.</Description>
+		<ext:DeliveryExtension>
+			<sv:DeliveryExtension>
+				<sv:SV_Domain_Specific_DeliveryExtensionElement>Ein von ebInterface standardisiertes Erweiterungselement</sv:SV_Domain_Specific_DeliveryExtensionElement>
+			</sv:DeliveryExtension>
+			<ext:Custom>
+				<n2:auto-generated_for_wildcard>Irgendein beliebiges Erweiterungselement aus einem anderen Namespace</n2:auto-generated_for_wildcard>
+			</ext:Custom>
+		</ext:DeliveryExtension>
+	</Delivery>

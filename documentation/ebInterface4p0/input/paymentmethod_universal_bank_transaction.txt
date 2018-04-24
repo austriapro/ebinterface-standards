@@ -1,0 +1,22 @@
+	<PaymentMethod xsi:type="UniversalBankTransactionType">
+		<Comment>String</Comment>
+		<ext:PaymentMethodExtension>
+			<sv:PaymentMethodExtension>
+				<sv:SV_Domain_Specific_PaymentMethodExtensionElement>Ein von 
+            ebInterface standardisiertes Erweiterungselement</sv:SV_Domain_Specific_PaymentMethodExtensionElement>
+			</sv:PaymentMethodExtension>
+			<ext:Custom>
+				<n2:auto-generated_for_wildcard>Irgendein beliebiges  
+          	Erweiterungselement aus einem anderen Namespace</n2:auto-generated_for_wildcard>			
+			</ext:Custom>
+		</ext:PaymentMethodExtension>
+		<BeneficiaryAccount>
+			<BankName>Bank Austria</BankName>
+			<BankCode n1:BankCodeType="AT">12000</BankCode>
+			<BIC>BKAUATWW</BIC>			
+			<BankAccountNr>11111111111</BankAccountNr>
+			<IBAN>AT491200011111111111</IBAN>
+			<BankAccountOwner>Max Mustermann</BankAccountOwner>
+		</BeneficiaryAccount>
+		<PaymentReference n1:CheckSum="X">123456789012</PaymentReference>
+	</PaymentMethod>

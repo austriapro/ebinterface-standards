@@ -1,0 +1,13 @@
+	<PaymentMethod xsi:type="DirectDebitType">
+		<Comment>Der Rechnungsbetrag wird per Bankeinzug am 03.10.2011 belastet</Comment>
+		<ext:PaymentMethodExtension>
+			<sv:PaymentMethodExtension>
+				<sv:SV_Domain_Specific_PaymentMethodExtensionElement>Ein von 
+            ebInterface standardisiertes Erweiterungselement</sv:SV_Domain_Specific_PaymentMethodExtensionElement>
+			</sv:PaymentMethodExtension>
+			<ext:Custom>
+				<n2:auto-generated_for_wildcard>Irgendein beliebiges  
+          	Erweiterungselement aus einem anderen Namespace</n2:auto-generated_for_wildcard>			
+			</ext:Custom>
+		</ext:PaymentMethodExtension>
+	</PaymentMethod>
