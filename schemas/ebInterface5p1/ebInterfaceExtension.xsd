@@ -9,7 +9,6 @@
         </xs:documentation>
 	</xs:annotation>
 	<!-- Import the industry specific namespaces -->
-
 	<!-- === Element declarations === -->
 	<xs:element name="BillerExtension" type="BillerExtensionType"/>
 	<xs:element name="Custom" type="CustomType"/>
@@ -24,22 +23,18 @@
 	<xs:element name="PresentationDetailsExtension" type="PresentationDetailsExtensionType"/>
 	<xs:element name="ReductionAndSurchargeDetailsExtension" type="ReductionAndSurchargeDetailsExtensionType"/>
 	<xs:element name="TaxExtension" type="TaxExtensionType"/>
-	<!-- === Group Deklarations === -->
-	<xs:group name="Custom">
-		<xs:sequence>
-			<xs:any namespace="##other" processContents="lax"/>
-		</xs:sequence>
-	</xs:group>
 	<!-- === Complex Type declarations === -->
 	<xs:complexType name="BillerExtensionType">
 		<xs:sequence>
-			<xs:element ref="Custom" minOccurs="0"/>
+			<xs:element ref="Custom" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="CustomType">
 		<xs:sequence>
-			<xs:group ref="Custom"/>
+			<xs:any namespace="##other" processContents="lax"/>
 		</xs:sequence>
+		<xs:attribute name="ID" type="xs:string" use="required"/>
+		<xs:attribute name="Name" type="xs:string" use="optional"/>		
 	</xs:complexType>
 	<xs:complexType name="DeliveryExtensionType">
 		<xs:sequence>

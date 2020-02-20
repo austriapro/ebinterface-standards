@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Invoice xmlns="http://www.ebinterface.at/schema/5p1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" GeneratingSystem="ERP System xyz" DocumentType="Invoice" InvoiceCurrency="EUR" DocumentTitle="Eine Rechnung" Language="ger" xsi:schemaLocation="http://www.ebinterface.at/schema/5p1/ file:///Z:/Repositories/ebinterface-standards/schemas/ebInterface5p1/Invoice.xsd">
+<Invoice xmlns="http://www.ebinterface.at/schema/5p1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" GeneratingSystem="ERP System xyz" DocumentType="Invoice" InvoiceCurrency="EUR" DocumentTitle="Eine Rechnung" Language="de" xsi:schemaLocation="http://www.ebinterface.at/schema/5p1/ file:///Z:/Repositories/ebinterface-standards/schemas/ebInterface5p1/Invoice.xsd">
 	<InvoiceNumber>993433000298</InvoiceNumber>
 	<InvoiceDate>2018-01-12</InvoiceDate>
 	<CancelledOriginalDocument>
@@ -21,6 +21,10 @@
 		<Comment>Teilrechnung 2</Comment>
 	</RelatedDocument>
 	<AdditionalInformation Key="String">String</AdditionalInformation>
+	<CurrencyExchangeInformation>
+		<Currency>HUF</Currency>
+		<ExchangeRate>23833333333333.283</ExchangeRate>
+	</CurrencyExchangeInformation>
 	<Delivery>
 		<DeliveryID>Lieferung 2017/1</DeliveryID>
 		<Date>2017-12-28</Date>

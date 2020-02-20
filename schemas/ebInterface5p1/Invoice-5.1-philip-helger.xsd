@@ -37,7 +37,6 @@
 	<xs:element name="Country" type="CountryType"/>
 	<xs:element name="CreditorID" type="ID35Type"/>
 	<xs:element name="Currency" type="CurrencyType"/>
-	<xs:element name="Custom" type="CustomType"/>
 	<xs:element name="Date" type="xs:date"/>
 	<xs:element name="DebitCollectionDate" type="xs:date"/>
 	<xs:element name="Delivery" type="DeliveryType"/>
@@ -48,10 +47,10 @@
 	<xs:element name="DocumentType" type="DocumentTypeType"/>
 	<xs:element name="DueDate" type="xs:date"/>
 	<xs:element name="Email" type="xs:string"/>
-	<xs:element name="ExchangeRate" type="ExchangeRateType"/>
+	<xs:element name="ExchangeRate" type="xs:decimal"/>
 	<xs:element name="ExchangeRateDate" type="xs:date"/>
-	<xs:element name="Extension" type="ExtensionType"/>
 	<xs:element name="FooterDescription" type="xs:string"/>
+	<xs:element name="ForeignPayableAmount" type="xs:decimal"/>
 	<xs:element name="FromDate" type="xs:date"/>
 	<xs:element name="FurtherIdentification" type="FurtherIdentificationType"/>
 	<xs:element name="HeaderDescription" type="xs:string"/>
@@ -77,7 +76,7 @@
 	<xs:element name="OtherVATableTax" type="OtherVATableTaxType"/>
 	<xs:element name="OtherVATableTaxListLineItem" type="OtherVATableTaxType"/>
 	<xs:element name="PayableAmount" type="Decimal2Type"/>
-	<xs:element name="CurrencyExchangeInformation" type="CurrencyExchangeInformationType"/>
+	<xs:element name="PayableNonEuroAmount" type="PayableNonEuroAmountType"/>
 	<xs:element name="PaymentCard" type="PaymentCardType"/>
 	<xs:element name="PaymentConditions" type="PaymentConditionsType"/>
 	<xs:element name="PaymentDate" type="xs:date"/>
@@ -119,6 +118,37 @@
 	<xs:element name="VATIdentificationNumber" type="xs:string"/>
 	<xs:element name="TaxItem" type="TaxItemType"/>
 	<xs:element name="ZIP" type="xs:string"/>
+
+  <xs:element name="Extensions" type="ExtensionsType" />
+  <xs:complexType name="ExtensionsType">
+    <xs:sequence>
+      <xs:element ref="Extension" minOccurs="1" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="Extension" type="ExtensionType" />
+  <xs:complexType name="ExtensionType">
+    <xs:sequence>
+      <xs:element name="ID" type="xs:string" minOccurs="0" maxOccurs="1" />
+      <xs:element name="Name" type="xs:string" minOccurs="0" maxOccurs="1" />
+      <xs:element name="ExtensionAgencyID" type="xs:string" minOccurs="0" maxOccurs="1" />
+      <xs:element name="ExtensionAgencyName" type="xs:string" minOccurs="0" maxOccurs="1" />
+      <xs:element name="ExtensionVersionID" type="xs:string" minOccurs="0" maxOccurs="1" />
+      <xs:element name="ExtensionAgencyURI" type="xs:string" minOccurs="0" maxOccurs="1" />
+      <xs:element name="ExtensionURI" type="xs:string" minOccurs="0" maxOccurs="1" />
+      <xs:element name="ExtensionReasonCode" type="xs:string" minOccurs="0" maxOccurs="1" />
+      <xs:element name="ExtensionReason" type="xs:string" minOccurs="0" maxOccurs="1" />
+      <xs:element ref="ExtensionContent" minOccurs="1" maxOccurs="1" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="ExtensionContent" type="ExtensionContentType" />
+  <xs:complexType name="ExtensionContentType">
+    <xs:sequence>
+      <xs:any namespace="##other" processContents="lax" minOccurs="1" maxOccurs="1" />
+    </xs:sequence>
+  </xs:complexType>
+
 	<!-- === Simple Types === -->
 	<xs:simpleType name="AccountingAreaType">
 		<xs:restriction base="xs:string">
@@ -190,12 +220,6 @@
 			<xs:enumeration value="SubsequentDebit"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="ExchangeRateType">
-		<xs:restriction base="xs:decimal">
-			<xs:fractionDigits value="8"/>
-			<xs:totalDigits value="17"/>
-		</xs:restriction>
-	</xs:simpleType>
 	<!-- ISO 13616 und EBS-Standard (European Banking Standard): max. 34 Stellen, alphanummerisch -->
 	<xs:simpleType name="IBANType">
 		<xs:restriction base="xs:string">
@@ -212,15 +236,17 @@
 			<xs:maxLength value="35"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<!-- Language Codes according to ISO 639-1 -->
+	<!-- Language Codes according to ISO 639-2 -->
 	<xs:simpleType name="LanguageType">
 		<xs:restriction base="xs:token">
-			<xs:minLength value="2"/>
-			<xs:maxLength value="2"/>
+			<xs:minLength value="3"/>
+			<xs:maxLength value="3"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="PercentageType">
 		<xs:restriction base="xs:decimal">
+			<xs:maxInclusive value="100"/>
+			<xs:minInclusive value="0"/>
 			<xs:fractionDigits value="2"/>
 		</xs:restriction>
 	</xs:simpleType>
@@ -233,6 +259,7 @@
 	<!-- === Complex Types === -->
 	<xs:complexType name="AbstractPartyType">
 		<xs:sequence>
+          <xs:element ref="Extensions" minOccurs="0" maxOccurs="1" />
 			<xs:element ref="VATIdentificationNumber"/>
 			<xs:element ref="FurtherIdentification" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="OrderReference" minOccurs="0"/>
@@ -249,6 +276,7 @@
 	</xs:complexType>
 	<xs:complexType name="AccountType">
 		<xs:sequence>
+          <xs:element ref="Extensions" minOccurs="0" maxOccurs="1" />
 			<xs:element ref="BankName" minOccurs="0"/>
 			<xs:element ref="BankCode" minOccurs="0"/>
 			<xs:element ref="BIC" minOccurs="0"/>
@@ -273,6 +301,7 @@
 	</xs:complexType>
 	<xs:complexType name="AddressType">
 		<xs:sequence>
+          <xs:element ref="Extensions" minOccurs="0" maxOccurs="1" />
 			<xs:element ref="AddressIdentifier" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="Name"/>
 			<xs:element ref="TradingName" minOccurs="0"/>
@@ -283,7 +312,9 @@
 			<xs:element ref="Country"/>
 			<xs:element ref="Phone" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="Email" minOccurs="0" maxOccurs="unbounded"/>
+<!-- weg
 			<xs:element ref="AddressExtension" minOccurs="0" maxOccurs="unbounded"/>
+-->
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ArticleNumberType">
@@ -305,13 +336,16 @@
 			<xs:extension base="AbstractPartyType">
 				<xs:sequence>
 					<xs:element ref="InvoiceRecipientsBillerID" minOccurs="0"/>
-					<xs:element ref="Extension" minOccurs="0"/>
+<!--
+					<xs:element ref="ext:BillerExtension" minOccurs="0"/>
+-->
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="CancelledOriginalDocumentType">
 		<xs:sequence>
+          <xs:element ref="Extensions" minOccurs="0" maxOccurs="1" />
 			<xs:element ref="InvoiceNumber"/>
 			<xs:element ref="InvoiceDate"/>
 			<xs:element ref="DocumentType" minOccurs="0"/>
@@ -327,6 +361,7 @@
 	</xs:complexType>
 	<xs:complexType name="ContactType">
 		<xs:sequence>
+          <xs:element ref="Extensions" minOccurs="0" maxOccurs="1" />
 			<xs:element ref="Salutation" minOccurs="0"/>
 			<xs:element ref="Name"/>
 			<xs:element ref="Phone" minOccurs="0" maxOccurs="unbounded"/>
@@ -340,15 +375,9 @@
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-	<xs:complexType name="CustomType">
-		<xs:sequence>
-			<xs:any namespace="##other" processContents="lax"/>
-		</xs:sequence>
-		<xs:attribute name="ID" type="xs:string" use="required"/>
-		<xs:attribute name="Name" type="xs:string" use="optional"/>
-	</xs:complexType>
 	<xs:complexType name="DeliveryType">
 		<xs:sequence>
+          <xs:element ref="Extensions" minOccurs="0" maxOccurs="1" />
 			<xs:element ref="DeliveryID" minOccurs="0"/>
 			<xs:choice>
 				<xs:element ref="Date"/>
@@ -357,7 +386,10 @@
 			<xs:element ref="Address" minOccurs="0"/>
 			<xs:element ref="Contact" minOccurs="0"/>
 			<xs:element ref="Description" minOccurs="0"/>
+<!--
 			<xs:element ref="ext:DeliveryExtension" minOccurs="0"/>
+-->
+<!-- hier hats mich nicht mehr gfreut -->
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="DetailsType">
@@ -376,11 +408,6 @@
 			<xs:element ref="Comment" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="ExtensionType">
-		<xs:sequence>
-			<xs:element ref="Custom" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
 	<xs:complexType name="FurtherIdentificationType">
 		<xs:simpleContent>
 			<xs:extension base="IDType">
@@ -395,7 +422,6 @@
 			<xs:element ref="CancelledOriginalDocument" minOccurs="0"/>
 			<xs:element ref="RelatedDocument" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="AdditionalInformation" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="CurrencyExchangeInformation" minOccurs="0"/>
 			<xs:element ref="Delivery" minOccurs="0"/>
 			<xs:element ref="Biller"/>
 			<xs:element ref="InvoiceRecipient"/>
@@ -407,6 +433,7 @@
 			<xs:element ref="PrepaidAmount" minOccurs="0"/>
 			<xs:element ref="RoundingAmount" minOccurs="0"/>
 			<xs:element ref="PayableAmount"/>
+			<xs:element ref="PayableNonEuroAmount" minOccurs="0"/>
 			<xs:element ref="PaymentMethod" minOccurs="0"/>
 			<xs:element ref="PaymentConditions" minOccurs="0"/>
 			<xs:element ref="Comment" minOccurs="0"/>
@@ -504,12 +531,13 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:complexType name="CurrencyExchangeInformationType">
+	<xs:complexType name="PayableNonEuroAmountType">
 		<xs:sequence>
 			<xs:element ref="Currency"/>
 			<xs:element ref="ExchangeRate"/>
 			<xs:element ref="ExchangeRateDate" minOccurs="0"/>
 			<xs:element ref="Comment" minOccurs="0"/>
+			<xs:element ref="ForeignPayableAmount"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PaymentCardType">
