@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Invoice xmlns="http://www.ebinterface.at/schema/5p1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" GeneratingSystem="ecosio GmbH" DocumentType="Invoice" InvoiceCurrency="EUR" DocumentTitle="Testrechnung ecosio" Language="ger" xsi:schemaLocation="http://www.ebinterface.at/schema/5p1/ ../Invoice.xsd">
+<Invoice xmlns="http://www.ebinterface.at/schema/5p1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" GeneratingSystem="ecosio GmbH" DocumentType="Invoice" InvoiceCurrency="EUR" DocumentTitle="Testrechnung ecosio" Language="de" xsi:schemaLocation="http://www.ebinterface.at/schema/5p1/ ../Invoice.xsd">
 	<InvoiceNumber>RNR 4712</InvoiceNumber>
 	<InvoiceDate>2018-01-12</InvoiceDate>
 	<CancelledOriginalDocument>

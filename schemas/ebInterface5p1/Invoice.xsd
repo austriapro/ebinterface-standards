@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns="http://www.ebinterface.at/schema/5p1/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ext="http://www.ebinterface.at/schema/5p1/extensions/ext" targetNamespace="http://www.ebinterface.at/schema/5p1/" elementFormDefault="qualified" attributeFormDefault="unqualified">
-	<xs:import namespace="http://www.ebinterface.at/schema/5p1/extensions/ext" schemaLocation="ebInterfaceExtension.xsd"/>
+<xs:schema xmlns="http://www.ebinterface.at/schema/5p1/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ebinterface.at/schema/5p1/" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:annotation>
 		<xs:documentation>
-      Schema version: 5.1 Last update: 2020-02-20 Documentation: http://www.ebinterface.at/download/documentation/ebInvoice_5p0.pdf
+      Schema version: 5.1 Last update: 2020-03-05 Documentation: http://www.ebinterface.at/download/documentation/ebInvoice_5p0.pdf
     </xs:documentation>
 	</xs:annotation>
 	<!-- === Root Element === -->
@@ -357,7 +356,7 @@
 			<xs:element ref="Address" minOccurs="0"/>
 			<xs:element ref="Contact" minOccurs="0"/>
 			<xs:element ref="Description" minOccurs="0"/>
-			<xs:element ref="ext:DeliveryExtension" minOccurs="0"/>
+			<xs:element ref="Extension" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="DetailsType">
@@ -410,7 +409,7 @@
 			<xs:element ref="PaymentMethod" minOccurs="0"/>
 			<xs:element ref="PaymentConditions" minOccurs="0"/>
 			<xs:element ref="Comment" minOccurs="0"/>
-			<xs:element ref="ext:InvoiceRootExtension" minOccurs="0"/>
+			<xs:element ref="Extension" minOccurs="0"/>
 		</xs:sequence>
 		<xs:attribute name="GeneratingSystem" type="xs:string" use="required"/>
 		<xs:attribute name="DocumentType" type="DocumentTypeType" use="required"/>
@@ -427,7 +426,7 @@
 					<xs:element ref="BillersInvoiceRecipientID" minOccurs="0"/>
 					<xs:element ref="AccountingArea" minOccurs="0"/>
 					<xs:element ref="SubOrganizationID" minOccurs="0"/>
-					<xs:element ref="ext:InvoiceRecipientExtension" minOccurs="0"/>
+					<xs:element ref="Extension" minOccurs="0"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -454,7 +453,7 @@
 			<xs:element ref="AdditionalInformation" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="TaxItem"/>
 			<xs:element ref="LineItemAmount"/>
-			<xs:element ref="ext:ListLineItemExtension" minOccurs="0"/>
+			<xs:element ref="Extension" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="NoPaymentType">
@@ -465,7 +464,7 @@
 			<xs:extension base="AbstractPartyType">
 				<xs:sequence>
 					<xs:element ref="BillersOrderingPartyID"/>
-					<xs:element ref="ext:OrderingPartyExtension" minOccurs="0"/>
+					<xs:element ref="Extension" minOccurs="0"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -524,7 +523,7 @@
 			<xs:element ref="Discount" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="MinimumPayment" minOccurs="0"/>
 			<xs:element ref="Comment" minOccurs="0"/>
-			<xs:element ref="ext:PaymentConditionsExtension" minOccurs="0"/>
+			<xs:element ref="Extension" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PaymentMethodType">
@@ -537,7 +536,7 @@
 				<xs:element ref="PaymentCard"/>
 				<xs:element ref="OtherPayment"/>
 			</xs:choice>
-			<xs:element ref="ext:PaymentMethodExtension" minOccurs="0"/>
+			<xs:element ref="Extension" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PaymentReferenceType">
@@ -560,7 +559,7 @@
 				<xs:element ref="Surcharge" minOccurs="0"/>
 				<xs:element ref="OtherVATableTax" minOccurs="0"/>
 			</xs:choice>
-			<xs:element ref="ext:ReductionAndSurchargeDetailsExtension" minOccurs="0"/>
+			<xs:element ref="Extension" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ReductionAndSurchargeListLineItemDetailsType">
@@ -577,6 +576,7 @@
 			<xs:element ref="Amount" minOccurs="0"/>
 			<xs:element ref="Comment" minOccurs="0"/>
 			<xs:element ref="Classification" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="Extension" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ReductionAndSurchargeType">
@@ -614,6 +614,7 @@
 			<xs:element ref="TaxAmount" minOccurs="0"/>
 			<xs:element ref="AccountingCurrencyAmount" minOccurs="0"/>
 			<xs:element ref="Comment" minOccurs="0"/>
+			<xs:element ref="Extension" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="TaxPercentType">
@@ -627,7 +628,7 @@
 		<xs:sequence>
 			<xs:element ref="TaxItem" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="OtherTax" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="ext:TaxExtension" minOccurs="0"/>
+			<xs:element ref="Extension" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="UnitType">
