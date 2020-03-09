@@ -84,7 +84,7 @@
 	<xs:element name="PaymentDate" type="xs:date"/>
 	<xs:element name="PaymentMethod" type="PaymentMethodType"/>
 	<xs:element name="PaymentReference" type="PaymentReferenceType"/>
-	<xs:element name="Percentage" type="PercentageType"/>
+	<xs:element name="Percentage" type="Decimal2Type"/>
 	<xs:element name="Period" type="PeriodType"/>
 	<xs:element name="Phone" type="xs:string"/>
 	<xs:element name="POBox" type="xs:string"/>
@@ -218,11 +218,6 @@
 		<xs:restriction base="xs:token">
 			<xs:minLength value="2"/>
 			<xs:maxLength value="2"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="PercentageType">
-		<xs:restriction base="xs:decimal">
-			<xs:fractionDigits value="2"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="SEPADirectDebitTypeType">
@@ -622,7 +617,7 @@
 	</xs:complexType>
 	<xs:complexType name="TaxPercentType">
 		<xs:simpleContent>
-			<xs:extension base="PercentageType">
+			<xs:extension base="Decimal2Type">
 				<xs:attribute name="TaxCategoryCode" type="xs:token" use="required"/>
 			</xs:extension>
 		</xs:simpleContent>
