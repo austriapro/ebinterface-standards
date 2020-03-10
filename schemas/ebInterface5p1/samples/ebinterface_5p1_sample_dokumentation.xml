@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Invoice xmlns="http://www.ebinterface.at/schema/5p1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" GeneratingSystem="ERP System xyz" DocumentType="Invoice" InvoiceCurrency="EUR" DocumentTitle="Eine Rechnung" Language="de" xsi:schemaLocation="http://www.ebinterface.at/schema/5p1/ ../Invoice.xsd">
+<Invoice xmlns="http://www.ebinterface.at/schema/5p1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" GeneratingSystem="ERP System xyz" DocumentType="Invoice" InvoiceCurrency="EUR" DocumentTitle="Eine Rechnung" Language="de" xsi:schemaLocation="http://www.ebinterface.at/schema/5p1/ ../Invoice.xsd" xmlns:n1="http://www.ebinterface.at/schema/5p1/extensions/someextension">
 	<InvoiceNumber>993433000298</InvoiceNumber>
 	<InvoiceDate>2018-01-12</InvoiceDate>
 	<CancelledOriginalDocument>
@@ -23,7 +23,9 @@
 	<AdditionalInformation Key="String">String</AdditionalInformation>
 	<CurrencyExchangeInformation>
 		<Currency>HUF</Currency>
-		<ExchangeRate>23833333333333.283</ExchangeRate>
+		<ExchangeRate>336.15</ExchangeRate>
+		<ExchangeRateDate>2020-03-09</ExchangeRateDate>
+		<Comment>Angabe in ungarischen Forint.</Comment>
 	</CurrencyExchangeInformation>
 	<Delivery>
 		<DeliveryID>Lieferung 2017/1</DeliveryID>
@@ -39,7 +41,12 @@
 		<Contact>
 			<Name>Hr. Max Mustermann</Name>
 		</Contact>
-		<Description>Lieferung wie Anfang September vereinbart.</Description>		
+		<Description>Lieferung wie Anfang September vereinbart.</Description>
+		<Extension>
+			<Custom ID="ext_id" Name="DeliveryExtensionAutomotive">
+				<n1:DeliveryExtension>456</n1:DeliveryExtension>
+			</Custom>
+		</Extension>
 	</Delivery>
 	<Biller>
 		<VATIdentificationNumber>ATU51507409</VATIdentificationNumber>
@@ -69,6 +76,11 @@
 			<Email>moser@willi.at</Email>
 		</Contact>
 		<InvoiceRecipientsBillerID>ID4456</InvoiceRecipientsBillerID>
+		<Extension>
+			<Custom ID="ext_id" Name="BillerExtensionAutomotive">
+				<n1:DeliveryExtension>456</n1:DeliveryExtension>
+			</Custom>
+		</Extension>
 	</Biller>
 	<InvoiceRecipient>
 		<VATIdentificationNumber>ATU18708634</VATIdentificationNumber>
@@ -94,6 +106,11 @@
 		<BillersInvoiceRecipientID>12345678</BillersInvoiceRecipientID>
 		<AccountingArea>BK372</AccountingArea>
 		<SubOrganizationID>2938</SubOrganizationID>
+		<Extension>
+			<Custom ID="ext_id" Name="InvoiceRecipientExtensionAutomotive">
+				<n1:InvoiceRecipientExtension>456</n1:InvoiceRecipientExtension>
+			</Custom>
+		</Extension>
 	</InvoiceRecipient>
 	<OrderingParty>
 		<VATIdentificationNumber>00000000</VATIdentificationNumber>
@@ -116,6 +133,11 @@
 			<Name>Max Mustermann</Name>
 		</Contact>
 		<BillersOrderingPartyID>98765432</BillersOrderingPartyID>
+		<Extension>
+			<Custom ID="ext_id" Name="OrderingPartyExtensionAutomotive">
+				<n1:OrderingPartyExtension>456</n1:OrderingPartyExtension>
+			</Custom>
+		</Extension>
 	</OrderingParty>
 	<Details>
 		<HeaderDescription>Wir stellen Ihnen folgende Leistungen in 
@@ -141,6 +163,11 @@
 					<TaxPercent TaxCategoryCode="S">20</TaxPercent>
 					<TaxAmount>204.00</TaxAmount>
 					<Comment>20% Standardsteuersatz</Comment>
+					<Extension>
+						<Custom ID="ext_id" Name="TaxExtensionAutomotive">
+							<n1:TaxExtension>456</n1:TaxExtension>
+						</Custom>
+					</Extension>
 				</TaxItem>
 				<LineItemAmount>1020.00</LineItemAmount>
 			</ListLineItem>
@@ -237,10 +264,15 @@
 			<BaseAmount>1020.00</BaseAmount>
 			<Percentage>0.5</Percentage>
 			<Amount>5.10</Amount>
+			<Extension>
+				<Custom ID="ext_id" Name="SurchargeExtensionAutomotive">
+					<n1:SurchargeExtension>456</n1:SurchargeExtension>
+				</Custom>
+			</Extension>
 			<TaxItem>
 				<TaxableAmount>0</TaxableAmount>
 				<TaxPercent TaxCategoryCode="S">20</TaxPercent>
-			</TaxItem>
+			</TaxItem>			
 		</Surcharge>
 		<OtherVATableTax>
 			<TaxableAmount>1020.00</TaxableAmount>
