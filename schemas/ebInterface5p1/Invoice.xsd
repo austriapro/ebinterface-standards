@@ -557,7 +557,6 @@
 				<xs:element ref="Surcharge" minOccurs="0"/>
 				<xs:element ref="OtherVATableTax" minOccurs="0"/>
 			</xs:choice>
-			<xs:element ref="Extension" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ReductionAndSurchargeListLineItemDetailsType">
