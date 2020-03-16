@@ -311,6 +311,11 @@
 			<Comment>Werbeabgabe</Comment>
 			<Amount>255</Amount>
 		</OtherTax>
+		<Extension>
+			<Custom ID="ext_id" Name="TaxExtensionAutomotive">
+				<n1:TaxExtension>456</n1:TaxExtension>
+			</Custom>
+		</Extension>
 	</Tax>
 	<TotalGrossAmount>0</TotalGrossAmount>
 	<PrepaidAmount>0</PrepaidAmount>
@@ -330,6 +335,11 @@
 		</Discount>
 		<MinimumPayment>0</MinimumPayment>
 		<Comment>String</Comment>
+		<Extension>
+			<Custom ID="ext_id" Name="PaymentConditionsExtensionAutomotive">
+				<n1:PaymentConditionsExtension>456</n1:PaymentConditionsExtension>
+			</Custom>
+		</Extension>
 	</PaymentConditions>
 	<Comment>String</Comment>
 </Invoice>
