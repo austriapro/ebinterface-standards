@@ -3,7 +3,7 @@
 	<xs:annotation>
 		<xs:documentation>
       Schema version: 5.1
-      Last update: 2020-03-05
+      Last update: 2020-03-16
       Documentation: http://www.ebinterface.at/download/documentation/ebInvoice_5p1.pdf
     </xs:documentation>
 	</xs:annotation>
@@ -487,8 +487,11 @@
 	</xs:complexType>
 	<xs:complexType name="OtherTaxType">
 		<xs:sequence>
+			<xs:element ref="TaxableAmount" minOccurs="0"/>
+			<xs:element ref="TaxPercent" minOccurs="0"/>
+			<xs:element ref="TaxAmount"/>
 			<xs:element ref="Comment"/>
-			<xs:element ref="Amount"/>
+			<xs:element ref="Extension" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="OtherVATableTaxType">
@@ -591,6 +594,7 @@
 			<xs:element ref="InvoiceDate" minOccurs="0"/>
 			<xs:element ref="DocumentType" minOccurs="0"/>
 			<xs:element ref="Comment" minOccurs="0"/>
+			<xs:element ref="Extension" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="SEPADirectDebitType">
