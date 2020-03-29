@@ -14,7 +14,6 @@
 	<xs:element name="AccountingCurrencyAmount" type="AccountingCurrencyAmountType"/>
 	<xs:element name="AdditionalInformation" type="AdditionalInformationType"/>
 	<xs:element name="Address" type="AddressType"/>
-	<xs:element name="AddressExtension" type="xs:string"/>
 	<xs:element name="AddressIdentifier" type="AddressIdentifierType"/>
 	<xs:element name="Amount" type="Decimal2Type"/>
 	<xs:element name="ArticleNumber" type="ArticleNumberType"/>
@@ -279,7 +278,7 @@
 			<xs:element ref="Country"/>
 			<xs:element ref="Phone" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="Email" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="AddressExtension" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="AdditionalInformation" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ArticleNumberType">
@@ -327,6 +326,7 @@
 			<xs:element ref="Name"/>
 			<xs:element ref="Phone" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="Email" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="AdditionalInformation" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="CountryType">
