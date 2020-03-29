@@ -207,7 +207,7 @@
 												<td>
 													<p class="text-right">
 														<xsl:call-template name="prettyPrintNumberFunction">
-															<xsl:with-param name="number" select="eb:Amount"/>
+															<xsl:with-param name="number" select="eb:TaxAmount"/>
 														</xsl:call-template>
 													</p>
 												</td>
@@ -868,7 +868,7 @@
 			</td>
 			<td>
 				<xsl:call-template name="prettyPrintNumberFunction">
-					<xsl:with-param name="number" select="eb:Amount"/>
+					<xsl:with-param name="number" select="eb:TaxAmount"/>
 				</xsl:call-template>
 			</td>
 		</tr>
