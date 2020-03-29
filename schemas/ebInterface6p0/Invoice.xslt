@@ -74,10 +74,14 @@
 									<xsl:apply-templates select="/eb:Invoice/eb:RelatedDocument"/>
 								</ul>
 							</xsl:if>
+
+              <!-- Additional information -->
 							<xsl:if test="/eb:Invoice/eb:AdditionalInformation">
 								Zusätzliche Information:
+                <ul>
 									<xsl:value-of select="/eb:Invoice/eb:AdditionalInformation"/>
-									<br/><br/>
+                </ul>  
+							  <br/><br/>
 							</xsl:if>
 							<!-- Delivery details -->
 							<xsl:apply-templates select="/eb:Invoice/eb:Delivery"/>
@@ -371,8 +375,15 @@
 		<xsl:apply-templates select="eb:Phone"/>
 		<xsl:apply-templates select="eb:Email"/>
 		<xsl:apply-templates select="eb:Contact"/>
-		<xsl:apply-templates select="eb:AddressExtension"/>
-		<xsl:apply-templates select="eb:AddressIdentifier"/>
+    <xsl:apply-templates select="eb:AddressIdentifier"/>
+    
+    <!-- Additional information -->
+    <xsl:if test="eb:AdditionalInformation">
+      <strong>Weitere Adressdetails:</strong>
+      <ul>
+		    <xsl:apply-templates select="eb:AdditionalInformation"/>
+      </ul>
+    </xsl:if>      
 	</xsl:template>
 	<xsl:template match="eb:Contact">
 	<br/>
@@ -384,6 +395,13 @@
 		<br/>
 		<xsl:apply-templates select="eb:Email"/>
 		<br/>
+    <!-- Additional information -->
+    <xsl:if test="eb:AdditionalInformation">
+      <strong>Weitere Kontaktdetails:</strong>
+      <ul>
+        <xsl:apply-templates select="eb:AdditionalInformation"/>
+      </ul>
+    </xsl:if>    
 	</xsl:template> 
 	<xsl:template match="eb:POBox">
 		<xsl:text>Postfach: </xsl:text>
@@ -408,10 +426,6 @@
 			<xsl:attribute name="href">mailto:<xsl:value-of select="."/></xsl:attribute>
 			<xsl:value-of select="."/>
 		</xsl:element>
-		<br/>
-	</xsl:template>
-		<xsl:template match="eb:AddressExtension">
-		<xsl:value-of select="."/>
 		<br/>
 	</xsl:template>
 	<!-- ==================== Address Identifier ==================== -->
@@ -681,15 +695,15 @@
 									<!--Invoice recipient's order reference -->
 									<xsl:apply-templates select="eb:InvoiceRecipientsOrderReference"/>
 								</ul>
+
 								<!-- Additional information -->
-								
-									<xsl:if test="eb:AdditionalInformation">
-										<strong>Weitere Artikeldetails:</strong>
-										<ul>
-											<xsl:apply-templates select="eb:AdditionalInformation"/>
-										</ul>
-										<br/>
-									</xsl:if>
+								<xsl:if test="eb:AdditionalInformation">
+									<strong>Weitere Artikeldetails:</strong>
+									<ul>
+										<xsl:apply-templates select="eb:AdditionalInformation"/>
+									</ul>
+									<br/>
+								</xsl:if>
 
 							</td>
 							<td colspan="3">
