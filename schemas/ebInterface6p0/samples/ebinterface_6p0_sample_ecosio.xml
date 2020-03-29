@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Invoice xmlns="http://www.ebinterface.at/schema/5p1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" GeneratingSystem="ecosio GmbH" DocumentType="Invoice" InvoiceCurrency="EUR" DocumentTitle="Testrechnung ecosio" Language="de" xsi:schemaLocation="http://www.ebinterface.at/schema/5p1/ ../Invoice.xsd">
+<Invoice xmlns="http://www.ebinterface.at/schema/6p0/" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         GeneratingSystem="ecosio GmbH" 
+         DocumentType="Invoice" 
+         InvoiceCurrency="EUR" 
+         DocumentTitle="Testrechnung ecosio" 
+         Language="de" 
+         xsi:schemaLocation="http://www.ebinterface.at/schema/6p0/ ../Invoice.xsd">
 	<InvoiceNumber>RNR 4712</InvoiceNumber>
 	<InvoiceDate>2018-01-12</InvoiceDate>
 	<CancelledOriginalDocument>
 		<InvoiceNumber>RN 4713</InvoiceNumber>
 		<InvoiceDate>2018-01-10</InvoiceDate>
 		<DocumentType>Invoice</DocumentType>
-		<Comment>Storniert die Rechnung RN 4713 vom 12.1.2018</Comment>
+		<Comment>Storniert die Rechnung RN 4713 vom 12.1.2020</Comment>
 	</CancelledOriginalDocument>
 	<RelatedDocument>
 		<InvoiceNumber>RNR 4712-1</InvoiceNumber>
