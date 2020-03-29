@@ -75,7 +75,7 @@
 			<Country CountryCode="AT">Österreich</Country>
 			<Phone>+43 / 1 / 78 56 789</Phone>
 			<Email>schraube@willi.at</Email>
-			<AddressExtension>Zentrale Verwaltung Wien</AddressExtension>
+			<AdditionalInformation>Zentrale Verwaltung Wien</AdditionalInformation>
 		</Address>
 		<Contact>
 			<Salutation>Hr. Ing.</Salutation>
@@ -99,8 +99,7 @@
 			<Description>Bestellung per Fax.</Description>
 		</OrderReference>
 		<Address>
-			<AddressIdentifier AddressIdentifierType="ProprietaryAddressID">35354
-            </AddressIdentifier>
+			<AddressIdentifier AddressIdentifierType="ProprietaryAddressID">35354</AddressIdentifier>
 			<Name>Mustermann GmbH</Name>
 			<Street>Haupstraße 10</Street>
 			<Town>Graz</Town>
@@ -128,8 +127,7 @@
 			<Description>Per Fax empfangen.</Description>
 		</OrderReference>
 		<Address>
-			<AddressIdentifier AddressIdentifierType="ProprietaryAddressID">OI393K3
-            </AddressIdentifier>
+			<AddressIdentifier AddressIdentifierType="ProprietaryAddressID">OI393K3</AddressIdentifier>
 			<Name>Der Dritte Mann GmbH</Name>
 			<Street>Lassallestraße 7</Street>
 			<POBox>Wien</POBox>
@@ -156,16 +154,12 @@
 			<ListLineItem>
 				<PositionNumber>1</PositionNumber>
 				<Description>Schraubenzieher</Description>
-				<ArticleNumber ArticleNumberType="BillersArticleNumber">I3939
-  </ArticleNumber>
-				<ArticleNumber ArticleNumberType="InvoiceRecipientsArticleNumber">E3949
-        </ArticleNumber>
-				<ArticleNumber ArticleNumberType="GTIN">00012345678905
-        </ArticleNumber>
+				<ArticleNumber ArticleNumberType="BillersArticleNumber">I3939</ArticleNumber>
+				<ArticleNumber ArticleNumberType="InvoiceRecipientsArticleNumber">E3949</ArticleNumber>
+				<ArticleNumber ArticleNumberType="GTIN">00012345678905</ArticleNumber>
 				<Quantity Unit="C62">100.00</Quantity>
 				<UnitPrice>10.20</UnitPrice>
-				<AdditionalInformation Key="35">Gelb		
-				</AdditionalInformation>
+				<AdditionalInformation Key="35">Gelb</AdditionalInformation>
 				<TaxItem>
 					<TaxableAmount>1020.00</TaxableAmount>
 					<TaxPercent TaxCategoryCode="S">20</TaxPercent>
@@ -185,12 +179,9 @@
 			<ListLineItem>
 				<PositionNumber>1</PositionNumber>
 				<Description>Handbuch zur Schraube</Description>
-				<ArticleNumber ArticleNumberType="BillersArticleNumber">K34838
-      </ArticleNumber>
-				<ArticleNumber ArticleNumberType="InvoiceRecipientsArticleNumber">E4938
-      </ArticleNumber>
-				<ArticleNumber ArticleNumberType="GTIN">00012345678897
-      </ArticleNumber>
+				<ArticleNumber ArticleNumberType="BillersArticleNumber">K34838</ArticleNumber>
+				<ArticleNumber ArticleNumberType="InvoiceRecipientsArticleNumber">E4938</ArticleNumber>
+				<ArticleNumber ArticleNumberType="GTIN">00012345678897</ArticleNumber>
 				<Quantity Unit="C62">1.00</Quantity>
 				<UnitPrice>5.00</UnitPrice>
 				<TaxItem>
@@ -316,8 +307,8 @@
 			<Comment>USt-befreit gemäß § xxx</Comment>
 		</TaxItem>
 		<OtherTax>
-			<Comment>Werbeabgabe</Comment>
-			<Amount>255</Amount>
+			<TaxAmount>255</TaxAmount>
+      <Comment>Werbeabgabe</Comment>
 		</OtherTax>
 		<Extension>
 			<Custom ID="ext_id" Name="TaxExtensionAutomotive">

@@ -10,6 +10,7 @@
 	<InvoiceNumber>RNR 4712</InvoiceNumber>
 	<InvoiceDate>2018-01-12</InvoiceDate>
 	<CancelledOriginalDocument>
+    <!-- InvoiceNumber is missing -->
 		<InvoiceDate>2018-01-10</InvoiceDate>
 		<DocumentType>Invoice</DocumentType>
 		<Comment>Storniert die Rechnung RN 4713 vom 12.1.2020</Comment>
@@ -39,7 +40,7 @@
 			<Country CountryCode="AT">Österreich</Country>
 			<Phone>+43 1 6525 5487</Phone>
 			<Email>office@firma-planck.at</Email>
-			<AddressExtension>Hinweis: Neuer Firmensitz ab 01.01.2016</AddressExtension>
+			<AdditionalInformation>Hinweis: Neuer Firmensitz ab 01.01.2016</AdditionalInformation>
 		</Address>
 		<Contact>
 			<Salutation>Herr</Salutation>
@@ -162,7 +163,7 @@
 						<Country CountryCode="AT">Österreich</Country>
 						<Phone>+43 1 6543 434</Phone>
 						<Email>office@firma-cisco.at</Email>
-						<AddressExtension>Achtung! Abweichende Lieferadresse!</AddressExtension>
+						<AdditionalInformation>Achtung! Abweichende Lieferadresse!</AdditionalInformation>
 					</Address>
 					<Contact>
 						<Salutation>Herr</Salutation>
@@ -280,16 +281,16 @@
 			<Comment>USt-befreit gemäß § xxx</Comment>
 		</TaxItem>
 		<OtherTax>
+      <TaxAmount>34.40</TaxAmount>
 			<Comment>Biersteuer</Comment>
-			<Amount>34.40</Amount>
 		</OtherTax>
 		<OtherTax>
+      <TaxAmount>493.39</TaxAmount>
 			<Comment>Mineralölsteuer</Comment>
-			<Amount>493.39</Amount>
 		</OtherTax>
 		<OtherTax>
+      <TaxAmount>49.30</TaxAmount>
 			<Comment>Werbeabgabe</Comment>
-			<Amount>49.30</Amount>
 		</OtherTax>
 	</Tax>
 	<TotalGrossAmount>49391.12</TotalGrossAmount>
