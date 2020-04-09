@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns="http://www.ebinterface.at/schema/6p0/" 
-           xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-           targetNamespace="http://www.ebinterface.at/schema/6p0/" 
-           elementFormDefault="qualified" 
-           attributeFormDefault="unqualified">
+<xs:schema xmlns="http://www.ebinterface.at/schema/6p0/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ebinterface.at/schema/6p0/" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:annotation>
 		<xs:documentation>
       Official ebInterface e-Invoice schema
       Schema version: 6.0
-      Last update: 2020-03-29
+      Last update: 2020-04-09
       Documentation: http://www.ebinterface.at/download/documentation/ebInvoice_6p0.pdf
     </xs:documentation>
 	</xs:annotation>
