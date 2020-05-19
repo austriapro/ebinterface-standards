@@ -26,6 +26,7 @@ Currently, the repository holds the following XML Schema artifacts alongside wit
  * ebInterface 4.2
  * ebInterface 4.3
  * ebInterface 5.0
+ * ebInterface 6.0
 
 # Getting involved
 
@@ -34,10 +35,3 @@ ebInterface standardization meetings are held on a regular basis on the premises
 Checkout [AUSTRIAPRO's website](https://www.wko.at/Content.Node/AUSTRIAPRO/Arbeitskreise/ebilling/Arbeitskreis-E-Billing.html) for a list of previous and upcoming meetings and further contact details.
 
 :green_heart: Pull requests are greatly appreciated and welcomed.
-
-
-
-
- 
-
-
