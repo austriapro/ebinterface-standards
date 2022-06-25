@@ -27,7 +27,7 @@
 	<xs:element name="BankCode" type="BankCodeType"/>
 	<xs:element name="BankName" type="BankNameType"/>
 	<xs:element name="BaseAmount" type="Decimal2Type"/>
-  <xs:element name="BelowTheLineItem" type="BelowTheLineItemType"/>
+    <xs:element name="BelowTheLineItem" type="BelowTheLineItemType"/>
 	<xs:element name="BeneficiaryAccount" type="AccountType"/>
 	<xs:element name="BIC" type="BICType"/>
 	<xs:element name="Biller" type="BillerType"/>
@@ -97,7 +97,7 @@
 	<xs:element name="PrepaidAmount" type="Decimal2Type"/>
 	<xs:element name="PrimaryAccountNumber" type="xs:string"/>
 	<xs:element name="Quantity" type="UnitType"/>
-  <xs:element name="Reason" type="ReasonType"/>
+    <xs:element name="Reason" type="ReasonType"/>
 	<xs:element name="Reduction" type="ReductionAndSurchargeType"/>
 	<xs:element name="ReductionAndSurchargeDetails" type="ReductionAndSurchargeDetailsType"/>
 	<xs:element name="ReductionAndSurchargeListLineItemDetails" type="ReductionAndSurchargeListLineItemDetailsType"/>
@@ -302,13 +302,13 @@
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-  <xs:complexType name="BelowTheLineItemType">
-    <xs:sequence>
-      <xs:element ref="Description"/>
-      <xs:element ref="LineItemAmount"/>
-      <xs:element ref="Reason" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
+    <xs:complexType name="BelowTheLineItemType">
+      <xs:sequence>
+        <xs:element ref="Description"/>
+        <xs:element ref="LineItemAmount"/>
+        <xs:element ref="Reason" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
 	<xs:complexType name="BillerType">
 		<xs:complexContent>
 			<xs:extension base="AbstractPartyType">
@@ -375,7 +375,7 @@
 			<xs:element ref="HeaderDescription" minOccurs="0"/>
 			<xs:element ref="ItemList" maxOccurs="unbounded"/>
 			<xs:element ref="FooterDescription" minOccurs="0"/>
-      <xs:element ref="BelowTheLineItem" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="BelowTheLineItem" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="DiscountType">
@@ -568,13 +568,13 @@
 			<xs:element ref="ToDate"/>
 		</xs:sequence>
 	</xs:complexType>
-  <xs:complexType name="ReasonType">
-    <xs:simpleContent>
-      <xs:extension base="xs:string">
-        <xs:attribute ref="Date" use="optional"/>
-      </xs:extension>
-    </xs:simpleContent>
-  </xs:complexType>
+    <xs:complexType name="ReasonType">
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute ref="Date" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
 	<xs:complexType name="ReductionAndSurchargeDetailsType">
 		<xs:sequence>
 			<xs:choice maxOccurs="unbounded">
