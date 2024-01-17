@@ -11,7 +11,7 @@
 		XSLT for ebInterface 6.1
 		For more information on ebInterface see http://www.ebinterface.at/
 
-		Last update:	2022-01-19
+		Last update:	2024-01-17
 		Author: 		Philipp Liegl, Vienna University of Technology
                 Philip Helger
 -->
@@ -24,12 +24,15 @@
 				<title>
 					<xsl:value-of select="/eb:Invoice/@DocumentTitle"/>
 				</title>
-				<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 				<meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"/>
 			</head>
 			<body>
 				<div class="container">
 					<div class="row">
+            <!-- 160 is nbsp -->
 						<div class="col-md-12">&#160; </div>
 					</div>
 					<div class="row">
@@ -172,6 +175,9 @@
 											<th>
 												<p class="text-right">Betrag</p>
 											</th>
+                      <th>
+                        <!-- AccountingCurrencyAmount -->
+                      </th>
 										</tr>
 									</thead>
 									<tbody>
@@ -184,8 +190,35 @@
 					<!-- Steuern -->
 					<div class="row">
 						<div class="col-md-12">
-							<!-- VAT and Other Tax -->
-							<xsl:apply-templates select="/eb:Invoice/eb:Tax/eb:VAT"/>
+              <!-- TaxItem -->
+              <h4>USt. Zusammenfassung</h4>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>
+                      Kommentar
+                    </th>
+                    <th>
+                      <p class="text-right">Basisbetrag</p>
+                    </th>
+                    <th>
+                      <p class="text-right">Steuersatz</p>
+                    </th>
+                    <th>
+                      <p class="text-right">Kategorie</p>
+                    </th>
+                    <th>
+                      <p class="text-right">Betrag</p>
+                    </th>
+                    <th>
+                      <!-- AccountingCurrencyAmount -->
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <xsl:apply-templates select="/eb:Invoice/eb:Tax/eb:TaxItem"/>
+                </tbody>
+              </table>
 							<!-- Other Tax -->
 							<xsl:if test="/eb:Invoice/eb:Tax/eb:OtherTax">
 								<!-- Other tax -->
@@ -390,9 +423,8 @@
 	<xsl:template match="eb:Contact">
 	<br/>
 		<span>
-			Ansprechperson:
-			<br/>
-			 <xsl:value-of select="eb:Salutation"/>&#160;<xsl:value-of select="eb:Name"/> (<xsl:value-of select="eb:Phone"/>)
+      Ansprechperson:<br/>
+      <xsl:value-of select="eb:Salutation"/>&#160;<xsl:value-of select="eb:Name"/> (<xsl:apply-templates select="eb:Phone"/>)
 		</span>
 		<br/>
 		<xsl:apply-templates select="eb:Email"/>
@@ -405,6 +437,11 @@
       </ul>
     </xsl:if>    
 	</xsl:template> 
+  <xsl:template match="eb:TradingName">
+    <xsl:text>Name im Firmenbuch: </xsl:text>
+    <xsl:value-of select="."/>
+    <br/>
+  </xsl:template>
 	<xsl:template match="eb:POBox">
 		<xsl:text>Postfach: </xsl:text>
 		<xsl:value-of select="."/>
@@ -416,6 +453,7 @@
 		<xsl:value-of select="."/>
 		<br/>
 	</xsl:template>
+  <!-- Handled in eb:Town -->
 	<xsl:template match="eb:ZIP"/>
 	<xsl:template match="eb:Phone">
 		<xsl:text>Tel: </xsl:text>
@@ -436,8 +474,7 @@
 			<xsl:when test=".">
 				<!-- Print a German expression for ProprietaryAddressID -->
 				<xsl:choose>
-					<xsl:when test="@AddressIdentifierType = 'ProprietaryAddressID'">
-					Propietäre ID</xsl:when>
+          <xsl:when test="@AddressIdentifierType = 'ProprietaryAddressID'">Propietäre ID</xsl:when>
 					<xsl:otherwise>
 						<xsl:value-of select="@AddressIdentifierType"/>
 					</xsl:otherwise>
@@ -879,7 +916,7 @@
 	<xsl:template match="eb:OtherVATableTax">
 		<tr>
 			<td>
-				Unterliegen nicht mehtr der USt<br/>		
+        Unterliegen nicht mehr der USt<br/>
 				TaxID: <xsl:value-of select="eb:TaxID"/>
 				<xsl:if test="eb:Comment">
 					(<xsl:value-of select="eb:Comment"/>)
@@ -900,20 +937,29 @@
 				</p>
 			</td>
 			<td>
-				<p class="text-right">
-					<xsl:call-template name="prettyPrintNumberFunction">
-						<xsl:with-param name="number" select="eb:TaxAmount"/>
-					</xsl:call-template>
-				</p>
+        <p class="text-right">
+          <xsl:choose>
+            <xsl:when test="eb:TaxAmount">
+              <xsl:call-template name="prettyPrintNumberFunction">
+                <xsl:with-param name="number" select="eb:TaxAmount"/>
+              </xsl:call-template>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:call-template name="prettyPrintNumberFunction">
+                <xsl:with-param name="number" select="eb:TaxableAmount * eb:TaxPercent div 100"/>
+              </xsl:call-template>
+            </xsl:otherwise>
+          </xsl:choose>
+        </p>
 			</td>
-			<xsl:if test="eb:AccountingCurrencyAmount">
-			<td>
-				<p class="text-right">			
-					Buchungswährung
-					<xsl:value-of select="eb:AccountingCurrencyAmount/@Currency" />
-				</p>
-			</td>
-			</xsl:if>
+      <td>
+        <xsl:if test="eb:AccountingCurrencyAmount">
+          <p class="text-right">
+            Buchungsbetrag: <xsl:value-of select="eb:AccountingCurrencyAmount" /><br/>
+            Buchungswährung: <xsl:value-of select="eb:AccountingCurrencyAmount/@Currency" />
+          </p>
+        </xsl:if>
+      </td>
 		</tr>
 	</xsl:template>
 	<!-- ==================== Period ==================== -->
@@ -937,8 +983,7 @@
 	<xsl:template match="eb:ReductionAndSurchargeListLineItemDetails/eb:OtherVATableTaxListLineItem">
 		<br/>
 		<strong>Weitere Steuern, die nicht der USt unterliegen:</strong>
-		<br/>
-		Basisbetrag:
+    <br/>Basisbetrag:
 		           <xsl:call-template name="prettyPrintNumberFunction">
 			<xsl:with-param name="number" select="eb:TaxableAmount"/>
 		</xsl:call-template>
@@ -963,12 +1008,8 @@
 		<tr>
 			<td>
 				<xsl:choose>
-					<xsl:when test="name() = 'Reduction'">
-					Abschlag
-				</xsl:when>
-					<xsl:otherwise>
-				    Aufschlag
-				</xsl:otherwise>
+          <xsl:when test="name() = 'Reduction'">Abschlag</xsl:when>
+          <xsl:otherwise>Aufschlag</xsl:otherwise>
 				</xsl:choose>
 			</td>
 			<td>
@@ -1010,12 +1051,8 @@
 	<xsl:template match="eb:ReductionAndSurchargeListLineItemDetails/eb:ReductionListLineItem | eb:ReductionAndSurchargeListLineItemDetails/eb:SurchargeListLineItem">
 		<strong>
 			<xsl:choose>
-				<xsl:when test="name() = 'ReductionListLineItem'">
-					Abschlag:
-				</xsl:when>
-				<xsl:otherwise>
-				    Aufschlag:
-				</xsl:otherwise>
+        <xsl:when test="name() = 'ReductionListLineItem'">Abschlag:</xsl:when>
+        <xsl:otherwise>Aufschlag:</xsl:otherwise>
 			</xsl:choose>
 		</strong>
 		<br/>Basisbetrag:
@@ -1023,12 +1060,14 @@
 			<xsl:with-param name="number" select="eb:BaseAmount"/>
 		</xsl:call-template>
 		<xsl:if test="eb:Percentage">
-			<br/>Prozent: 					<xsl:call-template name="prettyPrintNumberFunction">
+      <br/>Prozent:
+      <xsl:call-template name="prettyPrintNumberFunction">
 				<xsl:with-param name="number" select="eb:Percentage"/>
 			</xsl:call-template>%
 		</xsl:if>
 		<xsl:if test="eb:Amount">
-			<br/>Betrag: 					<xsl:call-template name="prettyPrintNumberFunction">
+      <br/>Betrag:
+      <xsl:call-template name="prettyPrintNumberFunction">
 				<xsl:with-param name="number" select="eb:Amount"/>
 			</xsl:call-template>
 		</xsl:if>
@@ -1042,13 +1081,14 @@
 			<xsl:call-template name="getDocumentType">
 				<xsl:with-param name="documentType" select="eb:DocumentType"/>
 			</xsl:call-template>
-		Nr.
-		<xsl:value-of select="eb:InvoiceNumber"/>
+      Nr. <xsl:value-of select="eb:InvoiceNumber"/>
 		vom
 			<xsl:call-template name="prettyPrintDateFunction">
 				<xsl:with-param name="dateString" select="eb:InvoiceDate"/>
 			</xsl:call-template>
+      <xsl:if test="eb:Comment">
 	    (<xsl:value-of select="eb:Comment"/>)
+      </xsl:if>
 		</li>
 	</xsl:template>
 	<!-- ==================== SEPA Direct Debit ==================== -->
@@ -1080,26 +1120,57 @@
 		<br/>
 	</xsl:template>
 	<!-- ====================Tax  (LineItem level) ==================== -->
-	<xsl:template match="eb:Tax/eb:VAT">
-		<h4>USt.</h4>
-		<table class="table">
-			<thead>
-				<tr>
-					<th>
-						<p class="text-right">Basisbetrag</p>
-					</th>
-					<th>
-						<p class="text-right">Steuersatz</p>
-					</th>
-					<th>
-						<p class="text-right">Betrag</p>
-					</th>
-				</tr>
-			</thead>
-			<tbody>
-				<xsl:apply-templates select="eb:VATItem"/>
-			</tbody>
-		</table>
+  <xsl:template match="eb:TaxItem">
+    <tr>
+      <td>
+        <xsl:if test="eb:Comment">
+          <xsl:value-of select="eb:Comment"/>
+        </xsl:if>
+      </td>
+      <td>
+        <p class="text-right">
+          <xsl:call-template name="prettyPrintNumberFunction">
+            <xsl:with-param name="number" select="eb:TaxableAmount"/>
+          </xsl:call-template>
+        </p>
+      </td>
+      <td>
+        <p class="text-right">
+          <xsl:call-template name="prettyPrintNumberFunction">
+            <xsl:with-param name="number" select="eb:TaxPercent"/>
+          </xsl:call-template>%
+        </p>
+      </td>
+      <td>
+        <p class="text-right">
+          <xsl:value-of select="eb:TaxPercent/@TaxCategoryCode"/>
+        </p>
+      </td>
+      <td>
+        <p class="text-right">
+          <xsl:choose>
+            <xsl:when test="eb:TaxAmount">
+              <xsl:call-template name="prettyPrintNumberFunction">
+                <xsl:with-param name="number" select="eb:TaxAmount"/>
+              </xsl:call-template>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:call-template name="prettyPrintNumberFunction">
+                <xsl:with-param name="number" select="eb:TaxableAmount * eb:TaxPercent div 100"/>
+              </xsl:call-template>
+            </xsl:otherwise>
+          </xsl:choose>
+        </p>
+      </td>
+      <td>
+        <xsl:if test="eb:AccountingCurrencyAmount">
+          <p class="text-right">
+            Buchungsbetrag: <xsl:value-of select="eb:AccountingCurrencyAmount" /><br/>
+            Buchungswährung: <xsl:value-of select="eb:AccountingCurrencyAmount/@Currency" />
+          </p>
+        </xsl:if>
+      </td>
+    </tr>
 	</xsl:template>
 	<!-- ====================Tax exemption (LineItem level) ==================== -->
 	<xsl:template match="eb:TaxExemption">
@@ -1146,41 +1217,7 @@
 			</xsl:when>
 		</xsl:choose>
 	</xsl:template>
-	<!-- ==================== VATItem ==================== -->
-	<xsl:template match="eb:VAT/eb:VATItem">
-		<tr>
-			<td>
-				<p class="text-right">
-					<xsl:call-template name="prettyPrintNumberFunction">
-						<xsl:with-param name="number" select="eb:TaxedAmount"/>
-					</xsl:call-template>
-				</p>
-			</td>
-			<td>
-				<!-- Tax Exemption -->
-				<p class="text-right">
-					<xsl:choose>
-						<xsl:when test="eb:TaxExemption">
-							<xsl:value-of select="eb:TaxExemption"/>
-						</xsl:when>
-						<xsl:otherwise>
-							<xsl:call-template name="prettyPrintNumberFunction">
-								<xsl:with-param name="number" select="eb:VATRate"/>
-							</xsl:call-template>%
-					</xsl:otherwise>
-					</xsl:choose>
-				</p>
-			</td>
-			<td>
-				<p class="text-right">
-					<xsl:call-template name="prettyPrintNumberFunction">
-						<xsl:with-param name="number" select="eb:Amount"/>
-					</xsl:call-template>
-				</p>
-			</td>
-		</tr>
-	</xsl:template>
-	<!-- ==================== VAT Rate ==================== -->
+  <!-- ==================== Tax Percentage ==================== -->
 	<xsl:template match="//eb:TaxPercent">
 		<xsl:call-template name="prettyPrintNumberFunction">
 			<xsl:with-param name="number" select="."/>
@@ -1213,7 +1250,7 @@
 				<xsl:text>Vorauszahlung</xsl:text>
 			</xsl:when>
 			<xsl:when test="$documentType='InvoiceForPartialDelivery'">
-				<xsl:text>Rechnung f&#252;r Teillieferung</xsl:text>
+        <xsl:text>Rechnung für Teillieferung</xsl:text>
 			</xsl:when>
 			<xsl:when test="$documentType='SubsequentCredit'">
 				<xsl:text>Nachentlastung</xsl:text>
