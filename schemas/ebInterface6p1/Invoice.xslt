@@ -24,7 +24,7 @@
 				<title>
 					<xsl:value-of select="/eb:Invoice/@DocumentTitle"/>
 				</title>
-				<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
+				<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
 				<meta name="viewport" content="width=device-width, initial-scale=1"/>
 			</head>
 			<body>
@@ -78,7 +78,7 @@
 
               <!-- Additional information -->
 							<xsl:if test="/eb:Invoice/eb:AdditionalInformation">
-								Zusätzliche Information:
+								Zusätzliche Informationen:
                 <ul>
 									<xsl:value-of select="/eb:Invoice/eb:AdditionalInformation"/>
                 </ul>  
@@ -367,6 +367,7 @@
 		<br/>
 		<xsl:value-of select="eb:Name"/>
 		<br/>
+        <xsl:apply-templates select="eb:TradingName"/>
 		<xsl:value-of select="eb:Street"/>
 		<br/>
 		<xsl:apply-templates select="eb:POBox"/>
