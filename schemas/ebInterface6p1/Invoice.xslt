@@ -27,7 +27,7 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 				<meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"/>
 			</head>
 			<body>
 				<div class="container">
@@ -67,7 +67,7 @@
 							</xsl:if>
 							<!-- Original or copy? -->
 							<xsl:if test="/eb:Invoice/@IsDuplicate">
-								<span class="label label-danger">Das ist eine Rechnungskopie</span>
+								<span class="badge text-bg-danger">Das ist eine Rechnungskopie</span>
 								<br/>
 							</xsl:if>
 							<!-- Cancelled document -->
@@ -113,7 +113,7 @@
 											<th>Begründung</th>
 											<th>Datum</th>
 											<th>
-												<p class="text-right">Betrag</p>
+												<p class="text-end">Betrag</p>
 											</th>
 										</tr>
 									</thead>
@@ -137,16 +137,16 @@
 												<p>Bezeichnung</p>
 											</th>
 											<th>
-												<p class="text-right">Basisbetrag</p>
+												<p class="text-end">Basisbetrag</p>
 											</th>
 											<th>
-												<p class="text-right">Prozent</p>
+												<p class="text-end">Prozent</p>
 											</th>
 											<th>
-												<p class="text-right">Steuer</p>
+												<p class="text-end">Steuer</p>
 											</th>
 											<th>
-												<p class="text-right">Betrag</p>
+												<p class="text-end">Betrag</p>
 											</th>
 											<!-- Steuertyp -->
 										</tr>
@@ -169,13 +169,13 @@
 										<tr>
 											<th>Zusätzliche Informationen</th>
 											<th>
-												<p class="text-right">Basisbetrag</p>
+												<p class="text-end">Basisbetrag</p>
 											</th>
 											<th>
-												<p class="text-right">Prozent</p>
+												<p class="text-end">Prozent</p>
 											</th>
 											<th>
-												<p class="text-right">Betrag</p>
+												<p class="text-end">Betrag</p>
 											</th>
                       <th>
                         <!-- AccountingCurrencyAmount -->
@@ -201,16 +201,16 @@
                       Kommentar
                     </th>
                     <th>
-                      <p class="text-right">Basisbetrag</p>
+                      <p class="text-end">Basisbetrag</p>
                     </th>
                     <th>
-                      <p class="text-right">Steuersatz</p>
+                      <p class="text-end">Steuersatz</p>
                     </th>
                     <th>
-                      <p class="text-right">Kategorie</p>
+                      <p class="text-end">Kategorie</p>
                     </th>
                     <th>
-                      <p class="text-right">Betrag</p>
+                      <p class="text-end">Betrag</p>
                     </th>
                     <th>
                       <!-- AccountingCurrencyAmount -->
@@ -230,13 +230,13 @@
 										<tr>
 											<th>Bezeichnung</th>
 											<th>
-												<p class="text-right">Basisbetrag</p>
+												<p class="text-end">Basisbetrag</p>
 											</th>
 											<th>
-												<p class="text-right">Steuersatz</p>
+												<p class="text-end">Steuersatz</p>
 											</th>
 											<th>
-												<p class="text-right">Betrag</p>
+												<p class="text-end">Betrag</p>
 											</th>
 										</tr>
 									</thead>
@@ -257,7 +257,7 @@
 											Gesamt Brutto
 										</td>
 										<td>
-											<p class="text-right">
+											<p class="text-end">
 												<xsl:call-template name="prettyPrintNumberFunction">
 													<xsl:with-param name="number" select="eb:Invoice/eb:TotalGrossAmount"/>
 												</xsl:call-template>
@@ -268,7 +268,7 @@
 										<tr>
 											<td>Guthaben</td>
 											<td>
-												<p class="text-right">-
+												<p class="text-end">-
 													<xsl:call-template name="prettyPrintNumberFunction">
 														<xsl:with-param name="number" select="eb:Invoice/eb:PrepaidAmount"/>
 													</xsl:call-template>
@@ -280,7 +280,7 @@
 										<tr>
 											<td>Rundungsbetrag</td>
 											<td>
-												<p class="text-right">
+												<p class="text-end">
 													<xsl:call-template name="prettyPrintNumberFunction">
 														<xsl:with-param name="number" select="eb:Invoice/eb:RoundingAmount"/>
 													</xsl:call-template>
@@ -293,7 +293,7 @@
 											<b>Zu zahlender Betrag</b>
 										</td>
 										<td>
-											<p class="text-right">
+											<p class="text-end">
 												<strong>
 													<xsl:call-template name="prettyPrintNumberFunction">
 														<xsl:with-param name="number" select="eb:Invoice/eb:PayableAmount"/>
@@ -535,7 +535,7 @@
 				</xsl:call-template>
 			</td>
 			<td>
-				<p class="text-right">
+				<p class="text-end">
 					<xsl:call-template name="prettyPrintNumberFunction">
 						<xsl:with-param name="number" select="eb:LineItemAmount"/>
 					</xsl:call-template>
@@ -563,7 +563,7 @@
 	</xsl:template>
 	<!-- ==================== Biller ==================== -->
 	<xsl:template match="/eb:Invoice/eb:Biller">
-		<span class="label label-primary">Rechnungssteller</span>
+		<span class="badge text-bg-primary">Rechnungssteller</span>
 		<br/>
 		<xsl:apply-templates select="eb:Address"/>
 		<xsl:apply-templates select="eb:Contact"/>
@@ -667,7 +667,7 @@
 	</xsl:template>
 	<!-- ==================== Delivery (ROOT level) ==================== -->
 	<xsl:template match="/eb:Invoice/eb:Delivery">
-		<span class="label label-primary">Lieferdetails</span>
+		<span class="badge text-bg-primary">Lieferdetails</span>
 		<br/>
 		<xsl:apply-templates select="node()"/>
 	</xsl:template>
@@ -684,7 +684,7 @@
 	</xsl:template>
 	<!-- ==================== Delivery (LineItem level)  ==================== -->
 	<xsl:template match="eb:ListLineItem/eb:Delivery">
-		<span class="label label-primary">Lieferadresse für diesen Artikel:</span>
+		<span class="badge text-bg-primary">Lieferadresse für diesen Artikel:</span>
 		<br/>
 		<xsl:apply-templates select="node()"/>
 	</xsl:template>
@@ -706,7 +706,7 @@
 		<xsl:for-each select="eb:ItemList">
 			<h4>Verrechnete Positionen</h4>
 			<xsl:apply-templates select="eb:HeaderDescription"/>
-			<table class="table table-condensed">
+			<table class="table table-sm">
 				<thead>
 					<tr>
 						<th>Pos-Nr.</th>
@@ -717,7 +717,7 @@
 						<th>Einzelpreis</th>
 						<th>Auf-/Abschläge</th>
 						<th>
-							<p class="text-right">Gesamtpreis</p>
+							<p class="text-end">Gesamtpreis</p>
 						</th>
 					</tr>
 				</thead>
@@ -767,7 +767,7 @@
 							</td>
 							<td>
 								<!-- Line item total-->
-								<p class="text-right">
+								<p class="text-end">
 									<xsl:apply-templates select="eb:LineItemAmount"/>
 								</p>
 							</td>
@@ -888,7 +888,7 @@
 	</xsl:template>
 	<!-- ==================== InvoiceRecipient ==================== -->
 	<xsl:template match="/eb:Invoice/eb:InvoiceRecipient">
-		<span class="label label-primary">Rechnungsempfänger</span>
+		<span class="badge text-bg-primary">Rechnungsempfänger</span>
 		<xsl:apply-templates select="eb:Address"/>
 		<xsl:apply-templates select="eb:Contact"/>
 		<br/>
@@ -931,7 +931,7 @@
 	</xsl:template>
 	<!-- ==================== Ordering party ==================== -->
 	<xsl:template match="//eb:OrderingParty">
-		<span class="label label-primary">Auftraggeber</span>
+		<span class="badge text-bg-primary">Auftraggeber</span>
 		<br/>
 		<xsl:apply-templates select="eb:Address"/>
 		<xsl:apply-templates select="eb:Contact"/>
@@ -973,7 +973,7 @@
 			</td>
 			<td>
 				<xsl:if test="eb:TaxableAmount">
-					<p class="text-right">
+					<p class="text-end">
 						<xsl:call-template name="prettyPrintNumberFunction">
 							<xsl:with-param name="number" select="eb:TaxableAmount"/>
 						</xsl:call-template>
@@ -982,7 +982,7 @@
 			</td>
 			<td>
 				<xsl:if test="eb:TaxPercent">
-					<p class="text-right">
+					<p class="text-end">
 						<xsl:call-template name="prettyPrintNumberFunction">
 							<xsl:with-param name="number" select="eb:TaxPercent"/>
 						</xsl:call-template>%
@@ -990,7 +990,7 @@
 				</xsl:if>
 			</td>
 			<td>
-				<p class="text-right">
+				<p class="text-end">
 					<xsl:call-template name="prettyPrintNumberFunction">
 						<xsl:with-param name="number" select="eb:TaxAmount"/>
 					</xsl:call-template>
@@ -1009,21 +1009,21 @@
 				</xsl:if>
 			</td>
 			<td>
-				<p class="text-right">
+				<p class="text-end">
 					<xsl:call-template name="prettyPrintNumberFunction">
 						<xsl:with-param name="number" select="eb:TaxableAmount"/>
 					</xsl:call-template>
 				</p>
 			</td>
 			<td>
-				<p class="text-right">
+				<p class="text-end">
 					<xsl:call-template name="prettyPrintNumberFunction">
 						<xsl:with-param name="number" select="eb:TaxPercent"/>
 					</xsl:call-template>%
 				</p>
 			</td>
 			<td>
-        <p class="text-right">
+        <p class="text-end">
           <xsl:choose>
             <xsl:when test="eb:TaxAmount">
               <xsl:call-template name="prettyPrintNumberFunction">
@@ -1040,7 +1040,7 @@
 			</td>
       <td>
         <xsl:if test="eb:AccountingCurrencyAmount">
-          <p class="text-right">
+          <p class="text-end">
             Buchungsbetrag: <xsl:value-of select="eb:AccountingCurrencyAmount" /><br/>
             Buchungswährung: <xsl:value-of select="eb:AccountingCurrencyAmount/@Currency" />
           </p>
@@ -1116,7 +1116,7 @@
 				</p>
 			</td>
 			<td>
-				<p class="text-right">
+				<p class="text-end">
 					<xsl:call-template name="prettyPrintNumberFunction">
 						<xsl:with-param name="number" select="eb:BaseAmount"/>
 					</xsl:call-template>
@@ -1124,7 +1124,7 @@
 			</td>
 			<td>
 				<xsl:if test="eb:Percentage">
-					<p class="text-right">
+					<p class="text-end">
 						<xsl:call-template name="prettyPrintNumberFunction">
 							<xsl:with-param name="number" select="eb:Percentage"/>
 						</xsl:call-template>%
@@ -1132,7 +1132,7 @@
 				</xsl:if>
 			</td>
 			<td>
-				<p class="text-right">
+				<p class="text-end">
 					<xsl:call-template name="prettyPrintNumberFunction">
 						<xsl:with-param name="number" select="eb:TaxItem/eb:TaxPercent"/>
 					</xsl:call-template>%
@@ -1140,7 +1140,7 @@
 			</td>
 			<td>
 				<xsl:if test="eb:Amount">
-					<p class="text-right">
+					<p class="text-end">
 						<xsl:call-template name="prettyPrintNumberFunction">
 							<xsl:with-param name="number" select="eb:Amount"/>
 						</xsl:call-template>
@@ -1232,26 +1232,26 @@
         </xsl:if>
       </td>
       <td>
-        <p class="text-right">
+        <p class="text-end">
           <xsl:call-template name="prettyPrintNumberFunction">
             <xsl:with-param name="number" select="eb:TaxableAmount"/>
           </xsl:call-template>
         </p>
       </td>
       <td>
-        <p class="text-right">
+        <p class="text-end">
           <xsl:call-template name="prettyPrintNumberFunction">
             <xsl:with-param name="number" select="eb:TaxPercent"/>
           </xsl:call-template>%
         </p>
       </td>
       <td>
-        <p class="text-right">
+        <p class="text-end">
           <xsl:value-of select="eb:TaxPercent/@TaxCategoryCode"/>
         </p>
       </td>
       <td>
-        <p class="text-right">
+        <p class="text-end">
           <xsl:choose>
             <xsl:when test="eb:TaxAmount">
               <xsl:call-template name="prettyPrintNumberFunction">
@@ -1268,7 +1268,7 @@
       </td>
       <td>
         <xsl:if test="eb:AccountingCurrencyAmount">
-          <p class="text-right">
+          <p class="text-end">
             Buchungsbetrag: <xsl:value-of select="eb:AccountingCurrencyAmount" /><br/>
             Buchungswährung: <xsl:value-of select="eb:AccountingCurrencyAmount/@Currency" />
           </p>
