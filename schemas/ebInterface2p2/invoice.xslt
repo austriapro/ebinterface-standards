@@ -51,7 +51,7 @@ hr{
                                     <td style="padding-bottom:20">
                                         <xsl:apply-templates select="//eb:PresentationDetails/eb:LogoURL"/>
                                     </td>
-                                    <td colspan="2" align="right" valign="top"><img src="http://www.ebinterface.at/images/eb_logo_approved.gif" alt="ebInvoice approved"/></td>
+                                    <td colspan="2" align="right" valign="top"><img src="https://www.ebinterface.at/images/eb_logo_approved.gif" alt="ebInvoice approved"/></td>
                                 </tr>
                             </xsl:if>
                             <tr>

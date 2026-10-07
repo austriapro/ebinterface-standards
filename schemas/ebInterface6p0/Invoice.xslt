@@ -9,7 +9,7 @@
                 xmlns:dsig="http://www.w3.org/2000/09/xmldsig#">
   <!--
     XSLT for ebInterface 6.0
-    For more information on ebInterface see http://www.ebinterface.at/
+    For more information on ebInterface see https://www.ebinterface.at/
     Last update:  2026-10-07
     Authors:     Philipp Liegl, Vienna University of Technology
                 Philip Helger

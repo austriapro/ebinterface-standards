@@ -2,7 +2,7 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xdt="http://www.w3.org/2005/xpath-datatypes" xmlns:eb="http://www.ebinterface.at/schema/4p0/" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#">
 	<!-- 
 		XSLT for ebInterface 4.0
-		For more information on ebInvoice see http://www.ebinterface.at/
+		For more information on ebInvoice see https://www.ebinterface.at/
 		
 		Last update:	19.03.2012
 		Author: 			Philipp Liegl, Vienna University of Technology
@@ -127,7 +127,7 @@ hr{
 									</xsl:choose>
 								</td>
 								<td colspan="2" style="text-align:right;vertical-align=top;">
-									<img src="http://www.ebinterface.at/images/eb_logo_approved.gif" alt="ebInvoice approved"/>
+									<img src="https://www.ebinterface.at/images/eb_logo_approved.gif" alt="ebInvoice approved"/>
 								</td>
 							</tr>
 							<tr>

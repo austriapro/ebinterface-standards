@@ -2,7 +2,7 @@
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fn="http://www.w3.org/2005/02/xpath-functions" xmlns:xdt="http://www.w3.org/2005/02/xpath-datatypes" xmlns:eb="http://www.ebinterface.at/schema/3p0/" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#">
 	<xsl:comment>
 		XSLT for ebInvoice 3.0
-		For more information on ebInvoice see http://www.ebinterface.at/
+		For more information on ebInvoice see https://www.ebinterface.at/
 		
 		Last update:	April 19, 2009
 		Author: 			Maia Zaharieva, Vienna University of Technology
@@ -121,7 +121,7 @@ hr{
 										</xsl:otherwise>
 									</xsl:choose>
 								</td>
-								<td colspan="2" align="right" valign="top"><img src="http://www.ebinterface.at/images/eb_logo_approved.gif" alt="ebInvoice approved" /></td>
+								<td colspan="2" align="right" valign="top"><img src="https://www.ebinterface.at/images/eb_logo_approved.gif" alt="ebInvoice approved" /></td>
                             </tr>
                             <tr>
                                 <!-- ========== InvoiceRecipient ========== -->

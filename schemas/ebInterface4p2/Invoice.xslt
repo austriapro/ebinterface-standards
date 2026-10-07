@@ -2,7 +2,7 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xdt="http://www.w3.org/2005/xpath-datatypes" xmlns:eb="http://www.ebinterface.at/schema/4p2/" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#">
 	<!--
 		XSLT for ebInterface 4.2
-		For more information on ebInterface see http://www.ebinterface.at/
+		For more information on ebInterface see https://www.ebinterface.at/
 
 		Last update:	2015-12-10
 		Author: 			Philipp Liegl, Vienna University of Technology
