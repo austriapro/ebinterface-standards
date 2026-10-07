@@ -11,7 +11,7 @@
 		XSLT for ebInterface 6.1
 		For more information on ebInterface see http://www.ebinterface.at/
 
-		Last update:	2024-01-17
+		Last update:	2026-10-07
 		Author: 		Philipp Liegl, Vienna University of Technology
                 Philip Helger
 -->
@@ -58,6 +58,8 @@
 							<xsl:apply-templates select="/eb:Invoice/eb:InvoiceDate"/>
 							<!-- Document currency -->
 							<xsl:apply-templates select="/eb:Invoice/@InvoiceCurrency"/>
+							<!-- Currency exchange information -->
+							<xsl:apply-templates select="/eb:Invoice/eb:CurrencyExchangeInformation"/>
 							<!-- Optional document title -->
 							<xsl:if test="/eb:Invoice/@DocumentTitle">
 								<xsl:value-of select="/eb:Invoice/@DocumentTitle"/>
@@ -83,7 +85,7 @@
 							<xsl:if test="/eb:Invoice/eb:AdditionalInformation">
 								Zusätzliche Informationen:
                 <ul>
-									<xsl:value-of select="/eb:Invoice/eb:AdditionalInformation"/>
+									<xsl:apply-templates select="/eb:Invoice/eb:AdditionalInformation"/>
                 </ul>  
 							  <br/><br/>
 							</xsl:if>
@@ -228,25 +230,18 @@
 										<tr>
 											<th>Bezeichnung</th>
 											<th>
+												<p class="text-right">Basisbetrag</p>
+											</th>
+											<th>
+												<p class="text-right">Steuersatz</p>
+											</th>
+											<th>
 												<p class="text-right">Betrag</p>
 											</th>
 										</tr>
 									</thead>
 									<tbody>
-										<xsl:for-each select="/eb:Invoice/eb:Tax/eb:OtherTax">
-											<tr>
-												<td>
-													<xsl:value-of select="eb:Comment"/>
-												</td>
-												<td>
-													<p class="text-right">
-														<xsl:call-template name="prettyPrintNumberFunction">
-															<xsl:with-param name="number" select="eb:TaxAmount"/>
-														</xsl:call-template>
-													</p>
-												</td>
-											</tr>
-										</xsl:for-each>
+										<xsl:apply-templates select="/eb:Invoice/eb:Tax/eb:OtherTax"/>
 									</tbody>
 								</table>
 							</xsl:if>
@@ -269,16 +264,30 @@
 											</p>
 										</td>
 									</tr>
-									<tr>
-										<td>Guthaben</td>
-										<td>
-											<p class="text-right">-
-												<xsl:call-template name="prettyPrintNumberFunction">
-													<xsl:with-param name="number" select="eb:Invoice/eb:PrepaidAmount"/>
-												</xsl:call-template>
-											</p>
-										</td>
-									</tr>
+									<xsl:if test="/eb:Invoice/eb:PrepaidAmount">
+										<tr>
+											<td>Guthaben</td>
+											<td>
+												<p class="text-right">-
+													<xsl:call-template name="prettyPrintNumberFunction">
+														<xsl:with-param name="number" select="eb:Invoice/eb:PrepaidAmount"/>
+													</xsl:call-template>
+												</p>
+											</td>
+										</tr>
+									</xsl:if>
+									<xsl:if test="/eb:Invoice/eb:RoundingAmount">
+										<tr>
+											<td>Rundungsbetrag</td>
+											<td>
+												<p class="text-right">
+													<xsl:call-template name="prettyPrintNumberFunction">
+														<xsl:with-param name="number" select="eb:Invoice/eb:RoundingAmount"/>
+													</xsl:call-template>
+												</p>
+											</td>
+										</tr>
+									</xsl:if>
 									<tr>
 										<td>
 											<b>Zu zahlender Betrag</b>
@@ -304,9 +313,10 @@
 								<h4>Zahlungsmethode</h4>
 								<xsl:apply-templates select="/eb:Invoice/eb:PaymentMethod/eb:Comment"/>
 								<xsl:apply-templates select="/eb:Invoice/eb:PaymentMethod/eb:NoPayment"/>
-								<xsl:apply-templates select="/eb:Invoice/eb:PaymentMethod/eb:DirectDebit"/>
 								<xsl:apply-templates select="/eb:Invoice/eb:PaymentMethod/eb:SEPADirectDebit"/>
 								<xsl:apply-templates select="/eb:Invoice/eb:PaymentMethod/eb:UniversalBankTransaction"/>
+								<xsl:apply-templates select="/eb:Invoice/eb:PaymentMethod/eb:PaymentCard"/>
+								<xsl:apply-templates select="/eb:Invoice/eb:PaymentMethod/eb:OtherPayment"/>
 							</xsl:if>
 						</div>
 					</div>
@@ -315,10 +325,12 @@
 						<div class="col-md-12">
 							<xsl:if test="/eb:Invoice/eb:PaymentConditions">
 								<h4>Zahlungsbedingungen</h4>
-								Zahlbar bis:
-								<xsl:call-template name="prettyPrintDateFunction">
-									<xsl:with-param name="dateString" select="/eb:Invoice/eb:PaymentConditions/eb:DueDate"/>
-								</xsl:call-template>
+								<xsl:if test="/eb:Invoice/eb:PaymentConditions/eb:DueDate">
+									Zahlbar bis:
+									<xsl:call-template name="prettyPrintDateFunction">
+										<xsl:with-param name="dateString" select="/eb:Invoice/eb:PaymentConditions/eb:DueDate"/>
+									</xsl:call-template>
+								</xsl:if>
 								<!-- Skonto -->
 								<xsl:if test="/eb:Invoice/eb:PaymentConditions/eb:Discount">
 									<xsl:apply-templates select="/eb:Invoice/eb:PaymentConditions/eb:Discount"/>
@@ -390,8 +402,11 @@
 				<li>Farbe: <xsl:value-of select="."/></li>
 			</xsl:when>
 			<xsl:when test="@Key  ">
-				<li><xsl:value-of select="@Key"/>:&#160;<xsl:value-of select="."/></li>
-			</xsl:when>						
+					<li><xsl:value-of select="@Key"/>:&#160;<xsl:value-of select="."/></li>
+				</xsl:when>
+				<xsl:otherwise>
+					<li><xsl:value-of select="."/></li>
+				</xsl:otherwise>						
 		</xsl:choose>
 	</xsl:template>
 	<!-- ==================== Address ==================== -->
@@ -409,7 +424,6 @@
 		<br/>
 		<xsl:apply-templates select="eb:Phone"/>
 		<xsl:apply-templates select="eb:Email"/>
-		<xsl:apply-templates select="eb:Contact"/>
     <xsl:apply-templates select="eb:AddressIdentifier"/>
     
     <!-- Additional information -->
@@ -517,7 +531,7 @@
 			</td>
 			<td>
 				<xsl:call-template name="prettyPrintDateFunction">
-					<xsl:with-param name="dateString" select="eb:Reason/@eb:Date"/>
+					<xsl:with-param name="dateString" select="eb:Reason/@Date"/>
 				</xsl:call-template>
 			</td>
 			<td>
@@ -552,6 +566,7 @@
 		<span class="label label-primary">Rechnungssteller</span>
 		<br/>
 		<xsl:apply-templates select="eb:Address"/>
+		<xsl:apply-templates select="eb:Contact"/>
 		<br/>
 		<xsl:apply-templates select="eb:InvoiceRecipientsBillerID"/>
 		<xsl:apply-templates select="eb:VATIdentificationNumber"/>
@@ -591,22 +606,55 @@
 	<!-- ==================== Cancelled Orginal Document ==================== -->
 	<xsl:template match="/eb:Invoice/eb:CancelledOriginalDocument">
 		<br/>
-		Storno für für fehlerhafte
-        <xsl:call-template name="getDocumentType">
-			<xsl:with-param name="documentType" select="../@DocumentType"/>
-		</xsl:call-template>
+		Storno für fehlerhafte
+		<xsl:choose>
+			<xsl:when test="eb:DocumentType">
+				<xsl:call-template name="getDocumentType">
+					<xsl:with-param name="documentType" select="eb:DocumentType"/>
+				</xsl:call-template>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:call-template name="getDocumentType">
+					<xsl:with-param name="documentType" select="../@DocumentType"/>
+				</xsl:call-template>
+			</xsl:otherwise>
+		</xsl:choose>
 		Nr.
 		<xsl:value-of select="eb:InvoiceNumber"/>
 		vom
 		<xsl:call-template name="prettyPrintDateFunction">
 			<xsl:with-param name="dateString" select="eb:InvoiceDate"/>
 		</xsl:call-template>
-		(<xsl:value-of select="eb:Comment"/>)
+		<xsl:if test="eb:Comment">
+			(<xsl:value-of select="eb:Comment"/>)
+		</xsl:if>
 		<br/>
+	</xsl:template>
+	<!-- ==================== Classification (LineItem level)  ==================== -->
+	<xsl:template match="eb:Classification">
+		<li>
+			Klassifizierung<xsl:if test="@ClassificationSchema"> (<xsl:value-of select="@ClassificationSchema"/>)</xsl:if>: <xsl:value-of select="."/>
+		</li>
 	</xsl:template>
 	<!-- ==================== Comment ==================== -->
 	<xsl:template match="eb:PaymentMethod/eb:Comment">
 		<xsl:value-of select="."/>
+		<br/>
+	</xsl:template>
+	<!-- ==================== Currency exchange information ==================== -->
+	<xsl:template match="/eb:Invoice/eb:CurrencyExchangeInformation">
+		Fremdwährung: <xsl:value-of select="eb:Currency"/>
+		<br/>
+		Wechselkurs: <xsl:value-of select="eb:ExchangeRate"/>
+		<xsl:if test="eb:ExchangeRateDate">
+			vom
+			<xsl:call-template name="prettyPrintDateFunction">
+				<xsl:with-param name="dateString" select="eb:ExchangeRateDate"/>
+			</xsl:call-template>
+		</xsl:if>
+		<xsl:if test="eb:Comment">
+			(<xsl:value-of select="eb:Comment"/>)
+		</xsl:if>
 		<br/>
 	</xsl:template>
 	<!-- ==================== Date ==================== -->
@@ -646,7 +694,7 @@
 		<br/>
 	</xsl:template>
 	<!-- ==================== Description ==================== -->
-	<xsl:template match="/eb:Description">
+	<xsl:template match="eb:Delivery/eb:Description">
 		Hinweise zur Lieferung: <xsl:value-of select="."/>
 		<br/>
 	</xsl:template>
@@ -690,7 +738,10 @@
 							</td>
 							<td>
 								<!-- Description -->
-								<xsl:value-of select="eb:Description"/>
+								<xsl:for-each select="eb:Description">
+									<xsl:value-of select="."/>
+									<br/>
+								</xsl:for-each>
 							</td>
 							<td>
 								<!-- Article number-->
@@ -727,12 +778,12 @@
 								<strong>Zusätzliche Informationen zum Artikel:</strong>
 								<br/>
 								<ul>
-									<!-- Hint if article is discountable or not -->
-									<!--xsl:apply-templates select="eb:DiscountFlag"/-->
 									<!-- Biller's order reference -->
 									<xsl:apply-templates select="eb:BillersOrderReference"/>
 									<!--Invoice recipient's order reference -->
 									<xsl:apply-templates select="eb:InvoiceRecipientsOrderReference"/>
+									<!-- Classifications -->
+									<xsl:apply-templates select="eb:Classification"/>
 								</ul>
 
 								<!-- Additional information -->
@@ -759,10 +810,6 @@
 		<!-- Footer description per ItemList -->
 		<xsl:apply-templates select="eb:FooterDescription"/>
 	</xsl:template>
-	<!-- ==================== DirectDebit ==================== -->
-	<xsl:template match="eb:DirectDebit">
-		<br/>Keine Zahlung notwendig. Betrag wird direkt von Ihrem Konto abgebucht.<br/>
-	</xsl:template>
 	<!-- ==================== Discount ==================== -->
 	<xsl:template match="eb:PaymentConditions/eb:Discount">
 		<br/>
@@ -772,19 +819,32 @@
 			<xsl:with-param name="dateString" select="eb:PaymentDate"/>
 		</xsl:call-template>
 		<br/>
-		Basisbetrag:
-		<xsl:call-template name="prettyPrintNumberFunction">
-			<xsl:with-param name="number" select="eb:BaseAmount"/>
-		</xsl:call-template>
-		<br/>
-		Skonto-Prozentsatz: <xsl:call-template name="prettyPrintNumberFunction">
-			<xsl:with-param name="number" select="eb:Percentage"/>
-		</xsl:call-template>%<br/>
-		Betrag: <xsl:call-template name="prettyPrintNumberFunction">
-			<xsl:with-param name="number" select="eb:Amount"/>
-		</xsl:call-template>
-		<br/>
+		<xsl:if test="eb:BaseAmount">
+			Basisbetrag:
+			<xsl:call-template name="prettyPrintNumberFunction">
+				<xsl:with-param name="number" select="eb:BaseAmount"/>
+			</xsl:call-template>
+			<br/>
+		</xsl:if>
+		<xsl:if test="eb:Percentage">
+			Skonto-Prozentsatz: <xsl:call-template name="prettyPrintNumberFunction">
+				<xsl:with-param name="number" select="eb:Percentage"/>
+			</xsl:call-template>%<br/>
+		</xsl:if>
+		<xsl:if test="eb:Amount">
+			Betrag: <xsl:call-template name="prettyPrintNumberFunction">
+				<xsl:with-param name="number" select="eb:Amount"/>
+			</xsl:call-template>
+			<br/>
+		</xsl:if>
+		<xsl:if test="eb:Comment">
+			Kommentar: <xsl:value-of select="eb:Comment"/>
+			<br/>
+		</xsl:if>
 	</xsl:template>
+	<!-- ==================== Extension ==================== -->
+	<!-- Extensions are not rendered -->
+	<xsl:template match="eb:Extension"/>
 	<!-- ==================== FooterDescription (LineItem level)  ==================== -->
 	<xsl:template match="eb:FooterDescription">
 		<xsl:value-of select="."/>
@@ -830,6 +890,7 @@
 	<xsl:template match="/eb:Invoice/eb:InvoiceRecipient">
 		<span class="label label-primary">Rechnungsempfänger</span>
 		<xsl:apply-templates select="eb:Address"/>
+		<xsl:apply-templates select="eb:Contact"/>
 		<br/>
 		<xsl:apply-templates select="eb:BillersInvoiceRecipientID"/>
 		<xsl:apply-templates select="eb:AccountingArea"/>
@@ -873,6 +934,7 @@
 		<span class="label label-primary">Auftraggeber</span>
 		<br/>
 		<xsl:apply-templates select="eb:Address"/>
+		<xsl:apply-templates select="eb:Contact"/>
 		<br/>
 		<xsl:apply-templates select="eb:BillersOrderingPartyID"/>
 		<xsl:apply-templates select="eb:VATIdentificationNumber"/>
@@ -899,16 +961,40 @@
 		</xsl:if>
 		<br/>
 	</xsl:template>
-	<!-- ==================== OtherTax (LineItem level) ==================== -->
-	<xsl:template match="eb:VAT/eb:OtherTax	">
+	<!-- ==================== OtherPayment  ==================== -->
+	<xsl:template match="eb:OtherPayment">
+		<br/>Sonstige Zahlungsart.<br/>
+	</xsl:template>
+	<!-- ==================== OtherTax ==================== -->
+	<xsl:template match="eb:Tax/eb:OtherTax">
 		<tr>
 			<td>
 				<xsl:value-of select="eb:Comment"/>
 			</td>
 			<td>
-				<xsl:call-template name="prettyPrintNumberFunction">
-					<xsl:with-param name="number" select="eb:TaxAmount"/>
-				</xsl:call-template>
+				<xsl:if test="eb:TaxableAmount">
+					<p class="text-right">
+						<xsl:call-template name="prettyPrintNumberFunction">
+							<xsl:with-param name="number" select="eb:TaxableAmount"/>
+						</xsl:call-template>
+					</p>
+				</xsl:if>
+			</td>
+			<td>
+				<xsl:if test="eb:TaxPercent">
+					<p class="text-right">
+						<xsl:call-template name="prettyPrintNumberFunction">
+							<xsl:with-param name="number" select="eb:TaxPercent"/>
+						</xsl:call-template>%
+					</p>
+				</xsl:if>
+			</td>
+			<td>
+				<p class="text-right">
+					<xsl:call-template name="prettyPrintNumberFunction">
+						<xsl:with-param name="number" select="eb:TaxAmount"/>
+					</xsl:call-template>
+				</p>
 			</td>
 		</tr>
 	</xsl:template>
@@ -962,6 +1048,18 @@
       </td>
 		</tr>
 	</xsl:template>
+	<!-- ==================== Payment card ==================== -->
+	<xsl:template match="eb:PaymentCard">
+		<br/>
+		<strong>Zahlungskarte</strong>
+		<br/>
+		Kartennummer: <xsl:value-of select="eb:PrimaryAccountNumber"/>
+		<br/>
+		<xsl:if test="eb:CardHolderName">
+			Karteninhaber: <xsl:value-of select="eb:CardHolderName"/>
+			<br/>
+		</xsl:if>
+	</xsl:template>
 	<!-- ==================== Period ==================== -->
 	<xsl:template match="eb:Period">
 		Lieferzeit zwischen
@@ -977,7 +1075,7 @@
 	<xsl:template match="eb:Quantity">
 		<xsl:call-template name="prettyPrintNumberFunction">
 			<xsl:with-param name="number" select="."/>
-		</xsl:call-template>&#160;<xsl:value-of select="@eb:Unit"/>
+		</xsl:call-template>&#160;<xsl:value-of select="@Unit"/>
 	</xsl:template>
 	<!-- ==================== Reduction & Surcharge (LineItem level) ==================== -->
 	<xsl:template match="eb:ReductionAndSurchargeListLineItemDetails/eb:OtherVATableTaxListLineItem">
@@ -1025,11 +1123,13 @@
 				</p>
 			</td>
 			<td>
-				<p class="text-right">
-					<xsl:call-template name="prettyPrintNumberFunction">
-						<xsl:with-param name="number" select="eb:Percentage"/>
-					</xsl:call-template>%
-				</p>
+				<xsl:if test="eb:Percentage">
+					<p class="text-right">
+						<xsl:call-template name="prettyPrintNumberFunction">
+							<xsl:with-param name="number" select="eb:Percentage"/>
+						</xsl:call-template>%
+					</p>
+				</xsl:if>
 			</td>
 			<td>
 				<p class="text-right">
@@ -1039,11 +1139,13 @@
 				</p>
 			</td>
 			<td>
-				<p class="text-right">
-					<xsl:call-template name="prettyPrintNumberFunction">
-						<xsl:with-param name="number" select="eb:Amount"/>
-					</xsl:call-template>
-				</p>
+				<xsl:if test="eb:Amount">
+					<p class="text-right">
+						<xsl:call-template name="prettyPrintNumberFunction">
+							<xsl:with-param name="number" select="eb:Amount"/>
+						</xsl:call-template>
+					</p>
+				</xsl:if>
 			</td>
 		</tr>
 	</xsl:template>
@@ -1082,10 +1184,12 @@
 				<xsl:with-param name="documentType" select="eb:DocumentType"/>
 			</xsl:call-template>
       Nr. <xsl:value-of select="eb:InvoiceNumber"/>
-		vom
-			<xsl:call-template name="prettyPrintDateFunction">
-				<xsl:with-param name="dateString" select="eb:InvoiceDate"/>
-			</xsl:call-template>
+			<xsl:if test="eb:InvoiceDate">
+				vom
+				<xsl:call-template name="prettyPrintDateFunction">
+					<xsl:with-param name="dateString" select="eb:InvoiceDate"/>
+				</xsl:call-template>
+			</xsl:if>
       <xsl:if test="eb:Comment">
 	    (<xsl:value-of select="eb:Comment"/>)
       </xsl:if>
@@ -1172,23 +1276,22 @@
       </td>
     </tr>
 	</xsl:template>
-	<!-- ====================Tax exemption (LineItem level) ==================== -->
-	<xsl:template match="eb:TaxExemption">
-		<xsl:value-of select="."/>
-	</xsl:template>
 	<!-- ==================== Unit price (LineItem level) ==================== -->
 	<xsl:template match="eb:UnitPrice">
 		<xsl:call-template name="prettyPrintNumberFunction">
-			<xsl:with-param name="dateString" select="."/>
-		</xsl:call-template>&#160;<br/>(bezogen auf
-		<xsl:value-of select="@eb:BaseQuantity"/>
-		<xsl:choose>
-			<xsl:when test="@eb:BaseQuantity = 1">
-				Einheit</xsl:when>
-			<xsl:otherwise>
-				Einheiten
-			</xsl:otherwise>
-		</xsl:choose>)
+			<xsl:with-param name="number" select="."/>
+		</xsl:call-template>
+		<xsl:if test="@BaseQuantity">
+			&#160;<br/>(bezogen auf
+			<xsl:value-of select="@BaseQuantity"/>
+			<xsl:choose>
+				<xsl:when test="@BaseQuantity = 1">
+					Einheit</xsl:when>
+				<xsl:otherwise>
+					Einheiten
+				</xsl:otherwise>
+			</xsl:choose>)
+		</xsl:if>
 	</xsl:template>
 	<!-- ==================== Universal Bank Transaction ==================== -->
 	<xsl:template match="eb:UniversalBankTransaction">
